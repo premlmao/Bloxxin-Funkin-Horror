@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="doors3seek.png">
+<SubTexture name="raining0000" x="0" y="0" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0001" x="1306" y="0" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0002" x="0" y="794" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0003" x="1306" y="794" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0004" x="0" y="1588" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0005" x="1306" y="1588" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0006" x="2612" y="0" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0007" x="2612" y="794" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0008" x="2612" y="1588" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0009" x="0" y="2382" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0010" x="1306" y="2382" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0011" x="2612" y="2382" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0012" x="3918" y="0" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0013" x="3918" y="794" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0014" x="3918" y="1588" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0015" x="3918" y="2382" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0016" x="0" y="3176" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0017" x="1306" y="3176" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0018" x="2612" y="3176" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0019" x="3918" y="3176" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0020" x="0" y="3970" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0021" x="1306" y="3970" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0022" x="2612" y="3970" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0023" x="3918" y="3970" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0024" x="5224" y="0" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0025" x="5224" y="794" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0026" x="5224" y="1588" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0027" x="5224" y="2382" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="raining0028" x="5224" y="3176" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+</TextureAtlas>

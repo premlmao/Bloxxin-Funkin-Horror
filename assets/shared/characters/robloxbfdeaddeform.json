@@ -1,0 +1,57 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 5,
+			"anim": "firstDeath",
+			"loop": false,
+			"name": "firstDeath"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 5,
+			"anim": "deathConfirm",
+			"loop": false,
+			"name": "deathConfirm"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 5,
+			"anim": "deathLoop",
+			"loop": true,
+			"name": "deathLoop"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/robloxbfdeaddeform",
+	"position": [
+		-400,
+		270
+	],
+	"healthicon": "robloxbf",
+	"flip_x": true,
+	"healthbar_colors": [
+		63,
+		130,
+		239
+	],
+	"camera_position": [
+		-10,
+		40
+	],
+	"sing_duration": 5.99999999999999,
+	"scale": 1.75,
+	"_editor_isPlayer": true
+}

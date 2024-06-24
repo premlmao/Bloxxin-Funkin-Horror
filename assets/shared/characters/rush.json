@@ -1,0 +1,100 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-40,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 15,
+			"name": "right",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 15,
+			"name": "idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-60,
+				0
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				10,
+				-30
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "enter",
+			"indices": [],
+			"name": "enter"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "exit",
+			"indices": [],
+			"name": "exit"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/rush",
+	"position": [
+		520,
+		170
+	],
+	"healthicon": "rush",
+	"flip_x": false,
+	"healthbar_colors": [
+		77,
+		74,
+		92
+	],
+	"camera_position": [
+		-315,
+		20
+	],
+	"sing_duration": 5.99999999999999,
+	"scale": 1.55
+}

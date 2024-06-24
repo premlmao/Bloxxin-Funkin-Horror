@@ -1,0 +1,50 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Proveit",
+			"guest666",
+			[
+				40,
+				20,
+				80
+			]
+		],
+		[
+			"Deadline",
+			"johndoe",
+			[
+				40,
+				20,
+				80
+			]
+		],
+		[
+			"Powering",
+			"johndoemad",
+			[
+				40,
+				20,
+				80
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": ""
+}

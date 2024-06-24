@@ -1,0 +1,56 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 40,
+			"anim": "firstDeath",
+			"indices": [],
+			"name": "firstDeath"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "deathConfirm"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "deathLoop",
+			"fps": 60,
+			"name": "deathLoop",
+			"indices": []
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/jimdead",
+	"position": [
+		-500,
+		200
+	],
+	"healthicon": "jim",
+	"flip_x": true,
+	"healthbar_colors": [
+		179,
+		162,
+		16
+	],
+	"camera_position": [
+		-70,
+		20
+	],
+	"sing_duration": 5.99999999999999,
+	"scale": 1.15
+}

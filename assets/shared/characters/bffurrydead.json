@@ -1,0 +1,56 @@
+{
+	"animations": [
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "deathLoop",
+			"fps": 5,
+			"name": "deathLoop",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "firstDeath",
+			"fps": 5,
+			"name": "firstDeath",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "deathConfirm",
+			"fps": 5,
+			"name": "deathConfirm",
+			"indices": []
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/bffurrydead",
+	"position": [
+		80,
+		330
+	],
+	"healthicon": "bffurry",
+	"flip_x": true,
+	"healthbar_colors": [
+		63,
+		130,
+		238
+	],
+	"camera_position": [
+		320,
+		-110
+	],
+	"sing_duration": 4.49999999999999,
+	"scale": 2.55
+}

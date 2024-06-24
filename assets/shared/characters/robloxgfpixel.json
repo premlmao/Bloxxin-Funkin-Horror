@@ -1,0 +1,45 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 10,
+			"anim": "danceLeft",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 10,
+			"anim": "danceRight",
+			"indices": [],
+			"name": "right"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/robloxgfpixel",
+	"position": [
+		310,
+		550
+	],
+	"healthicon": "robloxgf",
+	"flip_x": false,
+	"healthbar_colors": [
+		165,
+		0,
+		77
+	],
+	"camera_position": [
+		-230,
+		-40
+	],
+	"sing_duration": 5.99999999999999,
+	"scale": 10
+}

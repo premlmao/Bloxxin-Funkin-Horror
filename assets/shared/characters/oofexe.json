@@ -1,0 +1,90 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 15,
+			"name": "idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				50,
+				10
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				0,
+				-20
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				0,
+				30
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-30,
+				10
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"offsets": [
+				0,
+				30
+			],
+			"loop": true,
+			"fps": 15,
+			"anim": "scream",
+			"indices": [],
+			"name": "scream"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/oofexe",
+	"position": [
+		250,
+		200
+	],
+	"healthicon": "oofexe",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		0,
+		0
+	],
+	"camera_position": [
+		-195,
+		90
+	],
+	"sing_duration": 5.99999999999999,
+	"scale": 1.25,
+	"_editor_isPlayer": false
+}

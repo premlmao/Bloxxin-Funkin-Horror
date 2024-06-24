@@ -1,0 +1,90 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				70,
+				10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				50,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				30,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-50,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				70,
+				0
+			],
+			"indices": [],
+			"fps": 22,
+			"anim": "run",
+			"loop": false,
+			"name": "run"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/seek",
+	"position": [
+		60,
+		180
+	],
+	"healthicon": "seek",
+	"flip_x": false,
+	"healthbar_colors": [
+		161,
+		161,
+		161
+	],
+	"camera_position": [
+		-260,
+		-80
+	],
+	"sing_duration": 5.99999999999999,
+	"scale": 1.4,
+	"_editor_isPlayer": false
+}

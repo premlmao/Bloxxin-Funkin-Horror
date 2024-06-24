@@ -1,0 +1,112 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				35,
+				-35
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				20,
+				-70
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				15,
+				-30
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				30,
+				-30
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				20,
+				-17
+			],
+			"anim": "enough",
+			"fps": 24,
+			"name": "enough",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				300,
+				5
+			],
+			"anim": "sigma",
+			"fps": 15,
+			"name": "sigma",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-10,
+				-10
+			],
+			"anim": "idle",
+			"fps": 15,
+			"name": "idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "gone",
+			"loop": true,
+			"name": "gone"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/gavin",
+	"position": [
+		110,
+		310
+	],
+	"healthicon": "gavin",
+	"flip_x": false,
+	"healthbar_colors": [
+		41,
+		47,
+		45
+	],
+	"camera_position": [
+		-260,
+		-110
+	],
+	"sing_duration": 5.99999999999999,
+	"scale": 1.5,
+	"_editor_isPlayer": false
+}

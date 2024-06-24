@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="pofplayers.png">
+<SubTexture name="bop0000" x="2122" y="676" width="1061" height="676" frameX="0" frameY="0" frameWidth="1061" frameHeight="676" />
+<SubTexture name="bop0001" x="2122" y="0" width="1061" height="676" frameX="0" frameY="0" frameWidth="1061" frameHeight="676" />
+<SubTexture name="bop0002" x="1061" y="1352" width="1061" height="676" frameX="0" frameY="0" frameWidth="1061" frameHeight="676" />
+<SubTexture name="bop0003" x="0" y="1352" width="1061" height="676" frameX="0" frameY="0" frameWidth="1061" frameHeight="676" />
+<SubTexture name="bop0004" x="1061" y="676" width="1061" height="676" frameX="0" frameY="0" frameWidth="1061" frameHeight="676" />
+<SubTexture name="bop0005" x="0" y="676" width="1061" height="676" frameX="0" frameY="0" frameWidth="1061" frameHeight="676" />
+<SubTexture name="bop0006" x="1061" y="0" width="1061" height="676" frameX="0" frameY="0" frameWidth="1061" frameHeight="676" />
+<SubTexture name="bop0007" x="0" y="0" width="1061" height="676" frameX="0" frameY="0" frameWidth="1061" frameHeight="676" />
+</TextureAtlas>

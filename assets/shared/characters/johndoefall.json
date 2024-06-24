@@ -1,0 +1,79 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				20,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				5,
+				-40
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				0,
+				40
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-20,
+				10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "idle",
+			"indices": []
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/johndoefall",
+	"position": [
+		40,
+		250
+	],
+	"healthicon": "johndoemad",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		216,
+		60
+	],
+	"camera_position": [
+		-130,
+		0
+	],
+	"sing_duration": 5.99999999999999,
+	"scale": 1.4,
+	"_editor_isPlayer": false
+}
