@@ -80,7 +80,7 @@ class BloxxinFreeplayState extends MusicBeatState
                 j++;
                 trace(song[0]);
 
-                if (!Assets.exists('assets/shared/images/freeplay/portrait_' + songs[curSelected].songName.toLowerCase() + '.png'))
+                if (!Assets.exists('assets/shared/images/freeplay/portrait_' + song[0] + '.png'))
                 {
                     portrait.loadGraphic(Paths.image('freeplay/portrait_Placeholder'));
                 }
