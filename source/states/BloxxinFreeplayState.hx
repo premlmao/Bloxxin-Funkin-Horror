@@ -26,23 +26,6 @@ class BloxxinFreeplayState extends MusicBeatState
     var songs:Array<CustomSongMetadata> = [];
 
     public static var curSelected:Int = 0;
-    var portraitArray:Array<String> = [
-        'Proveit',
-        'Deadline',
-        'Placeholder',
-        'Copied',
-        'Wipeout',
-        'NeedYouHere',
-        'Fools',
-        'Floatingpoint',
-        'Deformed',
-        'Gloryday',
-        'Humanoid',
-        'Kenophobia',
-        'RealMurderRap',
-        'Succed',
-        'Loced',
-    ];
   
     var overlay:FlxSprite;
     var portraits:FlxTypedGroup<FlxSprite>;
@@ -58,19 +41,52 @@ class BloxxinFreeplayState extends MusicBeatState
 
         portraits = new FlxTypedGroup<FlxSprite>();
         add(portraits);
+        var j:Int = 0;
 
-        for (i in 0...portraitArray.length)
-        {
-            var offset:Float = 108;
-            var portrait:FlxSprite = new FlxSprite((i * 140) + offset).loadGraphic(Paths.image('freeplay/portrait_' + portraitArray[i]));
-            portrait.antialiasing = ClientPrefs.data.antialiasing;
-            portrait.updateHitbox();
-            portrait.setGraphicSize(Std.int(portrait.width * 0.2));
-            portrait.y = i >= 3 ? 100 : -200;
-            portraits.add(portrait);
+        WeekData.reloadWeekFiles(false);
 
-        
-        }
+        for (i in 0...WeekData.weeksList.length) {
+			if(weekIsLocked(WeekData.weeksList[i])) continue;
+
+			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
+			var leSongs:Array<String> = [];
+			var leChars:Array<String> = [];
+
+			for (j in 0...leWeek.songs.length)
+				{
+					leSongs.push(leWeek.songs[j][0]);
+					leChars.push(leWeek.songs[j][1]);
+				}
+				
+
+			WeekData.setDirectoryFromWeek(leWeek);
+			for (song in leWeek.songs)
+			{
+				var colors:Array<Int> = song[2];
+				if(colors == null || colors.length < 3)
+				{
+					colors = [146, 113, 253];
+				}
+
+                var offset:Float = 108;
+                var portrait:FlxSprite = new FlxSprite((j * 140) + offset).loadGraphic(Paths.image('freeplay/portrait_' + song[0]));
+                portrait.antialiasing = ClientPrefs.data.antialiasing;
+                portrait.updateHitbox();
+                portrait.scale.set(0.2, 0.2);
+                portrait.y = j >= 3 ? 100 : -200;
+                
+	
+				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
+                j++;
+                trace(song[0]);
+
+                if (!Assets.exists('assets/shared/images/freeplay/portrait_' + songs[curSelected].songName.toLowerCase() + '.png'))
+                {
+                    portrait.loadGraphic(Paths.image('freeplay/portrait_Placeholder'));
+                }
+                portraits.add(portrait);
+			}
+		}
     }
 
     var selectedSomethin:Bool = false;
@@ -99,6 +115,16 @@ class BloxxinFreeplayState extends MusicBeatState
         if (curSelected >= songs.length)
             curSelected = 0;
     }
+
+    public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
+        {
+            songs.push(new CustomSongMetadata(songName, weekNum, songCharacter, color));
+        }
+
+    function weekIsLocked(name:String):Bool {
+         var leWeek:WeekData = WeekData.weeksLoaded.get(name);
+         return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
+     }
 }
 
 class CustomSongMetadata
