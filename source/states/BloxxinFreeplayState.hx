@@ -32,6 +32,9 @@ class BloxxinFreeplayState extends MusicBeatState
     
     override function create()
     {
+        if (!FlxG.mouse.visible)
+            FlxG.mouse.visible = true;
+        
         var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
         bg.antialiasing = ClientPrefs.data.antialiasing;
         bg.setGraphicSize(Std.int(bg.width * 1));
@@ -95,11 +98,22 @@ class BloxxinFreeplayState extends MusicBeatState
     {
         if (!selectedSomethin)
         {
-            if (controls.UI_LEFT_P)
-                changeSelection(-1);
-            
-            if (controls.UI_RIGHT_P)
-                changeSelection(1);
+            for (port in portraits)
+                {
+                    if (FlxG.mouse.overlaps(port))
+                        {
+                            if (curSelected != port.ID)
+                            {
+                                curSelected = port.ID;
+                            }
+    
+                            if (FlxG.mouse.justPressed)
+                            {
+                                trace(port.ID);
+                            }
+                        } 
+    
+                }
         }
     }
 
