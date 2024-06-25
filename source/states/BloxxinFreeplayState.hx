@@ -75,7 +75,7 @@ class BloxxinFreeplayState extends MusicBeatState
                 portrait.scale.set(0.2, 0.2);
                 portrait.y = j >= 3 ? 100 : -200;
                 
-	
+                portrait.ID = j; 
 				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
                 j++;
                 trace(song[0]);
