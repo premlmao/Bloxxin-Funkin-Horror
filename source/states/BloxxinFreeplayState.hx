@@ -62,11 +62,14 @@ class BloxxinFreeplayState extends MusicBeatState
         for (i in 0...portraitArray.length)
         {
             var offset:Float = 108;
-            var portrait:FlxSprite = new FlxSprite(i < 3 ? (i * 140) + offset : (i - 3 * 140) + offset, i >= 3 ? 0 : -100).loadGraphic(Paths.image('freeplay/portrait_' + portraitArray[i]));
+            var portrait:FlxSprite = new FlxSprite((i * 140) + offset).loadGraphic(Paths.image('freeplay/portrait_' + portraitArray[i]));
             portrait.antialiasing = ClientPrefs.data.antialiasing;
             portrait.updateHitbox();
             portrait.setGraphicSize(Std.int(portrait.width * 0.2));
+            portrait.y = i >= 3 ? 100 : -200;
             portraits.add(portrait);
+
+        
         }
     }
 
