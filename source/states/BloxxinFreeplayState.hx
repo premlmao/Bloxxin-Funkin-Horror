@@ -111,7 +111,14 @@ class BloxxinFreeplayState extends MusicBeatState
                             {
                                 trace(port.ID);
                             }
-                        } 
+                        }
+
+                        if (controls.BACK)
+                            {
+                                selectedSomethin = true;
+                                FlxG.sound.play(Paths.sound('cancelMenu'));
+                                MusicBeatState.switchState(new MainMenuState());
+                            }
     
                 }
         }

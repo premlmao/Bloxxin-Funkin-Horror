@@ -134,11 +134,11 @@ class MainMenuState extends MusicBeatState
 				case 4: menuItem.y = -60;
 			}
 			if (firstStart)
-				FlxTween.tween(menuBox, {y: 0}, 1, {ease: FlxEase.circInOut});
-				FlxTween.tween(trussAndStuds, {alpha: 1}, 1, {ease: FlxEase.circInOut});
-				FlxTween.tween(menuText, {y: 35}, 1, {ease: FlxEase.circInOut, startDelay: 0.5});
-				FlxTween.tween(menuItem, {x: -300}, 1, {ease: FlxEase.circInOut, startDelay: 1});
-				FlxTween.tween(selector, {alpha: 1}, 1, {ease: FlxEase.circInOut, startDelay: 1});
+				FlxTween.tween(menuBox, {y: 0}, 0.75, {ease: FlxEase.circInOut});
+				FlxTween.tween(trussAndStuds, {alpha: 1, x: 1000}, 0.75, {ease: FlxEase.circInOut});
+				FlxTween.tween(menuText, {y: 35}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.2});
+				FlxTween.tween(menuItem, {x: -285}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.5});
+				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.5});
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
@@ -204,6 +204,32 @@ class MainMenuState extends MusicBeatState
 
 					if (ClientPrefs.data.flashing)
 						FlxFlicker.flicker(magenta, 1.1, 0.15, false);
+
+					FlxTween.tween(FlxG.camera, {zoom: 2.5}, 0.7, {ease: FlxEase.circInOut});
+					{
+						switch (optionShit[curSelected])
+						{
+							case 'story_mode':
+								MusicBeatState.switchState(new StoryMenuState());
+							case 'freeplay':
+								MusicBeatState.switchState(new BloxxinFreeplayState());
+								case 'options':
+									MusicBeatState.switchState(new OptionsState());
+									OptionsState.onPlayState = false;
+									if (PlayState.SONG != null)
+									{
+										PlayState.SONG.arrowSkin = null;
+										PlayState.SONG.splashSkin = null;
+										PlayState.stageUI = 'normal';
+									}
+							case 'credits':
+								MusicBeatState.switchState(new CreditsState());
+								#if ACHIEVEMENTS_ALLOWED
+							case 'awards':
+								MusicBeatState.switchState(new AchievementsMenuState());
+							#end
+						}
+					};
 
 					FlxFlicker.flicker(menuItems.members[curSelected], 1, 0.06, false, false, function(flick:FlxFlicker)
 					{
