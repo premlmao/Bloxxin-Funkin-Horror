@@ -29,6 +29,7 @@ class BloxxinFreeplayState extends MusicBeatState
   
     var overlay:FlxSprite;
     var portraits:FlxTypedGroup<FlxSprite>;
+    var portrait:FlxSprite;
     
     override function create()
     {
@@ -41,6 +42,13 @@ class BloxxinFreeplayState extends MusicBeatState
         bg.updateHitbox();
         bg.screenCenter();  
         add(bg);
+
+        var freeplayBox:FlxSprite = new FlxSprite().loadGraphic(Paths.image('freeplay/freeplayBox'));
+        freeplayBox.antialiasing = ClientPrefs.data.antialiasing;
+        freeplayBox.setGraphicSize(Std.int(freeplayBox.width * 0.75));
+        freeplayBox.updateHitbox();
+        freeplayBox.x = 900;
+        add(freeplayBox);
 
         portraits = new FlxTypedGroup<FlxSprite>();
         add(portraits);
@@ -72,7 +80,7 @@ class BloxxinFreeplayState extends MusicBeatState
 				}
 
                 var offset:Float = 108;
-                var portrait:FlxSprite = new FlxSprite((j * 140) + offset).loadGraphic(Paths.image('freeplay/portrait_' + song[0]));
+                portrait = new FlxSprite((j * 225) + offset).loadGraphic(Paths.image('freeplay/portrait_' + song[0]));
                 portrait.antialiasing = ClientPrefs.data.antialiasing;
                 portrait.updateHitbox();
                 portrait.scale.set(0.2, 0.2);
@@ -93,6 +101,7 @@ class BloxxinFreeplayState extends MusicBeatState
     }
 
     var selectedSomethin:Bool = false;
+    var accepted:Bool = true;
 
     override function update(elapsed:Float)
     {
@@ -106,13 +115,15 @@ class BloxxinFreeplayState extends MusicBeatState
                             {
                                 curSelected = port.ID;
                             }
-    
-                            if (FlxG.mouse.justPressed)
+
+                            if (FlxG.mouse.overlaps(port) && FlxG.mouse.justPressed)
                             {
-                                trace(port.ID);
+                                // bleach referenced!1!
+                                MusicBeatState.switchState(new PlayState());
+                                FlxG.sound.play(Paths.sound('confirmMenu'));
                             }
                         }
-
+                        
                         if (controls.BACK)
                             {
                                 selectedSomethin = true;
