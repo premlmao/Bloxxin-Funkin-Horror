@@ -16,15 +16,18 @@ function onBeatHit()
         noteTweenAlpha('byeNotes8', 7, 0, 1, circIn);
     end
 
+    if curBeat == 276 then
+        noteTweenAlpha('hiNotes1', 4, 1, 0.75, circIn);
+        noteTweenAlpha('hiNotes2', 5, 1, 0.75, circIn);
+        noteTweenAlpha('hiNotes3', 6, 1, 0.75, circIn);
+        noteTweenAlpha('hiNotes4', 7, 1, 0.75, circIn);
+    end
+
     if curBeat == 280 then
         noteTweenAlpha('byeNotes1', 0, 0, 1, circIn);
         noteTweenAlpha('byeNotes2', 1, 0, 1, circIn);
         noteTweenAlpha('byeNotes3', 2, 0, 1, circIn);
         noteTweenAlpha('byeNotes4', 3, 0, 1, circIn);
-        noteTweenAlpha('hiNotes1', 4, 1, 1, circIn);
-        noteTweenAlpha('hiNotes2', 5, 1, 1, circIn);
-        noteTweenAlpha('hiNotes3', 6, 1, 1, circIn);
-        noteTweenAlpha('hiNotes4', 7, 1, 1, circIn);
     end
 
     if curBeat == 312 then

@@ -19,15 +19,18 @@ import lime.utils.Assets;
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
+import haxe.Json;
 
 class BloxxinFreeplayState extends MusicBeatState
 {
-
     var songs:Array<CustomSongMetadata> = [];
 
     public static var curSelected:Int = 0;
+    var curDifficulty:Int = 0;
+    var j:Int = 0;
+    var colorTween:FlxTween;
   
-    var overlay:FlxSprite;
+    var selectedPortrait:FlxSprite;
     var portraits:FlxTypedGroup<FlxSprite>;
     var portrait:FlxSprite;
     
@@ -35,6 +38,8 @@ class BloxxinFreeplayState extends MusicBeatState
     {
         if (!FlxG.mouse.visible)
             FlxG.mouse.visible = true;
+
+        Difficulty.list = ['Normal'];
         
         var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
         bg.antialiasing = ClientPrefs.data.antialiasing;
@@ -47,12 +52,17 @@ class BloxxinFreeplayState extends MusicBeatState
         freeplayBox.antialiasing = ClientPrefs.data.antialiasing;
         freeplayBox.setGraphicSize(Std.int(freeplayBox.width * 0.75));
         freeplayBox.updateHitbox();
-        freeplayBox.x = 900;
+        freeplayBox.x = 950;
         add(freeplayBox);
+
+        selectedPortrait = new FlxSprite().loadGraphic(Paths.image('freeplay/selectedOverlay'));
+        selectedPortrait.antialiasing = ClientPrefs.data.antialiasing;
+        selectedPortrait.scale.set(0.2, 0.2);
+        selectedPortrait.updateHitbox();
+        add(selectedPortrait);
 
         portraits = new FlxTypedGroup<FlxSprite>();
         add(portraits);
-        var j:Int = 0;
 
         WeekData.reloadWeekFiles(false);
 
@@ -80,13 +90,32 @@ class BloxxinFreeplayState extends MusicBeatState
 				}
 
                 var offset:Float = 108;
-                portrait = new FlxSprite((j * 225) + offset).loadGraphic(Paths.image('freeplay/portrait_' + song[0]));
+                portrait = new FlxSprite((j * 100) + offset).loadGraphic(Paths.image('freeplay/portrait_' + song[0]));
                 portrait.antialiasing = ClientPrefs.data.antialiasing;
-                portrait.updateHitbox();
                 portrait.scale.set(0.2, 0.2);
+                portrait.updateHitbox();
                 portrait.y = j >= 3 ? 100 : -200;
-                
-                portrait.ID = j; 
+
+                portrait.ID = j;
+                switch(j)
+                {
+                    case 0: portrait.x = 125;
+                    case 1: portrait.x = 350;
+                    case 2: portrait.x = 575;
+                    case 3: portrait.x = 125;
+                    case 4: portrait.x = 350;
+                    case 5: portrait.x = 575;
+                }	
+    
+                switch(j)
+                {
+                    case 0: portrait.y = 120;
+                    case 1: portrait.y = 120;
+                    case 2: portrait.y = 120;
+                    case 3: portrait.y = 400;
+                    case 4: portrait.y = 400; 
+                    case 5: portrait.y = 400;
+                }
 				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
                 j++;
                 trace(song[0]);
@@ -109,31 +138,43 @@ class BloxxinFreeplayState extends MusicBeatState
         {
             for (port in portraits)
                 {
-                    if (FlxG.mouse.overlaps(port))
+                    if (FlxG.mouse.overlaps(port)) 
+                    {
+                        if (curSelected != port.ID)
                         {
-                            if (curSelected != port.ID)
-                            {
-                                curSelected = port.ID;
-                            }
+                            curSelected = port.ID;
 
-                            if (FlxG.mouse.overlaps(port) && FlxG.mouse.justPressed)
-                            {
-                                // bleach referenced!1!
-                                MusicBeatState.switchState(new PlayState());
-                                FlxG.sound.play(Paths.sound('confirmMenu'));
-                            }
+                            switch(curSelected)
+                        {
+                            case 0: FlxTween.tween(selectedPortrait, {x: 115, y: 110}, 0.25, {ease: FlxEase.circInOut});
+                            case 1: FlxTween.tween(selectedPortrait, {x: 340, y: 110}, 0.25, {ease: FlxEase.circInOut});
+                            case 2: FlxTween.tween(selectedPortrait, {x: 565, y: 110}, 0.25, {ease: FlxEase.circInOut});
+                            case 3: FlxTween.tween(selectedPortrait, {x: 115, y: 390}, 0.25, {ease: FlxEase.circInOut});
+                            case 4: FlxTween.tween(selectedPortrait, {x: 340, y: 390}, 0.25, {ease: FlxEase.circInOut});
+                            case 5: FlxTween.tween(selectedPortrait, {x: 565, y: 390}, 0.25, {ease: FlxEase.circInOut});
                         }
+                        }
+                        if (FlxG.mouse.justPressed) 
+                        {
+                            trace(port.ID);
+                            LoadingState.loadAndSwitchState(new PlayState());
+                            FlxG.sound.play(Paths.sound('confirmMenu'));
+                            var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
+                            var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
+                            PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+                            PlayState.storyDifficulty = curDifficulty;
+                        }
+                    }
+                }
                         
-                        if (controls.BACK)
-                            {
-                                selectedSomethin = true;
-                                FlxG.sound.play(Paths.sound('cancelMenu'));
-                                MusicBeatState.switchState(new MainMenuState());
-                            }
-    
+                    if (controls.BACK)
+                        {
+                            selectedSomethin = true;
+                            FlxG.sound.play(Paths.sound('cancelMenu'));
+                            MusicBeatState.switchState(new MainMenuState());
+                        }
                 }
         }
-    }
 
     function changeSelection(change:Int = 0, playSound:Bool = true)
     {

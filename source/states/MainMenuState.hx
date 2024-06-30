@@ -27,6 +27,7 @@ class MainMenuState extends MusicBeatState
 
 	var camFollow:FlxObject;
 	var magenta:FlxSprite;
+	var robloxBackdrop:FlxBackdrop;
 	var selector:FlxSprite;
 	var trussAndStuds:FlxBackdrop;
 	var menuBox:FlxSprite;
@@ -53,10 +54,12 @@ class MainMenuState extends MusicBeatState
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set(0, yScroll);
-		bg.setGraphicSize(Std.int(bg.width * 1));
+		bg.setGraphicSize(Std.int(bg.width * 1.1));
 		bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);
+		if (firstStart)
+			FlxTween.tween(bg, {x: 10}, 2, {ease: FlxEase.linear, type: FlxTweenType.PINGPONG});
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
@@ -67,6 +70,14 @@ class MainMenuState extends MusicBeatState
 		magenta.visible = false;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
+
+		robloxBackdrop = new FlxBackdrop(Paths.image('mainmenuUI/robloxBackdrop'), XY);
+		robloxBackdrop.velocity.set(100, 100);
+		robloxBackdrop.scale.set(0.75, 0.75);
+		robloxBackdrop.alpha = 0.4;
+		add(robloxBackdrop);
+		if (firstStart)
+			FlxTween.tween(robloxBackdrop, {angle: 180}, 10, {ease: FlxEase.linear, type: FlxTweenType.LOOPING});
 
 		trussAndStuds = new FlxBackdrop(Paths.image('mainmenuUI/trussAndStuds'), XY);
 		trussAndStuds.velocity.set(200, 0);
@@ -137,8 +148,8 @@ class MainMenuState extends MusicBeatState
 				FlxTween.tween(menuBox, {y: 0}, 0.75, {ease: FlxEase.circInOut});
 				FlxTween.tween(trussAndStuds, {alpha: 1, x: 1000}, 0.75, {ease: FlxEase.circInOut});
 				FlxTween.tween(menuText, {y: 35}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.2});
-				FlxTween.tween(menuItem, {x: -285}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.5});
-				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.5});
+				FlxTween.tween(menuItem, {x: -285}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.25});
+				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.25});
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
@@ -212,7 +223,7 @@ class MainMenuState extends MusicBeatState
 							case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
 							case 'freeplay':
-								MusicBeatState.switchState(new FreeplayState());
+								MusicBeatState.switchState(new BloxxinFreeplayState());
 								case 'options':
 									MusicBeatState.switchState(new OptionsState());
 									OptionsState.onPlayState = false;
