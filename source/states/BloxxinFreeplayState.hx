@@ -58,6 +58,8 @@ class BloxxinFreeplayState extends MusicBeatState
         selectedPortrait = new FlxSprite().loadGraphic(Paths.image('freeplay/selectedOverlay'));
         selectedPortrait.antialiasing = ClientPrefs.data.antialiasing;
         selectedPortrait.scale.set(0.2, 0.2);
+        selectedPortrait.x = 115;
+        selectedPortrait.y = 110;
         selectedPortrait.updateHitbox();
         add(selectedPortrait);
 
@@ -105,6 +107,8 @@ class BloxxinFreeplayState extends MusicBeatState
                     case 3: portrait.x = 125;
                     case 4: portrait.x = 350;
                     case 5: portrait.x = 575;
+                    case 6: portrait.x = 125;
+                    case 7: portrait.x = 350;
                 }	
     
                 switch(j)
@@ -115,6 +119,8 @@ class BloxxinFreeplayState extends MusicBeatState
                     case 3: portrait.y = 400;
                     case 4: portrait.y = 400; 
                     case 5: portrait.y = 400;
+                    case 6: portrait.y = 680;
+                    case 7: portrait.y = 680;
                 }
 				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
                 j++;
@@ -146,12 +152,14 @@ class BloxxinFreeplayState extends MusicBeatState
 
                             switch(curSelected)
                         {
-                            case 0: FlxTween.tween(selectedPortrait, {x: 115, y: 110}, 0.25, {ease: FlxEase.circInOut});
-                            case 1: FlxTween.tween(selectedPortrait, {x: 340, y: 110}, 0.25, {ease: FlxEase.circInOut});
-                            case 2: FlxTween.tween(selectedPortrait, {x: 565, y: 110}, 0.25, {ease: FlxEase.circInOut});
-                            case 3: FlxTween.tween(selectedPortrait, {x: 115, y: 390}, 0.25, {ease: FlxEase.circInOut});
-                            case 4: FlxTween.tween(selectedPortrait, {x: 340, y: 390}, 0.25, {ease: FlxEase.circInOut});
-                            case 5: FlxTween.tween(selectedPortrait, {x: 565, y: 390}, 0.25, {ease: FlxEase.circInOut});
+                            case 0: FlxTween.tween(selectedPortrait, {x: 115, y: 110}, 0.1, {ease: FlxEase.linear});
+                            case 1: FlxTween.tween(selectedPortrait, {x: 340, y: 110}, 0.1, {ease: FlxEase.linear});
+                            case 2: FlxTween.tween(selectedPortrait, {x: 565, y: 110}, 0.1, {ease: FlxEase.linear});
+                            case 3: FlxTween.tween(selectedPortrait, {x: 115, y: 390}, 0.1, {ease: FlxEase.linear});
+                            case 4: FlxTween.tween(selectedPortrait, {x: 340, y: 390}, 0.1, {ease: FlxEase.linear});
+                            case 5: FlxTween.tween(selectedPortrait, {x: 565, y: 390}, 0.1, {ease: FlxEase.linear});
+                            case 6: FlxTween.tween(selectedPortrait, {x: 115, y: 670}, 0.1, {ease: FlxEase.linear});
+                            case 7: FlxTween.tween(selectedPortrait, {x: 340, y: 670}, 0.1, {ease: FlxEase.linear});
                         }
                         }
                         if (FlxG.mouse.justPressed) 
@@ -163,6 +171,7 @@ class BloxxinFreeplayState extends MusicBeatState
                             var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
                             PlayState.SONG = Song.loadFromJson(poop, songLowercase);
                             PlayState.storyDifficulty = curDifficulty;
+                            FlxG.mouse.visible = false;
                         }
                     }
                 }
@@ -172,6 +181,7 @@ class BloxxinFreeplayState extends MusicBeatState
                             selectedSomethin = true;
                             FlxG.sound.play(Paths.sound('cancelMenu'));
                             MusicBeatState.switchState(new MainMenuState());
+                            FlxG.mouse.visible = false;
                         }
                 }
         }
