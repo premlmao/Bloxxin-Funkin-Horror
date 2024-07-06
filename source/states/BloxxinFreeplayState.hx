@@ -5,6 +5,7 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
+import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.math.FlxMath;
@@ -40,6 +41,11 @@ class BloxxinFreeplayState extends MusicBeatState
             FlxG.mouse.visible = true;
 
         Difficulty.list = ['Normal'];
+
+        transIn = FlxTransitionableState.defaultTransIn;
+		transOut = FlxTransitionableState.defaultTransOut;
+
+		persistentUpdate = persistentDraw = true;
         
         var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
         bg.antialiasing = ClientPrefs.data.antialiasing;
@@ -60,6 +66,7 @@ class BloxxinFreeplayState extends MusicBeatState
         selectedPortrait.scale.set(0.2, 0.2);
         selectedPortrait.x = 115;
         selectedPortrait.y = 110;
+        selectedPortrait.alpha = 0;
         selectedPortrait.updateHitbox();
         add(selectedPortrait);
 
@@ -152,14 +159,14 @@ class BloxxinFreeplayState extends MusicBeatState
 
                             switch(curSelected)
                         {
-                            case 0: FlxTween.tween(selectedPortrait, {x: 115, y: 110}, 0.1, {ease: FlxEase.linear});
-                            case 1: FlxTween.tween(selectedPortrait, {x: 340, y: 110}, 0.1, {ease: FlxEase.linear});
-                            case 2: FlxTween.tween(selectedPortrait, {x: 565, y: 110}, 0.1, {ease: FlxEase.linear});
-                            case 3: FlxTween.tween(selectedPortrait, {x: 115, y: 390}, 0.1, {ease: FlxEase.linear});
-                            case 4: FlxTween.tween(selectedPortrait, {x: 340, y: 390}, 0.1, {ease: FlxEase.linear});
-                            case 5: FlxTween.tween(selectedPortrait, {x: 565, y: 390}, 0.1, {ease: FlxEase.linear});
-                            case 6: FlxTween.tween(selectedPortrait, {x: 115, y: 670}, 0.1, {ease: FlxEase.linear});
-                            case 7: FlxTween.tween(selectedPortrait, {x: 340, y: 670}, 0.1, {ease: FlxEase.linear});
+                            case 0: FlxTween.tween(selectedPortrait, {x: 115, y: 110, alpha: 1}, 0.1, {ease: FlxEase.linear});
+                            case 1: FlxTween.tween(selectedPortrait, {x: 340, y: 110, alpha: 1}, 0.1, {ease: FlxEase.linear});
+                            case 2: FlxTween.tween(selectedPortrait, {x: 565, y: 110, alpha: 1}, 0.1, {ease: FlxEase.linear});
+                            case 3: FlxTween.tween(selectedPortrait, {x: 115, y: 390, alpha: 1}, 0.1, {ease: FlxEase.linear});
+                            case 4: FlxTween.tween(selectedPortrait, {x: 340, y: 390, alpha: 1}, 0.1, {ease: FlxEase.linear});
+                            case 5: FlxTween.tween(selectedPortrait, {x: 565, y: 390, alpha: 1}, 0.1, {ease: FlxEase.linear});
+                            case 6: FlxTween.tween(selectedPortrait, {x: 115, y: 670, alpha: 1}, 0.1, {ease: FlxEase.linear});
+                            case 7: FlxTween.tween(selectedPortrait, {x: 340, y: 670, alpha: 1}, 0.1, {ease: FlxEase.linear});
                         }
                         }
                         if (FlxG.mouse.justPressed) 

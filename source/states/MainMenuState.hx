@@ -59,7 +59,7 @@ class MainMenuState extends MusicBeatState
 		bg.screenCenter();
 		add(bg);
 		if (firstStart)
-			FlxTween.tween(bg, {x: 10}, 2, {ease: FlxEase.linear, type: FlxTweenType.PINGPONG});
+			FlxTween.tween(bg, {x: 10}, 1.5, {ease: FlxEase.linear, type: FlxTweenType.PINGPONG});
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
@@ -77,7 +77,7 @@ class MainMenuState extends MusicBeatState
 		robloxBackdrop.alpha = 0.4;
 		add(robloxBackdrop);
 		if (firstStart)
-			FlxTween.tween(robloxBackdrop, {angle: 180}, 10, {ease: FlxEase.linear, type: FlxTweenType.LOOPING});
+			FlxTween.tween(robloxBackdrop, {angle: 180}, 5, {ease: FlxEase.linear, type: FlxTweenType.LOOPING});
 
 		trussAndStuds = new FlxBackdrop(Paths.image('mainmenuUI/trussAndStuds'), XY);
 		trussAndStuds.velocity.set(200, 0);
@@ -148,17 +148,17 @@ class MainMenuState extends MusicBeatState
 				FlxTween.tween(menuBox, {y: 0}, 0.75, {ease: FlxEase.circInOut});
 				FlxTween.tween(trussAndStuds, {alpha: 1, x: 1000}, 0.75, {ease: FlxEase.circInOut});
 				FlxTween.tween(menuText, {y: 35}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.2});
-				FlxTween.tween(menuItem, {x: -285}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.25});
-				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.25});
+				FlxTween.tween(menuItem, {x: -285}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.2});
+				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.2});
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		psychVer.scrollFactor.set();
-		psychVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		psychVer.setFormat("Gotham Black", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(psychVer);
 		var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
 		fnfVer.scrollFactor.set();
-		fnfVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		fnfVer.setFormat("Gotham Black", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
 		changeItem();
 
@@ -223,7 +223,7 @@ class MainMenuState extends MusicBeatState
 							case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
 							case 'freeplay':
-								MusicBeatState.switchState(new BloxxinFreeplayState());
+								MusicBeatState.switchState(new FreeplayState());
 								case 'options':
 									MusicBeatState.switchState(new OptionsState());
 									OptionsState.onPlayState = false;
@@ -249,7 +249,7 @@ class MainMenuState extends MusicBeatState
 							case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
 							case 'freeplay':
-								MusicBeatState.switchState(new BloxxinFreeplayState());
+								MusicBeatState.switchState(new FreeplayState());
 								case 'options':
 									MusicBeatState.switchState(new OptionsState());
 									OptionsState.onPlayState = false;
