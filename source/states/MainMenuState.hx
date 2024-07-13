@@ -26,12 +26,14 @@ class MainMenuState extends MusicBeatState
 	];
 
 	var camFollow:FlxObject;
+	var bg:FlxSprite;
 	var magenta:FlxSprite;
 	var robloxBackdrop:FlxBackdrop;
 	var selector:FlxSprite;
 	var trussAndStuds:FlxBackdrop;
 	var menuBox:FlxSprite;
 	var menuText:FlxSprite;
+	var menuItem:FlxSprite;
 
 	override function create()
 	{
@@ -51,7 +53,7 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		bg = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -116,7 +118,7 @@ class MainMenuState extends MusicBeatState
 		for (i in 0...optionShit.length)
 		{
 			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-			var menuItem:FlxSprite = new FlxSprite(0, (i * 140) + offset);
+			menuItem = new FlxSprite(0, (i * 140) + offset);
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
@@ -146,7 +148,7 @@ class MainMenuState extends MusicBeatState
 			}
 			if (firstStart)
 				FlxTween.tween(menuBox, {y: 0}, 0.75, {ease: FlxEase.circInOut});
-				FlxTween.tween(trussAndStuds, {alpha: 1, x: 1000}, 0.75, {ease: FlxEase.circInOut});
+				FlxTween.tween(trussAndStuds, {alpha: 1}, 0.75, {ease: FlxEase.linear});
 				FlxTween.tween(menuText, {y: 35}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.2});
 				FlxTween.tween(menuItem, {x: -285}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.2});
 				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.2});
@@ -154,11 +156,11 @@ class MainMenuState extends MusicBeatState
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		psychVer.scrollFactor.set();
-		psychVer.setFormat("Gotham Black", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		psychVer.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(psychVer);
 		var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
 		fnfVer.scrollFactor.set();
-		fnfVer.setFormat("Gotham Black", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		fnfVer.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
 		changeItem();
 
@@ -216,14 +218,19 @@ class MainMenuState extends MusicBeatState
 					if (ClientPrefs.data.flashing)
 						FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
-					FlxTween.tween(FlxG.camera, {zoom: 2.5}, 0.7, {ease: FlxEase.circInOut});
+					FlxTween.tween(FlxG.camera, {zoom: 2.5}, 0.5, {ease: FlxEase.circIn});
+					FlxTween.tween(menuBox, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+					FlxTween.tween(menuText, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+					FlxTween.tween(menuItem, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+					FlxTween.tween(selector, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+					FlxTween.tween(robloxBackdrop, {alpha: 0}, 0.5, {ease: FlxEase.linear});
 					{
 						switch (optionShit[curSelected])
 						{
 							case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
 							case 'freeplay':
-								MusicBeatState.switchState(new FreeplayState());
+								MusicBeatState.switchState(new BloxxinFreeplayState());
 								case 'options':
 									MusicBeatState.switchState(new OptionsState());
 									OptionsState.onPlayState = false;

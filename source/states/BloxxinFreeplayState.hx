@@ -27,6 +27,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var songs:Array<CustomSongMetadata> = [];
 
     public static var curSelected:Int = 0;
+    public static var firstStart:Bool = true;
     var curDifficulty:Int = 0;
     var j:Int = 0;
     var colorTween:FlxTween;
@@ -34,7 +35,6 @@ class BloxxinFreeplayState extends MusicBeatState
     var selectedPortrait:FlxSprite;
     var portraits:FlxTypedGroup<FlxSprite>;
     var portrait:FlxSprite;
-    
     override function create()
     {
         if (!FlxG.mouse.visible)
@@ -47,12 +47,9 @@ class BloxxinFreeplayState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
         
-        var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
-        bg.antialiasing = ClientPrefs.data.antialiasing;
-        bg.setGraphicSize(Std.int(bg.width * 1));
-        bg.updateHitbox();
-        bg.screenCenter();  
-        add(bg);
+        var bg:FlxBackdrop = new FlxBackdrop(Paths.image('codeLeakLOL'), XY);
+		bg.velocity.set(200, 0);
+		add(bg);
 
         var freeplayBox:FlxSprite = new FlxSprite().loadGraphic(Paths.image('freeplay/freeplayBox'));
         freeplayBox.antialiasing = ClientPrefs.data.antialiasing;
@@ -108,26 +105,24 @@ class BloxxinFreeplayState extends MusicBeatState
                 portrait.ID = j;
                 switch(j)
                 {
-                    case 0: portrait.x = 125;
-                    case 1: portrait.x = 350;
-                    case 2: portrait.x = 575;
-                    case 3: portrait.x = 125;
-                    case 4: portrait.x = 350;
-                    case 5: portrait.x = 575;
-                    case 6: portrait.x = 125;
-                    case 7: portrait.x = 350;
-                }	
-    
-                switch(j)
-                {
-                    case 0: portrait.y = 120;
-                    case 1: portrait.y = 120;
-                    case 2: portrait.y = 120;
-                    case 3: portrait.y = 400;
-                    case 4: portrait.y = 400; 
-                    case 5: portrait.y = 400;
-                    case 6: portrait.y = 680;
-                    case 7: portrait.y = 680;
+                    case 0: 
+                        portrait.x = 125;
+                        portrait.y = 120;
+                    case 1: 
+                        portrait.x = 350;
+                        portrait.y = 120;
+                    case 2: 
+                        portrait.x = 575;
+                        portrait.y = 120;
+                    case 3: 
+                        portrait.x = 125;
+                        portrait.y = 400;
+                    case 4: 
+                        portrait.x = 350;
+                        portrait.y = 400;
+                    case 5: 
+                        portrait.x = 575;
+                        portrait.y = 400;
                 }
 				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
                 j++;
@@ -165,8 +160,6 @@ class BloxxinFreeplayState extends MusicBeatState
                             case 3: FlxTween.tween(selectedPortrait, {x: 115, y: 390, alpha: 1}, 0.1, {ease: FlxEase.linear});
                             case 4: FlxTween.tween(selectedPortrait, {x: 340, y: 390, alpha: 1}, 0.1, {ease: FlxEase.linear});
                             case 5: FlxTween.tween(selectedPortrait, {x: 565, y: 390, alpha: 1}, 0.1, {ease: FlxEase.linear});
-                            case 6: FlxTween.tween(selectedPortrait, {x: 115, y: 670, alpha: 1}, 0.1, {ease: FlxEase.linear});
-                            case 7: FlxTween.tween(selectedPortrait, {x: 340, y: 670, alpha: 1}, 0.1, {ease: FlxEase.linear});
                         }
                         }
                         if (FlxG.mouse.justPressed) 
@@ -181,8 +174,7 @@ class BloxxinFreeplayState extends MusicBeatState
                             FlxG.mouse.visible = false;
                         }
                     }
-                }
-                        
+                }       
                     if (controls.BACK)
                         {
                             selectedSomethin = true;
