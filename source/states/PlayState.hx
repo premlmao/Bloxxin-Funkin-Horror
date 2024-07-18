@@ -554,7 +554,7 @@ class PlayState extends MusicBeatState
 		iconP2.alpha = ClientPrefs.data.healthBarAlpha;
 		uiGroup.add(iconP2);
 
-		scoreTxt = new FlxText(0, healthBar.y + 40, FlxG.width, "", 20);
+		scoreTxt = new FlxText(0, healthBar.y + 50, FlxG.width, "", 20);
 		scoreTxt.setFormat(Paths.font("Gotham Black Regular.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
@@ -1838,6 +1838,18 @@ class PlayState extends MusicBeatState
 	public dynamic function updateIconsPosition()
 	{
 		var iconOffset:Int = 26;
+
+		/*
+		if(curStage.toLowerCase() == 'crossroads')
+			{
+				{
+			if (healthBar.percent > 80)
+				iconP2.animation.play('defeated');
+			else
+				iconP2.animation.play('normal');
+		}
+	}
+		*/
 		iconP1.x = healthBar.barCenter + (150 * iconP1.scale.x - 150) / 2 - iconOffset;
 		iconP2.x = healthBar.barCenter - (150 * iconP2.scale.x) / 2 - iconOffset * 2;
 	}

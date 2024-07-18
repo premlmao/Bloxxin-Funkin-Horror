@@ -37,18 +37,20 @@ class BloxxinFreeplayState extends MusicBeatState
     var portrait:FlxSprite;
     override function create()
     {
+        transIn = FlxTransitionableState.defaultTransIn;
+		transOut = FlxTransitionableState.defaultTransOut;
+
         if (!FlxG.mouse.visible)
             FlxG.mouse.visible = true;
 
         Difficulty.list = ['Normal'];
 
-        transIn = FlxTransitionableState.defaultTransIn;
-		transOut = FlxTransitionableState.defaultTransOut;
-
 		persistentUpdate = persistentDraw = true;
         
         var bg:FlxBackdrop = new FlxBackdrop(Paths.image('codeLeakLOL'), XY);
-		bg.velocity.set(200, 0);
+		bg.velocity.set(0, -100);
+        bg.scale.set(3, 3);
+        bg.x = -1800;
 		add(bg);
 
         var freeplayBox:FlxSprite = new FlxSprite().loadGraphic(Paths.image('freeplay/freeplayBox'));
@@ -123,6 +125,24 @@ class BloxxinFreeplayState extends MusicBeatState
                     case 5: 
                         portrait.x = 575;
                         portrait.y = 400;
+                    case 6: 
+                        portrait.x = 5000;
+                        portrait.y = 5000;
+                    case 7: 
+                        portrait.x = 5000;
+                        portrait.y = 5000;
+                    case 8: 
+                        portrait.x = 5000;
+                        portrait.y = 5000;
+                    case 9: 
+                        portrait.x = 5000;
+                        portrait.y = 5000;
+                    case 10: 
+                        portrait.x = 5000;
+                        portrait.y = 5000;
+                    case 11: 
+                        portrait.x = 5000;
+                        portrait.y = 5000;
                 }
 				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
                 j++;
@@ -135,6 +155,7 @@ class BloxxinFreeplayState extends MusicBeatState
                 portraits.add(portrait);
 			}
 		}
+        super.create();
     }
 
     var selectedSomethin:Bool = false;
@@ -151,6 +172,7 @@ class BloxxinFreeplayState extends MusicBeatState
                         if (curSelected != port.ID)
                         {
                             curSelected = port.ID;
+                            portrait.ID = j;
 
                             switch(curSelected)
                         {
@@ -174,7 +196,7 @@ class BloxxinFreeplayState extends MusicBeatState
                             FlxG.mouse.visible = false;
                         }
                     }
-                }       
+                }
                     if (controls.BACK)
                         {
                             selectedSomethin = true;
@@ -183,6 +205,8 @@ class BloxxinFreeplayState extends MusicBeatState
                             FlxG.mouse.visible = false;
                         }
                 }
+
+                    super.update(elapsed);
         }
 
     function changeSelection(change:Int = 0, playSound:Bool = true)

@@ -37,6 +37,25 @@ class HealthIcon extends FlxSprite
 			iconOffsets[1] = (height - 150) / 2;
 			updateHitbox();
 
+			/*
+			var file:Dynamic = Paths.image(name);
+			if(PlayState.curStage.toLowerCase() == 'crossroads' && !isPlayer)
+			{
+				frames = Paths.getSparrowAtlas('icons/icon-silly');
+				animation.addByPrefix('normal', 'normal', 24, true);
+				animation.addByPrefix('defeated', 'defeated', 24, true);
+				animation.play('normal');
+				this.char = char;
+			}
+			else
+			{
+				loadGraphic(file, true, 150, 150);
+				animation.add(char, [0, 1], 0, false, isPlayer);
+				animation.play(char);
+				this.char = char;
+			}
+			*/
+
 			animation.add(char, [0, 1], 0, false, isPlayer);
 			animation.play(char);
 			this.char = char;
