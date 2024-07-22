@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="icon-oofexe.png">
+<SubTexture name="idle0000" x="300" y="150" width="150" height="149" frameX="0" frameY="0" frameWidth="150" frameHeight="150" />
+<SubTexture name="defeat0000" x="0" y="0" width="150" height="150" frameX="0" frameY="0" frameWidth="150" frameHeight="150" />
+<SubTexture name="left0000" x="150" y="0" width="150" height="150" frameX="0" frameY="0" frameWidth="150" frameHeight="150" />
+<SubTexture name="down0000" x="0" y="150" width="150" height="150" frameX="0" frameY="0" frameWidth="150" frameHeight="150" />
+<SubTexture name="up0000" x="150" y="150" width="150" height="150" frameX="0" frameY="0" frameWidth="150" frameHeight="150" />
+<SubTexture name="right0000" x="300" y="0" width="150" height="150" frameX="0" frameY="0" frameWidth="150" frameHeight="150" />
+</TextureAtlas>
