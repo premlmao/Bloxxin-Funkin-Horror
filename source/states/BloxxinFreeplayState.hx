@@ -108,41 +108,29 @@ class BloxxinFreeplayState extends MusicBeatState
                 switch(j)
                 {
                     case 0: 
-                        portrait.x = 125;
-                        portrait.y = 120;
+                        portrait.setPosition(125, 120);
                     case 1: 
-                        portrait.x = 350;
-                        portrait.y = 120;
+                        portrait.setPosition(350, 120);
                     case 2: 
-                        portrait.x = 575;
-                        portrait.y = 120;
+                        portrait.setPosition(575, 120);
                     case 3: 
-                        portrait.x = 125;
-                        portrait.y = 400;
+                        portrait.setPosition(125, 400);
                     case 4: 
-                        portrait.x = 350;
-                        portrait.y = 400;
+                        portrait.setPosition(350, 400);
                     case 5: 
-                        portrait.x = 575;
-                        portrait.y = 400;
+                        portrait.setPosition(575, 400);
                     case 6: 
-                        portrait.x = 5000;
-                        portrait.y = 5000;
+                        portrait.setPosition(125, 5000);
                     case 7: 
-                        portrait.x = 5000;
-                        portrait.y = 5000;
+                        portrait.setPosition(350, 5000);
                     case 8: 
-                        portrait.x = 5000;
-                        portrait.y = 5000;
+                        portrait.setPosition(575, 5000);
                     case 9: 
-                        portrait.x = 5000;
-                        portrait.y = 5000;
+                        portrait.setPosition(125, 5000);
                     case 10: 
-                        portrait.x = 5000;
-                        portrait.y = 5000;
+                        portrait.setPosition(350, 5000);
                     case 11: 
-                        portrait.x = 5000;
-                        portrait.y = 5000;
+                        portrait.setPosition(575, 5000);
                 }
 				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
                 j++;
@@ -163,6 +151,58 @@ class BloxxinFreeplayState extends MusicBeatState
 
     override function update(elapsed:Float)
     {
+        var upP = controls.UI_UP_P;
+        var downP = controls.UI_DOWN_P;
+        var shiftMult:Int = 1;
+
+        for (i in 0...portraits.length)
+        {
+            var portrait:FlxSprite = portraits.members[i];
+            {
+                if (downP)
+                {
+                    if (i > 6) (i < 6 + 6);
+                    {
+                        switch(i)
+                        {
+                            case 0: FlxTween.tween(portrait, {x: 125, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                            case 1: FlxTween.tween(portrait, {x: 350, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                            case 2: FlxTween.tween(portrait, {x: 575, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                            case 3: FlxTween.tween(portrait, {x: 125, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                            case 4: FlxTween.tween(portrait, {x: 350, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                            case 5: FlxTween.tween(portrait, {x: 575, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                            case 6: FlxTween.tween(portrait, {x: 125, y: 120}, 0.75, {ease: FlxEase.sineInOut});
+                            case 7: FlxTween.tween(portrait, {x: 350, y: 120}, 0.75, {ease: FlxEase.sineInOut});
+                            case 8: FlxTween.tween(portrait, {x: 575, y: 120}, 0.75, {ease: FlxEase.sineInOut});
+                            case 9: FlxTween.tween(portrait, {x: 125, y: 400}, 0.75, {ease: FlxEase.sineInOut});
+                            case 10: FlxTween.tween(portrait, {x: 350, y: 400}, 0.75, {ease: FlxEase.sineInOut});
+                            case 11: FlxTween.tween(portrait, {x: 575, y: 400}, 0.75, {ease: FlxEase.sineInOut});
+                        }
+                    }
+                }
+                if (upP)
+                    {
+                        if (i > 6) (i < 6 + 6);
+                        {
+                            switch(i)
+                            {
+                                case 0: FlxTween.tween(portrait, {x: 125, y: 120}, 0.75, {ease: FlxEase.sineInOut});
+                                case 1: FlxTween.tween(portrait, {x: 350, y: 120}, 0.75, {ease: FlxEase.sineInOut});
+                                case 2: FlxTween.tween(portrait, {x: 575, y: 120}, 0.75, {ease: FlxEase.sineInOut});
+                                case 3: FlxTween.tween(portrait, {x: 125, y: 400}, 0.75, {ease: FlxEase.sineInOut});
+                                case 4: FlxTween.tween(portrait, {x: 350, y: 400}, 0.75, {ease: FlxEase.sineInOut});
+                                case 5: FlxTween.tween(portrait, {x: 575, y: 400}, 0.75, {ease: FlxEase.sineInOut});
+                                case 6: FlxTween.tween(portrait, {x: 125, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                                case 7: FlxTween.tween(portrait, {x: 350, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                                case 8: FlxTween.tween(portrait, {x: 575, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                                case 9: FlxTween.tween(portrait, {x: 125, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                                case 10: FlxTween.tween(portrait, {x: 350, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                                case 11: FlxTween.tween(portrait, {x: 575, y: 5000}, 0.75, {ease: FlxEase.sineInOut});
+                            }
+                        }
+                    }
+            }
+        }
         if (!selectedSomethin)
         {
             for (port in portraits)
@@ -176,12 +216,18 @@ class BloxxinFreeplayState extends MusicBeatState
 
                             switch(curSelected)
                         {
-                            case 0: FlxTween.tween(selectedPortrait, {x: 115, y: 110, alpha: 1}, 0.1, {ease: FlxEase.linear});
-                            case 1: FlxTween.tween(selectedPortrait, {x: 340, y: 110, alpha: 1}, 0.1, {ease: FlxEase.linear});
-                            case 2: FlxTween.tween(selectedPortrait, {x: 565, y: 110, alpha: 1}, 0.1, {ease: FlxEase.linear});
-                            case 3: FlxTween.tween(selectedPortrait, {x: 115, y: 390, alpha: 1}, 0.1, {ease: FlxEase.linear});
-                            case 4: FlxTween.tween(selectedPortrait, {x: 340, y: 390, alpha: 1}, 0.1, {ease: FlxEase.linear});
-                            case 5: FlxTween.tween(selectedPortrait, {x: 565, y: 390, alpha: 1}, 0.1, {ease: FlxEase.linear});
+                            case 0: FlxTween.tween(selectedPortrait, {x: 115, y: 110, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                            case 1: FlxTween.tween(selectedPortrait, {x: 340, y: 110, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                            case 2: FlxTween.tween(selectedPortrait, {x: 565, y: 110, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                            case 3: FlxTween.tween(selectedPortrait, {x: 115, y: 390, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                            case 4: FlxTween.tween(selectedPortrait, {x: 340, y: 390, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                            case 5: FlxTween.tween(selectedPortrait, {x: 565, y: 390, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                            case 6: FlxTween.tween(selectedPortrait, {x: 115, y: 110, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                            case 7: FlxTween.tween(selectedPortrait, {x: 340, y: 110, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                            case 8: FlxTween.tween(selectedPortrait, {x: 565, y: 110, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                            case 9: FlxTween.tween(selectedPortrait, {x: 115, y: 390, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                            case 10: FlxTween.tween(selectedPortrait, {x: 340, y: 390, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                            case 11: FlxTween.tween(selectedPortrait, {x: 565, y: 390, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
                         }
                         }
                         if (FlxG.mouse.justPressed) 
@@ -212,9 +258,6 @@ class BloxxinFreeplayState extends MusicBeatState
     function changeSelection(change:Int = 0, playSound:Bool = true)
     {
         if(playSound) FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-
-        var lastList:Array<String> = Difficulty.list;
-        curSelected += change;
 
         if (curSelected < 0)
             curSelected = songs.length - 1;

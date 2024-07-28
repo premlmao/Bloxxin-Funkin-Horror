@@ -13,6 +13,7 @@ class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.7.2h'; // This is also used for Discord RPC
 	public static var firstStart:Bool = true;
+	public static var finishedFunnyMove:Bool = false;
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -22,7 +23,7 @@ class MainMenuState extends MusicBeatState
 		'freeplay',
 		'options',
 		'credits',
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
+		'awards',
 	];
 
 	var camFollow:FlxObject;
@@ -61,7 +62,7 @@ class MainMenuState extends MusicBeatState
 		bg.screenCenter();
 		add(bg);
 		if (firstStart)
-			FlxTween.tween(bg, {x: 10}, 1.5, {ease: FlxEase.linear, type: FlxTweenType.PINGPONG});
+			FlxTween.tween(bg, {x: 35}, 1.5, {ease: FlxEase.sineInOut, type: FlxTweenType.PINGPONG});
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
@@ -90,8 +91,7 @@ class MainMenuState extends MusicBeatState
 		menuBox.antialiasing = ClientPrefs.data.antialiasing;
 		menuBox.setGraphicSize(Std.int(menuBox.width * 1.2));
 		menuBox.updateHitbox();
-		menuBox.x = -5;
-		menuBox.y = -1000;
+		menuBox.x = -500;
 		add(menuBox);
 
 		menuText = new FlxSprite(-80).loadGraphic(Paths.image('mainmenuUI/menuText'));
@@ -111,6 +111,8 @@ class MainMenuState extends MusicBeatState
 		selector.y = 160;
 		selector.alpha = 0;
 		add(selector);
+		if (firstStart)
+			FlxTween.tween(selector, {x: 425}, 0.5, {ease: FlxEase.sineInOut, type: PINGPONG});
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -132,11 +134,11 @@ class MainMenuState extends MusicBeatState
 			menuItem.updateHitbox();
 			menuItem.setGraphicSize(Std.int(menuItem.width * 1));
 			switch(i){
-				case 0: menuItem.x = -1500;
-				case 1: menuItem.x = -1500;
-				case 2: menuItem.x = -1500;
-				case 3: menuItem.x = -1500;
-				case 4: menuItem.x = -1500;
+				case 0: menuItem.x = -1000;
+				case 1: menuItem.x = -1000;
+				case 2: menuItem.x = -1000;
+				case 3: menuItem.x = -1000;
+				case 4: menuItem.x = -1000;
 			}	
 
 			switch(i){
@@ -147,11 +149,14 @@ class MainMenuState extends MusicBeatState
 				case 4: menuItem.y = -60;
 			}
 			if (firstStart)
-				FlxTween.tween(menuBox, {y: 0}, 0.75, {ease: FlxEase.circInOut});
+				FlxTween.tween(menuBox, {x: -5}, 0.75, {ease: FlxEase.sineInOut});
 				FlxTween.tween(trussAndStuds, {alpha: 1}, 0.75, {ease: FlxEase.linear});
-				FlxTween.tween(menuText, {y: 35}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.2});
-				FlxTween.tween(menuItem, {x: -285}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.2});
-				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.circInOut, startDelay: 0.2});
+				FlxTween.tween(menuText, {y: 35}, 0.75, {ease: FlxEase.sineInOut, startDelay: 0.2});
+				FlxTween.tween(menuItem, {x: -285}, 1 + (i * 0.1), {ease: FlxEase.sineInOut, startDelay: 0.45, onComplete: function(FlxTween:FlxTween)
+				{
+					finishedFunnyMove = true;
+				}});
+				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.sineInOut, startDelay: 0.6});
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
@@ -242,10 +247,8 @@ class MainMenuState extends MusicBeatState
 									}
 							case 'credits':
 								MusicBeatState.switchState(new CreditsState());
-								#if ACHIEVEMENTS_ALLOWED
 							case 'awards':
 								MusicBeatState.switchState(new AchievementsMenuState());
-							#end
 						}
 					};
 
@@ -315,11 +318,11 @@ class MainMenuState extends MusicBeatState
 			curSelected = menuItems.length - 1;
 
 		switch (curSelected) {
-			case 0: FlxTween.tween(selector, {x: 365, y: 175}, 0.15, {ease: FlxEase.circInOut});
-            case 1: FlxTween.tween(selector, {x: 365, y: 275}, 0.15, {ease: FlxEase.circInOut});
-            case 2: FlxTween.tween(selector, {x: 365, y: 375}, 0.15, {ease: FlxEase.circInOut});
-            case 3: FlxTween.tween(selector, {x: 365, y: 475}, 0.15, {ease: FlxEase.circInOut});
-			case 4: FlxTween.tween(selector, {x: 365, y: 575}, 0.15, {ease: FlxEase.circInOut});
+			case 0: FlxTween.tween(selector, {y: 175}, 0.15, {ease: FlxEase.sineInOut});
+            case 1: FlxTween.tween(selector, {y: 275}, 0.15, {ease: FlxEase.sineInOut});
+            case 2: FlxTween.tween(selector, {y: 375}, 0.15, {ease: FlxEase.sineInOut});
+            case 3: FlxTween.tween(selector, {y: 475}, 0.15, {ease: FlxEase.sineInOut});
+			case 4: FlxTween.tween(selector, {y: 575}, 0.15, {ease: FlxEase.sineInOut});
 		}
 
 		menuItems.members[curSelected].animation.play('selected');
