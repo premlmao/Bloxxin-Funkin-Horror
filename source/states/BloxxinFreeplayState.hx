@@ -176,34 +176,27 @@ class BloxxinFreeplayState extends MusicBeatState
                 {
                     if (i > 6) (i < 6 + 6);
                     {
-                        timesPressed++;
-                        if (timesPressed == 1)
-                        {
-                            switch(i)
-                                {
-                                    case 0: FlxTween.tween(portrait, {x: 125, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
-                                    case 1: FlxTween.tween(portrait, {x: 350, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
-                                    case 2: FlxTween.tween(portrait, {x: 575, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
-                                    case 3: FlxTween.tween(portrait, {x: 125, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
-                                    case 4: FlxTween.tween(portrait, {x: 350, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
-                                    case 5: FlxTween.tween(portrait, {x: 575, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
-                                    case 6: FlxTween.tween(portrait, {x: 125, y: 120}, 0.75, {ease: FlxEase.sineInOut});
-                                    case 7: FlxTween.tween(portrait, {x: 350, y: 120}, 0.75, {ease: FlxEase.sineInOut});
-                                    case 8: FlxTween.tween(portrait, {x: 575, y: 120}, 0.75, {ease: FlxEase.sineInOut});
-                                    case 9: FlxTween.tween(portrait, {x: 125, y: 400}, 0.75, {ease: FlxEase.sineInOut});
-                                    case 10: FlxTween.tween(portrait, {x: 350, y: 400}, 0.75, {ease: FlxEase.sineInOut});
-                                    case 11: FlxTween.tween(portrait, {x: 575, y: 400}, 0.75, {ease: FlxEase.sineInOut});
-                                }
-                        }
+                        switch(i)
+                            {
+                                case 0: FlxTween.tween(portrait, {x: 125, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
+                                case 1: FlxTween.tween(portrait, {x: 350, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
+                                case 2: FlxTween.tween(portrait, {x: 575, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
+                                case 3: FlxTween.tween(portrait, {x: 125, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
+                                case 4: FlxTween.tween(portrait, {x: 350, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
+                                case 5: FlxTween.tween(portrait, {x: 575, y: -1500}, 0.75, {ease: FlxEase.sineInOut});
+                                case 6: FlxTween.tween(portrait, {x: 125, y: 120}, 0.75, {ease: FlxEase.sineInOut});
+                                case 7: FlxTween.tween(portrait, {x: 350, y: 120}, 0.75, {ease: FlxEase.sineInOut});
+                                case 8: FlxTween.tween(portrait, {x: 575, y: 120}, 0.75, {ease: FlxEase.sineInOut});
+                                case 9: FlxTween.tween(portrait, {x: 125, y: 400}, 0.75, {ease: FlxEase.sineInOut});
+                                case 10: FlxTween.tween(portrait, {x: 350, y: 400}, 0.75, {ease: FlxEase.sineInOut});
+                                case 11: FlxTween.tween(portrait, {x: 575, y: 400}, 0.75, {ease: FlxEase.sineInOut});
+                            }
                     }
                 }
                 if (upP)
                     {
                         if (i > 6) (i < 6 + 6);
-                        {
-                            timesPressed++;
-                            if (timesPressed == 1)
-                            {
+                        {         
                                 switch(i)
                                 {
                                     case 0: FlxTween.tween(portrait, {x: 125, y: 120}, 0.75, {ease: FlxEase.sineInOut});
@@ -219,7 +212,6 @@ class BloxxinFreeplayState extends MusicBeatState
                                     case 10: FlxTween.tween(portrait, {x: 350, y: 1500}, 0.75, {ease: FlxEase.sineInOut});
                                     case 11: FlxTween.tween(portrait, {x: 575, y: 1500}, 0.75, {ease: FlxEase.sineInOut});
                                 }
-                            }
                         }
                     }
             }
