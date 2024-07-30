@@ -3,14 +3,18 @@
 	"difficulties": "Normal",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
-	"weekBefore": "",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "",
 	"startUnlocked": true,
-	"hideStoryMode": true,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
 	"songs": [
 		[
 			"Copied",
@@ -148,15 +152,6 @@
 			]
 		],
 		[
-			"Catboy",
-			"noobfurry",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
 			"Succed",
 			"michealp",
 			[
@@ -193,11 +188,7 @@
 			]
 		]
 	],
-	"weekCharacters": [
-		"dad",
-		"bf",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "Freeplay"
+	"hideStoryMode": true,
+	"weekName": "Freeplay",
+	"hiddenUntilUnlocked": false
 }
