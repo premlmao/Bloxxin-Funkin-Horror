@@ -163,11 +163,7 @@ class MainMenuState extends MusicBeatState
 				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.sineInOut, startDelay: 0.6});
 		}
 
-		var psychVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Psych Engine v" + psychEngineVersion, 12);
-		psychVer.scrollFactor.set();
-		psychVer.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(psychVer);
-		var fnfVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Bloxxin Funkin Horror' v2.0" , 12);
+		var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Bloxxin Funkin Horror' v2.0 | Psych Engine v" + psychEngineVersion , 12);
 		fnfVer.scrollFactor.set();
 		fnfVer.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
@@ -289,11 +285,100 @@ class MainMenuState extends MusicBeatState
 					}
 				}
 			}
+			if (FlxG.mouse.wheel != 0) 
+			{
+				changeItem(-FlxG.mouse.wheel);
+			}
+
 			if (controls.UI_UP_P)
 				changeItem(-1);
 
 			if (controls.UI_DOWN_P)
 				changeItem(1);
+
+			if (controls.ACCEPT)
+				{
+					FlxG.sound.play(Paths.sound('confirmMenu'));
+					if (optionShit[curSelected] == 'donate')
+					{
+						CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
+					}
+					else
+					{
+						selectedSomethin = true;
+	
+						if (ClientPrefs.data.flashing)
+							FlxFlicker.flicker(magenta, 1.1, 0.15, false);
+	
+						FlxTween.tween(FlxG.camera, {zoom: 2.5}, 0.5, {ease: FlxEase.circIn});
+						FlxTween.tween(menuBox, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+						FlxTween.tween(menuText, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+						FlxTween.tween(menuItem, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+						FlxTween.tween(selector, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+						FlxTween.tween(robloxBackdrop, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+						{
+							switch (optionShit[curSelected])
+							{
+								case 'story_mode':
+									MusicBeatState.switchState(new StoryMenuState());
+								case 'freeplay':
+									MusicBeatState.switchState(new BloxxinFreeplayState());
+									case 'options':
+										MusicBeatState.switchState(new OptionsState());
+										OptionsState.onPlayState = false;
+										if (PlayState.SONG != null)
+										{
+											PlayState.SONG.arrowSkin = null;
+											PlayState.SONG.splashSkin = null;
+											PlayState.stageUI = 'normal';
+										}
+								case 'credits':
+									MusicBeatState.switchState(new CreditsState());
+								case 'awards':
+									MusicBeatState.switchState(new AchievementsMenuState());
+							}
+						};
+	
+						FlxFlicker.flicker(menuItems.members[curSelected], 1, 0.06, false, false, function(flick:FlxFlicker)
+						{
+							switch (optionShit[curSelected])
+							{
+								case 'story_mode':
+									MusicBeatState.switchState(new StoryMenuState());
+								case 'freeplay':
+									MusicBeatState.switchState(new FreeplayState());
+									case 'options':
+										MusicBeatState.switchState(new OptionsState());
+										OptionsState.onPlayState = false;
+										if (PlayState.SONG != null)
+										{
+											PlayState.SONG.arrowSkin = null;
+											PlayState.SONG.splashSkin = null;
+											PlayState.stageUI = 'normal';
+										}
+								case 'credits':
+									MusicBeatState.switchState(new CreditsState());
+									#if ACHIEVEMENTS_ALLOWED
+								case 'awards':
+									MusicBeatState.switchState(new AchievementsMenuState());
+								#end
+							}
+						});
+	
+						for (i in 0...menuItems.members.length)
+						{
+							if (i == curSelected)
+								continue;
+							FlxTween.tween(menuItems.members[i], {alpha: 0}, 0.4, {
+								ease: FlxEase.quadOut,
+								onComplete: function(twn:FlxTween)
+								{
+									menuItems.members[i].kill();
+								}
+							});
+						}
+					}
+				}
 
 			if (controls.BACK)
 			{

@@ -540,6 +540,7 @@ class PlayState extends MusicBeatState
 		healthBarAround.camera = camHUD;
 		healthBarAround.screenCenter(X);
 		healthBarAround.y = 629;
+		if(ClientPrefs.data.downScroll) healthBarAround.y = healthBar.y - 12;
 		uiGroup.add(healthBarAround);
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
