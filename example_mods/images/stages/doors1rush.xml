@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="doors1rush.png">
+<SubTexture name="rush0000" x="0" y="0" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="rush0001" x="1306" y="0" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="rush0002" x="0" y="794" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="rush0003" x="1306" y="794" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="rush0004" x="0" y="1588" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="rush0005" x="1306" y="1588" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="rush0006" x="2612" y="0" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+<SubTexture name="rush0007" x="2612" y="794" width="1306" height="794" frameX="0" frameY="0" frameWidth="1306" frameHeight="794" />
+</TextureAtlas>

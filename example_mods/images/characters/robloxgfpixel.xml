@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="robloxgfpixel.png">
+<SubTexture name="left0000" x="0" y="0" width="12" height="16" frameX="0" frameY="0" frameWidth="16" frameHeight="16" />
+<SubTexture name="left0001" x="12" y="0" width="11" height="16" frameX="-1" frameY="0" frameWidth="16" frameHeight="16" />
+<SubTexture name="left0002" x="23" y="0" width="11" height="16" frameX="-1" frameY="0" frameWidth="16" frameHeight="16" />
+<SubTexture name="right0000" x="0" y="16" width="11" height="16" frameX="-2" frameY="0" frameWidth="16" frameHeight="16" />
+<SubTexture name="right0001" x="11" y="16" width="11" height="16" frameX="-1" frameY="0" frameWidth="16" frameHeight="16" />
+<SubTexture name="right0002" x="23" y="0" width="11" height="16" frameX="-1" frameY="0" frameWidth="16" frameHeight="16" />
+</TextureAtlas>
