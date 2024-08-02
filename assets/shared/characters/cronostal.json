@@ -1,58 +1,69 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				0,
-				0
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				10,
+				5
+			],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
+			"fps": 24,
+			"name": "left",
+			"indices": []
 		},
 		{
-			"offsets": [
-				0,
-				0
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				10,
+				-10
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
+			"fps": 24,
+			"name": "down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				0,
+				-10,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
+			"fps": 24,
+			"name": "up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				0,
+				-10,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
+			"fps": 24,
+			"name": "right",
+			"indices": []
 		},
 		{
 			"loop": true,
 			"offsets": [
-				0,
-				0
+				-30,
+				208
 			],
-			"anim": "idle",
-			"fps": 24,
-			"name": "idle",
+			"anim": "still",
+			"fps": 15,
+			"name": "still",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-30,
+				208
+			],
+			"anim": "detach",
+			"fps": 15,
+			"name": "detach",
 			"indices": []
 		},
 		{
@@ -60,29 +71,73 @@
 				0,
 				0
 			],
-			"loop": true,
-			"fps": 15,
-			"anim": "still",
 			"indices": [],
-			"name": "still"
+			"fps": 10,
+			"anim": "idle",
+			"loop": true,
+			"name": "idle"
 		},
 		{
 			"offsets": [
-				0,
+				-30,
+				-20
+			],
+			"indices": [],
+			"fps": 15,
+			"anim": "idle-alt",
+			"loop": true,
+			"name": "altidle"
+		},
+		{
+			"offsets": [
+				-20,
 				0
 			],
-			"loop": false,
-			"fps": 15,
-			"anim": "detach",
 			"indices": [],
-			"name": "detach"
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"loop": false,
+			"name": "altdown"
+		},
+		{
+			"offsets": [
+				10,
+				-10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"loop": false,
+			"name": "altleft"
+		},
+		{
+			"offsets": [
+				-5,
+				10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP-alt",
+			"loop": false,
+			"name": "altup"
+		},
+		{
+			"offsets": [
+				10,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"loop": false,
+			"name": "altright"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/cronostal",
 	"position": [
-		40,
-		80
+		50,
+		290
 	],
 	"healthicon": "cronostal",
 	"flip_x": false,
@@ -92,9 +147,10 @@
 		0
 	],
 	"camera_position": [
-		-110,
-		-10
+		-70,
+		-220
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.55
+	"scale": 1.45,
+	"_editor_isPlayer": false
 }

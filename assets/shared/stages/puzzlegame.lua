@@ -3,16 +3,19 @@ function onCreate()
 
 	makeLuaSprite('puzzlegame', 'stages/puzzlegame', -300, -100);
 	setScrollFactor('puzzlegame', 1, 1);
+        setProperty('puzzlegame.antialiasing', false);
 
-	makeLuaSprite('mooncorrupted', 'stages/mooncorrupted', -300, -100);
-	setScrollFactor('mooncorrupted', 0.02, 0.02);
+	makeLuaSprite('moonyellow', 'stages/moonyellow', -300, -300);
+	setScrollFactor('moonyellow', 0.02, 0.02);
+        setProperty('moonyellow.antialiasing', false);
 
-	makeLuaSprite('night', 'stages/night', -300, -100);
-	setScrollFactor('night', 0.05, 0.05);
+	makeLuaSprite('redsky', 'stages/redsky', -300, -100);
+	setScrollFactor('redsky', 0.05, 0.05);
+        setProperty('redsky.antialiasing', false);
 
 
-        addLuaSprite('night', false);
-        addLuaSprite('mooncorrupted', false);
+        addLuaSprite('redsky', false);
+        addLuaSprite('moonyellow', false);
         addLuaSprite('puzzlegame', false);
 	
 	close(true); --For performance reasons, close this script once the stage is fully loaded, as this script won't be used anymore after loading the stage
