@@ -8,6 +8,27 @@ addLuaSprite('black',true)
 setProperty('black.visible', true)
 end
 
+function onSongStart()
+    doTweenAlpha('byeHUD1','timeBar',0,crochet*0.005,'linear')
+    doTweenAlpha('byeHUD2','timeTxt',0,crochet*0.005,'linear')
+    doTweenAlpha('byeHUD7','scoreTxt',0,crochet*0.005,'linear')
+end
+
+function onBeatHit()
+    if curBeat == 16 then
+        doTweenAlpha('hiHUD1','timeBar',1,crochet*0.005,'linear')
+        doTweenAlpha('hiHUD2','timeTxt',1,crochet*0.005,'linear')
+        doTweenAlpha('hiHUD3','healthBar',1,crochet*0.005,'linear')
+        doTweenAlpha('hiHUD4','healthBarAround',1,crochet*0.005,'linear')
+        doTweenAlpha('hiHUD5','iconP1',1,crochet*0.005,'linear')
+        doTweenAlpha('hiHUD7','scoreTxt',1,crochet*0.005,'linear')
+    end
+end
+
+function opponentNoteHit()
+    triggerEvent('Screen Shake', '0.1, 0.0075')
+end
+
 function onStepHit()
 if curStep == 48 then
 setProperty('black.visible', true)
