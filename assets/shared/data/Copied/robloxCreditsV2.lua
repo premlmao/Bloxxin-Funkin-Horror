@@ -91,15 +91,15 @@ end
 
 function onSongStart()
     doTweenY('hi', 'bigblackbar', 0, 1, 'circInOut');
-    doTweenY('hi2', '[', 15, 1, 'circInOut');
-    doTweenY('hi3', 'song', 15, 1, 'circInOut');
-    doTweenY('hi4', '|', 15, 1, 'circInOut');
-    doTweenY('hi5', 'musicText', 15, 1, 'circInOut');
-    doTweenY('hi6', 'musicians', 15, 1, 'circInOut');
-    doTweenY('hi7', 'chartText', 15, 1, 'circInOut');
-    doTweenY('hi8', 'charters', 15, 1, 'circInOut');
-    doTweenY('hi9', 'artText', 15, 1, 'circInOut');
-    doTweenY('hi10', 'artists', 15, 1, 'circInOut');
+    doTweenY('hi2', '[', 0, 1, 'circInOut');
+    doTweenY('hi3', 'song', 0, 1, 'circInOut');
+    doTweenY('hi4', '|', 0, 1, 'circInOut');
+    doTweenY('hi5', 'musicText', 0, 1, 'circInOut');
+    doTweenY('hi6', 'musicians', 0, 1, 'circInOut');
+    doTweenY('hi7', 'chartText', 0, 1, 'circInOut');
+    doTweenY('hi8', 'charters', 0, 1, 'circInOut');
+    doTweenY('hi9', 'artText', 0, 1, 'circInOut');
+    doTweenY('hi10', 'artists', 0, 1, 'circInOut');
 end
 
 function onCreatePost()

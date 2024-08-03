@@ -2,8 +2,8 @@
 	"animations": [
 		{
 			"offsets": [
-				20,
-				0
+				30,
+				5
 			],
 			"loop": false,
 			"fps": 24,
@@ -14,7 +14,7 @@
 		{
 			"offsets": [
 				0,
-				0
+				-10
 			],
 			"loop": false,
 			"fps": 24,
@@ -24,8 +24,8 @@
 		},
 		{
 			"offsets": [
-				20,
-				5
+				-5,
+				0
 			],
 			"loop": false,
 			"fps": 24,
@@ -35,8 +35,8 @@
 		},
 		{
 			"offsets": [
-				-30,
-				5
+				-60,
+				-5
 			],
 			"loop": false,
 			"fps": 24,
@@ -56,22 +56,22 @@
 			"name": "idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"indices": [],
+			"fps": 20,
 			"anim": "stare",
-			"fps": 12,
-			"name": "stare",
-			"indices": []
+			"loop": false,
+			"name": "stare"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/johndoe",
 	"position": [
-		-40,
-		170
+		0,
+		240
 	],
 	"healthicon": "johndoe",
 	"flip_x": false,
@@ -81,9 +81,10 @@
 		60
 	],
 	"camera_position": [
-		-120,
-		-80
+		-60,
+		-60
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.4
+	"scale": 1.4,
+	"_editor_isPlayer": false
 }

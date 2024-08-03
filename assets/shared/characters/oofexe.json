@@ -1,70 +1,70 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 15,
-			"name": "idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				50,
 				10
 			],
-			"loop": false,
-			"fps": 15,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
+			"fps": 15,
+			"name": "left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-20
 			],
-			"loop": false,
-			"fps": 15,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
+			"fps": 15,
+			"name": "down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				30
 			],
-			"loop": false,
-			"fps": 15,
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
+			"fps": 15,
+			"name": "up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-30,
 				10
 			],
-			"loop": false,
-			"fps": 15,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
+			"fps": 15,
+			"name": "right",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				0,
 				30
 			],
-			"loop": true,
-			"fps": 15,
 			"anim": "scream",
-			"indices": [],
-			"name": "scream"
+			"fps": 15,
+			"name": "scream",
+			"indices": []
 		}
 	],
 	"no_antialiasing": true,
@@ -76,8 +76,8 @@
 	"healthicon": "oofexe",
 	"flip_x": false,
 	"healthbar_colors": [
-		255,
-		0,
+		128,
+		11,
 		0
 	],
 	"camera_position": [

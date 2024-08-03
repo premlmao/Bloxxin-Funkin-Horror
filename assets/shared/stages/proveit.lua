@@ -3,27 +3,33 @@ function onCreate()
 
         makeLuaSprite('moon', 'stages/moon', -300, -100);
 	setScrollFactor('moon', 0.02, 0.02);
+        setProperty('moon.antialiasing', false);
 
 	makeLuaSprite('proveitfog', 'stages/proveitfog', -300, -100);
 	setScrollFactor('proveitfog', 0.5, 0.5);
+        setProperty('proveitfog.antialiasing', false);
 
 	makeLuaSprite('proveitbacker', 'stages/proveitbacker', -300, -300);
 	setScrollFactor('proveitbacker', 0.1, 0.1);
+        setProperty('proveitbacker.antialiasing', false);
 
 	makeLuaSprite('proveitback', 'stages/proveitback', -300, -250);
 	setScrollFactor('proveitback', 0.2, 0.2);
+        setProperty('proveitback.antialiasing', false);
 
 	makeLuaSprite('proveitstage', 'stages/proveitstage', -300, -100);
 	setScrollFactor('proveitstage', 1, 1);
+        setProperty('proveitstage.antialiasing', false);
 
         makeLuaSprite('nightlight', 'stages/nightlight', -300, -100);
 	setScrollFactor('nightlight', 0.05, 0.05);
+        setProperty('nightlight.antialiasing', false);
 
 	addLuaSprite('nightlight', false);
 	addLuaSprite('proveitfog', true);
-    addLuaSprite('proveitbacker', false);
-    addLuaSprite('proveitback', false);
-    addLuaSprite('proveitstage', false);
+        addLuaSprite('proveitbacker', false);
+        addLuaSprite('proveitback', false);
+        addLuaSprite('proveitstage', false);
 	addLuaSprite('moon', false);
 	
 

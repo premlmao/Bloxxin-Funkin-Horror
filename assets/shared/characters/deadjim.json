@@ -1,70 +1,70 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 20,
-			"name": "idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				60,
 				70
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 20,
-			"name": "left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				33,
 				70
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 20,
-			"name": "down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				20,
 				70
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 20,
-			"name": "up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-70,
 				0
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 20,
-			"name": "right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				105
 			],
-			"anim": "die",
+			"loop": false,
 			"fps": 17,
-			"name": "die",
-			"indices": []
+			"anim": "die",
+			"indices": [],
+			"name": "die"
 		}
 	],
 	"no_antialiasing": true,
@@ -81,9 +81,10 @@
 		16
 	],
 	"camera_position": [
-		-65,
-		-200
+		-385,
+		20
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.05
+	"scale": 1.05,
+	"_editor_isPlayer": true
 }

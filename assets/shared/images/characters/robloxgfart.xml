@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="robloxgfart.png">
+<SubTexture name="left0000" x="0" y="0" width="582" height="678" frameX="-687" frameY="-16" frameWidth="1340" frameHeight="741" />
+<SubTexture name="left0001" x="582" y="0" width="582" height="678" frameX="-687" frameY="-16" frameWidth="1340" frameHeight="741" />
+<SubTexture name="left0002" x="1164" y="0" width="582" height="678" frameX="-687" frameY="-16" frameWidth="1340" frameHeight="741" />
+<SubTexture name="left0003" x="0" y="678" width="582" height="678" frameX="-687" frameY="-16" frameWidth="1340" frameHeight="741" />
+<SubTexture name="left0004" x="582" y="678" width="582" height="678" frameX="-687" frameY="-16" frameWidth="1340" frameHeight="741" />
+<SubTexture name="right0000" x="1164" y="678" width="582" height="678" frameX="-687" frameY="-16" frameWidth="1340" frameHeight="741" />
+<SubTexture name="right0001" x="1746" y="0" width="582" height="678" frameX="-687" frameY="-16" frameWidth="1340" frameHeight="741" />
+<SubTexture name="right0002" x="1746" y="678" width="582" height="678" frameX="-687" frameY="-16" frameWidth="1340" frameHeight="741" />
+<SubTexture name="right0003" x="0" y="1356" width="582" height="678" frameX="-687" frameY="-16" frameWidth="1340" frameHeight="741" />
+<SubTexture name="right0004" x="582" y="1356" width="582" height="678" frameX="-687" frameY="-16" frameWidth="1340" frameHeight="741" />
+</TextureAtlas>

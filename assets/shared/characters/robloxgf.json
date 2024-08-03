@@ -1,48 +1,48 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 20,
 			"anim": "danceRight",
-			"fps": 20,
-			"name": "danceRight",
-			"indices": []
+			"indices": [],
+			"name": "danceRight"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 20,
 			"anim": "danceLeft",
-			"fps": 20,
-			"name": "danceLeft",
-			"indices": []
+			"indices": [],
+			"name": "danceLeft"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "cheer",
+			"loop": false,
 			"fps": 20,
-			"name": "cheer",
-			"indices": []
+			"anim": "cheer",
+			"indices": [],
+			"name": "cheer"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-2
 			],
-			"anim": "sad",
+			"loop": false,
 			"fps": 20,
-			"name": "sad",
-			"indices": []
+			"anim": "sad",
+			"indices": [],
+			"name": "sad"
 		}
 	],
 	"no_antialiasing": true,
@@ -54,14 +54,15 @@
 	"healthicon": "robloxgf",
 	"flip_x": false,
 	"healthbar_colors": [
-		165,
-		0,
-		77
+		251,
+		59,
+		59
 	],
 	"camera_position": [
 		-240,
 		10
 	],
 	"sing_duration": 5.49999999999999,
-	"scale": 1.2
+	"scale": 1.2,
+	"_editor_isPlayer": false
 }

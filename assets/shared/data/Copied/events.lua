@@ -5,13 +5,7 @@ setObjectCamera('black', 'hud')
 setProperty('black.alpha', 0)
 screenCenter('black')
 addLuaSprite('black',true)
-setProperty('camHUD.alpha', 1)
-end
-
-function onBeatHit()
-    if curBeat == 28 then
-    doTweenAlpha('hiHUD', 'camHUD', 1, 0.5, linear)
-    end
+setProperty('black.visible', false)
 end
 
 function onStepHit()

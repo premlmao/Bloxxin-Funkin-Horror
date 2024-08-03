@@ -8115,11 +8115,11 @@
 			}
 		],
 		"disableNoteRGB": true,
-		"splashSkin": "DeformednoteSplashes",
+		"splashSkin": "RobloxnoteSplashes",
 		"gameOverEnd": "emptyOofEnd",
 		"song": "Deformed",
 		"validScore": true,
-		"arrowSkin": "DEFORMNOTE_assets",
+		"arrowSkin": "ROBLOXNOTE_assets",
 		"speed": 3.3,
 		"gfVersion": "hiddengf",
 		"events": [
@@ -8172,6 +8172,11 @@
 						"Set Cam Zoom",
 						"1.5",
 						""
+					],
+					[
+						"Screen Shake",
+						"155, 0.005",
+						"155, 0.005"
 					]
 				]
 			],

@@ -1,110 +1,121 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
+			"fps": 15,
+			"name": "left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
+			"fps": 15,
+			"name": "down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
+			"fps": 15,
+			"name": "up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
+			"fps": 15,
+			"name": "right",
+			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				60,
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 10,
+			"name": "idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				59,
 				0
 			],
 			"anim": "singLEFT-alt",
-			"fps": 24,
+			"fps": 15,
 			"name": "altleft",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-10,
-				-10
+				-38,
+				9
 			],
 			"anim": "singDOWN-alt",
-			"fps": 24,
+			"fps": 15,
 			"name": "altdown",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				10,
-				20
+				50,
+				-8
 			],
 			"anim": "singUP-alt",
-			"fps": 24,
+			"fps": 15,
 			"name": "altup",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-60,
-				0
+				69,
+				-4
 			],
 			"anim": "singRIGHT-alt",
-			"fps": 24,
+			"fps": 15,
 			"name": "altright",
 			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				0,
+				81,
 				0
 			],
-			"indices": [],
+			"anim": "scream",
 			"fps": 10,
-			"anim": "idle",
-			"loop": false,
-			"name": "idle"
+			"name": "scream",
+			"indices": []
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/michealp",
 	"position": [
-		-30,
-		280
+		300,
+		390
 	],
 	"healthicon": "michealp",
 	"flip_x": false,
@@ -114,9 +125,10 @@
 		25
 	],
 	"camera_position": [
-		-70,
-		-150
+		-560,
+		-290
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.35
+	"scale": 4.25,
+	"_editor_isPlayer": false
 }
