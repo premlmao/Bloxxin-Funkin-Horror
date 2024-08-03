@@ -143,14 +143,9 @@ class BloxxinFreeplayState extends MusicBeatState
 
     override function update(elapsed:Float)
     {
-        var upP = controls.UI_UP_P;
-        var downP = controls.UI_DOWN_P;
         var shiftMult:Int = 1; //too lazy to code this in sorry
         
-
-           
-             //Yo can you please like.. Change this up so that it deosnt use keys anymore, same with amin menu it sucks having to use botha  keyboard and a mouse for the game
-                if (downP && currentTab < Math.ceil((j+1) / 3)  && !transitioningBetweenPages) //Insert number here, replace "10" with the amount of like tab changes u need
+                if (FlxG.mouse.wheel < 0 && currentTab < Math.ceil((j+1) / 3)  && !transitioningBetweenPages) //Insert number here, replace "10" with the amount of like tab changes u need
                 {
                     currentTab += 1;
                     for (i in 0...portraits.length)
@@ -167,7 +162,7 @@ class BloxxinFreeplayState extends MusicBeatState
                         });
 
                 }
-                if (upP && currentTab > 1 && !transitioningBetweenPages)
+                if (FlxG.mouse.wheel > 0 && currentTab > 1 && !transitioningBetweenPages)
                 {
                     currentTab -= 1;
                     for (i in 0...portraits.length)
