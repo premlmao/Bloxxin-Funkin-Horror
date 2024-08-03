@@ -132,6 +132,15 @@ class BloxxinFreeplayState extends MusicBeatState
                 }
 			}
 		}
+        var controls:FlxText = new FlxText(12, FlxG.height - 44, 0, "LEFT CLICK while hovering a song to select it.", 12);
+        controls.scrollFactor.set();
+        controls.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        add(controls);
+        var controls2:FlxText = new FlxText(12, FlxG.height - 24, 0, "Use SCROLL WHEEL to shift through the pages.", 12);
+        controls2.scrollFactor.set();
+        controls2.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        add(controls2);
+        
         super.create();
     }
 
@@ -144,7 +153,7 @@ class BloxxinFreeplayState extends MusicBeatState
     override function update(elapsed:Float)
     {
         var shiftMult:Int = 1; //too lazy to code this in sorry
-        
+
                 if (FlxG.mouse.wheel < 0 && currentTab < Math.ceil((j+1) / 3)  && !transitioningBetweenPages) //Insert number here, replace "10" with the amount of like tab changes u need
                 {
                     currentTab += 1;
@@ -179,8 +188,6 @@ class BloxxinFreeplayState extends MusicBeatState
                         });
                     
                 } //oh brother
-            
-
 
 
         if (!selectedSomethin && !transitioningBetweenPages)
