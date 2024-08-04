@@ -129,10 +129,10 @@ function onCreate()
     end
 
     if curBeat == 456 then
-        noteTweenX('byeNotesX1', 4, 2000, 1.5, cubeInOut);
-        noteTweenX('byeNotesX2', 5, 2000, 1.5, cubeInOut);
-        noteTweenX('byeNotesX3', 6, 2000, 1.5, cubeInOut);
-        noteTweenX('byeNotesX4', 7, 2000, 1.5, cubeInOut);
+        noteTweenX('byeNotesX1', 4, 2000, 1.5, quartOut);
+        noteTweenX('byeNotesX2', 5, 2000, 1.5, quartOut);
+        noteTweenX('byeNotesX3', 6, 2000, 1.5, quartOut);
+        noteTweenX('byeNotesX4', 7, 2000, 1.5, quartOut);
     end
 end
         
