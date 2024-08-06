@@ -78,14 +78,14 @@ function onCreatePost()
     runTimer('moveOut', 3.7, 1)
 end
 function onSongStart()
-    noteTweenY('byeNotes1', 0, -500, 0.1, sineInOut);
-    noteTweenY('byeNotes2', 1, -500, 0.1, sineInOut);
-    noteTweenY('byeNotes3', 2, -500, 0.1, sineInOut);
-    noteTweenY('byeNotes4', 3, -500, 0.1, sineInOut);
-    noteTweenY('byeNotes5', 4, -500, 0.1, sineInOut);
-    noteTweenY('byeNotes6', 5, -500, 0.1, sineInOut);
-    noteTweenY('byeNotes7', 6, -500, 0.1, sineInOut);
-    noteTweenY('byeNotes8', 7, -500, 0.1, sineInOut);
+    noteTweenY('byeNotes1', 0, -500, 0.1, 'sineInOut');
+    noteTweenY('byeNotes2', 1, -500, 0.1, 'sineInOut');
+    noteTweenY('byeNotes3', 2, -500, 0.1, 'sineInOut');
+    noteTweenY('byeNotes4', 3, -500, 0.1, 'sineInOut');
+    noteTweenY('byeNotes5', 4, -500, 0.1, 'sineInOut');
+    noteTweenY('byeNotes6', 5, -500, 0.1, 'sineInOut');
+    noteTweenY('byeNotes7', 6, -500, 0.1, 'sineInOut');
+    noteTweenY('byeNotes8', 7, -500, 0.1, 'sineInOut');
     noteTweenAlpha('alphaNotes1', 0, 0, 1, linear);
     noteTweenAlpha('alphaNotes2', 1, 0, 1, linear);
     noteTweenAlpha('alphaNotes3', 2, 0, 1, linear);
@@ -94,21 +94,21 @@ end
 
 function onBeatHit()
     if curBeat == 20 then
-    noteTweenY('hiNotes1', 0, 150, 2.5, sineInOut);
-    noteTweenY('hiNotes2', 1, 150, 2.5, sineInOut);
-    noteTweenY('hiNotes3', 2, 150, 2.5, sineInOut);
-    noteTweenY('hiNotes4', 3, 150, 2.5, sineInOut);
-    noteTweenY('hiNotes5', 4, 150, 2.5, sineInOut);
-    noteTweenY('hiNotes6', 5, 150, 2.5, sineInOut);
-    noteTweenY('hiNotes7', 6, 150, 2.5, sineInOut);
-    noteTweenY('hiNotes8', 7, 150, 2.5, sineInOut);
+    noteTweenY('hiNotes1', 0, 150, 2.5, 'sineInOut');
+    noteTweenY('hiNotes2', 1, 150, 2.5, 'sineInOut');
+    noteTweenY('hiNotes3', 2, 150, 2.5, 'sineInOut');
+    noteTweenY('hiNotes4', 3, 150, 2.5, 'sineInOut');
+    noteTweenY('hiNotes5', 4, 150, 2.5, 'sineInOut');
+    noteTweenY('hiNotes6', 5, 150, 2.5, 'sineInOut');
+    noteTweenY('hiNotes7', 6, 150, 2.5, 'sineInOut');
+    noteTweenY('hiNotes8', 7, 150, 2.5, 'sineInOut');
     end
 
     if curBeat == 48 then
-    noteTweenY('hiNotes5', 4, 150, 2.5, sineInOut);
-    noteTweenY('hiNotes6', 5, 150, 2.5, sineInOut);
-    noteTweenY('hiNotes7', 6, 150, 2.5, sineInOut);
-    noteTweenY('hiNotes8', 7, 150, 2.5, sineInOut);
+    noteTweenY('hiNotes5', 4, 150, 2.5, 'sineInOut');
+    noteTweenY('hiNotes6', 5, 150, 2.5, 'sineInOut');
+    noteTweenY('hiNotes7', 6, 150, 2.5, 'sineInOut');
+    noteTweenY('hiNotes8', 7, 150, 2.5, 'sineInOut');
     noteTweenAlpha('alphaNotes1', 0, 1, 1, linear);
     noteTweenAlpha('alphaNotes2', 1, 1, 1, linear);
     noteTweenAlpha('alphaNotes3', 2, 1, 1, linear);
@@ -118,14 +118,14 @@ function onBeatHit()
     if curBeat == 60 then
     doTweenY('woohooTop', 'bigblackbartop', -500, 1.75, 'sineInOut')
     doTweenY('woohoobottom', 'bigblackbarbottom', 500, 1.75, 'sineInOut')
-    noteTweenY('hiNotes1', 0, 50, 1.75, sineInOut);
-    noteTweenY('hiNotes2', 1, 50, 1.75, sineInOut);
-    noteTweenY('hiNotes3', 2, 50, 1.75, sineInOut);
-    noteTweenY('hiNotes4', 3, 50, 1.75, sineInOut);
-    noteTweenY('hiNotes5', 4, 50, 1.75, sineInOut);
-    noteTweenY('hiNotes6', 5, 50, 1.75, sineInOut);
-    noteTweenY('hiNotes7', 6, 50, 1.75, sineInOut);
-    noteTweenY('hiNotes8', 7, 50, 1.75, sineInOut);
+    noteTweenY('hiNotes1', 0, 50, 1.75, 'sineInOut');
+    noteTweenY('hiNotes2', 1, 50, 1.75, 'sineInOut');
+    noteTweenY('hiNotes3', 2, 50, 1.75, 'sineInOut');
+    noteTweenY('hiNotes4', 3, 50, 1.75, 'sineInOut');
+    noteTweenY('hiNotes5', 4, 50, 1.75, 'sineInOut');
+    noteTweenY('hiNotes6', 5, 50, 1.75, 'sineInOut');
+    noteTweenY('hiNotes7', 6, 50, 1.75, 'sineInOut');
+    noteTweenY('hiNotes8', 7, 50, 1.75, 'sineInOut');
     setHealth(50/50)
     doTweenY('hiHUD1','healthBar',641,crochet*0.0099,'cubeInOut')
     doTweenY('hiHUD2','healthBarAround',629,crochet*0.0099,'cubeInOut')
@@ -174,74 +174,74 @@ function onStepHit()
     if curStep == 368 then
         doTweenY('woohooTop', 'bigblackbartop', -350, 0.1, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 350, 0.1, 'sineInOut')
-        noteTweenY('hiNotes1', 0, 100, 0.1, backInOut);
-        noteTweenY('hiNotes2', 1, 100, 0.1, backInOut);
-        noteTweenY('hiNotes3', 2, 100, 0.1, backInOut);
-        noteTweenY('hiNotes4', 3, 100, 0.1, backInOut);
-        noteTweenY('hiNotes5', 4, 100, 0.1, backInOut);
-        noteTweenY('hiNotes6', 5, 100, 0.1, backInOut);
-        noteTweenY('hiNotes7', 6, 100, 0.1, backInOut);
-        noteTweenY('hiNotes8', 7, 100, 0.1, backInOut);
+        noteTweenY('hiNotes1', 0, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes2', 1, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes3', 2, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes4', 3, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes5', 4, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes6', 5, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes7', 6, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes8', 7, 100, 0.1, 'backInOut');
     end
 
     if curStep == 372 then
         doTweenY('woohooTop', 'bigblackbartop', -250, 0.1, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 250, 0.1, 'sineInOut')
-        noteTweenY('hiNotes1', 0, 150, 0.1, backInOut);
-        noteTweenY('hiNotes2', 1, 150, 0.1, backInOut);
-        noteTweenY('hiNotes3', 2, 150, 0.1, backInOut);
-        noteTweenY('hiNotes4', 3, 150, 0.1, backInOut);
-        noteTweenY('hiNotes5', 4, 150, 0.1, backInOut);
-        noteTweenY('hiNotes6', 5, 150, 0.1, backInOut);
-        noteTweenY('hiNotes7', 6, 150, 0.1, backInOut);
-        noteTweenY('hiNotes8', 7, 150, 0.1, backInOut);
+        noteTweenY('hiNotes1', 0, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes2', 1, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes3', 2, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes4', 3, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes5', 4, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes6', 5, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes7', 6, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes8', 7, 150, 0.1, 'backInOut');
     end
 
     if curStep == 376 then
         doTweenY('woohooTop', 'bigblackbartop', -200, 0.1, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 200, 0.1, 'sineInOut')
-        noteTweenY('hiNotes1', 0, 175, 0.1, backInOut);
-        noteTweenY('hiNotes2', 1, 175, 0.1, backInOut);
-        noteTweenY('hiNotes3', 2, 175, 0.1, backInOut);
-        noteTweenY('hiNotes4', 3, 175, 0.1, backInOut);
-        noteTweenY('hiNotes5', 4, 175, 0.1, backInOut);
-        noteTweenY('hiNotes6', 5, 175, 0.1, backInOut);
-        noteTweenY('hiNotes7', 6, 175, 0.1, backInOut);
-        noteTweenY('hiNotes8', 7, 175, 0.1, backInOut);
+        noteTweenY('hiNotes1', 0, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes2', 1, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes3', 2, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes4', 3, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes5', 4, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes6', 5, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes7', 6, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes8', 7, 175, 0.1, 'backInOut');
     end
 
     if curStep == 380 then
         doTweenY('woohooTop', 'bigblackbartop', -350, 0.1, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 350, 0.1, 'sineInOut')
-        noteTweenY('hiNotes1', 0, 100, 0.1, backInOut);
-        noteTweenY('hiNotes2', 1, 100, 0.1, backInOut);
-        noteTweenY('hiNotes3', 2, 100, 0.1, backInOut);
-        noteTweenY('hiNotes4', 3, 100, 0.1, backInOut);
-        noteTweenY('hiNotes5', 4, 100, 0.1, backInOut);
-        noteTweenY('hiNotes6', 5, 100, 0.1, backInOut);
-        noteTweenY('hiNotes7', 6, 100, 0.1, backInOut);
-        noteTweenY('hiNotes8', 7, 100, 0.1, backInOut);
+        noteTweenY('hiNotes1', 0, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes2', 1, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes3', 2, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes4', 3, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes5', 4, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes6', 5, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes7', 6, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes8', 7, 100, 0.1, 'backInOut');
     end
 
     if curStep == 384 then
         doTweenY('woohooTop', 'bigblackbartop', -500, 0.1, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 500, 0.1, 'sineInOut')
-        noteTweenX('xMove1', 0, 415, 0.1, backInOut);
-        noteTweenX('xMove2', 1, 525, 0.1, backInOut);
-        noteTweenX('xMove3', 2, 635, 0.1, backInOut);
-        noteTweenX('xMove4', 3, 745, 0.1, backInOut);
-        noteTweenX('xMove5', 4, 415, 0.1, backInOut);
-        noteTweenX('xMove6', 5, 525, 0.1, backInOut);
-        noteTweenX('xMove7', 6, 635, 0.1, backInOut);
-        noteTweenX('xMove8', 7, 745, 0.1, backInOut);
-        noteTweenY('hiNotes1', 0, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes2', 1, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes3', 2, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes4', 3, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes5', 4, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes6', 5, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes7', 6, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes8', 7, 50, 0.1, sineInOut);
+        noteTweenX('xMove1', 0, 415, 0.1, 'backInOut');
+        noteTweenX('xMove2', 1, 525, 0.1, 'backInOut');
+        noteTweenX('xMove3', 2, 635, 0.1, 'backInOut');
+        noteTweenX('xMove4', 3, 745, 0.1, 'backInOut');
+        noteTweenX('xMove5', 4, 415, 0.1, 'backInOut');
+        noteTweenX('xMove6', 5, 525, 0.1, 'backInOut');
+        noteTweenX('xMove7', 6, 635, 0.1, 'backInOut');
+        noteTweenX('xMove8', 7, 745, 0.1, 'backInOut');
+        noteTweenY('hiNotes1', 0, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes2', 1, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes3', 2, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes4', 3, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes5', 4, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes6', 5, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes7', 6, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes8', 7, 50, 0.1, 'sineInOut');
         noteTweenAlpha('alphaNotes1', 0, 0.1, 0.1, linear);
         noteTweenAlpha('alphaNotes2', 1, 0.1, 0.1, linear);
         noteTweenAlpha('alphaNotes3', 2, 0.1, 0.1, linear);
@@ -249,14 +249,14 @@ function onStepHit()
     end
 
     if curStep == 512 then
-        noteTweenX('NoteX0', 0, 100, 1, cubeInOut)
-        noteTweenX('NoteX1', 1, 210, 1, cubeInOut)
-        noteTweenX('NoteX2', 2, 320 ,1, cubeInOut)
-        noteTweenX('NoteX3', 3, 430, 1, cubeInOut)
-        noteTweenX('NoteX4', 4, 750, 1, cubeInOut)
-        noteTweenX('NoteX5', 5, 860, 1, cubeInOut)
-        noteTweenX('NoteX6', 6, 970, 1, cubeInOut)
-        noteTweenX('NoteX7', 7, 1080, 1, cubeInOut)
+        noteTweenX('NoteX0', 0, 100, 1, 'cubeInOut')
+        noteTweenX('NoteX1', 1, 210, 1, 'cubeInOut')
+        noteTweenX('NoteX2', 2, 320 ,1, 'cubeInOut')
+        noteTweenX('NoteX3', 3, 430, 1, 'cubeInOut')
+        noteTweenX('NoteX4', 4, 750, 1, 'cubeInOut')
+        noteTweenX('NoteX5', 5, 860, 1, 'cubeInOut')
+        noteTweenX('NoteX6', 6, 970, 1, 'cubeInOut')
+        noteTweenX('NoteX7', 7, 1080, 1, 'cubeInOut')
         noteTweenAlpha('alphaNotes1', 0, 1, 1, linear);
         noteTweenAlpha('alphaNotes2', 1, 1, 1, linear);
         noteTweenAlpha('alphaNotes3', 2, 1, 1, linear);
@@ -270,49 +270,49 @@ function onStepHit()
         doTweenAlpha('byeHUD7', 'timeTxt', 0, crochet*0.0099, 'linear')
         doTweenY('woohooTop', 'bigblackbartop', -300, 2.5, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 300, 2.5, 'sineInOut')
-        noteTweenY('hiNotes1', 0, 115, 2.5, backInOut);
-        noteTweenY('hiNotes2', 1, 115, 2.5, backInOut);
-        noteTweenY('hiNotes3', 2, 115, 2.5, backInOut);
-        noteTweenY('hiNotes4', 3, 115, 2.5, backInOut);
-        noteTweenY('hiNotes5', 4, 115, 2.5, backInOut);
-        noteTweenY('hiNotes6', 5, 115, 2.5, backInOut);
-        noteTweenY('hiNotes7', 6, 115, 2.5, backInOut);
-        noteTweenY('hiNotes8', 7, 115, 2.5, backInOut);
+        noteTweenY('hiNotes1', 0, 115, 2.5, 'backInOut');
+        noteTweenY('hiNotes2', 1, 115, 2.5, 'backInOut');
+        noteTweenY('hiNotes3', 2, 115, 2.5, 'backInOut');
+        noteTweenY('hiNotes4', 3, 115, 2.5, 'backInOut');
+        noteTweenY('hiNotes5', 4, 115, 2.5, 'backInOut');
+        noteTweenY('hiNotes6', 5, 115, 2.5, 'backInOut');
+        noteTweenY('hiNotes7', 6, 115, 2.5, 'backInOut');
+        noteTweenY('hiNotes8', 7, 115, 2.5, 'backInOut');
     end
 
     if curStep == 767 then
-        noteTweenX('NoteX0', 0, -650, 3, cubeInOut)
-        noteTweenX('NoteX1', 1, -650, 3, cubeInOut)
-        noteTweenX('NoteX2', 2, -650, 3, cubeInOut)
-        noteTweenX('NoteX3', 3, -650, 3, cubeInOut)
-        noteTweenX('NoteX4', 4, 2000, 3, cubeInOut)
-        noteTweenX('NoteX5', 5, 2000, 3, cubeInOut)
-        noteTweenX('NoteX6', 6, 2000, 3, cubeInOut)
-        noteTweenX('NoteX7', 7, 2000, 3, cubeInOut)
+        noteTweenX('NoteX0', 0, -650, 3, 'cubeInOut')
+        noteTweenX('NoteX1', 1, -650, 3, 'cubeInOut')
+        noteTweenX('NoteX2', 2, -650, 3, 'cubeInOut')
+        noteTweenX('NoteX3', 3, -650, 3, 'cubeInOut')
+        noteTweenX('NoteX4', 4, 2000, 3, 'cubeInOut')
+        noteTweenX('NoteX5', 5, 2000, 3, 'cubeInOut')
+        noteTweenX('NoteX6', 6, 2000, 3, 'cubeInOut')
+        noteTweenX('NoteX7', 7, 2000, 3, 'cubeInOut')
         doTweenY('woohooTop', 'bigblackbartop', -250, 2.5, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 250, 2.5, 'sineInOut')
     end
 
     if curStep == 815 then
-        noteTweenY('hiNotes1', 0, 50, 0.1, backInOut);
-        noteTweenY('hiNotes2', 1, 50, 0.1, backInOut);
-        noteTweenY('hiNotes3', 2, 50, 0.1, backInOut);
-        noteTweenY('hiNotes4', 3, 50, 0.1, backInOut);
-        noteTweenY('hiNotes5', 4, 50, 0.1, backInOut);
-        noteTweenY('hiNotes6', 5, 50, 0.1, backInOut);
-        noteTweenY('hiNotes7', 6, 50, 0.1, backInOut);
-        noteTweenY('hiNotes8', 7, 50, 0.1, backInOut);
+        noteTweenY('hiNotes1', 0, 50, 0.1, 'backInOut');
+        noteTweenY('hiNotes2', 1, 50, 0.1, 'backInOut');
+        noteTweenY('hiNotes3', 2, 50, 0.1, 'backInOut');
+        noteTweenY('hiNotes4', 3, 50, 0.1, 'backInOut');
+        noteTweenY('hiNotes5', 4, 50, 0.1, 'backInOut');
+        noteTweenY('hiNotes6', 5, 50, 0.1, 'backInOut');
+        noteTweenY('hiNotes7', 6, 50, 0.1, 'backInOut');
+        noteTweenY('hiNotes8', 7, 50, 0.1, 'backInOut');
     end
 
     if curStep == 863 then
-        noteTweenX('NoteX0', 0, 100, 3, cubeInOut)
-        noteTweenX('NoteX1', 1, 210, 3, cubeInOut)
-        noteTweenX('NoteX2', 2, 320 ,3, cubeInOut)
-        noteTweenX('NoteX3', 3, 430, 3, cubeInOut)
-        noteTweenX('NoteX4', 4, 750, 3, cubeInOut)
-        noteTweenX('NoteX5', 5, 860, 3, cubeInOut)
-        noteTweenX('NoteX6', 6, 970, 3, cubeInOut)
-        noteTweenX('NoteX7', 7, 1080, 3, cubeInOut)
+        noteTweenX('NoteX0', 0, 100, 3, 'cubeInOut')
+        noteTweenX('NoteX1', 1, 210, 3, 'cubeInOut')
+        noteTweenX('NoteX2', 2, 320 ,3, 'cubeInOut')
+        noteTweenX('NoteX3', 3, 430, 3, 'cubeInOut')
+        noteTweenX('NoteX4', 4, 750, 3, 'cubeInOut')
+        noteTweenX('NoteX5', 5, 860, 3, 'cubeInOut')
+        noteTweenX('NoteX6', 6, 970, 3, 'cubeInOut')
+        noteTweenX('NoteX7', 7, 1080, 3, 'cubeInOut')
         doTweenY('woohooTop', 'bigblackbartop', -500, 3, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 500, 3, 'sineInOut')
         setHealth(50/50)
@@ -328,66 +328,66 @@ function onStepHit()
     if curStep == 1007 then
         doTweenY('woohooTop', 'bigblackbartop', -350, 0.1, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 350, 0.1, 'sineInOut')
-        noteTweenY('hiNotes1', 0, 100, 0.1, backInOut);
-        noteTweenY('hiNotes2', 1, 100, 0.1, backInOut);
-        noteTweenY('hiNotes3', 2, 100, 0.1, backInOut);
-        noteTweenY('hiNotes4', 3, 100, 0.1, backInOut);
-        noteTweenY('hiNotes5', 4, 100, 0.1, backInOut);
-        noteTweenY('hiNotes6', 5, 100, 0.1, backInOut);
-        noteTweenY('hiNotes7', 6, 100, 0.1, backInOut);
-        noteTweenY('hiNotes8', 7, 100, 0.1, backInOut);
+        noteTweenY('hiNotes1', 0, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes2', 1, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes3', 2, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes4', 3, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes5', 4, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes6', 5, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes7', 6, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes8', 7, 100, 0.1, 'backInOut');
     end
 
     if curStep == 1012 then
         doTweenY('woohooTop', 'bigblackbartop', -250, 0.1, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 250, 0.1, 'sineInOut')
-        noteTweenY('hiNotes1', 0, 150, 0.1, backInOut);
-        noteTweenY('hiNotes2', 1, 150, 0.1, backInOut);
-        noteTweenY('hiNotes3', 2, 150, 0.1, backInOut);
-        noteTweenY('hiNotes4', 3, 150, 0.1, backInOut);
-        noteTweenY('hiNotes5', 4, 150, 0.1, backInOut);
-        noteTweenY('hiNotes6', 5, 150, 0.1, backInOut);
-        noteTweenY('hiNotes7', 6, 150, 0.1, backInOut);
-        noteTweenY('hiNotes8', 7, 150, 0.1, backInOut);
+        noteTweenY('hiNotes1', 0, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes2', 1, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes3', 2, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes4', 3, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes5', 4, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes6', 5, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes7', 6, 150, 0.1, 'backInOut');
+        noteTweenY('hiNotes8', 7, 150, 0.1, 'backInOut');
     end
 
     if curStep == 1017 then
         doTweenY('woohooTop', 'bigblackbartop', -200, 0.1, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 200, 0.1, 'sineInOut')
-        noteTweenY('hiNotes1', 0, 175, 0.1, backInOut);
-        noteTweenY('hiNotes2', 1, 175, 0.1, backInOut);
-        noteTweenY('hiNotes3', 2, 175, 0.1, backInOut);
-        noteTweenY('hiNotes4', 3, 175, 0.1, backInOut);
-        noteTweenY('hiNotes5', 4, 175, 0.1, backInOut);
-        noteTweenY('hiNotes6', 5, 175, 0.1, backInOut);
-        noteTweenY('hiNotes7', 6, 175, 0.1, backInOut);
-        noteTweenY('hiNotes8', 7, 175, 0.1, backInOut);
+        noteTweenY('hiNotes1', 0, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes2', 1, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes3', 2, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes4', 3, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes5', 4, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes6', 5, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes7', 6, 175, 0.1, 'backInOut');
+        noteTweenY('hiNotes8', 7, 175, 0.1, 'backInOut');
     end
 
     if curStep == 1021 then
         doTweenY('woohooTop', 'bigblackbartop', -350, 0.1, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 350, 0.1, 'sineInOut')
-        noteTweenY('hiNotes1', 0, 100, 0.1, backInOut);
-        noteTweenY('hiNotes2', 1, 100, 0.1, backInOut);
-        noteTweenY('hiNotes3', 2, 100, 0.1, backInOut);
-        noteTweenY('hiNotes4', 3, 100, 0.1, backInOut);
-        noteTweenY('hiNotes5', 4, 100, 0.1, backInOut);
-        noteTweenY('hiNotes6', 5, 100, 0.1, backInOut);
-        noteTweenY('hiNotes7', 6, 100, 0.1, backInOut);
-        noteTweenY('hiNotes8', 7, 100, 0.1, backInOut);
+        noteTweenY('hiNotes1', 0, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes2', 1, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes3', 2, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes4', 3, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes5', 4, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes6', 5, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes7', 6, 100, 0.1, 'backInOut');
+        noteTweenY('hiNotes8', 7, 100, 0.1, 'backInOut');
     end
 
     if curStep == 1023 then
         doTweenY('woohooTop', 'bigblackbartop', -500, 0.1, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 500, 0.1, 'sineInOut')
-        noteTweenY('hiNotes1', 0, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes2', 1, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes3', 2, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes4', 3, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes5', 4, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes6', 5, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes7', 6, 50, 0.1, sineInOut);
-        noteTweenY('hiNotes8', 7, 50, 0.1, sineInOut);
+        noteTweenY('hiNotes1', 0, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes2', 1, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes3', 2, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes4', 3, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes5', 4, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes6', 5, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes7', 6, 50, 0.1, 'sineInOut');
+        noteTweenY('hiNotes8', 7, 50, 0.1, 'sineInOut');
     end
 
     if curStep == 1087 then
@@ -400,35 +400,35 @@ function onStepHit()
         doTweenAlpha('byeHUD7', 'timeTxt', 0, crochet*0.0099, 'linear')
         doTweenY('woohooTop', 'bigblackbartop', -300, 2.5, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 300, 2.5, 'sineInOut')
-        noteTweenY('hiNotes1', 0, 125, 2.5, backInOut);
-        noteTweenY('hiNotes2', 1, 125, 2.5, backInOut);
-        noteTweenY('hiNotes3', 2, 125, 2.5, backInOut);
-        noteTweenY('hiNotes4', 3, 125, 2.5, backInOut);
-        noteTweenY('hiNotes5', 4, 125, 2.5, backInOut);
-        noteTweenY('hiNotes6', 5, 125, 2.5, backInOut);
-        noteTweenY('hiNotes7', 6, 125, 2.5, backInOut);
-        noteTweenY('hiNotes8', 7, 125, 2.5, backInOut);
+        noteTweenY('hiNotes1', 0, 125, 2.5, 'backInOut');
+        noteTweenY('hiNotes2', 1, 125, 2.5, 'backInOut');
+        noteTweenY('hiNotes3', 2, 125, 2.5, 'backInOut');
+        noteTweenY('hiNotes4', 3, 125, 2.5, 'backInOut');
+        noteTweenY('hiNotes5', 4, 125, 2.5, 'backInOut');
+        noteTweenY('hiNotes6', 5, 125, 2.5, 'backInOut');
+        noteTweenY('hiNotes7', 6, 125, 2.5, 'backInOut');
+        noteTweenY('hiNotes8', 7, 125, 2.5, 'backInOut');
     end
 
     if curStep == 1151 then
-        noteTweenX('NoteX0', 0, -650, 3, cubeInOut)
-        noteTweenX('NoteX1', 1, -650, 3, cubeInOut)
-        noteTweenX('NoteX2', 2, -650, 3, cubeInOut)
-        noteTweenX('NoteX3', 3, -650, 3, cubeInOut)
-        noteTweenX('NoteX4', 4, 2000, 3, cubeInOut)
-        noteTweenX('NoteX5', 5, 2000, 3, cubeInOut)
-        noteTweenX('NoteX6', 6, 2000, 3, cubeInOut)
-        noteTweenX('NoteX7', 7, 2000, 3, cubeInOut)
+        noteTweenX('NoteX0', 0, -650, 3, 'cubeInOut')
+        noteTweenX('NoteX1', 1, -650, 3, 'cubeInOut')
+        noteTweenX('NoteX2', 2, -650, 3, 'cubeInOut')
+        noteTweenX('NoteX3', 3, -650, 3, 'cubeInOut')
+        noteTweenX('NoteX4', 4, 2000, 3, 'cubeInOut')
+        noteTweenX('NoteX5', 5, 2000, 3, 'cubeInOut')
+        noteTweenX('NoteX6', 6, 2000, 3, 'cubeInOut')
+        noteTweenX('NoteX7', 7, 2000, 3, 'cubeInOut')
     end
 
     if curStep == 1215 then
-        doTweenY('woohooTop', 'bigblackbartop', -250, 1, 'sineInOut')
-        doTweenY('woohoobottom', 'bigblackbarbottom', 250, 1, 'sineInOut')
+        doTweenY('woohooTop', 'bigblackbartop', -250, 1, 'cubeOut')
+        doTweenY('woohoobottom', 'bigblackbarbottom', 250, 1, 'cubeOut')
     end
 
     if curStep == 1279 then
-        doTweenY('woohooTop', 'bigblackbartop', 0, 5, 'sineInOut')
-        doTweenY('woohoobottom', 'bigblackbarbottom', 0, 5, 'sineInOut')
+        doTweenY('woohooTop', 'bigblackbartop', 0, 5, 'cubeOut')
+        doTweenY('woohoobottom', 'bigblackbarbottom', 0, 5, 'cubeOut')
     end
 end
 
@@ -437,8 +437,8 @@ end
 
 function onTimerCompleted(tag, loops, loopsLeft)
     if tag == 'moveOut' then
-        doTweenY('woohooTop', 'bigblackbartop', -250, 1.75, 'sineInOut')
-        doTweenY('woohoobottom', 'bigblackbarbottom', 250, 1.75, 'sineInOut')
+        doTweenY('woohooTop', 'bigblackbartop', -250, 1.75, 'cubeOut')
+        doTweenY('woohoobottom', 'bigblackbarbottom', 250, 1.75, 'cubeOut')
     end
 end
 

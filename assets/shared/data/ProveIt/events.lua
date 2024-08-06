@@ -16,26 +16,26 @@ function onCreate()
     function onSongStart()
     doTweenAlpha('byeHUD6','timeBar',0,crochet*0.005,'linear')
     doTweenAlpha('byeHUD7', 'timeTxt',0,crochet*0.005,'linear')
-    noteTweenAlpha('byeNotes1', 0, 0, 1, linear);
-    noteTweenAlpha('byeNotes2', 1, 0, 1, linear);
-    noteTweenAlpha('byeNotes3', 2, 0, 1, linear);
-    noteTweenAlpha('byeNotes4', 3, 0, 1, linear);
-    noteTweenAlpha('byeNotes5', 4, 0, 1, linear);
-    noteTweenAlpha('byeNotes6', 5, 0, 1, linear);
-    noteTweenAlpha('byeNotes7', 6, 0, 1, linear);
-    noteTweenAlpha('byeNotes8', 7, 0, 1, linear);
+    noteTweenAlpha('byeNotes1', 0, 0, 1, 'linear');
+    noteTweenAlpha('byeNotes2', 1, 0, 1, 'linear');
+    noteTweenAlpha('byeNotes3', 2, 0, 1, 'linear');
+    noteTweenAlpha('byeNotes4', 3, 0, 1, 'linear');
+    noteTweenAlpha('byeNotes5', 4, 0, 1, 'linear');
+    noteTweenAlpha('byeNotes6', 5, 0, 1, 'linear');
+    noteTweenAlpha('byeNotes7', 6, 0, 1, 'linear');
+    noteTweenAlpha('byeNotes8', 7, 0, 1, 'linear');
     end
     
     function onBeatHit()
     if curBeat == 30 then
-        noteTweenAlpha('hiNotes1', 0, 1, 1, linear);
-        noteTweenAlpha('hiNotes2', 1, 1, 1, linear);
-        noteTweenAlpha('hiNotes3', 2, 1, 1, linear);
-        noteTweenAlpha('hiNotes4', 3, 1, 1, linear);
-        noteTweenAlpha('hiNotes5', 4, 1, 1, linear);
-        noteTweenAlpha('hiNotes6', 5, 1, 1, linear);
-        noteTweenAlpha('hiNotes7', 6, 1, 1, linear);
-        noteTweenAlpha('hiNotes8', 7, 1, 1, linear);
+        noteTweenAlpha('hiNotes1', 0, 1, 1, 'linear');
+        noteTweenAlpha('hiNotes2', 1, 1, 1, 'linear');
+        noteTweenAlpha('hiNotes3', 2, 1, 1, 'linear');
+        noteTweenAlpha('hiNotes4', 3, 1, 1, 'linear');
+        noteTweenAlpha('hiNotes5', 4, 1, 1, 'linear');
+        noteTweenAlpha('hiNotes6', 5, 1, 1, 'linear');
+        noteTweenAlpha('hiNotes7', 6, 1, 1, 'linear');
+        noteTweenAlpha('hiNotes8', 7, 1, 1, 'linear');
         doTweenAlpha('hiHUD6','timeBar',1,crochet*0.005,'linear')
         doTweenAlpha('hiHUD7', 'timeTxt',1,crochet*0.005,'linear')
     end
@@ -57,14 +57,14 @@ function onCreate()
         doTweenY('byeHUD3','iconP1',900,crochet*0.002,'cubeInOut')
         doTweenY('byeHUD4','iconP2',900,crochet*0.002,'cubeInOut')
         doTweenY('byeHUD5','scoreTxt',900,crochet*0.002,'cubeInOut')
-        noteTweenAlpha('byeNotes1', 0, 0, 0.2, linear);
-        noteTweenAlpha('byeNotes2', 1, 0, 0.2, linear);
-        noteTweenAlpha('byeNotes3', 2, 0, 0.2, linear);
-        noteTweenAlpha('byeNotes4', 3, 0, 0.2, linear);
-        noteTweenAlpha('byeNotes5', 4, 0, 0.2, linear);
-        noteTweenAlpha('byeNotes6', 5, 0, 0.2, linear);
-        noteTweenAlpha('byeNotes7', 6, 0, 0.2, linear);
-        noteTweenAlpha('byeNotes8', 7, 0, 0.2, linear);
+        noteTweenAlpha('byeNotes1', 0, 0, 0.2, 'linear');
+        noteTweenAlpha('byeNotes2', 1, 0, 0.2, 'linear');
+        noteTweenAlpha('byeNotes3', 2, 0, 0.2, 'linear');
+        noteTweenAlpha('byeNotes4', 3, 0, 0.2, 'linear');
+        noteTweenAlpha('byeNotes5', 4, 0, 0.2, 'linear');
+        noteTweenAlpha('byeNotes6', 5, 0, 0.2, 'linear');
+        noteTweenAlpha('byeNotes7', 6, 0, 0.2, 'linear');
+        noteTweenAlpha('byeNotes8', 7, 0, 0.2, 'linear');
     end
     
     if curBeat == 240 then
@@ -74,14 +74,14 @@ function onCreate()
         doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD5','scoreTxt',679,crochet*0.005,'cubeInOut')
-        noteTweenAlpha('hiNotes1', 0, 1, 0.2, linear);
-        noteTweenAlpha('hiNotes2', 1, 1, 0.2, linear);
-        noteTweenAlpha('hiNotes3', 2, 1, 0.2, linear);
-        noteTweenAlpha('hiNotes4', 3, 1, 0.2, linear);
-        noteTweenAlpha('hiNotes5', 4, 1, 0.2, linear);
-        noteTweenAlpha('hiNotes6', 5, 1, 0.2, linear);
-        noteTweenAlpha('hiNotes7', 6, 1, 0.2, linear);
-        noteTweenAlpha('hiNotes8', 7, 1, 0.2, linear);
+        noteTweenAlpha('hiNotes1', 0, 1, 0.2, 'linear');
+        noteTweenAlpha('hiNotes2', 1, 1, 0.2, 'linear');
+        noteTweenAlpha('hiNotes3', 2, 1, 0.2, 'linear');
+        noteTweenAlpha('hiNotes4', 3, 1, 0.2, 'linear');
+        noteTweenAlpha('hiNotes5', 4, 1, 0.2, 'linear');
+        noteTweenAlpha('hiNotes6', 5, 1, 0.2, 'linear');
+        noteTweenAlpha('hiNotes7', 6, 1, 0.2, 'linear');
+        noteTweenAlpha('hiNotes8', 7, 1, 0.2, 'linear');
     end
 
     if curBeat == 300 then
@@ -93,7 +93,6 @@ function onCreate()
     end
 
     if curBeat == 302 then
-        setHealth(50/50)
         doTweenX('hudX1', 'healthBar', 600,crochet*0.0025,'cubeInOut')
         doTweenX('hudX2', 'healthBarAround', 600,crochet*0.0025,'cubeInOut')
         doTweenX('hudX3', 'iconP1', 600,crochet*0.0025,'cubeInOut')
@@ -102,10 +101,10 @@ function onCreate()
     end
 
     if curBeat == 304 then
-        noteTweenAlpha('byeNotes5', 0, 0, 0.5, linear);
-        noteTweenAlpha('byeNotes6', 1, 0, 0.5, linear);
-        noteTweenAlpha('byeNotes7', 2, 0, 0.5, linear);
-        noteTweenAlpha('byeNotes8', 3, 0, 0.5, linear);
+        noteTweenAlpha('byeNotes5', 0, 0, 0.5, 'linear');
+        noteTweenAlpha('byeNotes6', 1, 0, 0.5, 'linear');
+        noteTweenAlpha('byeNotes7', 2, 0, 0.5, 'linear');
+        noteTweenAlpha('byeNotes8', 3, 0, 0.5, 'linear');
         doTweenAlpha('byeHUD1','timeBar',0,crochet*0.005,'linear')
         doTweenAlpha('byeHUD2','timeTxt',0,crochet*0.005,'linear')
         doTweenAlpha('byeHUD3','healthBar',0.5,crochet*0.005,'linear')
@@ -118,6 +117,7 @@ function onCreate()
         doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD5','scoreTxt',679,crochet*0.005,'cubeInOut')
+        setHealth(50/50)
     end
 
     if curBeat == 440 then
@@ -129,10 +129,10 @@ function onCreate()
     end
 
     if curBeat == 456 then
-        noteTweenX('byeNotesX1', 4, 2000, 1.5, quartOut);
-        noteTweenX('byeNotesX2', 5, 2000, 1.5, quartOut);
-        noteTweenX('byeNotesX3', 6, 2000, 1.5, quartOut);
-        noteTweenX('byeNotesX4', 7, 2000, 1.5, quartOut);
+        noteTweenX('byeNotesX1', 4, 2000, 1.5, 'linear');
+        noteTweenX('byeNotesX2', 5, 2000, 1.5, 'linear');
+        noteTweenX('byeNotesX3', 6, 2000, 1.5, 'linear');
+        noteTweenX('byeNotesX4', 7, 2000, 1.5, 'linear');
     end
 end
         
