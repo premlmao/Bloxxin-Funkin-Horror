@@ -3,18 +3,22 @@
 	"difficulties": "Normal",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
-	"weekBefore": "",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "",
 	"startUnlocked": true,
-	"hideStoryMode": true,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
 	"songs": [
 		[
 			"Copied",
-			"1x1x1x1",
+			"dad",
 			[
 				146,
 				113,
@@ -23,7 +27,7 @@
 		],
 		[
 			"CorrodedMetal",
-			"rust",
+			"dad",
 			[
 				146,
 				113,
@@ -32,7 +36,7 @@
 		],
 		[
 			"GloryDay",
-			"cronostal",
+			"dad",
 			[
 				146,
 				113,
@@ -41,7 +45,7 @@
 		],
 		[
 			"Wipeout",
-			"spirit",
+			"dad",
 			[
 				146,
 				113,
@@ -50,7 +54,7 @@
 		],
 		[
 			"NeedYouHere",
-			"smile",
+			"dad",
 			[
 				146,
 				113,
@@ -59,7 +63,7 @@
 		],
 		[
 			"Stalked",
-			"jim",
+			"dad",
 			[
 				146,
 				113,
@@ -68,7 +72,7 @@
 		],
 		[
 			"Kenophobia",
-			"a60",
+			"dad",
 			[
 				146,
 				113,
@@ -77,7 +81,7 @@
 		],
 		[
 			"HotelHavoc",
-			"rush",
+			"dad",
 			[
 				146,
 				113,
@@ -86,7 +90,7 @@
 		],
 		[
 			"Abandoned",
-			"gavin",
+			"dad",
 			[
 				146,
 				113,
@@ -95,7 +99,7 @@
 		],
 		[
 			"FloatingPoint",
-			"janedoe",
+			"dad",
 			[
 				146,
 				113,
@@ -104,7 +108,7 @@
 		],
 		[
 			"Landmine",
-			"exploiter",
+			"dad",
 			[
 				146,
 				113,
@@ -113,7 +117,7 @@
 		],
 		[
 			"Blood",
-			"jeff",
+			"dad",
 			[
 				146,
 				113,
@@ -122,7 +126,7 @@
 		],
 		[
 			"Predecessor",
-			"physics",
+			"dad",
 			[
 				146,
 				113,
@@ -131,7 +135,7 @@
 		],
 		[
 			"Deformed",
-			"oofexe",
+			"dad",
 			[
 				146,
 				113,
@@ -140,7 +144,7 @@
 		],
 		[
 			"Fools",
-			"fools",
+			"dad",
 			[
 				146,
 				113,
@@ -149,7 +153,7 @@
 		],
 		[
 			"Succed",
-			"michealp",
+			"dad",
 			[
 				146,
 				113,
@@ -158,7 +162,7 @@
 		],
 		[
 			"RealMurderRap",
-			"smashbitsnoob",
+			"dad",
 			[
 				146,
 				113,
@@ -167,7 +171,7 @@
 		],
 		[
 			"ContentDeleted",
-			"johndoe",
+			"dad",
 			[
 				146,
 				113,
@@ -176,7 +180,7 @@
 		],
 		[
 			"Decay",
-			"rust",
+			"dad",
 			[
 				146,
 				113,
@@ -184,11 +188,7 @@
 			]
 		]
 	],
-	"weekCharacters": [
-		"dad",
-		"bf",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "Freeplay"
+	"hideStoryMode": true,
+	"weekName": "Freeplay",
+	"hiddenUntilUnlocked": false
 }
