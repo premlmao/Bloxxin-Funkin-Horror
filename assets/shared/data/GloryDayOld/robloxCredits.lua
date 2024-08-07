@@ -10,6 +10,7 @@ function onCreate()
 	setScrollFactor('bgThing', 0, 0)
 
 	makeLuaText("song", songName, 0, 20, 210); -- it automatically gets the songs name
+	addLuaText('song');
 	setTextSize('song', 30);
 	setObjectCamera('song', 'hud');
 
