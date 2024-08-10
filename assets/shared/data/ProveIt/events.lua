@@ -46,7 +46,7 @@ function onCreate()
         doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
-        doTweenY('hiHUD5','scoreTxt',679,crochet*0.005,'cubeInOut')
+        doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
         doTweenAlpha('hiHUD6', 'timeBar',1,crochet*0.005,'linear')
         doTweenAlpha('hiHUD7', 'timeTxt',1,crochet*0.005,'linear')
     end
@@ -73,7 +73,7 @@ function onCreate()
         doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
-        doTweenY('hiHUD5','scoreTxt',679,crochet*0.005,'cubeInOut')
+        doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
         noteTweenAlpha('hiNotes1', 0, 1, 0.2, 'linear');
         noteTweenAlpha('hiNotes2', 1, 1, 0.2, 'linear');
         noteTweenAlpha('hiNotes3', 2, 1, 0.2, 'linear');
@@ -116,7 +116,7 @@ function onCreate()
         doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
-        doTweenY('hiHUD5','scoreTxt',679,crochet*0.005,'cubeInOut')
+        doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
         setHealth(50/50)
     end
 

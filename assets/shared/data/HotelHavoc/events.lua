@@ -35,15 +35,15 @@ function onCreate()
             doTweenY('hiHUD2','healthBarAround',629,crochet*0.0075,'cubeInOut')
             doTweenY('hiHUD3','iconP1',554,crochet*0.0075,'cubeInOut')
             doTweenY('hiHUD4','iconP2',554,crochet*0.0075,'cubeInOut')
-            doTweenY('hiHUD5','scoreTxt',679,crochet*0.0075,'cubeInOut')
-            noteTweenX('NoteX4', 4, 100, 0.5, cubeInOut)
-            noteTweenX('NoteX5', 5, 210, 0.5, cubeInOut)
-            noteTweenX('NoteX6', 6, 320, 0.5, cubeInOut)
-            noteTweenX('NoteX7', 7, 430, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle4', 4, -360, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle5', 5, -360, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle6', 6, -360, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle7', 7, -360, 0.5, cubeInOut)
+            doTweenY('hiHUD5','scoreTxt',689,crochet*0.0075,'cubeInOut')
+            noteTweenX('NoteX4', 4, 100, 0.5, 'cubeInOut')
+            noteTweenX('NoteX5', 5, 210, 0.5, 'cubeInOut')
+            noteTweenX('NoteX6', 6, 320, 0.5, 'cubeInOut')
+            noteTweenX('NoteX7', 7, 430, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle4', 4, -360, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle5', 5, -360, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle6', 6, -360, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle7', 7, -360, 0.5, 'cubeInOut')
         end
     
         if curBeat == 216 then
@@ -55,10 +55,10 @@ function onCreate()
         end
     
         if curBeat == 232 then
-            noteTweenX('NoteX4', 4, 750, 0.5, cubeInOut)
-            noteTweenX('NoteX5', 5, 860, 0.5, cubeInOut)
-            noteTweenX('NoteX6', 6, 970, 0.5, cubeInOut)
-            noteTweenX('NoteX7', 7, 1080, 0.5, cubeInOut)
+            noteTweenX('NoteX4', 4, 750, 0.5, 'cubeInOut')
+            noteTweenX('NoteX5', 5, 860, 0.5, 'cubeInOut')
+            noteTweenX('NoteX6', 6, 970, 0.5, 'cubeInOut')
+            noteTweenX('NoteX7', 7, 1080, 0.5, 'cubeInOut')
             doTweenX('hudX1', 'healthBar', 600,crochet*0.0025,'cubeInOut')
             doTweenX('hudX2', 'healthBarAround', 600,crochet*0.0025,'cubeInOut')
             doTweenX('hudX3', 'iconP1', 600,crochet*0.0025,'cubeInOut')
@@ -71,7 +71,7 @@ function onCreate()
             doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
-            doTweenY('hiHUD5','scoreTxt',679,crochet*0.005,'cubeInOut')
+            doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
             setHealth(50/50)
         end
     
@@ -91,22 +91,22 @@ function onCreate()
         end
     
         if curBeat == 343 then
-            noteTweenX('NoteX0', 0, 315, 0.5, cubeInOut)
-            noteTweenX('NoteX1', 1, 425, 0.5, cubeInOut)
-            noteTweenX('NoteX2', 2, 735 ,0.5, cubeInOut)
-            noteTweenX('NoteX3', 3, 845, 0.5, cubeInOut)
-            noteTweenX('NoteX4', 4, 315, 0.5, cubeInOut)
-            noteTweenX('NoteX5', 5, 425, 0.5, cubeInOut)
-            noteTweenX('NoteX6', 6, 735, 0.5, cubeInOut)
-            noteTweenX('NoteX7', 7, 845, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle0', 0, 360, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle1', 1, 360, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle2', 2, 360, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle3', 3, 360, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle4', 4, -360, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle5', 5, -360, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle6', 6, -360, 0.5, cubeInOut)
-            noteTweenAngle('NoteAngle7', 7, -360, 0.5, cubeInOut)
+            noteTweenX('NoteX0', 0, 315, 0.5, 'cubeInOut')
+            noteTweenX('NoteX1', 1, 425, 0.5, 'cubeInOut')
+            noteTweenX('NoteX2', 2, 735 ,0.5, 'cubeInOut')
+            noteTweenX('NoteX3', 3, 845, 0.5, 'cubeInOut')
+            noteTweenX('NoteX4', 4, 315, 0.5, 'cubeInOut')
+            noteTweenX('NoteX5', 5, 425, 0.5, 'cubeInOut')
+            noteTweenX('NoteX6', 6, 735, 0.5, 'cubeInOut')
+            noteTweenX('NoteX7', 7, 845, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle0', 0, 360, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle1', 1, 360, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle2', 2, 360, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle3', 3, 360, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle4', 4, -360, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle5', 5, -360, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle6', 6, -360, 0.5, 'cubeInOut')
+            noteTweenAngle('NoteAngle7', 7, -360, 0.5, 'cubeInOut')
             noteTweenAlpha('NoteAlpha0', 0, 0.1, 0.2, linear)
             noteTweenAlpha('NoteAlpha1', 1, 0.1, 0.2, linear)
             noteTweenAlpha('NoteAlpha2', 2, 0.1, 0.2, linear)
@@ -115,7 +115,7 @@ function onCreate()
             doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
-            doTweenY('hiHUD5','scoreTxt',679,crochet*0.005,'cubeInOut')
+            doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
         end
     
         if curBeat == 407 then
@@ -127,14 +127,14 @@ function onCreate()
         end
     
         if curBeat == 411 then
-            noteTweenX('NoteX0', 0, 100, 0.5, cubeInOut)
-            noteTweenX('NoteX1', 1, 210, 0.5, cubeInOut)
-            noteTweenX('NoteX2', 2, 320 ,0.5, cubeInOut)
-            noteTweenX('NoteX3', 3, 430, 0.5, cubeInOut)
-            noteTweenX('NoteX4', 4, 750, 0.5, cubeInOut)
-            noteTweenX('NoteX5', 5, 860, 0.5, cubeInOut)
-            noteTweenX('NoteX6', 6, 970, 0.5, cubeInOut)
-            noteTweenX('NoteX7', 7, 1080, 0.5, cubeInOut)
+            noteTweenX('NoteX0', 0, 100, 0.5, 'cubeInOut')
+            noteTweenX('NoteX1', 1, 210, 0.5, 'cubeInOut')
+            noteTweenX('NoteX2', 2, 320 ,0.5, 'cubeInOut')
+            noteTweenX('NoteX3', 3, 430, 0.5, 'cubeInOut')
+            noteTweenX('NoteX4', 4, 750, 0.5, 'cubeInOut')
+            noteTweenX('NoteX5', 5, 860, 0.5, 'cubeInOut')
+            noteTweenX('NoteX6', 6, 970, 0.5, 'cubeInOut')
+            noteTweenX('NoteX7', 7, 1080, 0.5, 'cubeInOut')
             doTweenX('hudX1', 'healthBar', 600,crochet*0.0025,'cubeInOut')
             doTweenX('hudX2', 'healthBarAround', 600,crochet*0.0025,'cubeInOut')
             doTweenX('hudX3', 'iconP1', 600,crochet*0.0025,'cubeInOut')
@@ -155,7 +155,7 @@ function onCreate()
             doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
-            doTweenY('hiHUD5','scoreTxt',679,crochet*0.005,'cubeInOut')
+            doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
         end
     
         if curBeat == 543 then
@@ -189,7 +189,7 @@ function onCreate()
             doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
-            doTweenY('hiHUD5','scoreTxt',679,crochet*0.005,'cubeInOut')
+            doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
         end
     
         if curBeat == 759 then
@@ -209,10 +209,10 @@ function onCreate()
         end
     
         if curBeat == 762 then
-            noteTweenX('NoteX4', 4, 100, 0.5, cubeInOut)
-            noteTweenX('NoteX5', 5, 210, 0.5, cubeInOut)
-            noteTweenX('NoteX6', 6, 320, 0.5, cubeInOut)
-            noteTweenX('NoteX7', 7, 430, 0.5, cubeInOut)
+            noteTweenX('NoteX4', 4, 100, 0.5, 'cubeInOut')
+            noteTweenX('NoteX5', 5, 210, 0.5, 'cubeInOut')
+            noteTweenX('NoteX6', 6, 320, 0.5, 'cubeInOut')
+            noteTweenX('NoteX7', 7, 430, 0.5, 'cubeInOut')
         end
     
         if curBeat == 763 then
@@ -221,7 +221,7 @@ function onCreate()
             doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
-            doTweenY('hiHUD5','scoreTxt',679,crochet*0.005,'cubeInOut')
+            doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
         end
 
         if curBeat == 895 then
@@ -233,10 +233,10 @@ function onCreate()
         end
 
         if curBeat == 897 then
-            noteTweenX('NoteX4', 4, 750, 0.5, cubeInOut)
-            noteTweenX('NoteX5', 5, 860, 0.5, cubeInOut)
-            noteTweenX('NoteX6', 6, 970, 0.5, cubeInOut)
-            noteTweenX('NoteX7', 7, 1080, 0.5, cubeInOut)
+            noteTweenX('NoteX4', 4, 750, 0.5, 'cubeInOut')
+            noteTweenX('NoteX5', 5, 860, 0.5, 'cubeInOut')
+            noteTweenX('NoteX6', 6, 970, 0.5, 'cubeInOut')
+            noteTweenX('NoteX7', 7, 1080, 0.5, 'cubeInOut')
             doTweenX('hudX1', 'healthBar', 600,crochet*0.0025,'cubeInOut')
             doTweenX('hudX2', 'healthBarAround', 600,crochet*0.0025,'cubeInOut')
             doTweenX('hudX3', 'iconP1', 600,crochet*0.0025,'cubeInOut')
@@ -254,7 +254,7 @@ function onCreate()
             doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
             doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
-            doTweenY('hiHUD5','scoreTxt',679,crochet*0.005,'cubeInOut')
+            doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
             setHealth(50/50)
         end
 

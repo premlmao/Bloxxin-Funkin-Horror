@@ -30,7 +30,7 @@ function onBeatHit()
         doTweenY('hiHUD2','healthBarAround',629,crochet*0.0025,'cubeInOut')
         doTweenY('hiHUD3','iconP1',554,crochet*0.0025,'cubeInOut')
         doTweenY('hiHUD4','iconP2',554,crochet*0.0025,'cubeInOut')
-        doTweenY('hiHUD5','scoreTxt',679,crochet*0.0025,'cubeInOut')
+        doTweenY('hiHUD5','scoreTxt',689,crochet*0.0025,'cubeInOut')
         doTweenAlpha('hiHUD6', 'timeBar',1,crochet*0.0025,'linear')
         doTweenAlpha('hiHUD7', 'timeTxt',1,crochet*0.0025,'linear')
     end
