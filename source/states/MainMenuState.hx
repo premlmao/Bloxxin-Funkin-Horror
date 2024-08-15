@@ -65,8 +65,6 @@ class MainMenuState extends MusicBeatState
 		bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);
-		if (firstStart)
-			FlxTween.tween(bg, {x: 35}, 1.5, {ease: FlxEase.sineInOut, type: FlxTweenType.PINGPONG});
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
@@ -156,29 +154,18 @@ class MainMenuState extends MusicBeatState
 				FlxTween.tween(menuBox, {x: -5}, 0.75, {ease: FlxEase.sineInOut});
 				FlxTween.tween(trussAndStuds, {alpha: 1}, 0.75, {ease: FlxEase.linear});
 				FlxTween.tween(menuText, {y: 35}, 0.75, {ease: FlxEase.sineInOut, startDelay: 0.2});
-				FlxTween.tween(menuItem, {x: -285}, 1 + (i * 0.1), {ease: FlxEase.sineInOut, startDelay: 0.45, onComplete: function(FlxTween:FlxTween)
+				FlxTween.tween(menuItem, {x: -285}, 1 + (i * 0.3), {ease: FlxEase.backInOut, startDelay: 0.45, onComplete: function(FlxTween:FlxTween)
 				{
 					finishedFunnyMove = true;
 				}});
 				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.sineInOut, startDelay: 0.6});
 		}
 
-		var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Bloxxin Funkin Horror' v2.0 | Psych Engine v" + psychEngineVersion , 12);
+		var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Bloxxin Funkin Horror' v2.0", 12);
 		fnfVer.scrollFactor.set();
 		fnfVer.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
 		changeItem();
-
-		#if ACHIEVEMENTS_ALLOWED
-		// Unlocks "Freaky on a Friday Night" achievement if it's a Friday and between 18:00 PM and 23:59 PM
-		var leDate = Date.now();
-		if (leDate.getDay() == 5 && leDate.getHours() >= 18)
-			Achievements.unlock('friday_night_play');
-
-		#if MODS_ALLOWED
-		Achievements.reloadList();
-		#end
-		#end
 
 		super.create();
 	}
