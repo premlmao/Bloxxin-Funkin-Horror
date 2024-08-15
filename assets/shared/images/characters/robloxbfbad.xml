@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="robloxbfbad.png">
+<SubTexture name="down0000" x="601" y="0" width="126" height="125" frameX="-27" frameY="-50" frameWidth="193" frameHeight="175" />
+<SubTexture name="down0001" x="249" y="453" width="122" height="129" frameX="-28" frameY="-46" frameWidth="193" frameHeight="175" />
+<SubTexture name="idle0000" x="361" y="316" width="105" height="135" frameX="-38" frameY="-40" frameWidth="193" frameHeight="175" />
+<SubTexture name="idle0001" x="434" y="139" width="102" height="137" frameX="-40" frameY="-38" frameWidth="193" frameHeight="175" />
+<SubTexture name="left0000" x="0" y="316" width="116" height="137" frameX="-27" frameY="-38" frameWidth="193" frameHeight="175" />
+<SubTexture name="left0001" x="116" y="316" width="115" height="137" frameX="-29" frameY="-38" frameWidth="193" frameHeight="175" />
+<SubTexture name="right0000" x="132" y="453" width="117" height="133" frameX="-39" frameY="-42" frameWidth="193" frameHeight="175" />
+<SubTexture name="right0001" x="466" y="316" width="116" height="134" frameX="-36" frameY="-41" frameWidth="193" frameHeight="175" />
+<SubTexture name="up0000" x="223" y="0" width="107" height="149" frameX="-37" frameY="-26" frameWidth="193" frameHeight="175" />
+<SubTexture name="up0001" x="0" y="170" width="104" height="146" frameX="-38" frameY="-29" frameWidth="193" frameHeight="175" />
+<SubTexture name="missleft0000" x="0" y="0" width="116" height="170" frameX="-27" frameY="-5" frameWidth="193" frameHeight="175" />
+<SubTexture name="missleft0001" x="231" y="316" width="130" height="137" frameX="-14" frameY="-38" frameWidth="193" frameHeight="175" />
+<SubTexture name="missright0000" x="434" y="0" width="167" height="139" frameX="-26" frameY="-36" frameWidth="193" frameHeight="175" />
+<SubTexture name="missright0001" x="0" y="453" width="132" height="134" frameX="-36" frameY="-41" frameWidth="193" frameHeight="175" />
+<SubTexture name="missup0000" x="116" y="0" width="107" height="155" frameX="-37" frameY="-20" frameWidth="193" frameHeight="175" />
+<SubTexture name="missup0001" x="330" y="0" width="104" height="146" frameX="-38" frameY="-29" frameWidth="193" frameHeight="175" />
+<SubTexture name="missdown0000" x="371" y="453" width="169" height="127" frameX="-12" frameY="-48" frameWidth="193" frameHeight="175" />
+<SubTexture name="missdown0001" x="104" y="170" width="159" height="146" frameX="-14" frameY="-29" frameWidth="193" frameHeight="175" />
+</TextureAtlas>
