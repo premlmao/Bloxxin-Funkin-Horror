@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="robloxgfbad.png">
+<SubTexture name="danceLeft0000" x="188" y="0" width="94" height="131" frameX="-45" frameY="-43" frameWidth="193" frameHeight="175" />
+<SubTexture name="danceLeft0001" x="94" y="0" width="94" height="132" frameX="-45" frameY="-42" frameWidth="193" frameHeight="175" />
+<SubTexture name="danceRight0000" x="0" y="133" width="93" height="131" frameX="-46" frameY="-43" frameWidth="193" frameHeight="175" />
+<SubTexture name="danceRight0001" x="94" y="0" width="94" height="132" frameX="-45" frameY="-42" frameWidth="193" frameHeight="175" />
+<SubTexture name="cheer0000" x="0" y="0" width="94" height="133" frameX="-45" frameY="-41" frameWidth="193" frameHeight="175" />
+<SubTexture name="sad0000" x="93" y="133" width="106" height="114" frameX="-40" frameY="-60" frameWidth="193" frameHeight="175" />
+</TextureAtlas>
