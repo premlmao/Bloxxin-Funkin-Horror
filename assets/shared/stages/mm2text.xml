@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="mm2text.png">
-<SubTexture name="bop0000" x="0" y="83" width="563" height="83" frameX="-26" frameY="-32" frameWidth="614" frameHeight="146" />
-<SubTexture name="bop0001" x="0" y="0" width="563" height="83" frameX="-26" frameY="-38" frameWidth="614" frameHeight="146" />
-<SubTexture name="bop0002" x="0" y="166" width="563" height="83" frameX="-26" frameY="-32" frameWidth="614" frameHeight="146" />
-<SubTexture name="bop0003" x="0" y="249" width="563" height="83" frameX="-26" frameY="-26" frameWidth="614" frameHeight="146" />
-</TextureAtlas>

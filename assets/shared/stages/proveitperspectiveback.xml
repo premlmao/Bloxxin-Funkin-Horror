@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="proveitperspectiveback.png">
-<SubTexture name="shake0000" x="0" y="0" width="1300" height="789" frameX="0" frameY="0" frameWidth="1300" frameHeight="789" />
-<SubTexture name="shake0001" x="1300" y="0" width="1300" height="789" frameX="0" frameY="0" frameWidth="1300" frameHeight="789" />
-<SubTexture name="shake0002" x="0" y="789" width="1300" height="789" frameX="0" frameY="0" frameWidth="1300" frameHeight="789" />
-</TextureAtlas>
