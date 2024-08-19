@@ -57,12 +57,12 @@
 		}
 	],
 	"no_antialiasing": true,
-	"image": "characters/spirit",
+	"image": "characters/spiritblox",
 	"position": [
 		170,
 		420
 	],
-	"healthicon": "spirit",
+	"healthicon": "spiritblox",
 	"flip_x": false,
 	"healthbar_colors": [
 		45,
