@@ -14,17 +14,17 @@ import options.OptionsState;
 
 class PauseSubState extends MusicBeatSubstate
 {
-	var grpMenuShit:FlxTypedGroup<Alphabet>;
+	var grpMenuShit:FlxTypedGroup<FlxText>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Options', 'Exit to menu'];
+	var menuItemsOG:Array<String> = ['Resume Game', 'Reset Character', 'Game Options', 'Leave Game'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
 	var practiceText:FlxText;
 	var skipTimeText:FlxText;
-	var skipTimeTracker:Alphabet;
+	var skipTimeTracker:FlxText;
 	var curTime:Float = Math.max(0, Conductor.songPosition);
 
 	var missingTextBG:FlxSprite;
@@ -134,7 +134,7 @@ class PauseSubState extends MusicBeatSubstate
 		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
 
-		grpMenuShit = new FlxTypedGroup<Alphabet>();
+		grpMenuShit = new FlxTypedGroup<FlxText>();
 		add(grpMenuShit);
 
 		missingTextBG = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
@@ -250,7 +250,7 @@ class PauseSubState extends MusicBeatSubstate
 
 			switch (daSelected)
 			{
-				case "Resume":
+				case "Resume Game":
 					close();
 				case 'Change Difficulty':
 					menuItems = difficultyChoices;
@@ -260,7 +260,7 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;
 					practiceText.visible = PlayState.instance.practiceMode;
-				case "Restart Song":
+				case "Reset Character":
 					restartSong();
 				case "Leave Charting Mode":
 					restartSong();
@@ -291,7 +291,7 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.botplayTxt.visible = PlayState.instance.cpuControlled;
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
-				case 'Options':
+				case 'Game Options':
 					PlayState.instance.paused = true; // For lua
 					PlayState.instance.vocals.volume = 0;
 					MusicBeatState.switchState(new OptionsState());
@@ -302,7 +302,7 @@ class PauseSubState extends MusicBeatSubstate
 						FlxG.sound.music.time = pauseMusic.time;
 					}
 					OptionsState.onPlayState = true;
-				case "Exit to menu":
+				case "Leave Game":
 					#if desktop DiscordClient.resetClientID(); #end
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
@@ -401,9 +401,8 @@ class PauseSubState extends MusicBeatSubstate
 		}
 
 		for (i in 0...menuItems.length) {
-			var item = new Alphabet(90, 320, menuItems[i], true);
-			item.isMenuItem = true;
-			item.targetY = i;
+			var item = new FlxText(90, 320, menuItems[i], true);
+			item.setFormat(Paths.font("vcr.ttf"), 64, FlxColor.WHITE, CENTER);	
 			grpMenuShit.add(item);
 
 			if(menuItems[i] == 'Skip Time')
@@ -412,7 +411,6 @@ class PauseSubState extends MusicBeatSubstate
 				skipTimeText.setFormat(Paths.font("vcr.ttf"), 64, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 				skipTimeText.scrollFactor.set();
 				skipTimeText.borderSize = 2;
-				skipTimeTracker = item;
 				add(skipTimeText);
 
 				updateSkipTextStuff();
