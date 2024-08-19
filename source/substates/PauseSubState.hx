@@ -14,7 +14,7 @@ import options.OptionsState;
 
 class PauseSubState extends MusicBeatSubstate
 {
-	var grpMenuShit:FlxTypedGroup<Alphabet>;
+	var grpMenuShit:FlxTypedGroup<FlxText>;
 
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = ['Resume Game', 'Reset Character', 'Game Options', 'Leave Game'];
@@ -24,11 +24,14 @@ class PauseSubState extends MusicBeatSubstate
 	var pauseMusic:FlxSound;
 	var practiceText:FlxText;
 	var skipTimeText:FlxText;
-	var skipTimeTracker:Alphabet;
+	var skipTimeTracker:FlxText;
 	var curTime:Float = Math.max(0, Conductor.songPosition);
 
 	var missingTextBG:FlxSprite;
 	var missingText:FlxText;
+
+	public var distancePerItem:FlxPoint = new FlxPoint(20, 120);
+	public var startPosition:FlxPoint = new FlxPoint(0, 0); //for the calculations
 
 	public static var songName:String = null;
 
@@ -134,7 +137,7 @@ class PauseSubState extends MusicBeatSubstate
 		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
 
-		grpMenuShit = new FlxTypedGroup<Alphabet>();
+		grpMenuShit = new FlxTypedGroup<FlxText>();
 		add(grpMenuShit);
 
 		missingTextBG = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
@@ -370,13 +373,13 @@ class PauseSubState extends MusicBeatSubstate
 
 		for (item in grpMenuShit.members)
 		{
-			item.targetY = bullShit - curSelected;
+			item.ID = bullShit - curSelected;
 			bullShit++;
 
 			item.alpha = 0.6;
 			// item.setGraphicSize(Std.int(item.width * 0.8));
 
-			if (item.targetY == 0)
+			if (item.ID == 0)
 			{
 				item.alpha = 1;
 				// item.setGraphicSize(Std.int(item.width));
@@ -401,10 +404,27 @@ class PauseSubState extends MusicBeatSubstate
 		}
 
 		for (i in 0...menuItems.length) {
-			var item = new Alphabet(90, 320, menuItems[i], true);
-			item.isMenuItem = true;
-			item.targetY = i;
+			var item = new FlxText(510, (100 * i) + 1000, menuItems[i], true);
+			item.setFormat(Paths.font("Gotham Black Regular.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			item.ID = i;
+			FlxTween.tween(item, {y: (100 * i) + 210}, 0.5, {ease: FlxEase.cubeInOut});
 			grpMenuShit.add(item);
+
+			if(menuItems[i] == 'Resume Game')
+			{
+				item.x = 520;
+			}
+
+			if(menuItems[i] == 'Game Options')
+			{
+				item.x = 520;
+			}
+
+			if(menuItems[i] == 'Leave Game')
+			{
+				item.x = 535;
+			}
+
 
 			if(menuItems[i] == 'Skip Time')
 			{
