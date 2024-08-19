@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="foolsbad.png">
+<SubTexture name="idle0000" x="0" y="0" width="94" height="116" frameX="-49" frameY="-29" frameWidth="193" frameHeight="175" />
+<SubTexture name="idle0001" x="94" y="0" width="98" height="111" frameX="-47" frameY="-31" frameWidth="193" frameHeight="175" />
+<SubTexture name="down0000" x="92" y="208" width="97" height="67" frameX="-49" frameY="-91" frameWidth="193" frameHeight="175" />
+<SubTexture name="down0001" x="0" y="208" width="92" height="70" frameX="-52" frameY="-87" frameWidth="193" frameHeight="175" />
+<SubTexture name="left0000" x="0" y="116" width="108" height="92" frameX="-19" frameY="-39" frameWidth="193" frameHeight="175" />
+<SubTexture name="left0001" x="192" y="0" width="106" height="94" frameX="-22" frameY="-38" frameWidth="193" frameHeight="175" />
+<SubTexture name="right0000" x="189" y="208" width="56" height="52" frameX="-112" frameY="-65" frameWidth="193" frameHeight="175" />
+<SubTexture name="right0001" x="298" y="0" width="58" height="48" frameX="-108" frameY="-68" frameWidth="193" frameHeight="175" />
+<SubTexture name="up0000" x="108" y="116" width="89" height="82" frameX="-53" frameY="-20" frameWidth="193" frameHeight="175" />
+<SubTexture name="up0001" x="197" y="116" width="93" height="79" frameX="-52" frameY="-24" frameWidth="193" frameHeight="175" />
+</TextureAtlas>

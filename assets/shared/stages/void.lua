@@ -7,15 +7,19 @@ function onCreate()
 
     makeLuaSprite('voidpillarfront', 'stages/voidpillarfront', -580, 100);
     setScrollFactor('voidpillarfront', 1.5, 1.5);
+    setProperty('voidsky.antialiasing', false);
 
     makeLuaSprite('voidpillarback', 'stages/voidpillarback', -490, 0);
     setScrollFactor('voidpillarback', 0.8, 0.8);
+    setProperty('voidsky.antialiasing', false);
 
     makeLuaSprite('voidpillarbacker', 'stages/voidpillarbacker', -420, -100);
     setScrollFactor('voidpillarbacker', 0.3, 0.3);
+    setProperty('voidsky.antialiasing', false);
 
     makeLuaSprite('voidstand', 'stages/voidstand', -500, -20);
     setScrollFactor('voidstand', 1, 1);
+    setProperty('voidsky.antialiasing', false);
 
     makeLuaSprite('voidfog', 'stages/voidfog', -300, -150);
     setScrollFactor('voidfog', 0, 0);
