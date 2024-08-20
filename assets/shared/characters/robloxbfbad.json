@@ -1,103 +1,103 @@
 {
 	"animations": [
 		{
+			"offsets": [
+				0,
+				0
+			],
 			"loop": true,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "idle",
 			"fps": 4,
-			"name": "idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				10,
 				0
 			],
+			"loop": false,
+			"fps": 10,
 			"anim": "singLEFT",
-			"fps": 10,
-			"name": "left",
-			"indices": []
+			"indices": [],
+			"name": "left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 10,
 			"anim": "singDOWN",
-			"fps": 10,
-			"name": "down",
-			"indices": []
+			"indices": [],
+			"name": "down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 10,
 			"anim": "singUP",
-			"fps": 10,
-			"name": "up",
-			"indices": []
+			"indices": [],
+			"name": "up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 10,
-			"name": "right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				10,
 				0
 			],
+			"loop": false,
+			"fps": 10,
 			"anim": "singLEFTmiss",
-			"fps": 10,
-			"name": "missleft",
-			"indices": []
+			"indices": [],
+			"name": "missleft"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 10,
 			"anim": "singUPmiss",
-			"fps": 10,
-			"name": "missup",
-			"indices": []
+			"indices": [],
+			"name": "missup"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 10,
 			"anim": "singDOWNmiss",
-			"fps": 10,
-			"name": "missdown",
-			"indices": []
+			"indices": [],
+			"name": "missdown"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "singRIGHTmiss",
+			"loop": false,
 			"fps": 10,
-			"name": "missright",
-			"indices": []
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "missright"
 		}
 	],
 	"no_antialiasing": true,
@@ -106,12 +106,12 @@
 		210,
 		400
 	],
-	"healthicon": "robloxbf",
+	"healthicon": "robloxbfbad",
 	"flip_x": true,
 	"healthbar_colors": [
-		63,
-		130,
-		239
+		255,
+		255,
+		255
 	],
 	"camera_position": [
 		210,
