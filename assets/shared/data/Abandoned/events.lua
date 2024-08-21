@@ -9,8 +9,8 @@ setProperty('black.visible', false)
 end
 
 function onStepHit()
-if curStep == 1420 then
+if curStep == 1728 then
 setProperty('black.visible', true)
-doTweenAlpha('silly','black',1,3)
+doTweenAlpha('silly','black',1,7)
 end
 end
