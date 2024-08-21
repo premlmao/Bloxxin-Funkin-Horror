@@ -161,8 +161,10 @@ class PauseSubState extends MusicBeatSubstate
 		pauseBG = new FlxSprite().loadGraphic(Paths.image('pause'));
 		pauseBG.antialiasing = ClientPrefs.data.antialiasing;
 		pauseBG.y = 1000;
+		pauseBG.x = 435;
 		pauseBG.updateHitbox();
         add(pauseBG);
+		FlxTween.tween(pauseBG, {y: 170}, 0.5, {ease: FlxEase.cubeInOut});
 	}
 
 	var holdTime:Float = 0;
