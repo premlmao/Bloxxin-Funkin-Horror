@@ -27,6 +27,8 @@ class PauseSubState extends MusicBeatSubstate
 	var skipTimeTracker:FlxText;
 	var curTime:Float = Math.max(0, Conductor.songPosition);
 
+	var pauseBG:FlxSprite;
+
 	var missingTextBG:FlxSprite;
 	var missingText:FlxText;
 
@@ -155,6 +157,12 @@ class PauseSubState extends MusicBeatSubstate
 
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
+
+		pauseBG = new FlxSprite().loadGraphic(Paths.image('pause'));
+		pauseBG.antialiasing = ClientPrefs.data.antialiasing;
+		pauseBG.y = 1000;
+		pauseBG.updateHitbox();
+        add(pauseBG);
 	}
 
 	var holdTime:Float = 0;
@@ -423,6 +431,13 @@ class PauseSubState extends MusicBeatSubstate
 			if(menuItems[i] == 'Leave Game')
 			{
 				item.x = 535;
+			}
+
+			if(PlayState.chartingMode)
+			{
+				item.x = 510;
+				FlxTween.tween(item, {y: (50 * i) + 150}, 0.5, {ease: FlxEase.cubeInOut});
+				item.setFormat(Paths.font("Gotham Black Regular.ttf"), 28, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			}
 
 
