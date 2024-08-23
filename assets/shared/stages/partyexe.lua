@@ -10,10 +10,24 @@ function onCreate()
 
 	makeLuaSprite('sky', 'stages/sky', -300, -100);
 	setScrollFactor('sky', 0.2, 0.2);
+        setProperty('sky.antialiasing', false);
 
 	addLuaSprite('sky', false);
 	addLuaSprite('partyexehouse', false);
 	addLuaSprite('partyexehousefront', true);
-	
-	close(true); --For performance reasons, close this script once the stage is fully loaded, as this script won't be used anymore after loading the stage
+end
+
+function onBeatHit()
+    if curBeat == 158 then
+		removeLuaSprite('sky');
+		removeLuaSprite('partyexehouse');
+		removeLuaSprite('partyexehousefront');
+
+        makeLuaSprite('partyexevirus', 'stages/partyexevirus', -470, -100);
+	setScrollFactor('partyexevirus', 1, 1);
+        setProperty('partyexevirus.antialiasing', false);
+
+	addLuaSprite('partyexevirus', false);
+
+end
 end
