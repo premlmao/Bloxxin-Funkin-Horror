@@ -12,6 +12,8 @@ import states.StoryMenuState;
 import states.BloxxinFreeplayState;
 import options.OptionsState;
 
+import lime.utils.Assets;
+
 class PauseSubState extends MusicBeatSubstate
 {
 	var grpMenuShit:FlxTypedGroup<FlxText>;
@@ -21,6 +23,37 @@ class PauseSubState extends MusicBeatSubstate
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
+	var songNames:Array<String> = [
+		'Abandoned',
+        'Blood',
+        'Breach',
+        'BrickBattle',
+        'ContentDeleted',
+        'Copied',
+        'CorrodedMetal',
+        'Deadline',
+        'Decay',
+        'Deformed',
+        'DeformedOld',
+        'FloatingPoint',
+        'Fools',
+        'FoolsOld',
+        'GloryDay',
+        'GloryDayOld',
+        'HotelHavoc',
+        'Kenophobia',
+        'Landmine',
+        'NeedYouHere',
+        'Powering',
+        'Predecessor',
+        'ProveIt',
+        'RabbitHole',
+        'RealMurderRap',
+        'Stalked',
+        'Succed',
+        'Wipeout',
+	];
+
 	var pauseMusic:FlxSound;
 	var practiceText:FlxText;
 	var skipTimeText:FlxText;
@@ -28,6 +61,9 @@ class PauseSubState extends MusicBeatSubstate
 	var curTime:Float = Math.max(0, Conductor.songPosition);
 
 	var pauseBG:FlxSprite;
+
+	var songPortraits:FlxTypedGroup<FlxSprite>;
+	var portrait:FlxSprite;
 
 	var missingTextBG:FlxSprite;
 	var missingText:FlxText;
@@ -142,6 +178,9 @@ class PauseSubState extends MusicBeatSubstate
 		grpMenuShit = new FlxTypedGroup<FlxText>();
 		add(grpMenuShit);
 
+		songPortraits = new FlxTypedGroup<FlxSprite>();
+        add(songPortraits);
+
 		missingTextBG = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
 		missingTextBG.scale.set(FlxG.width, FlxG.height);
 		missingTextBG.updateHitbox();
@@ -157,6 +196,42 @@ class PauseSubState extends MusicBeatSubstate
 
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
+
+		WeekData.reloadWeekFiles(false);
+
+		for (i in 0...WeekData.weeksList.length) {
+			if(weekIsLocked(WeekData.weeksList[i])) continue;
+
+			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
+			var leSongs:Array<String> = [];
+			var leChars:Array<String> = [];
+
+			for (j in 0...leWeek.songs.length)
+				{
+					leSongs.push(leWeek.songs[j][0]);
+					leChars.push(leWeek.songs[j][1]);
+				}
+				
+
+			WeekData.setDirectoryFromWeek(leWeek);
+			for (song in leWeek.songs)
+			{
+				var colors:Array<Int> = song[2];
+				if(colors == null || colors.length < 3)
+				{
+					colors = [146, 113, 253];
+				}
+
+				portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_' + song[0]));
+				portrait.antialiasing = ClientPrefs.data.antialiasing;
+				portrait.scale.set(0.5, 0.5);
+				portrait.x = 185;
+				portrait.y = 1000;
+				portrait.updateHitbox();
+				}
+			};
+			add(portrait);
+			FlxTween.tween(portrait, {y: 170}, 0.5, {ease: FlxEase.cubeInOut});
 
 		pauseBG = new FlxSprite().loadGraphic(Paths.image('pause'));
 		pauseBG.antialiasing = ClientPrefs.data.antialiasing;
@@ -345,6 +420,11 @@ class PauseSubState extends MusicBeatSubstate
 		}
 		skipTimeText = null;
 		skipTimeTracker = null;
+	}
+
+	function weekIsLocked(name:String):Bool {
+		var leWeek:WeekData = WeekData.weeksLoaded.get(name);
+		return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
 	}
 
 	public static function restartSong(noTrans:Bool = false)
