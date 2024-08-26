@@ -62,8 +62,6 @@ class PauseSubState extends MusicBeatSubstate
 	var skipTimeTracker:FlxText;
 	var curTime:Float = Math.max(0, Conductor.songPosition);
 
-	var pauseBG:FlxSprite;
-
 	var songPortraits:FlxTypedGroup<FlxSprite>;
 	var portrait:FlxSprite;
 
@@ -199,25 +197,49 @@ class PauseSubState extends MusicBeatSubstate
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
-		if(PlayState.curStage.toLowerCase() == 'crossroads' && !isPlayer)
+		if(PlayState.curSong == 'ProveIt')
 		{
-			portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_Copied'));
+			portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_Proveit'));
 			portrait.antialiasing = ClientPrefs.data.antialiasing;
-			portrait.scale.set(0.9, 0.9);
+			portrait.scale.set(1.25, 1.25);
 			portrait.updateHitbox();
-			portrait.x = -25;
-			portrait.y = 1000;
+			portrait.x = -700;
+			portrait.y = 50;
 			add(portrait);
-			FlxTween.tween(portrait, {y: 170}, 0.5, {ease: FlxEase.cubeInOut});
+			FlxTween.tween(portrait, {x: -215}, 0.75, {ease: FlxEase.cubeOut});
 		}
 
-		pauseBG = new FlxSprite().loadGraphic(Paths.image('pause'));
+		if(PlayState.curSong == 'Deadline')
+		{
+			portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_Deadline'));
+			portrait.antialiasing = ClientPrefs.data.antialiasing;
+			portrait.scale.set(1.25, 1.25);
+			portrait.updateHitbox();
+			portrait.x = -1000;
+			portrait.y = 50;
+			add(portrait);
+			FlxTween.tween(portrait, {x: -165}, 0.75, {ease: FlxEase.cubeOut});
+		}
+
+		if(PlayState.curSong == 'Powering')
+		{
+			portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_Powering'));
+			portrait.antialiasing = ClientPrefs.data.antialiasing;
+			portrait.scale.set(1.25, 1.25);
+			portrait.updateHitbox();
+			portrait.x = -1000;
+			portrait.y = 50;
+			add(portrait);
+			FlxTween.tween(portrait, {x: -165}, 0.75, {ease: FlxEase.cubeOut});
+		}
+
+		var pauseBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pause'));
 		pauseBG.antialiasing = ClientPrefs.data.antialiasing;
 		pauseBG.y = 1000;
 		pauseBG.x = 435;
 		pauseBG.updateHitbox();
-        add(pauseBG);
-		FlxTween.tween(pauseBG, {y: 170}, 0.5, {ease: FlxEase.cubeInOut});
+		add(pauseBG);
+		FlxTween.tween(pauseBG, {y: 170}, 0.75, {ease: FlxEase.cubeOut});
 	}
 
 	var holdTime:Float = 0;
@@ -475,7 +497,7 @@ class PauseSubState extends MusicBeatSubstate
 			var item = new FlxText(510, (100 * i) + 1000, menuItems[i], true);
 			item.setFormat(Paths.font("Gotham Black Regular.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			item.ID = i;
-			FlxTween.tween(item, {y: (100 * i) + 210}, 0.5, {ease: FlxEase.cubeInOut});
+			FlxTween.tween(item, {y: (100 * i) + 210}, 0.75, {ease: FlxEase.cubeOut});
 			grpMenuShit.add(item);
 
 			if(menuItems[i] == 'Resume Game')
@@ -496,7 +518,7 @@ class PauseSubState extends MusicBeatSubstate
 			if(PlayState.chartingMode)
 			{
 				item.x = 510;
-				FlxTween.tween(item, {y: (50 * i) + 150}, 0.5, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(item, {y: (50 * i) + 150}, 0.75, {ease: FlxEase.cubeOut});
 				item.setFormat(Paths.font("Gotham Black Regular.ttf"), 28, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			}
 
