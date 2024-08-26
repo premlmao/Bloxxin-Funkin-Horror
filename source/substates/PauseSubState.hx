@@ -23,6 +23,8 @@ class PauseSubState extends MusicBeatSubstate
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
+	private var isPlayer:Bool = false;
+
 	var songNames:Array<String> = [
 		'Abandoned',
         'Blood',
@@ -197,41 +199,17 @@ class PauseSubState extends MusicBeatSubstate
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
-		WeekData.reloadWeekFiles(false);
-
-		for (i in 0...WeekData.weeksList.length) {
-			if(weekIsLocked(WeekData.weeksList[i])) continue;
-
-			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
-			var leSongs:Array<String> = [];
-			var leChars:Array<String> = [];
-
-			for (j in 0...leWeek.songs.length)
-				{
-					leSongs.push(leWeek.songs[j][0]);
-					leChars.push(leWeek.songs[j][1]);
-				}
-				
-
-			WeekData.setDirectoryFromWeek(leWeek);
-			for (song in leWeek.songs)
-			{
-				var colors:Array<Int> = song[2];
-				if(colors == null || colors.length < 3)
-				{
-					colors = [146, 113, 253];
-				}
-
-				portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_' + song[0]));
-				portrait.antialiasing = ClientPrefs.data.antialiasing;
-				portrait.scale.set(0.5, 0.5);
-				portrait.x = 185;
-				portrait.y = 1000;
-				portrait.updateHitbox();
-				}
-			};
+		if(PlayState.curStage.toLowerCase() == 'crossroads' && !isPlayer)
+		{
+			portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_Copied'));
+			portrait.antialiasing = ClientPrefs.data.antialiasing;
+			portrait.scale.set(0.9, 0.9);
+			portrait.updateHitbox();
+			portrait.x = -25;
+			portrait.y = 1000;
 			add(portrait);
 			FlxTween.tween(portrait, {y: 170}, 0.5, {ease: FlxEase.cubeInOut});
+		}
 
 		pauseBG = new FlxSprite().loadGraphic(Paths.image('pause'));
 		pauseBG.antialiasing = ClientPrefs.data.antialiasing;
