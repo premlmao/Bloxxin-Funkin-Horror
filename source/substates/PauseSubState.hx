@@ -25,44 +25,12 @@ class PauseSubState extends MusicBeatSubstate
 
 	private var isPlayer:Bool = false;
 
-	var songNames:Array<String> = [
-		'Abandoned',
-        'Blood',
-        'Breach',
-        'BrickBattle',
-        'ContentDeleted',
-        'Copied',
-        'CorrodedMetal',
-        'Deadline',
-        'Decay',
-        'Deformed',
-        'DeformedOld',
-        'FloatingPoint',
-        'Fools',
-        'FoolsOld',
-        'GloryDay',
-        'GloryDayOld',
-        'HotelHavoc',
-        'Kenophobia',
-        'Landmine',
-        'NeedYouHere',
-        'Powering',
-        'Predecessor',
-        'ProveIt',
-        'RabbitHole',
-        'RealMurderRap',
-        'Stalked',
-        'Succed',
-        'Wipeout',
-	];
-
 	var pauseMusic:FlxSound;
 	var practiceText:FlxText;
 	var skipTimeText:FlxText;
 	var skipTimeTracker:FlxText;
 	var curTime:Float = Math.max(0, Conductor.songPosition);
 
-	var songPortraits:FlxTypedGroup<FlxSprite>;
 	var portrait:FlxSprite;
 
 	var missingTextBG:FlxSprite;
@@ -76,7 +44,21 @@ class PauseSubState extends MusicBeatSubstate
 	public function new(x:Float, y:Float)
 	{
 		super();
-		if(Difficulty.list.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
+		if(Difficulty.list.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one! //SMART!
+
+		portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_' + PlayState.curSong));
+		portrait.antialiasing = ClientPrefs.data.antialiasing;
+		portrait.scale.set(1.25, 1.25);
+		portrait.updateHitbox();
+		portrait.x = -700;
+		portrait.y = 50;
+
+		var pauseBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pause'));
+		pauseBG.antialiasing = ClientPrefs.data.antialiasing;
+		pauseBG.y = 1000;
+		pauseBG.x = 435;
+		pauseBG.updateHitbox();
+
 
 		if(PlayState.chartingMode)
 		{
@@ -127,6 +109,10 @@ class PauseSubState extends MusicBeatSubstate
 		bg.scrollFactor.set();
 		add(bg);
 
+		add(portrait);
+		add(pauseBG);
+
+
 		var levelInfo:FlxText = new FlxText(20, 15, 0, PlayState.SONG.song, 32);
 		levelInfo.scrollFactor.set();
 		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
@@ -171,6 +157,8 @@ class PauseSubState extends MusicBeatSubstate
 		blueballedTxt.x = FlxG.width - (blueballedTxt.width + 20);
 
 		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
+		FlxTween.tween(pauseBG, {y: 170}, 0.75, {ease: FlxEase.cubeOut});
+		FlxTween.tween(portrait, {x: -215}, 0.75, {ease: FlxEase.cubeOut});
 		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
@@ -178,8 +166,6 @@ class PauseSubState extends MusicBeatSubstate
 		grpMenuShit = new FlxTypedGroup<FlxText>();
 		add(grpMenuShit);
 
-		songPortraits = new FlxTypedGroup<FlxSprite>();
-        add(songPortraits);
 
 		missingTextBG = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
 		missingTextBG.scale.set(FlxG.width, FlxG.height);
@@ -197,49 +183,6 @@ class PauseSubState extends MusicBeatSubstate
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
-		if(PlayState.curSong == 'ProveIt')
-		{
-			portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_Proveit'));
-			portrait.antialiasing = ClientPrefs.data.antialiasing;
-			portrait.scale.set(1.25, 1.25);
-			portrait.updateHitbox();
-			portrait.x = -700;
-			portrait.y = 50;
-			add(portrait);
-			FlxTween.tween(portrait, {x: -215}, 0.75, {ease: FlxEase.cubeOut});
-		}
-
-		if(PlayState.curSong == 'Deadline')
-		{
-			portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_Deadline'));
-			portrait.antialiasing = ClientPrefs.data.antialiasing;
-			portrait.scale.set(1.25, 1.25);
-			portrait.updateHitbox();
-			portrait.x = -1000;
-			portrait.y = 50;
-			add(portrait);
-			FlxTween.tween(portrait, {x: -165}, 0.75, {ease: FlxEase.cubeOut});
-		}
-
-		if(PlayState.curSong == 'Powering')
-		{
-			portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_Powering'));
-			portrait.antialiasing = ClientPrefs.data.antialiasing;
-			portrait.scale.set(1.25, 1.25);
-			portrait.updateHitbox();
-			portrait.x = -1000;
-			portrait.y = 50;
-			add(portrait);
-			FlxTween.tween(portrait, {x: -165}, 0.75, {ease: FlxEase.cubeOut});
-		}
-
-		var pauseBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pause'));
-		pauseBG.antialiasing = ClientPrefs.data.antialiasing;
-		pauseBG.y = 1000;
-		pauseBG.x = 435;
-		pauseBG.updateHitbox();
-		add(pauseBG);
-		FlxTween.tween(pauseBG, {y: 170}, 0.75, {ease: FlxEase.cubeOut});
 	}
 
 	var holdTime:Float = 0;

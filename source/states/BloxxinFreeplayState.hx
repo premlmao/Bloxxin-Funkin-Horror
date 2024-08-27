@@ -154,7 +154,7 @@ class BloxxinFreeplayState extends MusicBeatState
     {
         var shiftMult:Int = 1; //too lazy to code this in sorry
 
-                if (FlxG.mouse.wheel < 0 && currentTab < Math.ceil((j+1) / 3)  && !transitioningBetweenPages) //Insert number here, replace "10" with the amount of like tab changes u need
+                if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((j+1) / 3)  && !transitioningBetweenPages) //Insert number here, replace "10" with the amount of like tab changes u need
                 {
                     currentTab += 1;
                     for (i in 0...portraits.length)
