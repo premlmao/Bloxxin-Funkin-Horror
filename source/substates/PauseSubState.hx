@@ -48,15 +48,15 @@ class PauseSubState extends MusicBeatSubstate
 
 		portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_' + PlayState.curSong));
 		portrait.antialiasing = ClientPrefs.data.antialiasing;
-		portrait.scale.set(1.25, 1.25);
+		portrait.scale.set(1, 1);
 		portrait.updateHitbox();
 		portrait.x = -700;
-		portrait.y = 50;
+		portrait.y = 100;
 
 		var pauseBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pause'));
 		pauseBG.antialiasing = ClientPrefs.data.antialiasing;
-		pauseBG.y = 1000;
-		pauseBG.x = 435;
+		pauseBG.y = 1200;
+		pauseBG.x = 460;
 		pauseBG.updateHitbox();
 
 
@@ -112,6 +112,13 @@ class PauseSubState extends MusicBeatSubstate
 		add(portrait);
 		add(pauseBG);
 
+		var placeholder:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pauseShit/placeholder'));
+		placeholder.antialiasing = ClientPrefs.data.antialiasing;
+		placeholder.y = 170;
+		placeholder.x = 2000;
+		placeholder.updateHitbox();
+		add(placeholder);
+
 
 		var levelInfo:FlxText = new FlxText(20, 15, 0, PlayState.SONG.song, 32);
 		levelInfo.scrollFactor.set();
@@ -158,7 +165,8 @@ class PauseSubState extends MusicBeatSubstate
 
 		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
 		FlxTween.tween(pauseBG, {y: 170}, 0.75, {ease: FlxEase.cubeOut});
-		FlxTween.tween(portrait, {x: -215}, 0.75, {ease: FlxEase.cubeOut});
+		FlxTween.tween(portrait, {x: -115}, 0.75, {ease: FlxEase.cubeOut});
+		FlxTween.tween(placeholder, {x: 835}, 0.75, {ease: FlxEase.cubeOut});
 		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
@@ -437,25 +445,25 @@ class PauseSubState extends MusicBeatSubstate
 		}
 
 		for (i in 0...menuItems.length) {
-			var item = new FlxText(510, (100 * i) + 1000, menuItems[i], true);
-			item.setFormat(Paths.font("Gotham Black Regular.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			var item = new FlxText(535, (75 * i) + 1200, menuItems[i], true);
+			item.setFormat(Paths.font("Gotham Black Regular.ttf"), 24, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			item.ID = i;
-			FlxTween.tween(item, {y: (100 * i) + 210}, 0.75, {ease: FlxEase.cubeOut});
+			FlxTween.tween(item, {y: (75 * i) + 210}, 0.75, {ease: FlxEase.cubeOut});
 			grpMenuShit.add(item);
 
 			if(menuItems[i] == 'Resume Game')
 			{
-				item.x = 520;
+				item.x = 545;
 			}
 
 			if(menuItems[i] == 'Game Options')
 			{
-				item.x = 520;
+				item.x = 545;
 			}
 
 			if(menuItems[i] == 'Leave Game')
 			{
-				item.x = 535;
+				item.x = 560;
 			}
 
 			if(PlayState.chartingMode)
