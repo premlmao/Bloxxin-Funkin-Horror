@@ -10,6 +10,13 @@ import lime.app.Application;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
 
+import states.PlayState;
+import states.LoadingState;
+
+import backend.WeekData;
+import backend.Highscore;
+import backend.Song;
+
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.7.2h'; // This is also used for Discord RPC
@@ -307,7 +314,14 @@ class MainMenuState extends MusicBeatState
 							switch (optionShit[curSelected])
 							{
 								case 'story_mode':
-									MusicBeatState.switchState(new StoryMenuState());
+									PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
+									PlayState.isStoryMode = true;
+									WeekData.reloadWeekFiles(true);
+									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+									PlayState.campaignScore = 0;
+									PlayState.campaignMisses = 0;
+									LoadingState.loadAndSwitchState(new PlayState(), true);
+									FreeplayState.destroyFreeplayVocals();
 								case 'freeplay':
 									MusicBeatState.switchState(new BloxxinFreeplayState());
 									case 'options':
@@ -331,18 +345,25 @@ class MainMenuState extends MusicBeatState
 							switch (optionShit[curSelected])
 							{
 								case 'story_mode':
-									MusicBeatState.switchState(new StoryMenuState());
+									PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
+									PlayState.isStoryMode = true;
+									WeekData.reloadWeekFiles(true);
+									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+									PlayState.campaignScore = 0;
+									PlayState.campaignMisses = 0;
+									LoadingState.loadAndSwitchState(new PlayState(), true);
+									FreeplayState.destroyFreeplayVocals();
 								case 'freeplay':
 									MusicBeatState.switchState(new FreeplayState());
-									case 'options':
-										MusicBeatState.switchState(new OptionsState());
-										OptionsState.onPlayState = false;
-										if (PlayState.SONG != null)
-										{
-											PlayState.SONG.arrowSkin = null;
-											PlayState.SONG.splashSkin = null;
-											PlayState.stageUI = 'normal';
-										}
+								case 'options':
+									MusicBeatState.switchState(new OptionsState());
+									OptionsState.onPlayState = false;
+									if (PlayState.SONG != null)
+									{
+										PlayState.SONG.arrowSkin = null;
+										PlayState.SONG.splashSkin = null;
+										PlayState.stageUI = 'normal';
+									}
 								case 'credits':
 									MusicBeatState.switchState(new CreditsState());
 									#if ACHIEVEMENTS_ALLOWED

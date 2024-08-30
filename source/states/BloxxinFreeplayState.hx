@@ -28,6 +28,7 @@ class BloxxinFreeplayState extends MusicBeatState
 
     private static var SelectedObject:FlxSprite;
     public static var curSelected:Int = 0;
+    var lerpSelected:Float = 0;
     public static var firstStart:Bool = true;
     var curDifficulty:Int = 0;
 
@@ -40,6 +41,12 @@ class BloxxinFreeplayState extends MusicBeatState
     var selectedPortrait:FlxSprite;
     var portraits:FlxTypedGroup<FlxSprite>;
     var portrait:FlxSprite;
+
+    var scoreText:FlxText;
+    var lerpScore:Int = 0;
+    var lerpRating:Float = 0;
+	var intendedScore:Int = 0;
+	var intendedRating:Float = 0;
     override function create()
     {
         transIn = FlxTransitionableState.defaultTransIn;
@@ -76,6 +83,12 @@ class BloxxinFreeplayState extends MusicBeatState
 
         portraits = new FlxTypedGroup<FlxSprite>();
         add(portraits);
+
+        scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
+		scoreText.setFormat(Paths.font("Gotham Black Regular.ttf"), 32, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        scoreText.borderSize = 1.25;
+        scoreText.y = 625;
+        add(scoreText);
 
         WeekData.reloadWeekFiles(false);
 
@@ -140,6 +153,8 @@ class BloxxinFreeplayState extends MusicBeatState
         controls2.scrollFactor.set();
         controls2.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         add(controls2);
+
+        lerpSelected = curSelected;
         
         super.create();
     }
@@ -148,11 +163,31 @@ class BloxxinFreeplayState extends MusicBeatState
     var accepted:Bool = true;
     var timesPressed:Int = 0;
     var currentTab:Int = 1;
-    var transitioningBetweenPages:Bool = false; 
+    var transitioningBetweenPages:Bool = false;
 
     override function update(elapsed:Float)
     {
         var shiftMult:Int = 1; //too lazy to code this in sorry
+
+        lerpScore = Math.floor(FlxMath.lerp(intendedScore, lerpScore, Math.exp(-elapsed * 24)));
+		lerpRating = FlxMath.lerp(intendedRating, lerpRating, Math.exp(-elapsed * 12));
+
+		if (Math.abs(lerpScore - intendedScore) <= 10)
+			lerpScore = intendedScore;
+		if (Math.abs(lerpRating - intendedRating) <= 0.01)
+			lerpRating = intendedRating;
+
+        var ratingSplit:Array<String> = Std.string(CoolUtil.floorDecimal(lerpRating * 100, 2)).split('.');
+		if(ratingSplit.length < 2) { //No decimals, add an empty space
+			ratingSplit.push('');
+		}
+		
+		while(ratingSplit[1].length < 2) { //Less than 2 decimals in it, add decimals then
+			ratingSplit[1] += '0';
+		}
+
+        scoreText.text = 'SCORE: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+        positionHighscore();
 
                 if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((j+1) / 3)  && !transitioningBetweenPages) //Insert number here, replace "10" with the amount of like tab changes u need
                 {
@@ -203,6 +238,9 @@ class BloxxinFreeplayState extends MusicBeatState
                             SelectedObject = port;
                             FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
                             FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+
+                            intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
+		                    intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
                         }
                         if (FlxG.mouse.justPressed) 
                         {
@@ -247,6 +285,10 @@ class BloxxinFreeplayState extends MusicBeatState
          var leWeek:WeekData = WeekData.weeksLoaded.get(name);
          return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
      }
+
+     private function positionHighscore() {
+		scoreText.x = FlxG.width - scoreText.width - 6;
+	}
 }
 
 class CustomSongMetadata

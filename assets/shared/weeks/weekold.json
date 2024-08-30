@@ -3,18 +3,14 @@
 	"difficulties": "Normal",
 	"hideFreeplay": false,
 	"weekBackground": "",
+	"weekBefore": "freeplay",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "freeplay",
 	"startUnlocked": false,
-	"weekCharacters": [
-		"",
-		"",
-		""
-	],
+	"hideStoryMode": true,
 	"songs": [
 		[
 			"FoolsOld",
@@ -53,7 +49,11 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
-	"weekName": "",
-	"hiddenUntilUnlocked": false
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": ""
 }
