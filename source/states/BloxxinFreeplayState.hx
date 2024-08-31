@@ -69,7 +69,7 @@ class BloxxinFreeplayState extends MusicBeatState
         freeplayBox.antialiasing = ClientPrefs.data.antialiasing;
         freeplayBox.setGraphicSize(Std.int(freeplayBox.width * 0.75));
         freeplayBox.updateHitbox();
-        freeplayBox.x = 950;
+        freeplayBox.x = 875;
         add(freeplayBox);
 
         selectedPortrait = new FlxSprite().loadGraphic(Paths.image('freeplay/selectedOverlay'));
@@ -85,8 +85,7 @@ class BloxxinFreeplayState extends MusicBeatState
         add(portraits);
 
         scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
-		scoreText.setFormat(Paths.font("Gotham Black Regular.ttf"), 32, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        scoreText.borderSize = 1.25;
+		scoreText.setFormat(Paths.font("Comic Sans MS.ttf"), 32, FlxColor.WHITE, RIGHT);
         scoreText.y = 625;
         add(scoreText);
 
@@ -146,10 +145,12 @@ class BloxxinFreeplayState extends MusicBeatState
 			}
 		}
         var controls:FlxText = new FlxText(12, FlxG.height - 44, 0, "LEFT CLICK while hovering a song to select it.", 12);
+        controls.x = 895;
         controls.scrollFactor.set();
         controls.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         add(controls);
         var controls2:FlxText = new FlxText(12, FlxG.height - 24, 0, "Use SCROLL WHEEL to shift through the pages.", 12);
+        controls2.x = 885;
         controls2.scrollFactor.set();
         controls2.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         add(controls2);
@@ -177,16 +178,7 @@ class BloxxinFreeplayState extends MusicBeatState
 		if (Math.abs(lerpRating - intendedRating) <= 0.01)
 			lerpRating = intendedRating;
 
-        var ratingSplit:Array<String> = Std.string(CoolUtil.floorDecimal(lerpRating * 100, 2)).split('.');
-		if(ratingSplit.length < 2) { //No decimals, add an empty space
-			ratingSplit.push('');
-		}
-		
-		while(ratingSplit[1].length < 2) { //Less than 2 decimals in it, add decimals then
-			ratingSplit[1] += '0';
-		}
-
-        scoreText.text = 'SCORE: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+        scoreText.text = 'SCORE: ' + lerpScore;
         positionHighscore();
 
                 if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((j+1) / 3)  && !transitioningBetweenPages) //Insert number here, replace "10" with the amount of like tab changes u need

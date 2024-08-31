@@ -160,7 +160,7 @@ class MainMenuState extends MusicBeatState
 			if (firstStart)
 				FlxTween.tween(menuBox, {x: -5}, 0.75, {ease: FlxEase.sineInOut});
 				FlxTween.tween(trussAndStuds, {alpha: 1}, 0.75, {ease: FlxEase.linear});
-				FlxTween.tween(menuText, {y: 35}, 0.75, {ease: FlxEase.sineInOut, startDelay: 0.2});
+				FlxTween.tween(menuText, {y: 35}, 1.2, {ease: FlxEase.backInOut, startDelay: 0.2});
 				FlxTween.tween(menuItem, {x: -285}, 1 + (i * 0.3), {ease: FlxEase.backInOut, startDelay: 0.45, onComplete: function(FlxTween:FlxTween)
 				{
 					finishedFunnyMove = true;
@@ -205,6 +205,9 @@ class MainMenuState extends MusicBeatState
 						{
 							selectedSomethin = true;
 
+							if (FlxG.mouse.visible == true)
+								FlxG.mouse.visible = false;
+
 							if (ClientPrefs.data.flashing)
 								FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
@@ -218,7 +221,14 @@ class MainMenuState extends MusicBeatState
 								switch (optionShit[curSelected])
 								{
 									case 'story_mode':
-										MusicBeatState.switchState(new StoryMenuState());
+										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
+										PlayState.isStoryMode = true;
+										WeekData.reloadWeekFiles(true);
+										PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+										PlayState.campaignScore = 0;
+										PlayState.campaignMisses = 0;
+										LoadingState.loadAndSwitchState(new PlayState(), true);
+										FreeplayState.destroyFreeplayVocals();
 									case 'freeplay':
 										MusicBeatState.switchState(new BloxxinFreeplayState());
 										case 'options':
@@ -242,7 +252,14 @@ class MainMenuState extends MusicBeatState
 								switch (optionShit[curSelected])
 								{
 									case 'story_mode':
-										MusicBeatState.switchState(new StoryMenuState());
+										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
+										PlayState.isStoryMode = true;
+										WeekData.reloadWeekFiles(true);
+										PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+										PlayState.campaignScore = 0;
+										PlayState.campaignMisses = 0;
+										LoadingState.loadAndSwitchState(new PlayState(), true);
+										FreeplayState.destroyFreeplayVocals();
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
 										case 'options':
@@ -300,6 +317,9 @@ class MainMenuState extends MusicBeatState
 					else
 					{
 						selectedSomethin = true;
+						
+						if (FlxG.mouse.visible == true)
+							FlxG.mouse.visible = false;
 	
 						if (ClientPrefs.data.flashing)
 							FlxFlicker.flicker(magenta, 1.1, 0.15, false);
