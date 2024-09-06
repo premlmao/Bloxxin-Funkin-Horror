@@ -6,6 +6,7 @@ function onCreate()
     setProperty('iconP2.y', 900)
     setProperty('scoreTxt.y', 900)
     setProperty('timeBar.alpha', 0)
+    setProperty('songIcon.alpha', 0)
     setProperty('timeTxt.alpha', 0)
 end
 function onStepHit()
@@ -47,7 +48,8 @@ function onBeatHit()
         doTweenY('hiHUD4','iconP2',554,crochet*0.0075,'cubeInOut')
         doTweenY('hiHUD5','scoreTxt',689,crochet*0.0075,'cubeInOut')
         doTweenAlpha('hiHUD6', 'timeBar',1,crochet*0.0075,'linear')
-        doTweenAlpha('hiHUD7', 'timeTxt',1,crochet*0.0075,'linear')
+        doTweenAlpha('hiHUD7', 'songIcon',1,crochet*0.0075,'linear')
+        doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.0075,'linear')
     end
     if curBeat == 92 then
         doTweenY('byeHUD1','healthBar',900,crochet*0.0025,'cubeInOut')
@@ -137,7 +139,8 @@ function onBeatHit()
 
     if curBeat == 448 then
         doTweenAlpha('byeHUD6', 'timeBar',0,crochet*0.0075,'linear')
-        doTweenAlpha('byeHUD7', 'timeTxt',0,crochet*0.0075,'linear')
+        doTweenAlpha('byeHUD7', 'songIcon',0,crochet*0.0075,'linear')
+        doTweenAlpha('byeHUD8', 'timeTxt',0,crochet*0.0075,'linear')
         noteTweenAlpha('alphaNotes4', 4, 0, 1, 'linear')
         noteTweenAlpha('alphaNotes5', 5, 0, 1, 'linear')
         noteTweenAlpha('alphaNotes6', 6, 0, 1, 'linear')

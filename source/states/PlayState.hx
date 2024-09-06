@@ -180,6 +180,7 @@ class PlayState extends MusicBeatState
 	public var healthBar:Bar;
 	public var healthBarAround:FlxSprite;
 	public var timeBar:Bar;
+	public var songIcon:FlxSprite;
 	var songPercent:Float = 0;
 
 	public var ratingsData:Array<Rating> = Rating.loadDefault();
@@ -484,8 +485,22 @@ class PlayState extends MusicBeatState
 		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
 		timeBar.scrollFactor.set();
 		timeBar.screenCenter(X);
+		timeTxt.x = -50;
+		timeTxt.y = 650;
 		timeBar.alpha = 0;
-		timeBar.visible = showTime;
+		timeBar.visible = false;
+
+		var songData = SONG;
+		curSong = songData.song;
+
+		songIcon = new FlxSprite().loadGraphic(Paths.image('iconsWow/icon_' + PlayState.curSong));
+		songIcon.antialiasing = ClientPrefs.data.antialiasing;
+		songIcon.scale.set(0.55, 0.55);
+		songIcon.updateHitbox();
+		songIcon.x = 78;
+		songIcon.y = 580;
+		songIcon.alpha = 0;
+		uiGroup.add(songIcon);
 		uiGroup.add(timeBar);
 		uiGroup.add(timeTxt);
 
@@ -1242,6 +1257,7 @@ class PlayState extends MusicBeatState
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+		FlxTween.tween(songIcon, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
 		#if desktop
@@ -2325,6 +2341,7 @@ class PlayState extends MusicBeatState
 		}
 
 		timeBar.visible = false;
+		songIcon.visible = false;
 		timeTxt.visible = false;
 		canPause = false;
 		endingSong = true;
