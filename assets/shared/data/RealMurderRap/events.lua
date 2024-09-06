@@ -5,15 +5,10 @@ setObjectCamera('black', 'hud')
 setProperty('black.alpha', 1)
 screenCenter('black')
 addLuaSprite('black',true)
-setProperty('black.visible', true)
+setProperty('black.visible', false)
 end
 
 function onStepHit()
-if curStep == 16 then
-setProperty('black.visible', true)
-doTweenAlpha('silly','black',0,3)
-end
-
 if curStep == 1280 then
 setProperty('black.visible', true)
 doTweenAlpha('silly','black',1,5)

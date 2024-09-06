@@ -15,7 +15,8 @@ function onCreate()
     
     function onSongStart()
     doTweenAlpha('byeHUD6','timeBar',0,crochet*0.005,'linear')
-    doTweenAlpha('byeHUD7', 'timeTxt',0,crochet*0.005,'linear')
+    doTweenAlpha('byeHUD7','songIcon',0,crochet*0.005,'linear')
+    doTweenAlpha('byeHUD8', 'timeTxt',0,crochet*0.005,'linear')
     noteTweenAlpha('byeNotes1', 0, 0, 1, 'linear');
     noteTweenAlpha('byeNotes2', 1, 0, 1, 'linear');
     noteTweenAlpha('byeNotes3', 2, 0, 1, 'linear');
@@ -37,7 +38,8 @@ function onCreate()
         noteTweenAlpha('hiNotes7', 6, 1, 1, 'linear');
         noteTweenAlpha('hiNotes8', 7, 1, 1, 'linear');
         doTweenAlpha('hiHUD6','timeBar',1,crochet*0.005,'linear')
-        doTweenAlpha('hiHUD7', 'timeTxt',1,crochet*0.005,'linear')
+        doTweenAlpha('hiHUD7','songIcon',1,crochet*0.005,'linear')
+        doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.005,'linear')
     end
 
     if curBeat == 104 then
@@ -48,7 +50,8 @@ function onCreate()
         doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
         doTweenAlpha('hiHUD6', 'timeBar',1,crochet*0.005,'linear')
-        doTweenAlpha('hiHUD7', 'timeTxt',1,crochet*0.005,'linear')
+        doTweenAlpha('hiHUD7', 'songIcon',1,crochet*0.005,'linear')
+        doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.005,'linear')
     end
 
     if curBeat == 232 then
@@ -106,12 +109,13 @@ function onCreate()
         noteTweenAlpha('byeNotes7', 2, 0, 0.5, 'linear');
         noteTweenAlpha('byeNotes8', 3, 0, 0.5, 'linear');
         doTweenAlpha('byeHUD1','timeBar',0,crochet*0.005,'linear')
-        doTweenAlpha('byeHUD2','timeTxt',0,crochet*0.005,'linear')
-        doTweenAlpha('byeHUD3','healthBar',0.5,crochet*0.005,'linear')
-        doTweenAlpha('byeHUD4','healthBarAround',0.5,crochet*0.005,'linear')
-        doTweenAlpha('byeHUD5','iconP1',0.5,crochet*0.005,'linear')
-        doTweenAlpha('byeHUD6','iconP2',0.5,crochet*0.005,'linear')
-        doTweenAlpha('byeHUD7','scoreTxt',0.5,crochet*0.005,'linear')
+        doTweenAlpha('byeHUD2','songIcon',0,crochet*0.005,'linear')
+        doTweenAlpha('byeHUD3','timeTxt',0,crochet*0.005,'linear')
+        doTweenAlpha('byeHUD4','healthBar',0.5,crochet*0.005,'linear')
+        doTweenAlpha('byeHUD5','healthBarAround',0.5,crochet*0.005,'linear')
+        doTweenAlpha('byeHUD6','iconP1',0.5,crochet*0.005,'linear')
+        doTweenAlpha('byeHUD7','iconP2',0.5,crochet*0.005,'linear')
+        doTweenAlpha('byeHUD8','scoreTxt',0.5,crochet*0.005,'linear')
         doTweenY('hiHUD1','healthBar',641,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')

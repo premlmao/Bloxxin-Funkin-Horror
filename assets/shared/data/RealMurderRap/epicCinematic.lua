@@ -90,6 +90,8 @@ function onSongStart()
     noteTweenAlpha('alphaNotes2', 1, 0, 1, linear);
     noteTweenAlpha('alphaNotes3', 2, 0, 1, linear);
     noteTweenAlpha('alphaNotes4', 3, 0, 1, linear);
+    doTweenY('woohooTop', 'bigblackbartop', -250, 1.75, 'cubeOut')
+    doTweenY('woohoobottom', 'bigblackbarbottom', 250, 1.75, 'cubeOut')
 end
 
 function onBeatHit()
@@ -133,7 +135,8 @@ function onBeatHit()
     doTweenY('hiHUD4','iconP2',554,crochet*0.0099,'cubeInOut')
     doTweenY('hiHUD5','scoreTxt',689,crochet*0.0099,'cubeInOut')
     doTweenAlpha('hiHUD6', 'timeBar',1,crochet*0.0099,'linear')
-    doTweenAlpha('hiHUD7', 'timeTxt',1,crochet*0.0099,'linear')
+    doTweenAlpha('hiHUD7', 'songIcon',1,crochet*0.0099,'linear')
+    doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.0099,'linear')
     end
 end
 
@@ -267,7 +270,8 @@ function onStepHit()
         doTweenY('byeHUD4','iconP2',900,crochet*0.0099,'cubeInOut')
         doTweenY('byeHUD5','scoreTxt',900,crochet*0.0099,'cubeInOut')
         doTweenAlpha('byeHUD6', 'timeBar', 0, crochet*0.0099, 'linear')
-        doTweenAlpha('byeHUD7', 'timeTxt', 0, crochet*0.0099, 'linear')
+        doTweenAlpha('byeHUD7', 'songIcon', 0, crochet*0.0099, 'linear')
+        doTweenAlpha('byeHUD8', 'timeTxt', 0, crochet*0.0099, 'linear')
         doTweenY('woohooTop', 'bigblackbartop', -300, 2.5, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 300, 2.5, 'sineInOut')
         noteTweenY('hiNotes1', 0, 115, 2.5, 'backInOut');
@@ -322,7 +326,8 @@ function onStepHit()
         doTweenY('hiHUD4','iconP2',554,crochet*0.0099,'cubeInOut')
         doTweenY('hiHUD5','scoreTxt',689,crochet*0.0099,'cubeInOut')
         doTweenAlpha('hiHUD6', 'timeBar',1,crochet*0.0099,'linear')
-        doTweenAlpha('hiHUD7', 'timeTxt',1,crochet*0.0099,'linear')
+        doTweenAlpha('hiHUD7', 'songIcon',1,crochet*0.0099,'linear')
+        doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.0099,'linear')
     end
 
     if curStep == 1007 then
@@ -397,7 +402,8 @@ function onStepHit()
         doTweenY('byeHUD4','iconP2',900,crochet*0.0099,'cubeInOut')
         doTweenY('byeHUD5','scoreTxt',900,crochet*0.0099,'cubeInOut')
         doTweenAlpha('byeHUD6', 'timeBar', 0, crochet*0.0099, 'linear')
-        doTweenAlpha('byeHUD7', 'timeTxt', 0, crochet*0.0099, 'linear')
+        doTweenAlpha('byeHUD7', 'songIcon', 0, crochet*0.0099, 'linear')
+        doTweenAlpha('byeHUD8', 'timeTxt', 0, crochet*0.0099, 'linear')
         doTweenY('woohooTop', 'bigblackbartop', -300, 2.5, 'sineInOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 300, 2.5, 'sineInOut')
         noteTweenY('hiNotes1', 0, 125, 2.5, 'backInOut');
@@ -429,16 +435,6 @@ function onStepHit()
     if curStep == 1279 then
         doTweenY('woohooTop', 'bigblackbartop', 0, 5, 'cubeOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 0, 5, 'cubeOut')
-    end
-end
-
-function onUpdate()
-end
-
-function onTimerCompleted(tag, loops, loopsLeft)
-    if tag == 'moveOut' then
-        doTweenY('woohooTop', 'bigblackbartop', -250, 1.75, 'cubeOut')
-        doTweenY('woohoobottom', 'bigblackbarbottom', 250, 1.75, 'cubeOut')
     end
 end
 

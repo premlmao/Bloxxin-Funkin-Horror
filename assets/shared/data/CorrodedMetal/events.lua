@@ -11,12 +11,13 @@ end
 function onBeatHit()
     if curBeat == 216 then
         doTweenAlpha('byeHUD1','timeBar',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD2','timeTxt',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD3','healthBar',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD4','healthBarAround',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD5','iconP1',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD6','iconP2',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD7','scoreTxt',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD2','songIcon',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD3','timeTxt',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD4','healthBar',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD5','healthBarAround',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD6','iconP1',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD7','iconP2',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD8','scoreTxt',0,crochet*0.005,'circIn')
     end
 
     if curBeat == 248 then
@@ -53,12 +54,13 @@ function onBeatHit()
 
     if curBeat == 320 then
         doTweenAlpha('hiHUD1','timeBar',1,crochet*0.005,'circOut')
-        doTweenAlpha('hiHUD2','timeTxt',1,crochet*0.005,'circOut')
-        doTweenAlpha('hiHUD3','healthBar',1,crochet*0.005,'circOut')
-        doTweenAlpha('hiHUD4','healthBarAround',1,crochet*0.005,'circOut')
-        doTweenAlpha('hiHUD5','iconP1',1,crochet*0.005,'circOut')
-        doTweenAlpha('hiHUD6','iconP2',1,crochet*0.005,'circOut')
-        doTweenAlpha('hiHUD7','scoreTxt',1,crochet*0.005,'circOut')
+        doTweenAlpha('hiHUD2','songIcon',1,crochet*0.005,'circOut')
+        doTweenAlpha('hiHUD3','timeTxt',1,crochet*0.005,'circOut')
+        doTweenAlpha('hiHUD4','healthBar',1,crochet*0.005,'circOut')
+        doTweenAlpha('hiHUD5','healthBarAround',1,crochet*0.005,'circOut')
+        doTweenAlpha('hiHUD6','iconP1',1,crochet*0.005,'circOut')
+        doTweenAlpha('hiHUD7','iconP2',1,crochet*0.005,'circOut')
+        doTweenAlpha('hiHUD8','scoreTxt',1,crochet*0.005,'circOut')
         noteTweenAlpha('hiNotes1', 0, 1, 1, circIn);
         noteTweenAlpha('hiNotes2', 1, 1, 1, circIn);
         noteTweenAlpha('hiNotes3', 2, 1, 1, circIn);
@@ -71,12 +73,13 @@ function onBeatHit()
 
     if curBeat == 380 then
         doTweenAlpha('byeHUD1','timeBar',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD2','timeTxt',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD3','healthBar',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD4','healthBarAround',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD5','iconP1',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD6','iconP2',0,crochet*0.005,'circIn')
-        doTweenAlpha('byeHUD7','scoreTxt',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD2','songIcon',1,crochet*0.005,'circOut')
+        doTweenAlpha('byeHUD3','timeTxt',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD4','healthBar',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD5','healthBarAround',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD6','iconP1',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD7','iconP2',0,crochet*0.005,'circIn')
+        doTweenAlpha('byeHUD8','scoreTxt',0,crochet*0.005,'circIn')
     end
 
     if curBeat == 388 then
