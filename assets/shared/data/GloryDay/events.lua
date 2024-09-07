@@ -76,17 +76,6 @@ function onCreate()
             doTweenAlpha('byeHUD8', 'timeTxt', 0, crochet*0.0099, 'linear')
         end
 
-        function onUpdatePost()
-            if curBeat == 188 then
-                setProperty('iconP1.x', 1141)
-                setProperty('iconP2.x', 1141)
-                setProperty('iconP1.y', 1200)
-                setProperty('iconP2.y', -200)
-                setProperty('iconP1.alpha', 0)
-                setProperty('iconP2.alpha', 0)
-            end
-        end
-
         if curBeat == 189 then
             setProperty('healthBar.angle', 90)
             setProperty('healthBar.y', 350)
@@ -94,8 +83,14 @@ function onCreate()
             setProperty('healthBarAround.angle', 90)
             setProperty('healthBarAround.y', 335)
             setProperty('healthBarAround.x', 1200)
+            setProperty('iconP1.y', 1200)
+            setProperty('iconP2.y', -200)
             setProperty('iconP1.alpha', 1)
             setProperty('iconP2.alpha', 1)
+            function onUpdatePost()
+                setProperty('iconP1.x', 1141)
+                setProperty('iconP2.x', 1141)
+            end
         end
 
         if curBeat == 236 then
@@ -110,15 +105,6 @@ function onCreate()
             setHealth(50/50)
         end
 
-        function onUpdatePost()
-            if curBeat == 237 then
-                setProperty('iconP1.x', 1141)
-                setProperty('iconP2.x', 1141)
-                setProperty('iconP1.y', 1200)
-                setProperty('iconP2.y', -200)
-            end
-        end
-
         if curBeat == 240 then
             doTweenX('byeHUD1','healthBar',925,crochet*0.0025,'cubeInOut')
             doTweenX('byeHUD2','healthBarAround',921,crochet*0.0025,'cubeInOut')
@@ -131,11 +117,6 @@ function onCreate()
         end
 
         if curBeat == 376 then
-            doTweenY('byeHUD1','healthBar',900,crochet*0.0099,'cubeInOut')
-            doTweenY('byeHUD2','healthBarAround',900,crochet*0.0099,'cubeInOut')
-            doTweenY('byeHUD3','iconP1',900,crochet*0.0099,'cubeInOut')
-            doTweenY('byeHUD4','iconP2',900,crochet*0.0099,'cubeInOut')
-            doTweenY('byeHUD5','scoreTxt',900,crochet*0.0099,'cubeInOut')
             doTweenX('byeHUD1','healthBar',1200,crochet*0.0025,'cubeInOut')
             doTweenX('byeHUD2','healthBarAround',1200,crochet*0.0025,'cubeInOut')
             doTweenY('byeHUD3','iconP1',1200,crochet*0.0025,'cubeInOut')
