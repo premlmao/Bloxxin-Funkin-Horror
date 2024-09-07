@@ -113,6 +113,13 @@ function onBeatHit()
         doTweenAlpha('byeText', 'lyric1', 0, 3, 'linear')
     end
 
+    if curBeat == 316 then
+        noteTweenAlpha('alphaNotes1', 4, 0, 5, 'linear');
+        noteTweenAlpha('alphaNotes2', 5, 0, 5, 'linear');
+        noteTweenAlpha('alphaNotes3', 6, 0, 5, 'linear');
+        noteTweenAlpha('alphaNotes4', 7, 0, 5, 'linear');
+    end
+
 end
 
 function onStepHit()
