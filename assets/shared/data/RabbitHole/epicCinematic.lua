@@ -38,11 +38,27 @@ function onBeatHit()
     if curBeat == 101 or curBeat == 297 then
         doTweenY('woohooTop', 'bigblackbartop', -250, 0.75, 'cubeOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 250, 0.75, 'cubeOut')
+        noteTweenY('hiNotes1', 0, 150, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes2', 1, 150, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes3', 2, 150, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes4', 3, 150, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes5', 4, 150, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes6', 5, 150, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes7', 6, 150, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes8', 7, 150, 0.25, 'cubeInOut');
     end
 
     if curBeat == 104 or curBeat == 300 then
         doTweenY('woohooTop', 'bigblackbartop', -275, 0.75, 'cubeOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 275, 0.75, 'cubeOut')
+        noteTweenY('hiNotes1', 0, 125, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes2', 1, 125, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes3', 2, 125, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes4', 3, 125, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes5', 4, 125, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes6', 5, 125, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes7', 6, 125, 0.25, 'cubeInOut');
+        noteTweenY('hiNotes8', 7, 125, 0.25, 'cubeInOut');
     end
 
     if curBeat == 112 then
@@ -64,6 +80,11 @@ function onBeatHit()
         doTweenAlpha('byeHUD6', 'timeBar', 1, crochet*0.0025, 'linear')
         doTweenAlpha('byeHUD7', 'songIcon', 1, crochet*0.0025, 'linear')
         doTweenAlpha('byeHUD8', 'timeTxt', 1, crochet*0.0025, 'linear')
+    end
+
+    if curBeat == 316 then
+        doTweenY('woohooTop', 'bigblackbartop', -500, 5, 'cubeOut')
+        doTweenY('woohoobottom', 'bigblackbarbottom', 500, 5, 'cubeOut')
     end
 end
 
