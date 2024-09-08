@@ -7,15 +7,6 @@ screenCenter('black')
 addLuaSprite('black',true)
 setProperty('black.visible', true)
 
-setProperty('healthBar.angle', 90)
-setProperty('healthBar.y', 350)
-setProperty('healthBar.x', 925)
-setProperty('healthBarAround.angle', 90)
-setProperty('healthBarAround.y', 335)
-setProperty('healthBarAround.x', 921)
-
-setProperty('iconP2.y', 0)
-
 -------------- lyrics --------------
 makeLuaText("lyric1", 'Come along with me.', 0, 0, 0)
 addLuaText('lyric1');
@@ -49,11 +40,6 @@ setTextBorder('lyric3', 2.5, 'black')
 setProperty('lyric3.visible', true)
 setProperty('lyric3.x', 1300)
 setProperty('lyric3.y', 550)
-end
-
-function onUpdatePost()
-    setProperty('iconP1.x', 1141)
-    setProperty('iconP2.x', 1141)
 end
 
 function onBeatHit()

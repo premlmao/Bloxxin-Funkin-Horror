@@ -4,16 +4,14 @@ import backend.WeekData;
 import backend.Highscore;
 
 import flixel.FlxSubState;
-import objects.HealthIcon;
 
 class ResetScoreSubState extends MusicBeatSubstate
 {
 	var bg:FlxSprite;
-	var alphabetArray:Array<Alphabet> = [];
-	var icon:HealthIcon;
+	var FlxTextArray:Array<FlxText> = [];
 	var onYes:Bool = false;
-	var yesText:Alphabet;
-	var noText:Alphabet;
+	var yesText:FlxText;
+	var noText:FlxText;
 
 	var song:String;
 	var difficulty:Int;
@@ -40,32 +38,29 @@ class ResetScoreSubState extends MusicBeatSubstate
 		add(bg);
 
 		var tooLong:Float = (name.length > 18) ? 0.8 : 1; //Fucking Winter Horrorland
-		var text:Alphabet = new Alphabet(0, 180, "Reset the score of", true);
-		text.screenCenter(X);
-		alphabetArray.push(text);
+		var text:FlxText = new FlxText(0, 180, "Reset the score of", true);
+		text.x = 360;
+		text.setFormat(Paths.font("Comic Sans MS.ttf"), 64, FlxColor.WHITE);
+		FlxTextArray.push(text);
 		text.alpha = 0;
 		add(text);
-		var text:Alphabet = new Alphabet(0, text.y + 90, name, true);
-		text.scaleX = tooLong;
+		var text:FlxText = new FlxText(0, text.y + 90, name, true);
+		text.setFormat(Paths.font("Comic Sans MS.ttf"), 64, FlxColor.WHITE);
+		text.scale.x = tooLong;
 		text.screenCenter(X);
+		text.x = 295;
 		if(week == -1) text.x += 60 * tooLong;
-		alphabetArray.push(text);
+		FlxTextArray.push(text);
 		text.alpha = 0;
 		add(text);
-		if(week == -1) {
-			icon = new HealthIcon(character);
-			icon.setGraphicSize(Std.int(icon.width * tooLong));
-			icon.updateHitbox();
-			icon.setPosition(text.x - icon.width + (10 * tooLong), text.y - 30);
-			icon.alpha = 0;
-			add(icon);
-		}
 
-		yesText = new Alphabet(0, text.y + 150, 'Yes', true);
+		yesText = new FlxText(0, text.y + 150, 'Yes', true);
+		yesText.setFormat(Paths.font("Comic Sans MS.ttf"), 64, FlxColor.WHITE);
 		yesText.screenCenter(X);
 		yesText.x -= 200;
 		add(yesText);
-		noText = new Alphabet(0, text.y + 150, 'No', true);
+		noText = new FlxText(0, text.y + 150, 'No', true);
+		noText.setFormat(Paths.font("Comic Sans MS.ttf"), 64, FlxColor.WHITE);
 		noText.screenCenter(X);
 		noText.x += 200;
 		add(noText);
@@ -75,13 +70,12 @@ class ResetScoreSubState extends MusicBeatSubstate
 	override function update(elapsed:Float)
 	{
 		bg.alpha += elapsed * 1.5;
-		if(bg.alpha > 0.6) bg.alpha = 0.6;
+		if(bg.alpha > 0.8) bg.alpha = 0.8;
 
-		for (i in 0...alphabetArray.length) {
-			var spr = alphabetArray[i];
+		for (i in 0...FlxTextArray.length) {
+			var spr = FlxTextArray[i];
 			spr.alpha += elapsed * 2.5;
 		}
-		if(week == -1) icon.alpha += elapsed * 2.5;
 
 		if(controls.UI_LEFT_P || controls.UI_RIGHT_P) {
 			FlxG.sound.play(Paths.sound('scrollMenu'), 1);
@@ -114,6 +108,5 @@ class ResetScoreSubState extends MusicBeatSubstate
 		yesText.scale.set(scales[confirmInt], scales[confirmInt]);
 		noText.alpha = alphas[1 - confirmInt];
 		noText.scale.set(scales[1 - confirmInt], scales[1 - confirmInt]);
-		if(week == -1) icon.animation.curAnim.curFrame = confirmInt;
 	}
 }
