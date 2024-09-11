@@ -22,6 +22,9 @@ import backend.Highscore;
 import backend.Song;
 import haxe.Json;
 
+import substates.GameplayChangersSubstate;
+import substates.ResetScoreSubState;
+
 class BloxxinFreeplayState extends MusicBeatState
 {
     var songs:Array<CustomSongMetadata> = [];
@@ -188,10 +191,10 @@ class BloxxinFreeplayState extends MusicBeatState
                     {
                         var portrait:FlxSprite = portraits.members[i];
                         transitioningBetweenPages = true;
-                        FlxTween.tween(portrait, {y: portrait.y - 280}, 0.4, {ease: FlxEase.sineInOut});
+                        FlxTween.tween(portrait, {y: portrait.y - 560}, 0.4, {ease: FlxEase.sineInOut});
                     }
                     FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.sineInOut});
-                    new FlxTimer().start(0.4, function(timer:FlxTimer)
+                    new FlxTimer().start(0.3, function(timer:FlxTimer)
                         {
                             transitioningBetweenPages = false;
                         });
@@ -204,11 +207,10 @@ class BloxxinFreeplayState extends MusicBeatState
                     {
                         var portrait:FlxSprite = portraits.members[i];
                         transitioningBetweenPages = true;
-                        FlxTween.tween(portrait, {y: portrait.y + 280}, 0.4, {ease: FlxEase.sineInOut});
-
+                        FlxTween.tween(portrait, {y: portrait.y + 560}, 0.4, {ease: FlxEase.sineInOut});
                     }
                     FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.sineInOut});
-                    new FlxTimer().start(0.4, function(timer:FlxTimer)
+                    new FlxTimer().start(0.3, function(timer:FlxTimer)
                         {
                             transitioningBetweenPages = false;
                         });
@@ -252,6 +254,13 @@ class BloxxinFreeplayState extends MusicBeatState
                             FlxG.sound.play(Paths.sound('cancelMenu'));
                             MusicBeatState.switchState(new MainMenuState());
                             FlxG.mouse.visible = false;
+                        }
+
+                    if(controls.RESET)
+                        {
+                            persistentUpdate = false;
+                            openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
+                            FlxG.sound.play(Paths.sound('scrollMenu'));
                         }
 
                         if (FlxG.keys.justPressed.ALT) 
