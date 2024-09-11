@@ -191,9 +191,9 @@ class BloxxinFreeplayState extends MusicBeatState
                     {
                         var portrait:FlxSprite = portraits.members[i];
                         transitioningBetweenPages = true;
-                        FlxTween.tween(portrait, {y: portrait.y - 560}, 0.4, {ease: FlxEase.sineInOut});
+                        FlxTween.tween(portrait, {y: portrait.y - 280}, 0.3, {ease: FlxEase.cubeOut});
                     }
-                    FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.sineInOut});
+                    FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.linear});
                     new FlxTimer().start(0.3, function(timer:FlxTimer)
                         {
                             transitioningBetweenPages = false;
@@ -207,9 +207,9 @@ class BloxxinFreeplayState extends MusicBeatState
                     {
                         var portrait:FlxSprite = portraits.members[i];
                         transitioningBetweenPages = true;
-                        FlxTween.tween(portrait, {y: portrait.y + 560}, 0.4, {ease: FlxEase.sineInOut});
+                        FlxTween.tween(portrait, {y: portrait.y + 280}, 0.3, {ease: FlxEase.cubeOut});
                     }
-                    FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.sineInOut});
+                    FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.linear});
                     new FlxTimer().start(0.3, function(timer:FlxTimer)
                         {
                             transitioningBetweenPages = false;
