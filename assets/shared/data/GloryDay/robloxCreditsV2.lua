@@ -89,7 +89,8 @@ function onCreate()
     setProperty('artists.y', -200)
 end
 
-function onSongStart()
+function onBeatHit()
+    if curBeat == 104 then
     doTweenY('hi', 'bigblackbar', 0, 1, 'circInOut');
     doTweenY('hi2', '[', 15, 1, 'circInOut');
     doTweenY('hi3', 'song', 15, 1, 'circInOut');
@@ -100,42 +101,31 @@ function onSongStart()
     doTweenY('hi8', 'charters', 15, 1, 'circInOut');
     doTweenY('hi9', 'artText', 15, 1, 'circInOut');
     doTweenY('hi10', 'artists', 15, 1, 'circInOut');
-end
+    end
 
-function onCreatePost()
-    runTimer('moveOut', 3.7, 1)
-end
+    if curBeat == 110 then
+        doTweenY('bye', 'bigblackbar', -200, 1, 'circInOut')
+        doTweenY('bye2', '[', -200, 1, 'circInOut');
+        doTweenY('bye3', 'song', -200, 1, 'circInOut');
+        doTweenY('bye4', '|', -200, 1, 'circInOut');
+        doTweenY('bye5', 'musicText', -200, 1, 'circInOut');
+        doTweenY('bye6', 'musicians', -200, 1, 'circInOut');
+        doTweenY('bye7', 'chartText', -200, 1, 'circInOut');
+        doTweenY('bye8', 'charters', -200, 1, 'circInOut');
+        doTweenY('bye9', 'artText', -200, 1, 'circInOut');
+        doTweenY('bye10', 'artists', -200, 1, 'circInOut');
+    end
 
-function onUpdate()    
-end
-
-function onTimerCompleted(tag, loops, loopsLeft)
-    if tag == 'moveOut' then
-    doTweenY('bye', 'bigblackbar', -200, 1, 'circInOut')
-	doTweenY('bye2', '[', -200, 1, 'circInOut');
-	doTweenY('bye3', 'song', -200, 1, 'circInOut');
-	doTweenY('bye4', '|', -200, 1, 'circInOut');
-	doTweenY('bye5', 'musicText', -200, 1, 'circInOut');
-	doTweenY('bye6', 'musicians', -200, 1, 'circInOut');
-	doTweenY('bye7', 'chartText', -200, 1, 'circInOut');
-	doTweenY('bye8', 'charters', -200, 1, 'circInOut');
-	doTweenY('bye9', 'artText', -200, 1, 'circInOut');
-    doTweenY('bye10', 'artists', -200, 1, 'circInOut');
+    if curBeat == 125 then
+        removeLuaSprite('bigblackbar', true)
+        removeLuaSprite('[', true)
+        removeLuaSprite('song', true)
+        removeLuaSprite('|', true)
+        removeLuaSprite('musicText', true)
+        removeLuaSprite('musicians', true)
+        removeLuaSprite('chartText', true)
+        removeLuaSprite('charters', true)
+        removeLuaSprite('artText', true)
+        removeLuaSprite('artists', true)
     end
 end
-
-function onTweenCompleted(tag)
-    if tag == 'bye' then
-    removeLuaSprite('bigblackbar', true)
-	removeLuaSprite('[', true)
-	removeLuaSprite('song', true)
-	removeLuaSprite('|', true)
-	removeLuaSprite('musicText', true)
-	removeLuaSprite('musicians', true)
-	removeLuaSprite('chartText', true)
-	removeLuaSprite('charters', true)
-    removeLuaSprite('artText', true)
-    removeLuaSprite('artists', true)
-    end
-end
-

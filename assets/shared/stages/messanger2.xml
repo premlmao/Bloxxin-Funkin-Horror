@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="messanger2.png">
+<SubTexture name="jiggy0000" x="0" y="0" width="295" height="289" frameX="0" frameY="0" frameWidth="295" frameHeight="289" />
+<SubTexture name="jiggy0001" x="295" y="0" width="295" height="289" frameX="0" frameY="0" frameWidth="295" frameHeight="289" />
+<SubTexture name="jiggy0002" x="0" y="289" width="295" height="289" frameX="0" frameY="0" frameWidth="295" frameHeight="289" />
+<SubTexture name="jiggy0003" x="295" y="289" width="295" height="289" frameX="0" frameY="0" frameWidth="295" frameHeight="289" />
+<SubTexture name="jiggy0004" x="590" y="0" width="295" height="289" frameX="0" frameY="0" frameWidth="295" frameHeight="289" />
+<SubTexture name="jiggy0005" x="590" y="289" width="295" height="289" frameX="0" frameY="0" frameWidth="295" frameHeight="289" />
+<SubTexture name="jiggy0006" x="0" y="578" width="295" height="289" frameX="0" frameY="0" frameWidth="295" frameHeight="289" />
+<SubTexture name="jiggy0007" x="295" y="578" width="295" height="289" frameX="0" frameY="0" frameWidth="295" frameHeight="289" />
+</TextureAtlas>

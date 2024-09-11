@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="silly.png">
+<SubTexture name="normal0000" x="83" y="81" width="83" height="76" frameX="-35" frameY="-41" frameWidth="150" frameHeight="150" />
+<SubTexture name="normal0001" x="85" y="0" width="82" height="78" frameX="-34" frameY="-41" frameWidth="150" frameHeight="150" />
+<SubTexture name="defeated0000" x="0" y="81" width="83" height="78" frameX="-44" frameY="-39" frameWidth="150" frameHeight="150" />
+<SubTexture name="defeated0001" x="0" y="0" width="85" height="81" frameX="-45" frameY="-39" frameWidth="150" frameHeight="150" />
+</TextureAtlas>
