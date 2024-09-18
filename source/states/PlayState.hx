@@ -479,14 +479,14 @@ class PlayState extends MusicBeatState
 		timeTxt.alpha = 0;
 		timeTxt.borderSize = 2;
 		timeTxt.visible = updateTime = showTime;
-		if(ClientPrefs.data.downScroll) timeTxt.y = FlxG.height - 44;
+		timeTxt.x = -50;
+		timeTxt.y = 650;
+		if(ClientPrefs.data.downScroll) timeTxt.y = 70;
 		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = SONG.song;
 
 		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
 		timeBar.scrollFactor.set();
 		timeBar.screenCenter(X);
-		timeTxt.x = -50;
-		timeTxt.y = 650;
 		timeBar.alpha = 0;
 		timeBar.visible = false;
 
@@ -500,6 +500,7 @@ class PlayState extends MusicBeatState
 		songIcon.x = 78;
 		songIcon.y = 580;
 		songIcon.alpha = 0;
+		if(ClientPrefs.data.downScroll) songIcon.y = 0;
 		uiGroup.add(songIcon);
 		uiGroup.add(timeBar);
 		uiGroup.add(timeTxt);
