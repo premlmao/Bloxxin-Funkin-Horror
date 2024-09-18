@@ -11,12 +11,13 @@ function onCreate()
     setProperty('iconP1.y', 900)
     setProperty('iconP2.y', 900)
     setProperty('scoreTxt.y', 900)
+    setProperty('skipCountdown', true)
     end
     
     function onSongStart()
-    doTweenAlpha('byeHUD6','timeBar',0,crochet*0.005,'linear')
-    doTweenAlpha('byeHUD7','songIcon',0,crochet*0.005,'linear')
-    doTweenAlpha('byeHUD8', 'timeTxt',0,crochet*0.005,'linear')
+    doTweenAlpha('byeHUD6','timeBar',0,crochet*0.0025,'linear')
+    doTweenAlpha('byeHUD7','songIcon',0,crochet*0.0025,'linear')
+    doTweenAlpha('byeHUD8', 'timeTxt',0,crochet*0.0025,'linear')
     noteTweenAlpha('byeNotes1', 0, 0, 1, 'linear');
     noteTweenAlpha('byeNotes2', 1, 0, 1, 'linear');
     noteTweenAlpha('byeNotes3', 2, 0, 1, 'linear');
@@ -37,9 +38,6 @@ function onCreate()
         noteTweenAlpha('hiNotes6', 5, 1, 1, 'linear');
         noteTweenAlpha('hiNotes7', 6, 1, 1, 'linear');
         noteTweenAlpha('hiNotes8', 7, 1, 1, 'linear');
-        doTweenAlpha('hiHUD6','timeBar',1,crochet*0.005,'linear')
-        doTweenAlpha('hiHUD7','songIcon',1,crochet*0.005,'linear')
-        doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.005,'linear')
     end
 
     if curBeat == 104 then
@@ -60,6 +58,9 @@ function onCreate()
         doTweenY('byeHUD3','iconP1',900,crochet*0.002,'cubeInOut')
         doTweenY('byeHUD4','iconP2',900,crochet*0.002,'cubeInOut')
         doTweenY('byeHUD5','scoreTxt',900,crochet*0.002,'cubeInOut')
+        doTweenAlpha('byeHUD6','timeBar',0,crochet*0.005,'linear')
+        doTweenAlpha('byeHUD7','songIcon',0,crochet*0.005,'linear')
+        doTweenAlpha('byeHUD8', 'timeTxt',0,crochet*0.005,'linear')
         noteTweenAlpha('byeNotes1', 0, 0, 0.2, 'linear');
         noteTweenAlpha('byeNotes2', 1, 0, 0.2, 'linear');
         noteTweenAlpha('byeNotes3', 2, 0, 0.2, 'linear');
@@ -77,6 +78,9 @@ function onCreate()
         doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
+        doTweenAlpha('hiHUD6', 'timeBar',1,crochet*0.005,'linear')
+        doTweenAlpha('hiHUD7', 'songIcon',1,crochet*0.005,'linear')
+        doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.005,'linear')
         noteTweenAlpha('hiNotes1', 0, 1, 0.2, 'linear');
         noteTweenAlpha('hiNotes2', 1, 1, 0.2, 'linear');
         noteTweenAlpha('hiNotes3', 2, 1, 0.2, 'linear');
@@ -93,6 +97,9 @@ function onCreate()
         doTweenY('byeHUD3','iconP1',900,crochet*0.002,'cubeInOut')
         doTweenY('byeHUD4','iconP2',900,crochet*0.002,'cubeInOut')
         doTweenY('byeHUD5','scoreTxt',900,crochet*0.002,'cubeInOut')
+        doTweenAlpha('byeHUD6','timeBar',0,crochet*0.005,'linear')
+        doTweenAlpha('byeHUD7','songIcon',0,crochet*0.005,'linear')
+        doTweenAlpha('byeHUD8', 'timeTxt',0,crochet*0.005,'linear')
     end
 
     if curBeat == 302 then
