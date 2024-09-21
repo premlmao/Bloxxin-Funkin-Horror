@@ -579,11 +579,12 @@ class PlayState extends MusicBeatState
 		updateScore(false);
 		uiGroup.add(scoreTxt);
 
-		botplayTxt = new FlxText(400, timeBar.y + 55, FlxG.width - 800, "BOTPLAY", 32);
+		botplayTxt = new FlxText(400, 100, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("Gotham Black Regular.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
 		botplayTxt.visible = cpuControlled;
+		if(ClientPrefs.data.downScroll) botplayTxt.y = 135;
 		uiGroup.add(botplayTxt);
 
 		uiGroup.cameras = [camHUD];
@@ -1256,8 +1257,8 @@ class PlayState extends MusicBeatState
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
-		FlxTween.tween(songIcon, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
-		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+		FlxTween.tween(songIcon, {alpha: 1}, 1.2, {ease: FlxEase.circOut});
+		FlxTween.tween(timeTxt, {alpha: 1}, 1.2, {ease: FlxEase.circOut});
 
 		#if desktop
 		// Updating Discord Rich Presence (with Time Left)
