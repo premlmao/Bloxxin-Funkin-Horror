@@ -1,110 +1,121 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
-				50,
-				0
+				40,
+				20
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "left",
-			"indices": []
+			"indices": [],
+			"name": "left"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				0,
-				-50
+				30,
+				10
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "down",
-			"indices": []
+			"indices": [],
+			"name": "down"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				0,
-				50
+				30,
+				60
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "up",
-			"indices": []
+			"indices": [],
+			"name": "up"
 		},
 		{
+			"offsets": [
+				-20,
+				40
+			],
 			"loop": false,
-			"offsets": [
-				-50,
-				20
-			],
+			"fps": 24,
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "right",
-			"indices": []
-		},
-		{
-			"loop": true,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "idle",
-			"fps": 24,
-			"name": "idle",
-			"indices": []
-		},
-		{
-			"offsets": [
-				50,
-				0
-			],
-			"loop": true,
-			"fps": 24,
-			"anim": "singLEFT-loop",
 			"indices": [],
-			"name": "loopleft"
+			"name": "right"
 		},
 		{
-			"offsets": [
-				0,
-				-50
-			],
 			"loop": true,
-			"fps": 24,
-			"anim": "singDOWN-loop",
-			"indices": [],
-			"name": "loopdown"
-		},
-		{
 			"offsets": [
-				0,
-				50
-			],
-			"loop": true,
-			"fps": 24,
-			"anim": "singUP-loop",
-			"indices": [],
-			"name": "loopup"
-		},
-		{
-			"offsets": [
-				-50,
+				40,
 				20
 			],
+			"anim": "singLEFT-loop",
+			"fps": 24,
+			"name": "loopleft",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				30,
+				10
+			],
+			"anim": "singDOWN-loop",
+			"fps": 24,
+			"name": "loopdown",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				30,
+				60
+			],
+			"anim": "singUP-loop",
+			"fps": 24,
+			"name": "loopup",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-20,
+				40
+			],
+			"anim": "singRIGHT-loop",
+			"fps": 24,
+			"name": "loopright",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
 			"loop": true,
 			"fps": 24,
-			"anim": "singRIGHT-loop",
+			"anim": "idle-loop",
 			"indices": [],
-			"name": "loopright"
+			"name": "loopidle"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/janedoe",
 	"position": [
-		-60,
-		180
+		30,
+		260
 	],
 	"healthicon": "janedoe",
 	"flip_x": false,
@@ -114,9 +125,10 @@
 		163
 	],
 	"camera_position": [
-		-80,
-		-20
+		-110,
+		-100
 	],
 	"sing_duration": 6,
-	"scale": 1.35
+	"scale": 1.35,
+	"_editor_isPlayer": false
 }
