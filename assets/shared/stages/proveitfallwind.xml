@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="proveitfallwind.png">
-<SubTexture name="fall0000" x="0" y="0" width="1186" height="789" frameX="0" frameY="0" frameWidth="1186" frameHeight="789" />
-<SubTexture name="fall0001" x="1186" y="0" width="1186" height="789" frameX="0" frameY="0" frameWidth="1186" frameHeight="789" />
-<SubTexture name="fall0002" x="0" y="789" width="1186" height="789" frameX="0" frameY="0" frameWidth="1186" frameHeight="789" />
-<SubTexture name="fall0003" x="1186" y="789" width="1186" height="789" frameX="0" frameY="0" frameWidth="1186" frameHeight="789" />
-<SubTexture name="fall0004" x="0" y="1578" width="1186" height="789" frameX="0" frameY="0" frameWidth="1186" frameHeight="789" />
-</TextureAtlas>

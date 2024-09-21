@@ -69,7 +69,7 @@ function onBeatHit()
 	end
 
 	if songName == "Deadline" then
-        if curBeat == 280 then
+        if curBeat == 340 then
 		removeLuaSprite('nightlight');
 		removeLuaSprite('proveitbacker');
 		removeLuaSprite('proveitback');

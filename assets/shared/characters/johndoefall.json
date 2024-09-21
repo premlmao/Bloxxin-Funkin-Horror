@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				20,
-				0
-			],
 			"loop": false,
-			"fps": 24,
-			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
-		},
-		{
 			"offsets": [
-				5,
-				-40
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
-		},
-		{
-			"offsets": [
-				0,
-				40
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUP",
-			"indices": [],
-			"name": "up"
-		},
-		{
-			"offsets": [
-				-20,
+				50,
 				10
 			],
-			"loop": false,
+			"anim": "singLEFT",
 			"fps": 24,
-			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
+			"name": "left",
+			"indices": []
 		},
 		{
-			"loop": true,
+			"loop": false,
+			"offsets": [
+				-15,
+				-50
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				20
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-90,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "right",
+			"indices": []
+		},
+		{
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": true,
 			"fps": 24,
-			"name": "idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/johndoefall",
 	"position": [
 		40,
-		250
+		200
 	],
 	"healthicon": "johndoemad",
 	"flip_x": false,
@@ -71,7 +71,7 @@
 	],
 	"camera_position": [
 		-130,
-		0
+		40
 	],
 	"sing_duration": 5.99999999999999,
 	"scale": 1.4,

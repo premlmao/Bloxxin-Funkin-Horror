@@ -1,68 +1,68 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
-				0,
-				0
+				10,
+				-10
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
-			"name": "down"
+			"fps": 15,
+			"name": "down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				0,
-				0
+				-5,
+				5
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
-			"name": "up"
+			"fps": 15,
+			"name": "up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-20,
-				0
+				-5
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
-			"name": "right"
+			"fps": 15,
+			"name": "right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				30,
 				0
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
-			"name": "left"
+			"fps": 15,
+			"name": "left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"indices": [],
-			"fps": 20,
 			"anim": "idle",
-			"loop": false,
-			"name": "idle"
+			"fps": 15,
+			"name": "idle",
+			"indices": []
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/spiritfront",
 	"position": [
-		120,
-		180
+		90,
+		190
 	],
-	"healthicon": "spirit",
+	"healthicon": "spiritblox",
 	"flip_x": false,
 	"healthbar_colors": [
 		45,
@@ -70,10 +70,10 @@
 		65
 	],
 	"camera_position": [
-		-150,
-		-30
+		-110,
+		40
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.2,
+	"scale": 1,
 	"_editor_isPlayer": false
 }
