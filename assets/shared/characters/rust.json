@@ -2,8 +2,8 @@
 	"animations": [
 		{
 			"offsets": [
-				40,
-				4
+				-12,
+				-11
 			],
 			"loop": false,
 			"fps": 24,
@@ -13,8 +13,8 @@
 		},
 		{
 			"offsets": [
-				-10,
-				-15
+				0,
+				-10
 			],
 			"loop": false,
 			"fps": 24,
@@ -24,8 +24,8 @@
 		},
 		{
 			"offsets": [
-				-1,
-				-4
+				0,
+				10
 			],
 			"loop": false,
 			"fps": 24,
@@ -35,8 +35,8 @@
 		},
 		{
 			"offsets": [
-				-30,
-				-5
+				55,
+				-30
 			],
 			"loop": false,
 			"fps": 24,
@@ -45,22 +45,22 @@
 			"name": "right"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
+			"indices": [],
+			"fps": 24,
 			"anim": "idle",
-			"fps": 15,
-			"name": "idle",
-			"indices": []
+			"loop": false,
+			"name": "idle"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/rust",
 	"position": [
-		40,
-		250
+		30,
+		190
 	],
 	"healthicon": "rust",
 	"flip_x": false,
@@ -70,10 +70,10 @@
 		110
 	],
 	"camera_position": [
-		-50,
-		-90
+		-130,
+		-40
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.5,
+	"scale": 1.4,
 	"_editor_isPlayer": false
 }

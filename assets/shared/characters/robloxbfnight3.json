@@ -1,121 +1,121 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				7,
-				-1
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				0,
+				0
+			],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
+			"fps": 24,
+			"name": "left",
+			"indices": []
 		},
 		{
-			"offsets": [
-				8,
-				-3
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				0,
+				0
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
+			"fps": 24,
+			"name": "down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
-				-3
+				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
+			"fps": 24,
+			"name": "up",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-7,
-				-1
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				0,
+				0
+			],
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
+			"fps": 24,
+			"name": "right",
+			"indices": []
 		},
 		{
-			"offsets": [
-				7,
-				-1
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				0,
+				0
+			],
 			"anim": "singLEFTmiss",
-			"indices": [],
-			"name": "missleft"
+			"fps": 24,
+			"name": "missleft",
+			"indices": []
 		},
 		{
-			"offsets": [
-				8,
-				-3
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				0,
+				0
+			],
 			"anim": "singDOWNmiss",
-			"indices": [],
-			"name": "missdown"
+			"fps": 24,
+			"name": "missdown",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
-				-3
+				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUPmiss",
-			"indices": [],
-			"name": "missup"
+			"fps": 24,
+			"name": "missup",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-7,
-				-1
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				0,
+				0
+			],
 			"anim": "singRIGHTmiss",
-			"indices": [],
-			"name": "missright"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "idle",
 			"fps": 24,
-			"name": "idle",
+			"name": "missright",
 			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "hey",
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
 			"fps": 15,
-			"name": "hey",
-			"indices": []
+			"anim": "hey",
+			"indices": [],
+			"name": "hey"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/robloxbfnight3",
 	"position": [
-		80,
-		260
+		65,
+		255
 	],
 	"healthicon": "robloxbf",
 	"flip_x": true,
@@ -125,8 +125,8 @@
 		239
 	],
 	"camera_position": [
-		160,
-		-60
+		200,
+		-70
 	],
 	"sing_duration": 5.99999999999999,
 	"scale": 1.35,
