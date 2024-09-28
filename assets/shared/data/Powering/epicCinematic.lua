@@ -11,7 +11,7 @@ function onCreate()
     addLuaSprite('bigblackbarbottom', true)
 end
 
-function onCountdownTick()
+function onSongStart()
     setProperty('camHUD.alpha', 1)
     doTweenY('woohooTop', 'bigblackbartop', -275, 1.25, 'cubeOut')
     doTweenY('woohoobottom', 'bigblackbarbottom', 275, 1.25, 'cubeOut')
