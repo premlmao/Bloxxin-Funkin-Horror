@@ -5479,12 +5479,32 @@
 		],
 		"events": [
 			[
+				0,
+				[
+					[
+						"Camera Follow Pos",
+						"900",
+						"750"
+					],
+					[
+						"Set Cam Zoom",
+						"1.6",
+						"1"
+					]
+				]
+			],
+			[
 				36800,
 				[
 					[
 						"Set Cam Zoom",
 						"1.2",
 						"0.5"
+					],
+					[
+						"Camera Follow Pos",
+						"",
+						""
 					]
 				]
 			],
