@@ -221,14 +221,15 @@ class MainMenuState extends MusicBeatState
 								switch (optionShit[curSelected])
 								{
 									case 'story_mode':
-										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
-										PlayState.isStoryMode = true;
 										WeekData.reloadWeekFiles(true);
-										PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+										PlayState.SONG = Song.loadFromJson('ProveIt', 'ProveIt');
+										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'powering'];
+										PlayState.isStoryMode = true;
+										Difficulty.list = ['normal'];
 										PlayState.campaignScore = 0;
 										PlayState.campaignMisses = 0;
+										PlayState.storyWeek = WeekData.weeksList.indexOf('week1');
 										LoadingState.loadAndSwitchState(new PlayState(), true);
-										FreeplayState.destroyFreeplayVocals();
 									case 'freeplay':
 										MusicBeatState.switchState(new BloxxinFreeplayState());
 										case 'options':
@@ -252,14 +253,15 @@ class MainMenuState extends MusicBeatState
 								switch (optionShit[curSelected])
 								{
 									case 'story_mode':
-										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
-										PlayState.isStoryMode = true;
 										WeekData.reloadWeekFiles(true);
-										PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+										PlayState.SONG = Song.loadFromJson('ProveIt', 'ProveIt');
+										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'powering'];
+										PlayState.isStoryMode = true;
+										Difficulty.list = ['Normal'];
 										PlayState.campaignScore = 0;
 										PlayState.campaignMisses = 0;
+										PlayState.storyWeek = WeekData.weeksList.indexOf('week1');
 										LoadingState.loadAndSwitchState(new PlayState(), true);
-										FreeplayState.destroyFreeplayVocals();
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
 										case 'options':
