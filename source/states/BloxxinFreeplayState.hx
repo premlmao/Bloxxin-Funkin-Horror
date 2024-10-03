@@ -61,6 +61,8 @@ class BloxxinFreeplayState extends MusicBeatState
         Difficulty.list = ['Normal'];
 
 		persistentUpdate = persistentDraw = true;
+
+        PlayState.isStoryMode = false;
         
         var bg:FlxBackdrop = new FlxBackdrop(Paths.image('codeLeakLOL'), XY); //Thats crazy! -nil
 		bg.velocity.set(0, -100);

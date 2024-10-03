@@ -10,6 +10,7 @@ import flixel.util.FlxStringUtil;
 
 import states.StoryMenuState;
 import states.BloxxinFreeplayState;
+import states.MainMenuState;
 import options.OptionsState;
 
 import lime.utils.Assets;
@@ -348,7 +349,7 @@ class PauseSubState extends MusicBeatSubstate
 
 					Mods.loadTopMod();
 					if(PlayState.isStoryMode) {
-						MusicBeatState.switchState(new StoryMenuState());
+						MusicBeatState.switchState(new MainMenuState());
 					} else {
 						MusicBeatState.switchState(new BloxxinFreeplayState());
 					}

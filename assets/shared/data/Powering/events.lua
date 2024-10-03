@@ -8,6 +8,7 @@ function onCreate()
     setProperty('timeBar.alpha', 0)
     setProperty('songIcon.alpha', 0)
     setProperty('timeTxt.alpha', 0)
+    setProperty('skipCountdown', true)
 end
 function onStepHit()
     if curStep == 52 then
