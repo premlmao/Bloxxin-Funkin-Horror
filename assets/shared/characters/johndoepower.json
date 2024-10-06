@@ -1,136 +1,136 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				115,
 				-10
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
+			"fps": 24,
+			"name": "left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-20,
 				-85
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
+			"fps": 24,
+			"name": "down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				40,
 				70
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
+			"fps": 24,
+			"name": "up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-90,
 				67
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
+			"fps": 24,
+			"name": "right",
+			"indices": []
 		},
 		{
-			"loop": true,
 			"offsets": [
 				115,
 				-10
 			],
-			"anim": "singLEFT-loop",
+			"loop": true,
 			"fps": 24,
-			"name": "loopleft",
-			"indices": []
+			"anim": "singLEFT-loop",
+			"indices": [],
+			"name": "loopleft"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				-20,
 				-85
 			],
-			"anim": "singDOWN-loop",
+			"loop": true,
 			"fps": 24,
-			"name": "loopdown",
-			"indices": []
+			"anim": "singDOWN-loop",
+			"indices": [],
+			"name": "loopdown"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				40,
 				70
 			],
-			"anim": "singUP-loop",
+			"loop": true,
 			"fps": 24,
-			"name": "loopup",
-			"indices": []
+			"anim": "singUP-loop",
+			"indices": [],
+			"name": "loopup"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				-90,
 				67
 			],
-			"anim": "singRIGHT-loop",
+			"loop": true,
 			"fps": 24,
-			"name": "loopright",
+			"anim": "singRIGHT-loop",
+			"indices": [],
+			"name": "loopright"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle-loop",
+			"fps": 20,
+			"name": "loopidle",
 			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": true,
+			"anim": "idle",
 			"fps": 20,
-			"anim": "idle-loop",
-			"indices": [],
-			"name": "loopidle"
+			"name": "idle",
+			"indices": []
 		},
 		{
-			"offsets": [
-				0,
-				0
-			],
 			"loop": false,
-			"fps": 20,
-			"anim": "idle",
-			"indices": [],
-			"name": "idle"
+			"offsets": [
+				-20,
+				-85
+			],
+			"anim": "bouta",
+			"fps": 24,
+			"name": "bouta",
+			"indices": []
 		},
 		{
 			"offsets": [
 				280,
 				350
 			],
-			"loop": false,
-			"fps": 15,
+			"indices": [],
+			"fps": 20,
 			"anim": "fall",
-			"indices": [],
-			"name": "fall"
-		},
-		{
-			"offsets": [
-				-20,
-				-85
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "bouta",
 			"loop": false,
-			"name": "bouta"
+			"name": "fall"
 		}
 	],
 	"no_antialiasing": true,
