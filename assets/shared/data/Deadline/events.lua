@@ -19,7 +19,6 @@ function onCreate()
         setProperty('iconP1.y', -300)
         setProperty('iconP2.y', -300)
         setProperty('scoreTxt.y', -300)
-        setProperty('songIcon.visible', false)
 end
 end
 
@@ -234,15 +233,35 @@ function onBeatHit()
         noteTweenX('noteX2', 1, -1000, 0.4, 'backInOut');
         noteTweenX('noteX3', 2, -1000, 0.4, 'backInOut');
         noteTweenX('noteX4', 3, -1000, 0.4, 'backInOut');
-        noteTweenX('noteX5', 4, 2000, 0.4, 'backInOut');
-        noteTweenX('noteX6', 5, 2000, 0.4, 'backInOut');
-        noteTweenX('noteX7', 6, 2000, 0.4, 'backInOut');
-        noteTweenX('noteX8', 7, 2000, 0.4, 'backInOut');
+        noteTweenY('noteY5', 4, -1000, 0.4, 'backInOut');
+        noteTweenY('noteY6', 5, -1000, 0.4, 'backInOut');
+        noteTweenY('noteY7', 6, -1000, 0.4, 'backInOut');
+        noteTweenY('noteY8', 7, -1000, 0.4, 'backInOut');
+        noteTweenAngle('noteAngle5', 4, 360, 1, 'cubeOut')
+        noteTweenAngle('noteAngle6', 5, 360, 1, 'cubeOut')
+        noteTweenAngle('noteAngle7', 6, 360, 1, 'cubeOut')
+        noteTweenAngle('noteAngle8', 7, 360, 1, 'cubeOut')
+        if downscroll then
+            noteTweenY('noteY5', 4, 1000, 0.4, 'backInOut');
+            noteTweenY('noteY6', 5, 1000, 0.4, 'backInOut');
+            noteTweenY('noteY7', 6, 1000, 0.4, 'backInOut');
+            noteTweenY('noteY8', 7, 1000, 0.4, 'backInOut');
+        end
+    end
+
+    if curBeat == 341 then
+        doTweenY('johnnydope', 'dad', -2000, 0.5, 'sineInOut')
+        doTweenY('boyfriend', 'boyfriend', -2000, 0.5, 'sineInOut')
+    end
+
+    if curBeat == 346 then
+        doTweenY('johnnydope', 'dad', 320, 2, 'cubeOut')
+        doTweenY('boyfriend', 'boyfriend', 320, 2, 'cubeOut')
     end
 
     if curBeat == 433 then
         doTweenY('johnnydope', 'dad', 1000, 2, 'sineInOut')
-        doTweenY('bf', 'boyfriend', 1000, 2, 'sineInOut')
+        doTweenY('boyfriend', 'boyfriend', 1000, 2, 'sineInOut')
         noteTweenAlpha('alphaNotes1', 0, 0, 0.4, 'linear');
         noteTweenAlpha('alphaNotes2', 1, 0, 0.4, 'linear');
         noteTweenAlpha('alphaNotes3', 2, 0, 0.4, 'linear');
@@ -266,16 +285,44 @@ function onStepHit()
         triggerEvent('Screen Shake', '0.1, 0.004,', '0.1, 0.003')
     end
 end
-if curStep == 1375 then
-        noteTweenX('noteX5', 4, 650, 1, 'backInOut')
+if curStep == 1391 then
+    noteTweenY('noteY5', 4, 50, 1, 'cubeInOut')
+    noteTweenX('noteX5', 4, 650, 0.2, 'cubeInOut')
+    if downscroll then
+        noteTweenY('noteY5', 4, 470, 1, 'cubeInOut');
+    end
 end
-if curStep == 1385 then
-    noteTweenX('noteX6', 5, 760, 1, 'backInOut')
+if curStep == 1393 then
+    noteTweenAngle('noteAngle5', 4, 0, 1.5, 'cubeOut')
 end
-if curStep == 1395 then
+if curStep == 1394 then
+    noteTweenY('noteY6', 5, 50, 1, 'cubeInOut')
+    noteTweenX('noteX6', 5, 760, 0.2, 'cubeInOut')
+    if downscroll then
+        noteTweenY('noteY6', 5, 470, 1, 'cubeInOut');
+    end
+end
+if curStep == 1396 then
+    noteTweenAngle('noteAngle6', 5, 0, 1.5, 'cubeOut')
+end
+if curStep == 1397 then
+    noteTweenY('noteY7', 6, 50, 1, 'cubeInOut')
     noteTweenX('noteX7', 6, 870, 1, 'backInOut')
+    if downscroll then
+        noteTweenY('noteY7', 6, 470, 1, 'cubeInOut');
+    end
 end
-if curStep == 1405 then
+if curStep == 1399 then
+    noteTweenAngle('noteAngle7', 6, 0, 1.5, 'cubeOut')
+end
+if curStep == 1400 then
+    noteTweenY('noteY8', 7, 50, 1, 'cubeInOut')
     noteTweenX('noteX8', 7, 980, 1, 'backInOut')
+    if downscroll then
+        noteTweenY('noteY8', 7, 470, 1, 'cubeInOut');
+    end
+end
+if curStep == 1402 then
+    noteTweenAngle('noteAngle8', 7, 0, 1.5, 'cubeOut')
 end
 end
