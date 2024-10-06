@@ -46,6 +46,9 @@ class TitleState extends MusicBeatState
 	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
 	var ngSpr:FlxSprite;
+
+	var money:FlxText;
+	var coolText:FlxText;
 	
 	var titleTextColors:Array<FlxColor> = [0xFF33FFFF, 0xFF3333CC];
 	var titleTextAlphas:Array<Float> = [1, .64];
@@ -489,30 +492,33 @@ class TitleState extends MusicBeatState
 	}
 
 	function createCoolText(textArray:Array<String>, ?offset:Float = 0)
-	{
-		for (i in 0...textArray.length)
 		{
-			var money:Alphabet = new Alphabet(0, 0, textArray[i], true);
-			money.screenCenter(X);
-			money.y += (i * 60) + 200 + offset;
-			if(credGroup != null && textGroup != null) {
-				credGroup.add(money);
-				textGroup.add(money);
+			for (i in 0...textArray.length)
+			{
+				money = new FlxText(0, 0, textArray[i], true);
+				money.setFormat(Paths.font("Comic Sans MS.ttf"), 64, FlxColor.WHITE, CENTER);
+				money.screenCenter(X);
+				money.y += (i * 60) + 200 + offset;
+				if(credGroup != null && textGroup != null) {
+					credGroup.add(money);
+					textGroup.add(money);
+				}
 			}
 		}
-	}
-
-	function addMoreText(text:String, ?offset:Float = 0)
-	{
-		if(textGroup != null && credGroup != null) {
-			var coolText:Alphabet = new Alphabet(0, 0, text, true);
-			coolText.screenCenter(X);
-			coolText.y += (textGroup.length * 60) + 200 + offset;
-			credGroup.add(coolText);
-			textGroup.add(coolText);
+		
+	
+		function addMoreText(text:String, ?offset:Float = 0)
+		{
+			if(textGroup != null && credGroup != null) {
+				coolText = new FlxText(0, 0, text, true);
+				coolText.setFormat(Paths.font("Comic Sans MS.ttf"), 64, FlxColor.WHITE, CENTER);
+				coolText.screenCenter(X);
+				coolText.y += (textGroup.length * 60) + 200 + offset;
+				credGroup.add(coolText);
+				textGroup.add(coolText);
+			}
 		}
-	}
-
+	
 	function deleteCoolText()
 	{
 		while (textGroup.members.length > 0)
