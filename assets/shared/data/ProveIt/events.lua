@@ -12,12 +12,11 @@ function onCreate()
     setProperty('iconP2.y', 900)
     setProperty('scoreTxt.y', 900)
     setProperty('skipCountdown', true)
+    setProperty('timeTxt.visible', false)
+    setProperty('songIcon.visible', false)
     end
     
     function onSongStart()
-    doTweenAlpha('byeHUD6','timeBar',0,crochet*0.0025,'linear')
-    doTweenAlpha('byeHUD7','songIcon',0,crochet*0.0025,'linear')
-    doTweenAlpha('byeHUD8', 'timeTxt',0,crochet*0.0025,'linear')
     noteTweenAlpha('byeNotes1', 0, 0, 1, 'linear');
     noteTweenAlpha('byeNotes2', 1, 0, 1, 'linear');
     noteTweenAlpha('byeNotes3', 2, 0, 1, 'linear');
@@ -29,6 +28,20 @@ function onCreate()
     end
     
     function onBeatHit()
+        function onUpdatePost()
+            if curBeat == 104 or curBeat == 180 or curBeat == 240 then
+                setProperty('timeTxt.visible', true)
+                setProperty('songIcon.visible', true)
+                doTweenAlpha('hiHUD7', 'songIcon',1,crochet*0.005,'linear')
+                doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.005,'linear')
+            end
+            if curBeat == 168 or curBeat == 232 or curBeat == 304 then
+                setProperty('timeTxt.visible', false)
+                setProperty('songIcon.visible', false)
+                doTweenAlpha('byeHUD6','timeTxt',0,crochet*0.005,'linear')
+                doTweenAlpha('byeHUD7','songIcon',0,crochet*0.005,'linear')
+            end
+        end
     if curBeat == 30 then
         noteTweenAlpha('hiNotes1', 0, 1, 1, 'linear');
         noteTweenAlpha('hiNotes2', 1, 1, 1, 'linear');
@@ -48,8 +61,14 @@ function onCreate()
         doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
         doTweenAlpha('hiHUD6', 'timeBar',1,crochet*0.005,'linear')
-        doTweenAlpha('hiHUD7', 'songIcon',1,crochet*0.005,'linear')
-        doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.005,'linear')
+    end
+
+    if curBeat == 168 then
+        doTweenY('byeHUD1','healthBar',900,crochet*0.002,'cubeInOut')
+        doTweenY('byeHUD2','healthBarAround',900,crochet*0.002,'cubeInOut')
+        doTweenY('byeHUD3','iconP1',900,crochet*0.002,'cubeInOut')
+        doTweenY('byeHUD4','iconP2',900,crochet*0.002,'cubeInOut')
+        doTweenY('byeHUD5','scoreTxt',900,crochet*0.002,'cubeInOut')
     end
 
     if curBeat == 232 then
@@ -147,9 +166,15 @@ function onCreate()
     end
 end
         
-    function onStepHit()
-    if curStep == 7 then
-    setProperty('black.visible', true)
-    doTweenAlpha('silly','black',0,6)
+function onStepHit()
+if curStep == 7 then
+setProperty('black.visible', true)
+doTweenAlpha('silly','black',0,6)
+end
+
+function opponentNoteHit()
+    if curStep >= 704 and curStep < 719 then
+        triggerEvent('Screen Shake', '0.1, 0.004,', '0.1, 0.003')
+    end
     end
 end
