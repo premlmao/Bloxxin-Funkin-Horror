@@ -83,6 +83,12 @@ function onBeatHit()
         noteTweenAngle('noteAngle7', 6, 0, 1, 'circInOut')
         noteTweenAngle('noteAngle8', 7, 0, 1, 'circInOut')
         runTimer('noteMove1', 0.01, 1)
+        if downscroll then
+            noteTweenY('noteY5', 4, 570, 1, 'backOut')
+            noteTweenY('noteY6', 5, 570, 1, 'backOut')
+            noteTweenY('noteY7', 6, 570, 1, 'backOut')
+            noteTweenY('noteY8', 7, 570, 1, 'backOut')
+        end
     end
     if curBeat == 288 then
         cancelTimer('noteMove1')
@@ -102,6 +108,12 @@ function onBeatHit()
             noteTweenY('noteY4', 7, 50, 0.4, 'backOut')
             noteTweenY('noteY1', 4, 100, 0.4, 'backOut')
             noteTweenY('noteY3', 6, 100, 0.4, 'backOut')
+            if downscroll then
+                noteTweenY('noteY2', 5, 570, 0.4, 'backOut')
+                noteTweenY('noteY4', 7, 570, 0.4, 'backOut')
+                noteTweenY('noteY1', 4, 520, 0.4, 'backOut')
+                noteTweenY('noteY3', 6, 520, 0.4, 'backOut')
+            end
             runTimer('57', 0.4, 1)
         end
         if tag == '57' then
@@ -109,6 +121,12 @@ function onBeatHit()
             noteTweenY('noteY4', 7, 100, 0.4, 'backOut')
             noteTweenY('noteY1', 4, 50, 0.4, 'backOut')
             noteTweenY('noteY3', 6, 50, 0.4, 'backOut')
+            if downscroll then
+                noteTweenY('noteY2', 5, 520, 0.4, 'backOut')
+                noteTweenY('noteY4', 7, 520, 0.4, 'backOut')
+                noteTweenY('noteY1', 4, 570, 0.4, 'backOut')
+                noteTweenY('noteY3', 6, 570, 0.4, 'backOut')
+            end
             runTimer('46', 0.4, 1)
         end
         if tag == '462' then
@@ -116,6 +134,12 @@ function onBeatHit()
             noteTweenY('noteY4', 7, 50, 0.6, 'backOut')
             noteTweenY('noteY1', 4, 100, 0.6, 'backOut')
             noteTweenY('noteY3', 6, 100, 0.6, 'backOut')
+            if downscroll then
+                noteTweenY('noteY2', 5, 570, 0.4, 'backOut')
+                noteTweenY('noteY4', 7, 570, 0.4, 'backOut')
+                noteTweenY('noteY1', 4, 520, 0.4, 'backOut')
+                noteTweenY('noteY3', 6, 520, 0.4, 'backOut')
+            end
             runTimer('572', 0.6, 1)
         end
         if tag == '572' then
@@ -123,6 +147,12 @@ function onBeatHit()
             noteTweenY('noteY4', 7, 100, 0.6, 'backOut')
             noteTweenY('noteY1', 4, 50, 0.6, 'backOut')
             noteTweenY('noteY3', 6, 50, 0.6, 'backOut')
+            if downscroll then
+                noteTweenY('noteY2', 5, 520, 0.4, 'backOut')
+                noteTweenY('noteY4', 7, 520, 0.4, 'backOut')
+                noteTweenY('noteY1', 4, 570, 0.4, 'backOut')
+                noteTweenY('noteY3', 6, 570, 0.4, 'backOut')
+            end
             runTimer('462', 0.6, 1)
         end
         if tag == 'angle' then
@@ -204,7 +234,7 @@ function onStepHit()
     if curStep == 129 then
         noteTweenY('noteY5', 4, 50, 1, 'cubeInOut')
         if downscroll then
-            noteTweenY('noteY5', 4, 470, 1, 'cubeInOut');
+            noteTweenY('noteY5', 4, 570, 1, 'cubeInOut');
         end
     end
     if curStep == 132 then
@@ -213,7 +243,7 @@ function onStepHit()
     if curStep == 133 then
         noteTweenY('noteY6', 5, 50, 1, 'cubeInOut')
         if downscroll then
-            noteTweenY('noteY6', 5, 470, 1, 'cubeInOut');
+            noteTweenY('noteY6', 5, 570, 1, 'cubeInOut');
         end
     end
     if curStep == 136 then
@@ -222,7 +252,7 @@ function onStepHit()
     if curStep == 137 then
         noteTweenY('noteY7', 6, 50, 1, 'cubeInOut')
         if downscroll then
-            noteTweenY('noteY7', 6, 470, 1, 'cubeInOut');
+            noteTweenY('noteY7', 6, 570, 1, 'cubeInOut');
         end
     end
     if curStep == 140 then
@@ -231,7 +261,7 @@ function onStepHit()
     if curStep == 141 then
         noteTweenY('noteY8', 7, 50, 1, 'cubeInOut')
         if downscroll then
-            noteTweenY('noteY8', 7, 470, 1, 'cubeInOut');
+            noteTweenY('noteY8', 7, 570, 1, 'cubeInOut');
         end
     end
     if curStep == 144 then

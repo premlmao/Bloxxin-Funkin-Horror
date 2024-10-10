@@ -11,6 +11,8 @@ function onCreate()
     setScrollFactor('bigblackbarbottom', 0, 0)
     setProperty('bigblackbarbottom.y', 500)
     addLuaSprite('bigblackbarbottom', true)
+
+    downscroll = getPropertyFromClass('backend.ClientPrefs', 'data.downScroll')
 end
 
 function onBeatHit()
@@ -33,6 +35,21 @@ function onBeatHit()
         doTweenAlpha('byeHUD6', 'timeBar', 0, crochet*0.0025, 'linear')
         doTweenAlpha('byeHUD7', 'songIcon', 0, crochet*0.0025, 'linear')
         doTweenAlpha('byeHUD8', 'timeTxt', 0, crochet*0.0025, 'linear')
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 520, 0.75, 'cubeOut');
+            noteTweenY('hiNotes2', 1, 520, 0.75, 'cubeOut');
+            noteTweenY('hiNotes3', 2, 520, 0.75, 'cubeOut');
+            noteTweenY('hiNotes4', 3, 520, 0.75, 'cubeOut');
+            noteTweenY('hiNotes5', 4, 520, 0.75, 'cubeOut');
+            noteTweenY('hiNotes6', 5, 520, 0.75, 'cubeOut');
+            noteTweenY('hiNotes7', 6, 520, 0.75, 'cubeOut');
+            noteTweenY('hiNotes8', 7, 520, 0.75, 'cubeOut');
+            doTweenY('byeHUD1','healthBar',-300,crochet*0.0025,'cubeInOut')
+            doTweenY('byeHUD2','healthBarAround',-300,crochet*0.0025,'cubeInOut')
+            doTweenY('byeHUD3','iconP1',-300,crochet*0.0025,'cubeInOut')
+            doTweenY('byeHUD4','iconP2',-300,crochet*0.0025,'cubeInOut')
+            doTweenY('byeHUD5','scoreTxt',-300,crochet*0.0025,'cubeInOut')
+        end
     end
 
     if curBeat == 101 or curBeat == 297 then
@@ -46,6 +63,16 @@ function onBeatHit()
         noteTweenY('hiNotes6', 5, 150, 0.75, 'cubeOut');
         noteTweenY('hiNotes7', 6, 150, 0.75, 'cubeOut');
         noteTweenY('hiNotes8', 7, 150, 0.75, 'cubeOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 470, 0.75, 'cubeOut');
+            noteTweenY('hiNotes2', 1, 470, 0.75, 'cubeOut');
+            noteTweenY('hiNotes3', 2, 470, 0.75, 'cubeOut');
+            noteTweenY('hiNotes4', 3, 470, 0.75, 'cubeOut');
+            noteTweenY('hiNotes5', 4, 470, 0.75, 'cubeOut');
+            noteTweenY('hiNotes6', 5, 470, 0.75, 'cubeOut');
+            noteTweenY('hiNotes7', 6, 470, 0.75, 'cubeOut');
+            noteTweenY('hiNotes8', 7, 470, 0.75, 'cubeOut');
+        end
     end
 
     if curBeat == 104 or curBeat == 300 then
@@ -59,6 +86,16 @@ function onBeatHit()
         noteTweenY('hiNotes6', 5, 125, 0.75, 'cubeOut');
         noteTweenY('hiNotes7', 6, 125, 0.75, 'cubeOut');
         noteTweenY('hiNotes8', 7, 125, 0.75, 'cubeOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 495, 0.75, 'cubeOut');
+            noteTweenY('hiNotes2', 1, 495, 0.75, 'cubeOut');
+            noteTweenY('hiNotes3', 2, 495, 0.75, 'cubeOut');
+            noteTweenY('hiNotes4', 3, 495, 0.75, 'cubeOut');
+            noteTweenY('hiNotes5', 4, 495, 0.75, 'cubeOut');
+            noteTweenY('hiNotes6', 5, 495, 0.75, 'cubeOut');
+            noteTweenY('hiNotes7', 6, 495, 0.75, 'cubeOut');
+            noteTweenY('hiNotes8', 7, 495, 0.75, 'cubeOut');
+        end
     end
 
     if curBeat == 112 then
@@ -80,6 +117,21 @@ function onBeatHit()
         doTweenAlpha('hiHUD6', 'timeBar',1,crochet*0.0025,'linear')
         doTweenAlpha('hiHUD7', 'songIcon',1,crochet*0.0025,'linear')
         doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.0025,'linear')
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 570, 1.75, 'cubeOut');
+            noteTweenY('hiNotes2', 1, 570, 1.75, 'cubeOut');
+            noteTweenY('hiNotes3', 2, 570, 1.75, 'cubeOut');
+            noteTweenY('hiNotes4', 3, 570, 1.75, 'cubeOut');
+            noteTweenY('hiNotes5', 4, 570, 1.75, 'cubeOut');
+            noteTweenY('hiNotes6', 5, 570, 1.75, 'cubeOut');
+            noteTweenY('hiNotes7', 6, 570, 1.75, 'cubeOut');
+            noteTweenY('hiNotes8', 7, 570, 1.75, 'cubeOut');
+            doTweenY('hiHUD1','healthBar',79,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD2','healthBarAround',67,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD3','iconP1',4,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD4','iconP2',4,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD5','scoreTxt',129,crochet*0.0099,'cubeInOut')
+        end
     end
 
     if curBeat == 316 then

@@ -18,6 +18,9 @@ setTextBorder('lyric1', 2.5, 'black')
 setProperty('lyric1.visible', true)
 setProperty('lyric1.x', 455)
 setProperty('lyric1.y', 850)
+if downscroll then
+    setProperty('lyric1.y', -850)
+end
 
 makeLuaText("lyric2", 'You see,', 0, 0, 0)
 addLuaText('lyric2');
@@ -29,6 +32,9 @@ setTextBorder('lyric2', 2.5, 'black')
 setProperty('lyric2.visible', true)
 setProperty('lyric2.x', -175)
 setProperty('lyric2.y', 550)
+if downscroll then
+    setProperty('lyric2.y', 150)
+end
 
 makeLuaText("lyric3", 'Find me and set free,', 0, 0, 0)
 addLuaText('lyric3');
@@ -40,12 +46,18 @@ setTextBorder('lyric3', 2.5, 'black')
 setProperty('lyric3.visible', true)
 setProperty('lyric3.x', 1300)
 setProperty('lyric3.y', 550)
+if downscroll then
+    setProperty('lyric3.y', 150)
+end
 end
 
 function onBeatHit()
     if curBeat == 96 or curBeat == 292 then 
     doTweenY('hiLyric1', 'lyric1', 550, 0.5, 'cubeOut')
     doTweenAlpha('heyLyric1', 'lyric1', 1, 0.25, 'linear')
+    if downscroll then
+        doTweenY('hiLyric1', 'lyric1', 150, 0.5, 'cubeOut')
+    end
     end
     
     if curBeat == 101 or curBeat == 297 then
@@ -61,6 +73,10 @@ function onBeatHit()
         doTweenY('byeLyric2', 'lyric2', 850, 0.25, 'cubeOut')
         doTweenY('byeLyric3', 'lyric3', 850, 0.25, 'cubeOut')
         doTweenAlpha('hiLyric1', 'lyric1', 1, 0.5, 'linear')
+        if downscroll then
+            doTweenY('byeLyric2', 'lyric2', -850, 0.25, 'cubeOut')
+            doTweenY('byeLyric3', 'lyric3', -850, 0.25, 'cubeOut')
+        end
     end
 
     if curBeat == 112 then
@@ -77,6 +93,10 @@ function onBeatHit()
         doTweenX('XLyric3', 'lyric3', 1300, 0.25, 'cubeOut')
         doTweenY('hiLyric2', 'lyric2', 550, 0.25, 'cubeOut')
         doTweenY('hiLyric3', 'lyric3', 550, 0.25, 'cubeOut')
+        if downscroll then
+            doTweenY('hiLyric2', 'lyric2', 150, 0.25, 'cubeOut')
+            doTweenY('hiLyric3', 'lyric3', 150, 0.25, 'cubeOut')
+        end
     end
 
     if curBeat == 295 then
@@ -88,11 +108,19 @@ function onBeatHit()
         doTweenY('byeLyric2', 'lyric2', 850, 0.25, 'cubeOut')
         doTweenY('byeLyric3', 'lyric3', 850, 0.25, 'cubeOut')
         doTweenY('byeLyric1', 'lyric1', 850, 0.5, 'cubeOut')
+        if downscroll then
+            doTweenY('byeLyric2', 'lyric2', -850, 0.25, 'cubeOut')
+            doTweenY('byeLyric3', 'lyric3', -850, 0.25, 'cubeOut')
+            doTweenY('byeLyric1', 'lyric1', -850, 0.5, 'cubeOut')
+        end
     end
 
     if curBeat == 310 then
         doTweenY('hiLyric1', 'lyric1', 550, 0.5, 'cubeOut')
         doTweenAlpha('heyLyric1', 'lyric1', 1, 0.25, 'cubeOut')
+        if downscroll then
+            doTweenY('hiLyric1', 'lyric1', 150, 0.5, 'cubeOut')
+        end
     end
 
     if curBeat == 313 then
@@ -105,7 +133,6 @@ function onBeatHit()
         noteTweenAlpha('alphaNotes3', 6, 0, 5, 'linear');
         noteTweenAlpha('alphaNotes4', 7, 0, 5, 'linear');
     end
-
 end
 
 function onStepHit()

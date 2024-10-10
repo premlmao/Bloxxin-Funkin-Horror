@@ -289,7 +289,7 @@ if curStep == 1391 then
     noteTweenY('noteY5', 4, 50, 1, 'cubeInOut')
     noteTweenX('noteX5', 4, 650, 0.2, 'cubeInOut')
     if downscroll then
-        noteTweenY('noteY5', 4, 470, 1, 'cubeInOut');
+        noteTweenY('noteY5', 4, 570, 1, 'cubeInOut');
     end
 end
 if curStep == 1393 then
@@ -299,7 +299,7 @@ if curStep == 1394 then
     noteTweenY('noteY6', 5, 50, 1, 'cubeInOut')
     noteTweenX('noteX6', 5, 760, 0.2, 'cubeInOut')
     if downscroll then
-        noteTweenY('noteY6', 5, 470, 1, 'cubeInOut');
+        noteTweenY('noteY6', 5, 570, 1, 'cubeInOut');
     end
 end
 if curStep == 1396 then
@@ -309,7 +309,7 @@ if curStep == 1397 then
     noteTweenY('noteY7', 6, 50, 1, 'cubeInOut')
     noteTweenX('noteX7', 6, 870, 1, 'backInOut')
     if downscroll then
-        noteTweenY('noteY7', 6, 470, 1, 'cubeInOut');
+        noteTweenY('noteY7', 6, 570, 1, 'cubeInOut');
     end
 end
 if curStep == 1399 then
@@ -319,7 +319,7 @@ if curStep == 1400 then
     noteTweenY('noteY8', 7, 50, 1, 'cubeInOut')
     noteTweenX('noteX8', 7, 980, 1, 'backInOut')
     if downscroll then
-        noteTweenY('noteY8', 7, 470, 1, 'cubeInOut');
+        noteTweenY('noteY8', 7, 570, 1, 'cubeInOut');
     end
 end
 if curStep == 1402 then

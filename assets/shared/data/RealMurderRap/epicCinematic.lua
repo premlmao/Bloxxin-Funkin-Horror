@@ -16,6 +16,16 @@ function onCreate()
     setProperty('iconP1.y', 900)
     setProperty('iconP2.y', 900)
     setProperty('scoreTxt.y', 900)
+    
+    downscroll = getPropertyFromClass('backend.ClientPrefs', 'data.downScroll')
+
+    if downscroll then
+        setProperty('healthBar.y', -300)
+        setProperty('healthBarAround.y', -300)
+        setProperty('iconP1.y', -300)
+        setProperty('iconP2.y', -300)
+        setProperty('scoreTxt.y', -300)
+    end
 
     -------------- lyrics --------------
     makeLuaText("lyric1", 'This man..', 0, 0, 0)
@@ -28,6 +38,9 @@ function onCreate()
     setProperty('lyric1.visible', false)
     setProperty('lyric1.x', 525)
     setProperty('lyric1.y', 550)
+    if downscroll then
+        setProperty('lyric1.y', 150)
+    end
     
     makeLuaText("lyric2", 'Surely he is a man that has seen', 0, 0, 0)
     addLuaText('lyric2');
@@ -39,6 +52,9 @@ function onCreate()
     setProperty('lyric2.visible', false)
     setProperty('lyric2.x', 300)
     setProperty('lyric2.y', 550)
+    if downscroll then
+        setProperty('lyric2.y', 150)
+    end
 
     makeLuaText("lyric3", 'DEATH', 0, 0, 0)
     addLuaText('lyric3');
@@ -50,6 +66,9 @@ function onCreate()
     setProperty('lyric3.visible', false)
     setProperty('lyric3.x', 445)
     setProperty('lyric3.y', 550)
+    if downscroll then
+        setProperty('lyric3.y', 150)
+    end
 
     makeLuaText("lyric4", 'and', 0, 0, 0)
     addLuaText('lyric4');
@@ -61,6 +80,9 @@ function onCreate()
     setProperty('lyric4.visible', false)
     setProperty('lyric4.x', 575)
     setProperty('lyric4.y', 550)
+    if downscroll then
+        setProperty('lyric4.y', 150)
+    end
 
     makeLuaText("lyric5", 'DESPAIR...', 0, 0, 0)
     addLuaText('lyric5');
@@ -72,11 +94,11 @@ function onCreate()
     setProperty('lyric5.visible', false)
     setProperty('lyric5.x', 665)
     setProperty('lyric5.y', 550)
+    if downscroll then
+        setProperty('lyric5.y', 150)
+    end
 end
 
-function onCreatePost()
-    runTimer('moveOut', 3.7, 1)
-end
 function onSongStart()
     noteTweenY('byeNotes1', 0, -500, 0.1, 'sineInOut');
     noteTweenY('byeNotes2', 1, -500, 0.1, 'sineInOut');
@@ -86,6 +108,16 @@ function onSongStart()
     noteTweenY('byeNotes6', 5, -500, 0.1, 'sineInOut');
     noteTweenY('byeNotes7', 6, -500, 0.1, 'sineInOut');
     noteTweenY('byeNotes8', 7, -500, 0.1, 'sineInOut');
+    if downscroll then
+        noteTweenY('byeNotes1', 0, 1000, 0.1, 'sineInOut');
+        noteTweenY('byeNotes2', 1, 1000, 0.1, 'sineInOut');
+        noteTweenY('byeNotes3', 2, 1000, 0.1, 'sineInOut');
+        noteTweenY('byeNotes4', 3, 1000, 0.1, 'sineInOut');
+        noteTweenY('byeNotes5', 4, 1000, 0.1, 'sineInOut');
+        noteTweenY('byeNotes6', 5, 1000, 0.1, 'sineInOut');
+        noteTweenY('byeNotes7', 6, 1000, 0.1, 'sineInOut');
+        noteTweenY('byeNotes8', 7, 1000, 0.1, 'sineInOut');
+    end
     noteTweenAlpha('alphaNotes1', 0, 0, 1, linear);
     noteTweenAlpha('alphaNotes2', 1, 0, 1, linear);
     noteTweenAlpha('alphaNotes3', 2, 0, 1, linear);
@@ -104,6 +136,16 @@ function onBeatHit()
     noteTweenY('hiNotes6', 5, 150, 2.5, 'sineInOut');
     noteTweenY('hiNotes7', 6, 150, 2.5, 'sineInOut');
     noteTweenY('hiNotes8', 7, 150, 2.5, 'sineInOut');
+    if downscroll then
+        noteTweenY('hiNotes1', 0, 470, 2.5, 'sineInOut');
+        noteTweenY('hiNotes2', 1, 470, 2.5, 'sineInOut');
+        noteTweenY('hiNotes3', 2, 470, 2.5, 'sineInOut');
+        noteTweenY('hiNotes4', 3, 470, 2.5, 'sineInOut');
+        noteTweenY('hiNotes5', 4, 470, 2.5, 'sineInOut');
+        noteTweenY('hiNotes6', 5, 470, 2.5, 'sineInOut');
+        noteTweenY('hiNotes7', 6, 470, 2.5, 'sineInOut');
+        noteTweenY('hiNotes8', 7, 470, 2.5, 'sineInOut');
+    end
     end
 
     if curBeat == 48 then
@@ -111,6 +153,12 @@ function onBeatHit()
     noteTweenY('hiNotes6', 5, 150, 2.5, 'sineInOut');
     noteTweenY('hiNotes7', 6, 150, 2.5, 'sineInOut');
     noteTweenY('hiNotes8', 7, 150, 2.5, 'sineInOut');
+    if downscroll then
+        noteTweenY('hiNotes5', 4, 470, 2.5, 'sineInOut');
+        noteTweenY('hiNotes6', 5, 470, 2.5, 'sineInOut');
+        noteTweenY('hiNotes7', 6, 470, 2.5, 'sineInOut');
+        noteTweenY('hiNotes8', 7, 470, 2.5, 'sineInOut');
+    end
     noteTweenAlpha('alphaNotes1', 0, 1, 1, linear);
     noteTweenAlpha('alphaNotes2', 1, 1, 1, linear);
     noteTweenAlpha('alphaNotes3', 2, 1, 1, linear);
@@ -137,6 +185,21 @@ function onBeatHit()
     doTweenAlpha('hiHUD6', 'timeBar',1,crochet*0.0099,'linear')
     doTweenAlpha('hiHUD7', 'songIcon',1,crochet*0.0099,'linear')
     doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.0099,'linear')
+    if downscroll then
+        noteTweenY('hiNotes1', 0, 570, 1.75, 'sineInOut');
+        noteTweenY('hiNotes2', 1, 570, 1.75, 'sineInOut');
+        noteTweenY('hiNotes3', 2, 570, 1.75, 'sineInOut');
+        noteTweenY('hiNotes4', 3, 570, 1.75, 'sineInOut');
+        noteTweenY('hiNotes5', 4, 570, 1.75, 'sineInOut');
+        noteTweenY('hiNotes6', 5, 570, 1.75, 'sineInOut');
+        noteTweenY('hiNotes7', 6, 570, 1.75, 'sineInOut');
+        noteTweenY('hiNotes8', 7, 570, 1.75, 'sineInOut');
+        doTweenY('hiHUD1','healthBar',79,crochet*0.0099,'cubeInOut')
+        doTweenY('hiHUD2','healthBarAround',67,crochet*0.0099,'cubeInOut')
+        doTweenY('hiHUD3','iconP1',4,crochet*0.0099,'cubeInOut')
+        doTweenY('hiHUD4','iconP2',4,crochet*0.0099,'cubeInOut')
+        doTweenY('hiHUD5','scoreTxt',129,crochet*0.0099,'cubeInOut')
+    end
     end
 end
 
@@ -185,6 +248,16 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 100, 0.1, 'backInOut');
         noteTweenY('hiNotes7', 6, 100, 0.1, 'backInOut');
         noteTweenY('hiNotes8', 7, 100, 0.1, 'backInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes2', 1, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes3', 2, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes4', 3, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes5', 4, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes6', 5, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes7', 6, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes8', 7, 520, 0.1, 'backInOut');
+        end
     end
 
     if curStep == 372 then
@@ -198,6 +271,16 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 150, 0.1, 'backInOut');
         noteTweenY('hiNotes7', 6, 150, 0.1, 'backInOut');
         noteTweenY('hiNotes8', 7, 150, 0.1, 'backInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes2', 1, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes3', 2, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes4', 3, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes5', 4, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes6', 5, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes7', 6, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes8', 7, 470, 0.1, 'backInOut');
+        end
     end
 
     if curStep == 376 then
@@ -211,6 +294,16 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 175, 0.1, 'backInOut');
         noteTweenY('hiNotes7', 6, 175, 0.1, 'backInOut');
         noteTweenY('hiNotes8', 7, 175, 0.1, 'backInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes2', 1, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes3', 2, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes4', 3, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes5', 4, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes6', 5, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes7', 6, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes8', 7, 445, 0.1, 'backInOut');
+        end
     end
 
     if curStep == 380 then
@@ -224,6 +317,16 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 100, 0.1, 'backInOut');
         noteTweenY('hiNotes7', 6, 100, 0.1, 'backInOut');
         noteTweenY('hiNotes8', 7, 100, 0.1, 'backInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes2', 1, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes3', 2, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes4', 3, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes5', 4, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes6', 5, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes7', 6, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes8', 7, 520, 0.1, 'backInOut');
+        end
     end
 
     if curStep == 384 then
@@ -248,7 +351,17 @@ function onStepHit()
         noteTweenAlpha('alphaNotes1', 0, 0.1, 0.1, linear);
         noteTweenAlpha('alphaNotes2', 1, 0.1, 0.1, linear);
         noteTweenAlpha('alphaNotes3', 2, 0.1, 0.1, linear);
-        noteTweenAlpha('alphaNotes4', 3, 0.1, 0.1, linear); 
+        noteTweenAlpha('alphaNotes4', 3, 0.1, 0.1, linear);
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes2', 1, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes3', 2, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes4', 3, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes5', 4, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes6', 5, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes7', 6, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes8', 7, 570, 0.1, 'sineInOut');
+        end
     end
 
     if curStep == 512 then
@@ -282,6 +395,21 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 115, 2.5, 'backInOut');
         noteTweenY('hiNotes7', 6, 115, 2.5, 'backInOut');
         noteTweenY('hiNotes8', 7, 115, 2.5, 'backInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 505, 2.5, 'backInOut');
+            noteTweenY('hiNotes2', 1, 505, 2.5, 'backInOut');
+            noteTweenY('hiNotes3', 2, 505, 2.5, 'backInOut');
+            noteTweenY('hiNotes4', 3, 505, 2.5, 'backInOut');
+            noteTweenY('hiNotes5', 4, 505, 2.5, 'backInOut');
+            noteTweenY('hiNotes6', 5, 505, 2.5, 'backInOut');
+            noteTweenY('hiNotes7', 6, 505, 2.5, 'backInOut');
+            noteTweenY('hiNotes8', 7, 505, 2.5, 'backInOut');
+            doTweenY('byeHUD1','healthBar',-300,crochet*0.0099,'cubeInOut')
+            doTweenY('byeHUD2','healthBarAround',-300,crochet*0.0099,'cubeInOut')
+            doTweenY('byeHUD3','iconP1',-300,crochet*0.0099,'cubeInOut')
+            doTweenY('byeHUD4','iconP2',-300,crochet*0.0099,'cubeInOut')
+            doTweenY('byeHUD5','scoreTxt',-300,crochet*0.0099,'cubeInOut')
+        end
     end
 
     if curStep == 767 then
@@ -306,6 +434,16 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 50, 0.1, 'backInOut');
         noteTweenY('hiNotes7', 6, 50, 0.1, 'backInOut');
         noteTweenY('hiNotes8', 7, 50, 0.1, 'backInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 570, 0.1, 'backInOut');
+            noteTweenY('hiNotes2', 1, 570, 0.1, 'backInOut');
+            noteTweenY('hiNotes3', 2, 570, 0.1, 'backInOut');
+            noteTweenY('hiNotes4', 3, 570, 0.1, 'backInOut');
+            noteTweenY('hiNotes5', 4, 570, 0.1, 'backInOut');
+            noteTweenY('hiNotes6', 5, 570, 0.1, 'backInOut');
+            noteTweenY('hiNotes7', 6, 570, 0.1, 'backInOut');
+            noteTweenY('hiNotes8', 7, 570, 0.1, 'backInOut');
+        end
     end
 
     if curStep == 863 then
@@ -328,6 +466,13 @@ function onStepHit()
         doTweenAlpha('hiHUD6', 'timeBar',1,crochet*0.0099,'linear')
         doTweenAlpha('hiHUD7', 'songIcon',1,crochet*0.0099,'linear')
         doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.0099,'linear')
+        if downscroll then
+            doTweenY('hiHUD1','healthBar',79,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD2','healthBarAround',67,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD3','iconP1',4,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD4','iconP2',4,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD5','scoreTxt',129,crochet*0.0099,'cubeInOut')
+        end
     end
 
     if curStep == 1007 then
@@ -341,6 +486,16 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 100, 0.1, 'backInOut');
         noteTweenY('hiNotes7', 6, 100, 0.1, 'backInOut');
         noteTweenY('hiNotes8', 7, 100, 0.1, 'backInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes2', 1, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes3', 2, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes4', 3, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes5', 4, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes6', 5, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes7', 6, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes8', 7, 520, 0.1, 'backInOut');
+        end
     end
 
     if curStep == 1012 then
@@ -354,6 +509,16 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 150, 0.1, 'backInOut');
         noteTweenY('hiNotes7', 6, 150, 0.1, 'backInOut');
         noteTweenY('hiNotes8', 7, 150, 0.1, 'backInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes2', 1, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes3', 2, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes4', 3, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes5', 4, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes6', 5, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes7', 6, 470, 0.1, 'backInOut');
+            noteTweenY('hiNotes8', 7, 470, 0.1, 'backInOut');
+        end
     end
 
     if curStep == 1017 then
@@ -367,6 +532,16 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 175, 0.1, 'backInOut');
         noteTweenY('hiNotes7', 6, 175, 0.1, 'backInOut');
         noteTweenY('hiNotes8', 7, 175, 0.1, 'backInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes2', 1, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes3', 2, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes4', 3, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes5', 4, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes6', 5, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes7', 6, 445, 0.1, 'backInOut');
+            noteTweenY('hiNotes8', 7, 445, 0.1, 'backInOut');
+        end
     end
 
     if curStep == 1021 then
@@ -380,6 +555,16 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 100, 0.1, 'backInOut');
         noteTweenY('hiNotes7', 6, 100, 0.1, 'backInOut');
         noteTweenY('hiNotes8', 7, 100, 0.1, 'backInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes2', 1, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes3', 2, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes4', 3, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes5', 4, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes6', 5, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes7', 6, 520, 0.1, 'backInOut');
+            noteTweenY('hiNotes8', 7, 520, 0.1, 'backInOut');
+        end
     end
 
     if curStep == 1023 then
@@ -393,6 +578,16 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 50, 0.1, 'sineInOut');
         noteTweenY('hiNotes7', 6, 50, 0.1, 'sineInOut');
         noteTweenY('hiNotes8', 7, 50, 0.1, 'sineInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes2', 1, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes3', 2, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes4', 3, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes5', 4, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes6', 5, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes7', 6, 570, 0.1, 'sineInOut');
+            noteTweenY('hiNotes8', 7, 570, 0.1, 'sineInOut');
+        end
     end
 
     if curStep == 1087 then
@@ -414,6 +609,21 @@ function onStepHit()
         noteTweenY('hiNotes6', 5, 125, 2.5, 'backInOut');
         noteTweenY('hiNotes7', 6, 125, 2.5, 'backInOut');
         noteTweenY('hiNotes8', 7, 125, 2.5, 'backInOut');
+        if downscroll then
+            noteTweenY('hiNotes1', 0, 495, 2.5, 'backInOut');
+            noteTweenY('hiNotes2', 1, 495, 2.5, 'backInOut');
+            noteTweenY('hiNotes3', 2, 495, 2.5, 'backInOut');
+            noteTweenY('hiNotes4', 3, 495, 2.5, 'backInOut');
+            noteTweenY('hiNotes5', 4, 495, 2.5, 'backInOut');
+            noteTweenY('hiNotes6', 5, 495, 2.5, 'backInOut');
+            noteTweenY('hiNotes7', 6, 495, 2.5, 'backInOut');
+            noteTweenY('hiNotes8', 7, 495, 2.5, 'backInOut');
+            doTweenY('hiHUD1','healthBar',-300,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD2','healthBarAround',-300,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD3','iconP1',-300,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD4','iconP2',-300,crochet*0.0099,'cubeInOut')
+            doTweenY('hiHUD5','scoreTxt',-300,crochet*0.0099,'cubeInOut')
+        end
     end
 
     if curStep == 1151 then
@@ -430,11 +640,6 @@ function onStepHit()
     if curStep == 1215 then
         doTweenY('woohooTop', 'bigblackbartop', -250, 1, 'cubeOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 250, 1, 'cubeOut')
-    end
-
-    if curStep == 1279 then
-        doTweenY('woohooTop', 'bigblackbartop', 0, 5, 'cubeOut')
-        doTweenY('woohoobottom', 'bigblackbarbottom', 0, 5, 'cubeOut')
     end
 end
 
