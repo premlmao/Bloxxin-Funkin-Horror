@@ -65,7 +65,7 @@ class BloxxinFreeplayState extends MusicBeatState
         PlayState.isStoryMode = false;
         
         var bg:FlxBackdrop = new FlxBackdrop(Paths.image('codeLeakLOL'), XY); //Thats crazy! -nil
-		bg.velocity.set(0, -100);
+		bg.velocity.set(0, -250);
         bg.scale.set(3, 3);
         bg.x = -1800;
 		add(bg);
@@ -89,8 +89,9 @@ class BloxxinFreeplayState extends MusicBeatState
         portraits = new FlxTypedGroup<FlxSprite>();
         add(portraits);
 
-        scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
-		scoreText.setFormat(Paths.font("Comic Sans MS.ttf"), 32, FlxColor.WHITE, RIGHT);
+        scoreText = new FlxText(FlxG.width * 2, 2, 0, "", 32);
+		scoreText.setFormat(Paths.font("Gotham Black Regular.ttf"), 48, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        scoreText.borderSize = 1.75;
         scoreText.y = 625;
         add(scoreText);
 
@@ -153,11 +154,13 @@ class BloxxinFreeplayState extends MusicBeatState
         controls.x = 895;
         controls.scrollFactor.set();
         controls.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        controls.borderSize = 1.75;
         add(controls);
         var controls2:FlxText = new FlxText(12, FlxG.height - 24, 0, "Use SCROLL WHEEL to shift through the pages.", 12);
         controls2.x = 885;
         controls2.scrollFactor.set();
         controls2.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        controls2.borderSize = 1.75;
         add(controls2);
 
         lerpSelected = curSelected;
