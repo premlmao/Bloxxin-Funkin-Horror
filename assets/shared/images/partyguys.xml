@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="partyguys.png">
+<SubTexture name="whee0000" x="0" y="0" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0001" x="0" y="790" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0002" x="1581" y="0" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0003" x="1581" y="790" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0004" x="0" y="1580" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0005" x="1581" y="1580" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0006" x="0" y="2370" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0007" x="1581" y="2370" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0008" x="3162" y="0" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0009" x="3162" y="790" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0010" x="3162" y="1580" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0011" x="3162" y="2370" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0012" x="0" y="3160" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0013" x="1581" y="3160" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0014" x="3162" y="3160" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0015" x="0" y="3950" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0016" x="1581" y="3950" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0017" x="3162" y="3950" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0018" x="4743" y="0" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0019" x="4743" y="790" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0020" x="4743" y="1580" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0021" x="4743" y="2370" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0022" x="4743" y="3160" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0023" x="4743" y="3950" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0024" x="0" y="4740" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0025" x="1581" y="4740" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0026" x="3162" y="4740" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+<SubTexture name="whee0027" x="0" y="0" width="1581" height="790" frameX="0" frameY="0" frameWidth="1581" frameHeight="790" />
+</TextureAtlas>
