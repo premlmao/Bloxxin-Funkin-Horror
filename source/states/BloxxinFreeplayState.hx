@@ -223,9 +223,9 @@ class BloxxinFreeplayState extends MusicBeatState
                         var portrait:FlxSprite = portraits.members[i];
                         transitioningBetweenPages = true;
                         FlxTween.tween(portrait, {y: portrait.y - 280}, 0.3, {ease: FlxEase.cubeOut});
-                        FlxTween.tween(line, {y: line.y - 240}, 0.3, {ease: FlxEase.cubeOut});
-                        FlxTween.tween(story, {y: story.y - 280}, 0.3, {ease: FlxEase.cubeOut});
-                        FlxTween.tween(extra, {y: extra.y - 280}, 0.3, {ease: FlxEase.cubeOut});
+                        FlxTween.tween(line, {y: line.y - 240}, 0.1, {ease: FlxEase.backOut});
+                        FlxTween.tween(story, {y: story.y - 280}, 0.1, {ease: FlxEase.backOut});
+                        FlxTween.tween(extra, {y: extra.y - 280}, 0.1, {ease: FlxEase.linear});
                     }
                     FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.linear});
                     new FlxTimer().start(0.3, function(timer:FlxTimer)
@@ -242,9 +242,9 @@ class BloxxinFreeplayState extends MusicBeatState
                         var portrait:FlxSprite = portraits.members[i];
                         transitioningBetweenPages = true;
                         FlxTween.tween(portrait, {y: portrait.y + 280}, 0.3, {ease: FlxEase.cubeOut});
-                        FlxTween.tween(line, {y: line.y + 240}, 0.3, {ease: FlxEase.cubeOut});
-                        FlxTween.tween(story, {y: story.y + 280}, 0.3, {ease: FlxEase.cubeOut});
-                        FlxTween.tween(extra, {y: extra.y + 280}, 0.3, {ease: FlxEase.cubeOut});
+                        FlxTween.tween(line, {y: line.y + 240}, 0.1, {ease: FlxEase.backOut});
+                        FlxTween.tween(story, {y: story.y + 280}, 0.1, {ease: FlxEase.backOut});
+                        FlxTween.tween(extra, {y: extra.y + 280}, 0.1, {ease: FlxEase.linear});
                     }
                     FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.linear});
                     new FlxTimer().start(0.3, function(timer:FlxTimer)
