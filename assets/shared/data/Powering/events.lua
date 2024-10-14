@@ -49,6 +49,77 @@ function onSongStart()
     end
 end
 
+function onSectionHit()
+    if curSection >= 24 then
+        function onBeatHit()
+            if curBeat % 1 == 0 then
+                noteTweenY('noteY2', 5, 50, 0.25, 'backOut')
+                noteTweenY('noteY4', 7, 50, 0.25, 'backOut')
+                noteTweenY('noteY1', 4, 100, 0.25, 'backOut')
+                noteTweenY('noteY3', 6, 100, 0.25, 'backOut')
+                if downscroll then
+                    noteTweenY('noteY2', 5, 570, 0.25, 'backOut')
+                    noteTweenY('noteY4', 7, 570, 0.25, 'backOut')
+                    noteTweenY('noteY1', 4, 520, 0.25, 'backOut')
+                    noteTweenY('noteY3', 6, 520, 0.25, 'backOut')
+                end
+            end
+            if curBeat % 2 == 0 then
+                noteTweenY('noteY2', 5, 100, 0.25, 'backOut')
+                noteTweenY('noteY4', 7, 100, 0.25, 'backOut')
+                noteTweenY('noteY1', 4, 50, 0.25, 'backOut')
+                noteTweenY('noteY3', 6, 50, 0.25, 'backOut')
+                if downscroll then
+                    noteTweenY('noteY2', 5, 520, 0.25, 'backOut')
+                    noteTweenY('noteY4', 7, 520, 0.25, 'backOut')
+                    noteTweenY('noteY1', 4, 570, 0.25, 'backOut')
+                    noteTweenY('noteY3', 6, 570, 0.25, 'backOut')
+                end
+            end
+        end
+    end
+    if curSection >= 40 then
+        function onBeatHit()
+            if curBeat % 4 == 0 then
+                noteTweenY('noteY2', 5, 50, 0.25, 'backOut')
+                noteTweenY('noteY4', 7, 50, 0.25, 'backOut')
+                noteTweenY('noteY1', 4, 100, 0.25, 'backOut')
+                noteTweenY('noteY3', 6, 100, 0.25, 'backOut')
+                if downscroll then
+                    noteTweenY('noteY2', 5, 570, 0.25, 'backOut')
+                    noteTweenY('noteY4', 7, 570, 0.25, 'backOut')
+                    noteTweenY('noteY1', 4, 520, 0.25, 'backOut')
+                    noteTweenY('noteY3', 6, 520, 0.25, 'backOut')
+                end
+            end
+            if curBeat % 8 == 0 then
+                noteTweenY('noteY2', 5, 100, 0.25, 'backOut')
+                noteTweenY('noteY4', 7, 100, 0.25, 'backOut')
+                noteTweenY('noteY1', 4, 50, 0.25, 'backOut')
+                noteTweenY('noteY3', 6, 50, 0.25, 'backOut')
+                if downscroll then
+                    noteTweenY('noteY2', 5, 520, 0.25, 'backOut')
+                    noteTweenY('noteY4', 7, 520, 0.25, 'backOut')
+                    noteTweenY('noteY1', 4, 570, 0.25, 'backOut')
+                    noteTweenY('noteY3', 6, 570, 0.25, 'backOut')
+                end
+            end
+        end
+    end
+    if curSection >= 53 then
+        noteTweenY('noteY2', 5, 50, 1, 'backOut')
+        noteTweenY('noteY4', 7, 50, 1, 'backOut')
+        noteTweenY('noteY1', 4, 50, 1, 'backOut')
+        noteTweenY('noteY3', 6, 50, 1, 'backOut')
+        if downscroll then
+            noteTweenY('noteY2', 5, 570, 1, 'backOut')
+            noteTweenY('noteY4', 7, 570, 1, 'backOut')
+            noteTweenY('noteY1', 4, 570, 1, 'backOut')
+            noteTweenY('noteY3', 6, 570, 1, 'backOut')
+        end
+    end
+end
+
 function onBeatHit()
     function opponentNoteHit()
         if curBeat >= 30 and curBeat < 100 or curBeat >= 216 and curBeat < 288 then
@@ -58,22 +129,7 @@ function onBeatHit()
             triggerEvent('Screen Shake', '0.1, 0.0055,', '0.1, 0.0055')
         end
     end
-    if curBeat == 100 then
-        runTimer('46', 0.01, 1)
-    end
-    if curBeat == 164 then
-        cancelTimer('46')
-        cancelTimer('57')
-        runTimer('462', 0.01, 1)
-        runTimer('angle', 0.01, 1)
-    end
     if curBeat == 216 then
-        cancelTimer('46')
-        cancelTimer('57')
-        cancelTimer('462')
-        cancelTimer('572')
-        cancelTimer('angle')
-        cancelTimer('angle2')
         noteTweenY('noteY5', 4, 50, 1, 'backOut')
         noteTweenY('noteY6', 5, 50, 1, 'backOut')
         noteTweenY('noteY7', 6, 50, 1, 'backOut')
@@ -82,7 +138,6 @@ function onBeatHit()
         noteTweenAngle('noteAngle6', 5, 0, 1, 'circInOut')
         noteTweenAngle('noteAngle7', 6, 0, 1, 'circInOut')
         noteTweenAngle('noteAngle8', 7, 0, 1, 'circInOut')
-        runTimer('noteMove1', 0.01, 1)
         if downscroll then
             noteTweenY('noteY5', 4, 570, 1, 'backOut')
             noteTweenY('noteY6', 5, 570, 1, 'backOut')
@@ -91,112 +146,11 @@ function onBeatHit()
         end
     end
     if curBeat == 288 then
-        cancelTimer('noteMove1')
-        cancelTimer('noteMove2')
-        cancelTimer('noteMove3')
-        cancelTimer('noteMove4')
         doTweenAlpha('wholeHUDgoaway', 'camHUD', 0, 5, 'linear')
         noteTweenX('noteX5', 4, 750, 1, 'backOut');
         noteTweenX('noteX6', 5, 860, 1, 'backOut');
         noteTweenX('noteX7', 6, 970, 1, 'backOut');
         noteTweenX('noteX8', 7, 1080, 1, 'backOut');
-    end
-
-    function onTimerCompleted(tag, loops, loopsLeft)
-        if tag == '46' then
-            noteTweenY('noteY2', 5, 50, 0.4, 'backOut')
-            noteTweenY('noteY4', 7, 50, 0.4, 'backOut')
-            noteTweenY('noteY1', 4, 100, 0.4, 'backOut')
-            noteTweenY('noteY3', 6, 100, 0.4, 'backOut')
-            if downscroll then
-                noteTweenY('noteY2', 5, 570, 0.4, 'backOut')
-                noteTweenY('noteY4', 7, 570, 0.4, 'backOut')
-                noteTweenY('noteY1', 4, 520, 0.4, 'backOut')
-                noteTweenY('noteY3', 6, 520, 0.4, 'backOut')
-            end
-            runTimer('57', 0.4, 1)
-        end
-        if tag == '57' then
-            noteTweenY('noteY2', 5, 100, 0.4, 'backOut')
-            noteTweenY('noteY4', 7, 100, 0.4, 'backOut')
-            noteTweenY('noteY1', 4, 50, 0.4, 'backOut')
-            noteTweenY('noteY3', 6, 50, 0.4, 'backOut')
-            if downscroll then
-                noteTweenY('noteY2', 5, 520, 0.4, 'backOut')
-                noteTweenY('noteY4', 7, 520, 0.4, 'backOut')
-                noteTweenY('noteY1', 4, 570, 0.4, 'backOut')
-                noteTweenY('noteY3', 6, 570, 0.4, 'backOut')
-            end
-            runTimer('46', 0.4, 1)
-        end
-        if tag == '462' then
-            noteTweenY('noteY2', 5, 50, 0.6, 'backOut')
-            noteTweenY('noteY4', 7, 50, 0.6, 'backOut')
-            noteTweenY('noteY1', 4, 100, 0.6, 'backOut')
-            noteTweenY('noteY3', 6, 100, 0.6, 'backOut')
-            if downscroll then
-                noteTweenY('noteY2', 5, 570, 0.4, 'backOut')
-                noteTweenY('noteY4', 7, 570, 0.4, 'backOut')
-                noteTweenY('noteY1', 4, 520, 0.4, 'backOut')
-                noteTweenY('noteY3', 6, 520, 0.4, 'backOut')
-            end
-            runTimer('572', 0.6, 1)
-        end
-        if tag == '572' then
-            noteTweenY('noteY2', 5, 100, 0.6, 'backOut')
-            noteTweenY('noteY4', 7, 100, 0.6, 'backOut')
-            noteTweenY('noteY1', 4, 50, 0.6, 'backOut')
-            noteTweenY('noteY3', 6, 50, 0.6, 'backOut')
-            if downscroll then
-                noteTweenY('noteY2', 5, 520, 0.4, 'backOut')
-                noteTweenY('noteY4', 7, 520, 0.4, 'backOut')
-                noteTweenY('noteY1', 4, 570, 0.4, 'backOut')
-                noteTweenY('noteY3', 6, 570, 0.4, 'backOut')
-            end
-            runTimer('462', 0.6, 1)
-        end
-        if tag == 'angle' then
-            noteTweenAngle('noteAngle5', 4, -360, 0.5, 'circInOut')
-            noteTweenAngle('noteAngle6', 5, -360, 0.5, 'circInOut')
-            noteTweenAngle('noteAngle7', 6, -360, 0.5, 'circInOut')
-            noteTweenAngle('noteAngle8', 7, -360, 0.5, 'circInOut')
-            runTimer('angle2', 0.5, 1)
-        end
-        if tag == 'angle2' then
-            noteTweenAngle('noteAngle5', 4, 360, 0.5, 'circInOut')
-            noteTweenAngle('noteAngle6', 5, 360, 0.5, 'circInOut')
-            noteTweenAngle('noteAngle7', 6, 360, 0.5, 'circInOut')
-            noteTweenAngle('noteAngle8', 7, 360, 0.5, 'circInOut')
-            runTimer('angle', 0.5, 1)
-        end
-        if tag == 'noteMove1' then
-            noteTweenX('noteX5', 4, 415, 0.5, 'backOut');
-            noteTweenX('noteX6', 5, 525, 0.5, 'backOut');
-            noteTweenX('noteX7', 6, 635, 0.5, 'backOut');
-            noteTweenX('noteX8', 7, 745, 0.5, 'backOut');
-            runTimer('noteMove2', 0.5, 1)
-        end
-        if tag == 'noteMove2' then
-            noteTweenX('noteX5', 4, 100, 0.5, 'backOut');
-            noteTweenX('noteX6', 5, 210, 0.5, 'backOut');
-            noteTweenX('noteX7', 6, 320, 0.5, 'backOut');
-            noteTweenX('noteX8', 7, 430, 0.5, 'backOut');
-            runTimer('noteMove3', 0.5, 1)
-        end
-        if tag == 'noteMove3' then
-            noteTweenX('noteX5', 4, 415, 0.5, 'backOut');
-            noteTweenX('noteX6', 5, 525, 0.5, 'backOut');
-            noteTweenX('noteX7', 6, 635, 0.5, 'backOut');
-            noteTweenX('noteX8', 7, 745, 0.5, 'backOut');
-            runTimer('noteMove4', 0.5, 1)
-        end
-        if tag == 'noteMove4' then
-            noteTweenX('noteX5', 4, 750, 0.5, 'backOut');
-            noteTweenX('noteX6', 5, 860, 0.5, 'backOut');
-            noteTweenX('noteX7', 6, 970, 0.5, 'backOut');
-            noteTweenX('noteX8', 7, 1080, 0.5, 'backOut');
-            runTimer('noteMove1', 0.5, 1)
-        end
     end
 end
 

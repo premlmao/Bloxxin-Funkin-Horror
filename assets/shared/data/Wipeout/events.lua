@@ -54,7 +54,39 @@ function onCountdownTick()
         noteTweenY('noteY8', 7, 470, 0.25, 'linear');
     end
 end
-
+--[[function onBeatHit()
+    if curSection >= 16 then
+        runTimer('46', curBeat % 4 == 0, 1)
+        function onTimerCompleted(tag, loops, loopsLeft)
+            if tag == '46' then
+                noteTweenY('noteY2', 5, 50, 0.4, 'backOut')
+                noteTweenY('noteY4', 7, 50, 0.4, 'backOut')
+                noteTweenY('noteY1', 4, 100, 0.4, 'backOut')
+                noteTweenY('noteY3', 6, 100, 0.4, 'backOut')
+                if downscroll then
+                    noteTweenY('noteY2', 5, 570, 0.4, 'backOut')
+                    noteTweenY('noteY4', 7, 570, 0.4, 'backOut')
+                    noteTweenY('noteY1', 4, 520, 0.4, 'backOut')
+                    noteTweenY('noteY3', 6, 520, 0.4, 'backOut')
+                end
+                runTimer('57', 0.4, 1)
+            end
+            if tag == '57' then
+                noteTweenY('noteY2', 5, 100, 0.4, 'backOut')
+                noteTweenY('noteY4', 7, 100, 0.4, 'backOut')
+                noteTweenY('noteY1', 4, 50, 0.4, 'backOut')
+                noteTweenY('noteY3', 6, 50, 0.4, 'backOut')
+                if downscroll then
+                    noteTweenY('noteY2', 5, 520, 0.4, 'backOut')
+                    noteTweenY('noteY4', 7, 520, 0.4, 'backOut')
+                    noteTweenY('noteY1', 4, 570, 0.4, 'backOut')
+                    noteTweenY('noteY3', 6, 570, 0.4, 'backOut')
+                end
+                runTimer('46', 0.4, 1)
+            end
+        end
+    end
+end]]--
 function onStepHit()
     function opponentNoteHit()
         if curStep >= 895 then
