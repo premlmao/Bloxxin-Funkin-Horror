@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
-				90,
-				0
+				-175,
+				-185
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "left",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				10,
+				120,
 				-10
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "down",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				10,
-				-20
+				-170,
+				115
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "up",
-			"indices": []
+			"indices": [],
+			"name": "up"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-100,
-				0
+				-250,
+				-60
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
+			"indices": [],
+			"fps": 10,
 			"anim": "idle",
-			"fps": 24,
-			"name": "idle",
-			"indices": []
+			"loop": true,
+			"name": "idle"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/cronostalcorrupted",
 	"position": [
-		-20,
-		20
+		-150,
+		100
 	],
 	"healthicon": "cronostalcorrupted",
 	"flip_x": false,
@@ -70,9 +70,10 @@
 		0
 	],
 	"camera_position": [
-		-180,
-		20
+		-20,
+		-70
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.25
+	"scale": 1.25,
+	"_editor_isPlayer": false
 }
