@@ -75,8 +75,9 @@ class BloxxinFreeplayState extends MusicBeatState
 
         line = new FlxSprite().loadGraphic(Paths.image('freeplay/line'));
         line.antialiasing = ClientPrefs.data.antialiasing;
+        line.setGraphicSize(Std.int(line.width * 0.95));
         line.updateHitbox();
-        line.x = 107;
+        line.x = 110;
         line.y = 187;
         add(line);
 
