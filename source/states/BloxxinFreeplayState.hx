@@ -192,11 +192,10 @@ class BloxxinFreeplayState extends MusicBeatState
         controls2.borderSize = 1.75;
         add(controls2);
 
-        lerpSelected = curSelected;
-
         if(curSelected >= songs.length) curSelected = 0;
 		bg.color = songs[curSelected].color;
 		intendedColor = bg.color;
+        
 		lerpSelected = curSelected;
         
         super.create();
@@ -292,17 +291,17 @@ class BloxxinFreeplayState extends MusicBeatState
                                     }
                                 });
                         }
-                        if (FlxG.mouse.justPressed) 
-                        {
-                            trace(port.ID);
-                            LoadingState.loadAndSwitchState(new PlayState());
-                            FlxG.sound.play(Paths.sound('confirmMenu'));
-                            var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
-                            var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-                            PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-                            PlayState.storyDifficulty = curDifficulty;
-                            FlxG.mouse.visible = false;
-                        }
+                    }
+                    if (FlxG.mouse.justPressed) 
+                    {
+                        trace(port.ID);
+                        LoadingState.loadAndSwitchState(new PlayState());
+                        FlxG.sound.play(Paths.sound('confirmMenu'));
+                        var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
+                        var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
+                        PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+                        PlayState.storyDifficulty = curDifficulty;
+                        FlxG.mouse.visible = false;
                     }
                 }
                     if (controls.BACK)
