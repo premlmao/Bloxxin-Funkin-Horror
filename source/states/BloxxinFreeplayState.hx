@@ -39,6 +39,8 @@ class BloxxinFreeplayState extends MusicBeatState
     var l:Int = 0;
     var curYforPortraitSpawn:Float = 125;
     
+    var bg:FlxBackdrop;
+    var intendedColor:Int;
     var colorTween:FlxTween;
   
     var line:FlxSprite;
@@ -67,7 +69,7 @@ class BloxxinFreeplayState extends MusicBeatState
 
         PlayState.isStoryMode = false;
         
-        var bg:FlxBackdrop = new FlxBackdrop(Paths.image('codeLeakLOL'), XY); //Thats crazy! -nil
+        bg = new FlxBackdrop(Paths.image('codeLeakLOL'), XY); //Thats crazy! -nil
 		bg.velocity.set(0, -250);
         bg.scale.set(3, 3);
         bg.x = -1800;
@@ -191,6 +193,11 @@ class BloxxinFreeplayState extends MusicBeatState
         add(controls2);
 
         lerpSelected = curSelected;
+
+        if(curSelected >= songs.length) curSelected = 0;
+		bg.color = songs[curSelected].color;
+		intendedColor = bg.color;
+		lerpSelected = curSelected;
         
         super.create();
     }
@@ -272,6 +279,18 @@ class BloxxinFreeplayState extends MusicBeatState
 
                             intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		                    intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
+
+                            var newColor:Int = songs[curSelected].color;
+                            if(newColor != intendedColor) {
+                                if(colorTween != null) {
+                                    colorTween.cancel();
+                                }
+                                intendedColor = newColor;
+                                colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
+                                    onComplete: function(twn:FlxTween) {
+                                        colorTween = null;
+                                    }
+                                });
                         }
                         if (FlxG.mouse.justPressed) 
                         {
@@ -290,6 +309,10 @@ class BloxxinFreeplayState extends MusicBeatState
                         {
                             selectedSomethin = true;
                             FlxG.sound.play(Paths.sound('cancelMenu'));
+                            persistentUpdate = false;
+                            if(colorTween != null) {
+                                colorTween.cancel();
+                            }
                             MusicBeatState.switchState(new MainMenuState());
                             FlxG.mouse.visible = false;
                         }
@@ -313,6 +336,7 @@ class BloxxinFreeplayState extends MusicBeatState
 
                     super.update(elapsed);
         }
+    }
 
     public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
         {
