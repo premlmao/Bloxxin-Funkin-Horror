@@ -3,18 +3,22 @@
 	"difficulties": "Normal",
 	"hideFreeplay": false,
 	"weekBackground": "",
-	"weekBefore": "freeplay",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "freeplay",
 	"startUnlocked": false,
-	"hideStoryMode": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
 	"songs": [
 		[
 			"FoolsOld",
-			"fools",
+			"dad",
 			[
 				255,
 				255,
@@ -25,35 +29,31 @@
 			"Breach",
 			"dad",
 			[
-				146,
-				113,
-				253
+				255,
+				255,
+				255
 			]
 		],
 		[
 			"DeformedOld",
 			"dad",
 			[
-				146,
-				113,
-				253
+				255,
+				255,
+				255
 			]
 		],
 		[
 			"GloryDayOld",
 			"dad",
 			[
-				146,
-				113,
-				253
+				255,
+				255,
+				255
 			]
 		]
 	],
-	"weekCharacters": [
-		"",
-		"",
-		""
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": ""
+	"hideStoryMode": true,
+	"weekName": "",
+	"hiddenUntilUnlocked": false
 }

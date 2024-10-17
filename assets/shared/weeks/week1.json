@@ -3,48 +3,48 @@
 	"difficulties": "Normal",
 	"hideFreeplay": false,
 	"weekBackground": "",
-	"weekBefore": "",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
 	"songs": [
 		[
 			"Proveit",
 			"guest666",
 			[
-				40,
-				20,
-				80
+				220,
+				60,
+				60
 			]
 		],
 		[
 			"Deadline",
 			"johndoe",
 			[
-				40,
-				20,
-				80
+				175,
+				100,
+				20
 			]
 		],
 		[
 			"Powering",
 			"johndoemad",
 			[
-				40,
-				20,
-				80
+				215,
+				160,
+				0
 			]
 		]
 	],
-	"weekCharacters": [
-		"",
-		"",
-		""
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": ""
+	"hideStoryMode": false,
+	"weekName": "",
+	"hiddenUntilUnlocked": false
 }
