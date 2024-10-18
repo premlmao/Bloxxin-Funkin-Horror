@@ -223,12 +223,11 @@ class MainMenuState extends MusicBeatState
 									case 'story_mode':
 										WeekData.reloadWeekFiles(true);
 										PlayState.SONG = Song.loadFromJson('ProveIt', 'ProveIt');
-										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'powering'];
+										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
 										PlayState.isStoryMode = true;
-										Difficulty.list = ['normal'];
-										PlayState.campaignScore = 0;
-										PlayState.campaignMisses = 0;
-										PlayState.storyWeek = WeekData.weeksList.indexOf('week1');
+										Difficulty.list = ['Normal'];
+										PlayState.storyDifficulty = 0;
+										PlayState.storyWeek = 0;
 										LoadingState.loadAndSwitchState(new PlayState(), true);
 									case 'freeplay':
 										MusicBeatState.switchState(new BloxxinFreeplayState());
@@ -255,12 +254,11 @@ class MainMenuState extends MusicBeatState
 									case 'story_mode':
 										WeekData.reloadWeekFiles(true);
 										PlayState.SONG = Song.loadFromJson('ProveIt', 'ProveIt');
-										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'powering'];
+										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
 										PlayState.isStoryMode = true;
 										Difficulty.list = ['Normal'];
-										PlayState.campaignScore = 0;
-										PlayState.campaignMisses = 0;
-										PlayState.storyWeek = WeekData.weeksList.indexOf('week1');
+										PlayState.storyDifficulty = 0;
+										PlayState.storyWeek = 0;
 										LoadingState.loadAndSwitchState(new PlayState(), true);
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
