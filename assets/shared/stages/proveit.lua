@@ -63,7 +63,7 @@ function onBeatHit()
         addLuaSprite('pixelnightlight', false);
         addLuaSprite('pixelproveit', false);
 end
-    if curBeat == 304 then
+    if curBeat == 304 and songName == "ProveIt" then
 
 		removeLuaSprite('pixelnightlight');
 		removeLuaSprite('pixelproveit');
