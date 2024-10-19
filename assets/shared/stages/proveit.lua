@@ -41,13 +41,32 @@ end
 
 function onBeatHit()
 	--For ProveIt
-    if curBeat == 304 and songName == "ProveIt" then
+    if curBeat == 240 and songName == "ProveIt" then
+
 		removeLuaSprite('nightlight');
 		removeLuaSprite('proveitfog');
 		removeLuaSprite('proveitbacker');
 		removeLuaSprite('proveitback');
 		removeLuaSprite('proveitstage');
 		removeLuaSprite('moon');
+
+        makeLuaSprite('pixelnightlight', 'stages/pixelnightlight', -302, 208);
+	setScrollFactor('pixelnightlight', 0.05, 0.05);
+	scaleObject ('pixelnightlight', 10, 10);
+        setProperty('pixelnightlight.antialiasing', false);
+
+        makeLuaSprite('pixelproveit', 'stages/pixelproveit', -302, 158);
+	setScrollFactor('pixelproveit', 1, 1);
+	scaleObject ('pixelproveit', 10, 10);
+        setProperty('pixelproveit.antialiasing', false);
+
+        addLuaSprite('pixelnightlight', false);
+        addLuaSprite('pixelproveit', false);
+end
+    if curBeat == 304 then
+
+		removeLuaSprite('pixelnightlight');
+		removeLuaSprite('pixelproveit');
 
 		makeAnimatedLuaSprite('proveitperspectiveback','stages/proveitperspectiveback',-200,-100);
     	addAnimationByPrefix('proveitperspectiveback','dance','shake',5,true);
