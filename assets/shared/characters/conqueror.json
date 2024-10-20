@@ -1,66 +1,132 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				49,
-				9
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				0,
+				-210
+			],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
+			"fps": 24,
+			"name": "left",
+			"indices": []
 		},
 		{
-			"offsets": [
-				6,
-				-3
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				-45,
+				-215
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
+			"fps": 24,
+			"name": "down",
+			"indices": []
 		},
 		{
-			"offsets": [
-				25,
-				13
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				-25,
+				-195
+			],
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
-		},
-		{
-			"offsets": [
-				-20,
-				0
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
+			"name": "up",
+			"indices": []
 		},
 		{
 			"loop": false,
+			"offsets": [
+				-60,
+				-215
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "right",
+			"indices": []
+		},
+		{
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				-20,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "altdown"
+		},
+		{
+			"offsets": [
+				70,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "altleft"
+		},
+		{
+			"offsets": [
+				-30,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"indices": [],
+			"name": "altright"
+		},
+		{
+			"offsets": [
+				30,
+				20
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "altup"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle-alt",
+			"indices": [],
+			"name": "altidle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "blow",
+			"indices": [],
+			"name": "blow"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/conqueror",
 	"position": [
-		-110,
-		120
+		-40,
+		10
 	],
 	"healthicon": "queror",
 	"flip_x": false,
@@ -70,7 +136,7 @@
 		13
 	],
 	"camera_position": [
-		-60,
+		-210,
 		-60
 	],
 	"sing_duration": 5.99999999999999,
