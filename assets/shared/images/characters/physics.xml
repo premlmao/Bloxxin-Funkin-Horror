@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="physics.png">
+<SubTexture name="idle0000" x="0" y="256" width="271" height="205" frameX="-244" frameY="-22" frameWidth="623" frameHeight="306" />
+<SubTexture name="idle0001" x="0" y="461" width="271" height="204" frameX="-242" frameY="-24" frameWidth="623" frameHeight="306" />
+<SubTexture name="idle0002" x="271" y="256" width="270" height="205" frameX="-247" frameY="-22" frameWidth="623" frameHeight="306" />
+<SubTexture name="left0000" x="781" y="420" width="238" height="101" frameX="-255" frameY="-101" frameWidth="623" frameHeight="306" />
+<SubTexture name="left0001" x="781" y="521" width="238" height="101" frameX="-272" frameY="-101" frameWidth="623" frameHeight="306" />
+<SubTexture name="down0000" x="781" y="308" width="176" height="112" frameX="-289" frameY="-194" frameWidth="623" frameHeight="306" />
+<SubTexture name="down0001" x="781" y="173" width="179" height="135" frameX="-286" frameY="-166" frameWidth="623" frameHeight="306" />
+<SubTexture name="up0000" x="573" y="461" width="170" height="186" frameX="-240" frameY="0" frameWidth="623" frameHeight="306" />
+<SubTexture name="up0001" x="623" y="0" width="158" height="205" frameX="-249" frameY="0" frameWidth="623" frameHeight="306" />
+<SubTexture name="right0000" x="271" y="461" width="302" height="197" frameX="-321" frameY="-87" frameWidth="623" frameHeight="306" />
+<SubTexture name="right0001" x="781" y="0" width="338" height="173" frameX="-285" frameY="-96" frameWidth="623" frameHeight="306" />
+<SubTexture name="sing0000" x="315" y="0" width="308" height="252" frameX="-244" frameY="-7" frameWidth="623" frameHeight="306" />
+<SubTexture name="sing0001" x="0" y="0" width="315" height="256" frameX="-244" frameY="-6" frameWidth="623" frameHeight="306" />
+</TextureAtlas>

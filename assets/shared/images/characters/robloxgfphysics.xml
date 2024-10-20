@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="robloxgfphysics.png">
+<SubTexture name="idle0000" x="0" y="0" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="idle0001" x="203" y="0" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="idle0002" x="406" y="0" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="right0000" x="0" y="231" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="right0001" x="203" y="231" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="left0000" x="406" y="231" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="left0001" x="609" y="0" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="up0000" x="609" y="231" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="up0001" x="0" y="462" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="down0000" x="203" y="462" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="down0001" x="406" y="462" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="boing0000" x="609" y="462" width="202" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="boing0001" x="812" y="0" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="boing0002" x="812" y="231" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="boing0003" x="812" y="462" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="boing0004" x="0" y="0" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="boing0005" x="0" y="0" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="boing0006" x="0" y="0" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="boing0007" x="0" y="0" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+<SubTexture name="boing0008" x="0" y="0" width="203" height="231" frameX="0" frameY="0" frameWidth="203" frameHeight="231" />
+</TextureAtlas>
