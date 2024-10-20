@@ -226,7 +226,7 @@ class MainMenuState extends MusicBeatState
 										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
 										PlayState.isStoryMode = true;
 										Difficulty.list = ['Normal'];
-										PlayState.storyDifficulty = 0;
+										PlayState.storyDifficulty = 1;
 										PlayState.storyWeek = 0;
 										LoadingState.loadAndSwitchState(new PlayState(), true);
 									case 'freeplay':
@@ -257,7 +257,7 @@ class MainMenuState extends MusicBeatState
 										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
 										PlayState.isStoryMode = true;
 										Difficulty.list = ['Normal'];
-										PlayState.storyDifficulty = 0;
+										PlayState.storyDifficulty = 1;
 										PlayState.storyWeek = 0;
 										LoadingState.loadAndSwitchState(new PlayState(), true);
 									case 'freeplay':
