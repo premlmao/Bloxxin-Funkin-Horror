@@ -3,9 +3,11 @@ function onCreate()
 
         makeLuaSprite('night', 'stages/night', -300, -100);
 	setScrollFactor('night', 0.05, 0.05);
+        setProperty('night.antialiasing', false);
 
         makeLuaSprite('moon', 'stages/moon', -300, -100);
 	setScrollFactor('moon', 0.02, 0.02);
+        setProperty('moon.antialiasing', false);
 
         makeAnimatedLuaSprite('sfothrain','stages/sfothrain',-300,-100)
         addAnimationByPrefix('sfothrain','dance','raining',40,true)
@@ -14,15 +16,17 @@ function onCreate()
 	scaleObject ('sfothrain', 1.75, 1.75);
         setProperty('sfothrain.antialiasing', false);
 
-        makeLuaSprite('sfothbridge2', 'stages/sfothbridge', -300, -100);
-	setScrollFactor('sfothbridge2', 1, 1);
-        setProperty('sfothbridge2.antialiasing', false);
+        makeLuaSprite('sfothbridge', 'stages/sfothbridge', -300, -100);
+	setScrollFactor('sfothbridge', 1, 1);
+        setProperty('sfothbridge.antialiasing', false);
 
         makeLuaSprite('sfothback', 'stages/sfothback', -300, -100);
 	setScrollFactor('sfothback', 0.2, 0.2);
+        setProperty('sfothback.antialiasing', false);
 
         makeLuaSprite('sfothfog', 'stages/sfothfog', -300, -100);
 	setScrollFactor('sfothfog', 0.5, 0.5);
+        setProperty('sfothfog.antialiasing', false);
 
 
 	addLuaSprite('night', false);
