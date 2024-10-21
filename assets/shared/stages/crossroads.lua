@@ -11,6 +11,9 @@ function onCreate()
 	makeLuaSprite('crossroadsback', 'stages/crossroadsback', -300, -100);
 	setScrollFactor('crossroadsback', 0.8, 0.8);
 
+	makeLuaSprite('crossroadsbacker', 'stages/crossroadsbacker', -300, -100);
+	setScrollFactor('crossroadsbacker', 0.2, 0.2);
+
 	makeLuaSprite('crossroadsfog', 'stages/crossroadsfog', -300, -100);
 	setScrollFactor('crossroadsfog', 0.5, 0.5);
 
@@ -21,6 +24,7 @@ function onCreate()
         addLuaSprite('crossroadsfog', true);
         addLuaSprite('tv', true);
         addLuaSprite('crossroadssky', false);
+        addLuaSprite('crossroadsbacker', false);
         addLuaSprite('crossroadsback', false);
         addLuaSprite('crossroadsmap', false);
 end
@@ -29,6 +33,7 @@ function onBeatHit()
     if curBeat == 192 then
 		removeLuaSprite('crossroadsmap');
 		removeLuaSprite('crossroadsback');
+		removeLuaSprite('crossroadsbacker');
 		removeLuaSprite('crossroadsfog');
 		removeLuaSprite('crossroadssky');
 		removeLuaSprite('tv');
@@ -68,6 +73,9 @@ function onBeatHit()
 	makeLuaSprite('crossroadsback', 'stages/crossroadsback', -300, -100);
 	setScrollFactor('crossroadsback', 0.8, 0.8);
 
+	makeLuaSprite('crossroadsbacker', 'stages/crossroadsbacker', -300, -100);
+	setScrollFactor('crossroadsbacker', 0.2, 0.2);
+
 	makeLuaSprite('crossroadsfog', 'stages/crossroadsfog', -300, -100);
 	setScrollFactor('crossroadsfog', 0.5, 0.5);
 
@@ -77,6 +85,7 @@ function onBeatHit()
         addLuaSprite('crossroadsfog', true);
         addLuaSprite('tv', true);
         addLuaSprite('crossroadssky', false);
+        addLuaSprite('crossroadsbacker', false);
         addLuaSprite('crossroadsback', false);
         addLuaSprite('crossroadsmap', false);
 end
