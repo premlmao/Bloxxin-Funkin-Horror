@@ -1,9 +1,9 @@
 function onCreate()
 	-- lol this one code is always kept in these backgrounds :fire: -A coder
 
-        makeLuaSprite('night', 'stages/night', -300, -100);
-	setScrollFactor('night', 0.05, 0.05);
-        setProperty('night.antialiasing', false);
+        makeLuaSprite('sfothsky', 'stages/sfothsky', -300, -100);
+	setScrollFactor('sfothsky', 0.05, 0.05);
+        setProperty('sfothsky.antialiasing', false);
 
         makeLuaSprite('moon', 'stages/moon', -300, -100);
 	setScrollFactor('moon', 0.02, 0.02);
@@ -33,7 +33,7 @@ function onCreate()
         setProperty('sfothfog.antialiasing', false);
 
 
-	addLuaSprite('night', false);
+	addLuaSprite('sfothsky', false);
 	addLuaSprite('moon', false);
         addLuaSprite('sfothrain', true);
 	addLuaSprite('sfothbacker', false);
@@ -44,7 +44,7 @@ end
 
 function onBeatHit()
     if curBeat == 462 then
-		removeLuaSprite('night');
+		removeLuaSprite('sfothsky');
 		removeLuaSprite('moon');
                 removeLuaSprite('sfothrain');
               	removeLuaSprite('sfothbacker');
