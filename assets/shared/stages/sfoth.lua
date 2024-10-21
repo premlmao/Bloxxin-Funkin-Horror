@@ -24,6 +24,10 @@ function onCreate()
 	setScrollFactor('sfothback', 0.2, 0.2);
         setProperty('sfothback.antialiasing', false);
 
+        makeLuaSprite('sfothbacker', 'stages/sfothbacker', -300, -100);
+	setScrollFactor('sfothbacker', 0.1, 0.1);
+        setProperty('sfothbacker.antialiasing', false);
+
         makeLuaSprite('sfothfog', 'stages/sfothfog', -300, -100);
 	setScrollFactor('sfothfog', 0.5, 0.5);
         setProperty('sfothfog.antialiasing', false);
@@ -32,6 +36,7 @@ function onCreate()
 	addLuaSprite('night', false);
 	addLuaSprite('moon', false);
         addLuaSprite('sfothrain', true);
+	addLuaSprite('sfothbacker', false);
 	addLuaSprite('sfothback', false);
         addLuaSprite('sfothbridge', false);
 	addLuaSprite('sfothfog', true);
@@ -42,6 +47,7 @@ function onBeatHit()
 		removeLuaSprite('night');
 		removeLuaSprite('moon');
                 removeLuaSprite('sfothrain');
+              	removeLuaSprite('sfothbacker');
 		removeLuaSprite('sfothback');
 		removeLuaSprite('sfothbridge');
 		removeLuaSprite('sfothfog');
