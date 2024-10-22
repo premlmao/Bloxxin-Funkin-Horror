@@ -12,5 +12,8 @@ end
 function opponentNoteHit(_, _, type)
     if type == 'Alt Animation' then
         triggerEvent('Screen Shake', '0.1, 0.006,', '0.1, 0.004')
+    if getHealth() >= 0.025 then
+        setHealth(getHealth() - 0.025)
+    end
     end
 end
