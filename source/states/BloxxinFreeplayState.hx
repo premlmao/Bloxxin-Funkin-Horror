@@ -40,6 +40,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var curYforPortraitSpawn:Float = 125;
     
     var bg:FlxBackdrop;
+    var freeplayBox:FlxSprite;
     var intendedColor:Int;
     var colorTween:FlxTween;
   
@@ -99,10 +100,11 @@ class BloxxinFreeplayState extends MusicBeatState
         extra.y = 340;
         add(extra);
 
-        var freeplayBox:FlxSprite = new FlxSprite().loadGraphic(Paths.image('freeplay/freeplayBox'));
+        freeplayBox = new FlxSprite().loadGraphic(Paths.image('freeplay/freeplayBox'));
         freeplayBox.antialiasing = ClientPrefs.data.antialiasing;
         freeplayBox.setGraphicSize(Std.int(freeplayBox.width * 0.75));
         freeplayBox.updateHitbox();
+        freeplayBox.color = 0xffDC3C3C;
         freeplayBox.x = 875;
         add(freeplayBox);
 
@@ -195,6 +197,7 @@ class BloxxinFreeplayState extends MusicBeatState
         if(curSelected >= songs.length) curSelected = 0;
 		bg.color = songs[curSelected].color;
 		intendedColor = bg.color;
+        intendedColor = freeplayBox.color;
         
 		lerpSelected = curSelected;
         
@@ -280,17 +283,23 @@ class BloxxinFreeplayState extends MusicBeatState
 		                    intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
 
                             var newColor:Int = songs[curSelected].color;
-                            if(newColor != intendedColor) {
+                            if(newColor != intendedColor) 
+                            {
                                 if(colorTween != null) {
                                     colorTween.cancel();
                                 }
                                 intendedColor = newColor;
-                                colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
+                                colorTween = FlxTween.color(bg, 0.25, bg.color, intendedColor, {
                                     onComplete: function(twn:FlxTween) {
                                         colorTween = null;
                                     }
                                 });
-                        }
+                                colorTween = FlxTween.color(freeplayBox, 0.25, freeplayBox.color, intendedColor, {
+                                    onComplete: function(twn:FlxTween) {
+                                        colorTween = null;
+                                    }
+                                });
+                            }
                     }
                     if (FlxG.mouse.justPressed) 
                     {

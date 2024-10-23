@@ -1,3 +1,5 @@
+local timeString
+
 function onCreate()
 makeLuaSprite('black',nil,0,0)
 makeGraphic('black',0xff00000,screenWidth * 2,screenHeight * 2)
@@ -30,7 +32,6 @@ if downscroll then
     setProperty('timeTxt.visible', false)
 end
 end
-
 function opponentNoteHit(_, _, type)
     if getHealth() >= 0.01 then
         setHealth(getHealth() - 0.01)
@@ -45,8 +46,8 @@ end
 
 function goodNoteHit()
     if curSection >= 129 then
-        if getHealth() >= 0.075 then
-            setHealth(getHealth() + 0.075)
+        if getHealth() >= 0.025 then
+            setHealth(getHealth() + 0.025)
         end
     end
 end
@@ -72,10 +73,13 @@ end
 
 function onStepHit()
     if curSection >= 114 then
+        setTextString('scoreTxt', 'Score: '..getRandomInt(0, 2000000)..' | Misses: '..getRandomInt(0, 3000)..' | Rating: '..getProperty('ratingName')..' ('..getRandomInt(1, 100)..'%)')
         function onUpdatePost()
-            setTextString('scoreTxt', 'Score: '..getRandomInt(0, 10000)..' | Misses: '..getRandomInt(0, 1000)..' | Rating: '..getProperty('ratingName')..' ('..getRandomInt(1, 100)..'%)')
-            setTextString('timeTxt', ''..getRandomInt(0, 59)..':'..getRandomInt(0, 59))
+            if not getProperty('startingSong') and getTextString('timeTxt') ~= timeString then
+                setTextString('timeTxt', timeString)
+            end
         end
+        timeString = getRandomInt(0, 157)..':'..getRandomInt(0, 143)
     end
 if curStep == 32 then
 setProperty('black.visible', true)
