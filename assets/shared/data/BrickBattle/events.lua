@@ -38,8 +38,8 @@ function opponentNoteHit(_, _, type)
     end
     if curSection >= 129 then
     triggerEvent('Screen Shake', '0.1, 0.004,', '0.1, 0.003')
-    if getHealth() >= 0.025 then
-        setHealth(getHealth() - 0.025)
+    if getHealth() >= 0.015 then
+        setHealth(getHealth() - 0.015)
     end
     end
 end

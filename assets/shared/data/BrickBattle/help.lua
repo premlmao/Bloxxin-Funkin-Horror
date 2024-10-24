@@ -77,6 +77,6 @@ function onStepHit()
     end
     if curStep == 1935 then
         doTweenAlpha('help4','help4', 0, 1, 'linear')
-        setHealth(50/50)
+        setHealth(100/0)
     end
 end
