@@ -3,7 +3,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				20,
+				0,
 				0
 			],
 			"anim": "singLEFT",
@@ -25,7 +25,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				10,
+				0,
 				0
 			],
 			"anim": "singUP",
@@ -45,22 +45,132 @@
 			"indices": []
 		},
 		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "missleft",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "missdown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "missup",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "missright",
+			"indices": []
+		},
+		{
 			"offsets": [
 				0,
 				0
 			],
 			"loop": false,
-			"fps": 20,
+			"fps": 24,
 			"anim": "idle",
 			"indices": [],
 			"name": "idle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "hey",
+			"indices": [],
+			"name": "hey"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singLEFT-loop",
+			"fps": 24,
+			"name": "loopleft",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singDOWN-loop",
+			"fps": 24,
+			"name": "loopdown",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUP-loop",
+			"fps": 24,
+			"name": "loopup",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singRIGHT-loop",
+			"fps": 24,
+			"name": "loopright",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle-loop",
+			"fps": 24,
+			"name": "loopidle",
+			"indices": []
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/robloxbfglitch",
 	"position": [
-		-90,
-		230
+		70,
+		260
 	],
 	"healthicon": "robloxbf",
 	"flip_x": true,
@@ -70,9 +180,10 @@
 		239
 	],
 	"camera_position": [
-		220,
-		-50
+		200,
+		-70
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.45
+	"scale": 1.35,
+	"_editor_isPlayer": true
 }

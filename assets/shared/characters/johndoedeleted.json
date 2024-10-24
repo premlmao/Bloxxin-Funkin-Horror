@@ -3,64 +3,130 @@
 		{
 			"loop": false,
 			"offsets": [
-				10,
-				0
-			],
-			"anim": "singLEFT",
-			"fps": 24,
-			"name": "left",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
 				0,
 				0
 			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "down",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "singUP",
-			"fps": 24,
-			"name": "up",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-10,
-				0
-			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "right",
-			"indices": []
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
+			"fps": 10,
+			"name": "idle",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle-loop",
+			"fps": 10,
+			"name": "idle-loop",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "stupid",
+			"fps": 7,
+			"name": "stupid",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 10,
+			"anim": "singLEFT",
 			"indices": [],
-			"name": "idle"
+			"name": "left"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 10,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				10,
+				-10
+			],
+			"loop": false,
+			"fps": 10,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 10,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singLEFT-loop",
+			"fps": 10,
+			"name": "left-loop",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singDOWN-loop",
+			"fps": 10,
+			"name": "down-loop",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singRIGHT-loop",
+			"fps": 10,
+			"name": "right-loop",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				10,
+				-10
+			],
+			"anim": "singUP-loop",
+			"fps": 10,
+			"name": "up-loop",
+			"indices": []
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/johndoedeleted",
 	"position": [
-		80,
-		200
+		-130,
+		0
 	],
 	"healthicon": "johndoe",
 	"flip_x": false,
@@ -70,9 +136,10 @@
 		60
 	],
 	"camera_position": [
-		-210,
-		40
+		-145,
+		10
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.15
+	"scale": 1.05,
+	"_editor_isPlayer": false
 }

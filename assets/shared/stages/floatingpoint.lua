@@ -1,8 +1,10 @@
 function onCreate()
 	-- background shit
-	makeLuaSprite('floatingpoint', 'stages/floatingpoint', -300, -100);
-	setScrollFactor('floatingpoint', 0.1, 0.1);
-
+        makeAnimatedLuaSprite('floatingpoint','stages/floatingpoint',-300,-100)
+        addAnimationByPrefix('floatingpoint','dance','glitch',24,true)
+        objectPlayAnimation('floatingpoint','dance',false)
+        setScrollFactor('floatingpoint', 0.05, 0.05);
+        setProperty('floatingpoint.antialiasing', false);
 
         addLuaSprite('floatingpoint', false);
 	
