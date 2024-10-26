@@ -30,4 +30,13 @@ function onBeatHit()
 	addLuaSprite('partyexevirus', false);
 
 end
+    if curBeat == 226 then
+		removeLuaSprite('partyexevirus');
+
+        makeLuaSprite('partyexelungs', 'stages/partyexelungs', -470, -100);
+	setScrollFactor('partyexelungs', 1, 1);
+        setProperty('partyexelungs.antialiasing', false);
+
+	addLuaSprite('partyexelungs', false);
+end
 end
