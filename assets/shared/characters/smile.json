@@ -1,17 +1,6 @@
 {
 	"animations": [
 		{
-			"loop": true,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "idle",
-			"fps": 15,
-			"name": "idle",
-			"indices": []
-		},
-		{
 			"loop": false,
 			"offsets": [
 				0,
@@ -25,8 +14,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				10,
-				-20
+				0,
+				0
 			],
 			"anim": "singDOWN",
 			"fps": 24,
@@ -36,7 +25,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				30,
+				10,
 				0
 			],
 			"anim": "singRIGHT",
@@ -54,13 +43,24 @@
 			"fps": 24,
 			"name": "up",
 			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "idle",
+			"indices": []
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/smile",
 	"position": [
-		40,
-		80
+		150,
+		140
 	],
 	"healthicon": "smile",
 	"flip_x": false,
@@ -70,10 +70,10 @@
 		161
 	],
 	"camera_position": [
-		-395,
+		-235,
 		20
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.45,
+	"scale": 1.35,
 	"_editor_isPlayer": false
 }
