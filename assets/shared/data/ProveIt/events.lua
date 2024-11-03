@@ -167,8 +167,8 @@ function onCreate()
 end
         
 function onStepHit()
-if curStep == 7 then
-setProperty('black.visible', true)
+if curStep == 10 then
+    setObjectCamera('black', 'hud')
 doTweenAlpha('silly','black',0,6)
 end
 

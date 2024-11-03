@@ -2,6 +2,7 @@ function onCreate()
 	-- background shit
 	makeLuaSprite('smile', 'stages/smile', -520, -30);
 	setScrollFactor('smile', 1, 1);
+        setProperty('smile.antialiasing', false);
 
 
 	addLuaSprite('smile', false);

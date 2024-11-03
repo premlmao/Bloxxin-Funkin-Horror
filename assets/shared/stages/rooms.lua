@@ -18,6 +18,18 @@ function onCreate()
 
         addLuaSprite('rooms', false);
         addLuaSprite('robloxbflegs', false);
-	
-	close(true); --For performance reasons, close this script once the stage is fully loaded, as this script won't be used anymore after loading the stage
+end
+
+function onBeatHit()
+    if curBeat == 222 then
+		removeLuaSprite('rooms');
+		removeLuaSprite('robloxbflegs');
+
+        makeLuaSprite('roomslocker', 'stages/roomslocker', -300, -100);
+	setScrollFactor('roomslocker', 1, 1);
+        setProperty('roomslocker.antialiasing', false);
+
+
+	addLuaSprite('roomslocker', false);
+end
 end
