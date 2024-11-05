@@ -129,50 +129,45 @@ class MainMenuState extends MusicBeatState
 		for (i in 0...optionShit.length)
 		{
 			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-			menuItem = new FlxSprite(0, (i * 140) + offset);
+			menuItem = new FlxSprite(-285, (i * 140) + offset);
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
-			menuItems.add(menuItem);
-			var scr:Float = (optionShit.length - 4) * 0.135;
-			if (optionShit.length < 6)
-				scr = 0;
-			menuItem.scrollFactor.set(0, scr);
-			menuItem.updateHitbox();
-			menuItem.setGraphicSize(Std.int(menuItem.width * 1));
-			switch(i){
-				case 0: menuItem.x = -1000;
-				case 1: menuItem.x = -1000;
-				case 2: menuItem.x = -1000;
-				case 3: menuItem.x = -1000;
-				case 4: menuItem.x = -1000;
-			}	
+			menuItem.ID = i;
+			menuItem.scrollFactor.set(0, 0);
 
-			switch(i){
-				case 0: menuItem.y = -60;
-				case 1: menuItem.y = -60;
-				case 2: menuItem.y = -60;
-				case 3: menuItem.y = -60;
-				case 4: menuItem.y = -60;
-			}
+			//menuItem.x = -1000;
+			menuItem.y = -60;
+			menuItem.updateHitbox();
+			menuItems.add(menuItem);
+
+			
 			if (firstStart)
+			{
+				
 				FlxTween.tween(menuBox, {x: -5}, 0.75, {ease: FlxEase.sineInOut});
 				FlxTween.tween(trussAndStuds, {alpha: 1}, 0.75, {ease: FlxEase.linear});
 				FlxTween.tween(menuText, {y: 35}, 1.2, {ease: FlxEase.backInOut, startDelay: 0.2});
+
+				/*
 				FlxTween.tween(menuItem, {x: -285}, 1 + (i * 0.3), {ease: FlxEase.backInOut, startDelay: 0.45, onComplete: function(FlxTween:FlxTween)
 				{
 					finishedFunnyMove = true;
 				}});
+				*/
+
 				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.sineInOut, startDelay: 0.6});
+			}
+
 		}
 
 		var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Bloxxin Funkin Horror' v2.0", 12);
 		fnfVer.scrollFactor.set();
 		fnfVer.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
-		changeItem();
+		changeItem(0, false);
 
 		super.create();
 	}
@@ -190,222 +185,20 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			for (menuSpr in menuItems)
-			{
-				if (FlxG.mouse.overlaps(menuSpr))
-				{
-					if(FlxG.mouse.justPressed)
-					{
-						FlxG.sound.play(Paths.sound('confirmMenu'));
-						if (optionShit[curSelected] == 'donate')
-						{
-							CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
-						}
-						else
-						{
-							selectedSomethin = true;
-
-							if (FlxG.mouse.visible == true)
-								FlxG.mouse.visible = false;
-
-							if (ClientPrefs.data.flashing)
-								FlxFlicker.flicker(magenta, 1.1, 0.15, false);
-
-							FlxTween.tween(FlxG.camera, {zoom: 2.5}, 0.5, {ease: FlxEase.circIn});
-							FlxTween.tween(menuBox, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-							FlxTween.tween(menuText, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-							FlxTween.tween(menuItem, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-							FlxTween.tween(selector, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-							FlxTween.tween(robloxBackdrop, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-							{
-								switch (optionShit[curSelected])
-								{
-									case 'story_mode':
-										WeekData.reloadWeekFiles(true);
-										PlayState.SONG = Song.loadFromJson('ProveIt', 'ProveIt');
-										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
-										PlayState.isStoryMode = true;
-										Difficulty.list = ['Normal'];
-										PlayState.storyDifficulty = 1;
-										PlayState.storyWeek = 0;
-										LoadingState.loadAndSwitchState(new PlayState(), true);
-									case 'freeplay':
-										MusicBeatState.switchState(new BloxxinFreeplayState());
-										case 'options':
-											MusicBeatState.switchState(new OptionsState());
-											OptionsState.onPlayState = false;
-											if (PlayState.SONG != null)
-											{
-												PlayState.SONG.arrowSkin = null;
-												PlayState.SONG.splashSkin = null;
-												PlayState.stageUI = 'normal';
-											}
-									case 'credits':
-										MusicBeatState.switchState(new CreditsState());
-									case 'awards':
-										MusicBeatState.switchState(new AchievementsMenuState());
-								}
-							};
-
-							FlxFlicker.flicker(menuItems.members[curSelected], 1, 0.06, false, false, function(flick:FlxFlicker)
-							{
-								switch (optionShit[curSelected])
-								{
-									case 'story_mode':
-										WeekData.reloadWeekFiles(true);
-										PlayState.SONG = Song.loadFromJson('ProveIt', 'ProveIt');
-										PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
-										PlayState.isStoryMode = true;
-										Difficulty.list = ['Normal'];
-										PlayState.storyDifficulty = 1;
-										PlayState.storyWeek = 0;
-										LoadingState.loadAndSwitchState(new PlayState(), true);
-									case 'freeplay':
-										MusicBeatState.switchState(new FreeplayState());
-										case 'options':
-											MusicBeatState.switchState(new OptionsState());
-											OptionsState.onPlayState = false;
-											if (PlayState.SONG != null)
-											{
-												PlayState.SONG.arrowSkin = null;
-												PlayState.SONG.splashSkin = null;
-												PlayState.stageUI = 'normal';
-											}
-									case 'credits':
-										MusicBeatState.switchState(new CreditsState());
-										#if ACHIEVEMENTS_ALLOWED
-									case 'awards':
-										MusicBeatState.switchState(new AchievementsMenuState());
-									#end
-								}
-							});
-
-							for (i in 0...menuItems.members.length)
-							{
-								if (i == curSelected)
-									continue;
-								FlxTween.tween(menuItems.members[i], {alpha: 0}, 0.4, {
-									ease: FlxEase.quadOut,
-									onComplete: function(twn:FlxTween)
-									{
-										menuItems.members[i].kill();
-									}
-								});
-							}
-						}
-					}
-				}
-			}
 			if (FlxG.mouse.wheel != 0) 
 			{
-				changeItem(-FlxG.mouse.wheel);
+				changeItem(-FlxG.mouse.wheel, false);
 			}
 
 			if (controls.UI_UP_P)
-				changeItem(-1);
+				changeItem(-1, false);
 
 			if (controls.UI_DOWN_P)
-				changeItem(1);
+				changeItem(1, false);
 
-			if (controls.ACCEPT)
+			if (controls.ACCEPT || FlxG.mouse.justPressed)
 				{
-					FlxG.sound.play(Paths.sound('confirmMenu'));
-					if (optionShit[curSelected] == 'donate')
-					{
-						CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
-					}
-					else
-					{
-						selectedSomethin = true;
-						
-						if (FlxG.mouse.visible == true)
-							FlxG.mouse.visible = false;
-	
-						if (ClientPrefs.data.flashing)
-							FlxFlicker.flicker(magenta, 1.1, 0.15, false);
-	
-						FlxTween.tween(FlxG.camera, {zoom: 2.5}, 0.5, {ease: FlxEase.circIn});
-						FlxTween.tween(menuBox, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-						FlxTween.tween(menuText, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-						FlxTween.tween(menuItem, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-						FlxTween.tween(selector, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-						FlxTween.tween(robloxBackdrop, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-						{
-							switch (optionShit[curSelected])
-							{
-								case 'story_mode':
-									PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
-									PlayState.isStoryMode = true;
-									WeekData.reloadWeekFiles(true);
-									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
-									PlayState.campaignScore = 0;
-									PlayState.campaignMisses = 0;
-									LoadingState.loadAndSwitchState(new PlayState(), true);
-									FreeplayState.destroyFreeplayVocals();
-								case 'freeplay':
-									MusicBeatState.switchState(new BloxxinFreeplayState());
-									case 'options':
-										MusicBeatState.switchState(new OptionsState());
-										OptionsState.onPlayState = false;
-										if (PlayState.SONG != null)
-										{
-											PlayState.SONG.arrowSkin = null;
-											PlayState.SONG.splashSkin = null;
-											PlayState.stageUI = 'normal';
-										}
-								case 'credits':
-									MusicBeatState.switchState(new CreditsState());
-								case 'awards':
-									MusicBeatState.switchState(new AchievementsMenuState());
-							}
-						};
-	
-						FlxFlicker.flicker(menuItems.members[curSelected], 1, 0.06, false, false, function(flick:FlxFlicker)
-						{
-							switch (optionShit[curSelected])
-							{
-								case 'story_mode':
-									PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
-									PlayState.isStoryMode = true;
-									WeekData.reloadWeekFiles(true);
-									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
-									PlayState.campaignScore = 0;
-									PlayState.campaignMisses = 0;
-									LoadingState.loadAndSwitchState(new PlayState(), true);
-									FreeplayState.destroyFreeplayVocals();
-								case 'freeplay':
-									MusicBeatState.switchState(new FreeplayState());
-								case 'options':
-									MusicBeatState.switchState(new OptionsState());
-									OptionsState.onPlayState = false;
-									if (PlayState.SONG != null)
-									{
-										PlayState.SONG.arrowSkin = null;
-										PlayState.SONG.splashSkin = null;
-										PlayState.stageUI = 'normal';
-									}
-								case 'credits':
-									MusicBeatState.switchState(new CreditsState());
-									#if ACHIEVEMENTS_ALLOWED
-								case 'awards':
-									MusicBeatState.switchState(new AchievementsMenuState());
-								#end
-							}
-						});
-	
-						for (i in 0...menuItems.members.length)
-						{
-							if (i == curSelected)
-								continue;
-							FlxTween.tween(menuItems.members[i], {alpha: 0}, 0.4, {
-								ease: FlxEase.quadOut,
-								onComplete: function(twn:FlxTween)
-								{
-									menuItems.members[i].kill();
-								}
-							});
-						}
-					}
+					acceptedAThing();
 				}
 
 			if (controls.BACK)
@@ -426,13 +219,121 @@ class MainMenuState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	function changeItem(huh:Int = 0)
+	function acceptedAThing()
+	{
+		FlxG.sound.play(Paths.sound('confirmMenu'));
+		if (optionShit[curSelected] == 'donate')
+		{
+			CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
+		}
+		else
+		{
+			selectedSomethin = true;
+			
+			if (FlxG.mouse.visible == true)
+				FlxG.mouse.visible = false;
+
+			if (ClientPrefs.data.flashing)
+				FlxFlicker.flicker(magenta, 1.1, 0.15, false);
+
+			FlxTween.tween(FlxG.camera, {zoom: 2.5}, 0.5, {ease: FlxEase.circIn});
+			FlxTween.tween(menuBox, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+			FlxTween.tween(menuText, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+			FlxTween.tween(menuItem, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+			FlxTween.tween(selector, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+			FlxTween.tween(robloxBackdrop, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+			{
+				switch (optionShit[curSelected])
+				{
+					case 'story_mode':
+						PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
+						PlayState.isStoryMode = true;
+						WeekData.reloadWeekFiles(true);
+						PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+						PlayState.campaignScore = 0;
+						PlayState.campaignMisses = 0;
+						LoadingState.loadAndSwitchState(new PlayState(), true);
+						FreeplayState.destroyFreeplayVocals();
+					case 'freeplay':
+						MusicBeatState.switchState(new BloxxinFreeplayState());
+						case 'options':
+							MusicBeatState.switchState(new OptionsState());
+							OptionsState.onPlayState = false;
+							if (PlayState.SONG != null)
+							{
+								PlayState.SONG.arrowSkin = null;
+								PlayState.SONG.splashSkin = null;
+								PlayState.stageUI = 'normal';
+							}
+					case 'credits':
+						MusicBeatState.switchState(new CreditsState());
+					case 'awards':
+						MusicBeatState.switchState(new AchievementsMenuState());
+				}
+			};
+
+			FlxFlicker.flicker(menuItems.members[curSelected], 1, 0.06, false, false, function(flick:FlxFlicker)
+			{
+				switch (optionShit[curSelected])
+				{
+					case 'story_mode':
+						PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
+						PlayState.isStoryMode = true;
+						WeekData.reloadWeekFiles(true);
+						PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+						PlayState.campaignScore = 0;
+						PlayState.campaignMisses = 0;
+						LoadingState.loadAndSwitchState(new PlayState(), true);
+						FreeplayState.destroyFreeplayVocals();
+					case 'freeplay':
+						MusicBeatState.switchState(new FreeplayState());
+					case 'options':
+						MusicBeatState.switchState(new OptionsState());
+						OptionsState.onPlayState = false;
+						if (PlayState.SONG != null)
+						{
+							PlayState.SONG.arrowSkin = null;
+							PlayState.SONG.splashSkin = null;
+							PlayState.stageUI = 'normal';
+						}
+					case 'credits':
+						MusicBeatState.switchState(new CreditsState());
+						#if ACHIEVEMENTS_ALLOWED
+					case 'awards':
+						MusicBeatState.switchState(new AchievementsMenuState());
+					#end
+				}
+			});
+
+			for (i in 0...menuItems.members.length)
+			{
+				if (i == curSelected)
+					continue;
+				FlxTween.tween(menuItems.members[i], {alpha: 0}, 0.4, {
+					ease: FlxEase.quadOut,
+					onComplete: function(twn:FlxTween)
+					{
+						menuItems.members[i].kill();
+					}
+				});
+			}
+		}
+	}
+
+	function changeItem(huh:Int, woah:Bool) 
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 		menuItems.members[curSelected].animation.play('idle');
 		menuItems.members[curSelected].updateHitbox();
 
-		curSelected += huh;
+		trace(woah);
+		if (!woah)
+		{
+			curSelected += huh;
+		}else if(woah){
+			curSelected = huh;
+		}
+			
 
 		if (curSelected >= menuItems.length)
 			curSelected = 0;

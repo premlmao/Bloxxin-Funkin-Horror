@@ -129,7 +129,8 @@ class BloxxinFreeplayState extends MusicBeatState
         WeekData.reloadWeekFiles(false);
 
         for (i in 0...WeekData.weeksList.length) {
-			if(weekIsLocked(WeekData.weeksList[i])) continue;
+			if(weekIsLocked(WeekData.weeksList[i])) 
+                continue;
 
 			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
 			var leSongs:Array<String> = [];
@@ -145,6 +146,9 @@ class BloxxinFreeplayState extends MusicBeatState
 			WeekData.setDirectoryFromWeek(leWeek);
 			for (song in leWeek.songs)
 			{
+                if (song[0] == "Tutorial")
+                    continue;
+
 				var colors:Array<Int> = song[2];
 				if(colors == null || colors.length < 3)
 				{
@@ -225,7 +229,7 @@ class BloxxinFreeplayState extends MusicBeatState
         scoreText.text = 'SCORE: ' + lerpScore;
         positionHighscore();
 
-                if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((j+1) / 3)  && !transitioningBetweenPages) //Insert number here, replace "10" with the amount of like tab changes u need
+                if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((j) / 3)  && !transitioningBetweenPages) //
                 {
                     currentTab += 1;
                     for (i in 0...portraits.length)
@@ -233,10 +237,11 @@ class BloxxinFreeplayState extends MusicBeatState
                         var portrait:FlxSprite = portraits.members[i];
                         transitioningBetweenPages = true;
                         FlxTween.tween(portrait, {y: portrait.y - 280}, 0.3, {ease: FlxEase.cubeOut});
-                        FlxTween.tween(line, {y: line.y - 240}, 0.1, {ease: FlxEase.backOut});
-                        FlxTween.tween(story, {y: story.y - 280}, 0.1, {ease: FlxEase.backOut});
-                        FlxTween.tween(extra, {y: extra.y - 280}, 0.1, {ease: FlxEase.linear});
                     }
+                    FlxTween.tween(line, {y: line.y - 240}, 0.3, {ease: FlxEase.cubeOut});
+                    FlxTween.tween(story, {y: story.y - 280}, 0.3, {ease: FlxEase.cubeOut});
+                    FlxTween.tween(extra, {y: extra.y - 280}, 0.3, {ease: FlxEase.cubeOut});
+
                     FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.linear});
                     new FlxTimer().start(0.3, function(timer:FlxTimer)
                         {
@@ -252,10 +257,11 @@ class BloxxinFreeplayState extends MusicBeatState
                         var portrait:FlxSprite = portraits.members[i];
                         transitioningBetweenPages = true;
                         FlxTween.tween(portrait, {y: portrait.y + 280}, 0.3, {ease: FlxEase.cubeOut});
-                        FlxTween.tween(line, {y: line.y + 240}, 0.1, {ease: FlxEase.backOut});
-                        FlxTween.tween(story, {y: story.y + 280}, 0.1, {ease: FlxEase.backOut});
-                        FlxTween.tween(extra, {y: extra.y + 280}, 0.1, {ease: FlxEase.linear});
                     }
+                    FlxTween.tween(line, {y: line.y + 240}, 0.3, {ease: FlxEase.cubeOut});
+                    FlxTween.tween(story, {y: story.y + 280}, 0.3, {ease: FlxEase.cubeOut});
+                    FlxTween.tween(extra, {y: extra.y + 280}, 0.3, {ease: FlxEase.cubeOut});
+
                     FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.linear});
                     new FlxTimer().start(0.3, function(timer:FlxTimer)
                         {
@@ -270,19 +276,19 @@ class BloxxinFreeplayState extends MusicBeatState
             for (port in portraits)
                 {
                     if (FlxG.mouse.overlaps(port)) 
-                    {
+                    { 
                         if (curSelected != port.ID)
                         {
                             curSelected = port.ID;
-                            portrait.ID = j;
                             SelectedObject = port;
                             FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
                             FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
 
                             intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		                    intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
-
                             var newColor:Int = songs[curSelected].color;
+
+                            
                             if(newColor != intendedColor) 
                             {
                                 if(colorTween != null) {
