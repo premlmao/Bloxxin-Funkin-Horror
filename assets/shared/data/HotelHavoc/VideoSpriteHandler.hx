@@ -1,13 +1,9 @@
-//Personalized SPECIFICALLY for unfunny, youre welcome -nil
-
-
 import psychlua.LuaUtils;
 
 import hxcodec.flixel.FlxVideo;
 
 var globalData:Array<Array<Dynamic>> = [];
 
-/////////////////////////////////////IGNORE EVERYTHING HERE
 var incredibleBlackScreen:FlxSprite;
 
 function onCreate()
@@ -21,22 +17,17 @@ function onCreate()
 
 function onStartCountdown()
 {
-	return Function_Stop; //IGNORE THIS TOO
+	return Function_Stop;
 }
 
-
-
-////////////////////////////////////PAY ATTENTION HERE
 function onStepHit()
 {
 	switch (curStep)
     {
         case 9: 
 	    	makeVideoSprite("Hi", 'HotelhavocCutscene', -300,-190, false); 
-		case 10: 
+		case 10:
 	      	incredibleBlackScreen.visible = false;
-
-		//The thing above is an example, remove the // and change VIDEONAME to well, the .mp4s name
 	}
 }
 
@@ -48,11 +39,7 @@ function killme()
 		incredibleBlackScreen.kill();
 	}}));
 }
-	
 
-
-
-//Video stuff (IGNORE THIS TOO BTW, BUT SCROLL DOWN STILL THERES SOMETHING IMPORTATN)
 function makeVideoSprite(tag:String, videoFile:String, ?x:Float, ?y:Float, ?shouldLoop:Bool):Void
 {
 	var videoData:Array<Dynamic> = [];
@@ -150,12 +137,8 @@ function onDestroy()
 	}
 }
 
-
-
-
-/////////////////////////////////////////PAY ATTENTION HERE
 var cacheList:Array<String> = [
-	'HotelhavocCutscene' //Change this to the videos .mp4 name, For example if the video is named "Hotel_Cutscene", put that here!
+	'HotelhavocCutscene'
 ];
 
 function precacheVideos(list:Array<String>)
