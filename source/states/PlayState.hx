@@ -32,6 +32,8 @@ import states.editors.CharacterEditorState;
 import substates.PauseSubState;
 import substates.GameOverSubstate;
 
+import openfl.Lib;
+
 #if !flash
 import flixel.addons.display.FlxRuntimeShader;
 import openfl.filters.ShaderFilter;
@@ -666,8 +668,11 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		Lib.application.window.title = "Bloxxin Funkin' Horror - " + SONG.song;
+
 		super.create();
 		Paths.clearUnusedMemory();
+
 
 		CustomFadeTransition.nextCamera = camOther;
 		if(eventNotes.length < 1) checkEventNote();
@@ -3082,6 +3087,8 @@ class PlayState extends MusicBeatState
 		while (hscriptArray.length > 0)
 			hscriptArray.pop();
 		#end
+
+		Lib.application.window.title = "Bloxxin Funkin' Horror";
 
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
