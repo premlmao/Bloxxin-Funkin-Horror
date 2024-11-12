@@ -4,6 +4,7 @@ import flixel.addons.ui.FlxUIState;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.FlxState;
 import backend.PsychCamera;
+import flixel.FlxG;
 
 class MusicBeatState extends FlxUIState
 {
@@ -36,6 +37,8 @@ class MusicBeatState extends FlxUIState
 		}
 		FlxTransitionableState.skipNextTransOut = false;
 		timePassedOnState = 0;
+
+		FlxG.mouse.load(Paths.image("Cursor").bitmap, 0.23, 0);
 	}
 
 	public function initPsychCamera():PsychCamera

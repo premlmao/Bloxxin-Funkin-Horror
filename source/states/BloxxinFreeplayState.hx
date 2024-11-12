@@ -155,8 +155,11 @@ class BloxxinFreeplayState extends MusicBeatState
 					colors = [146, 113, 253];
 				}
 
-                
-                if (!Assets.exists('assets/shared/images/freeplay/portrait_' + song[0] + '.png'))
+                if (Highscore.getScore(song[0], curDifficulty) == 0)
+                {
+                    portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
+                }
+                else if (!Assets.exists('assets/shared/images/freeplay/portrait_' + song[0] + '.png'))
                 {
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Placeholder'));
                 }else{
@@ -170,6 +173,7 @@ class BloxxinFreeplayState extends MusicBeatState
                 portrait.y = curYforPortraitSpawn;
 
                 portrait.ID = j;
+                
 
                 addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
                 portraits.add(portrait);
@@ -271,54 +275,60 @@ class BloxxinFreeplayState extends MusicBeatState
                 } //oh brother
 
 
-        if (!selectedSomethin && !transitioningBetweenPages)
+        if (!selectedSomethin)
         {
             for (port in portraits)
                 {
-                    if (FlxG.mouse.overlaps(port)) 
-                    { 
-                        if (curSelected != port.ID)
-                        {
-                            curSelected = port.ID;
-                            SelectedObject = port;
-                            FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-                            FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                    if (!transitioningBetweenPages)
+                    {
 
-                            intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
-		                    intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
-                            var newColor:Int = songs[curSelected].color;
-
-                            
-                            if(newColor != intendedColor) 
-                            {
-                                if(colorTween != null) {
-                                    colorTween.cancel();
+                        if (FlxG.mouse.overlaps(port)) 
+                            { 
+                                if (curSelected != port.ID)
+                                {
+                                    curSelected = port.ID;
+                                    SelectedObject = port;
+                                    FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+                                    FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+        
+                                    intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
+                                    intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
+                                    var newColor:Int = songs[curSelected].color;
+        
+                                    
+                                    if(newColor != intendedColor) 
+                                    {
+                                        if(colorTween != null) {
+                                            colorTween.cancel();
+                                        }
+                                        intendedColor = newColor;
+                                        colorTween = FlxTween.color(bg, 0.25, bg.color, intendedColor, {
+                                            onComplete: function(twn:FlxTween) {
+                                                colorTween = null;
+                                            }
+                                        });
+                                        colorTween = FlxTween.color(freeplayBox, 0.25, freeplayBox.color, intendedColor, {
+                                            onComplete: function(twn:FlxTween) {
+                                                colorTween = null;
+                                            }
+                                        });
+                                    }
                                 }
-                                intendedColor = newColor;
-                                colorTween = FlxTween.color(bg, 0.25, bg.color, intendedColor, {
-                                    onComplete: function(twn:FlxTween) {
-                                        colorTween = null;
-                                    }
-                                });
-                                colorTween = FlxTween.color(freeplayBox, 0.25, freeplayBox.color, intendedColor, {
-                                    onComplete: function(twn:FlxTween) {
-                                        colorTween = null;
-                                    }
-                                });
+                            }
+                            if (FlxG.mouse.justPressed && !selectedSomethin) 
+                            {
+                                selectedSomethin = true;
+                                LoadingState.loadAndSwitchState(new PlayState());
+                                FlxG.sound.play(Paths.sound('confirmMenu'));
+                                var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
+                                var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
+                                PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+                                PlayState.storyDifficulty = curDifficulty;
+                                FlxG.mouse.visible = false;
                             }
                     }
-                    if (FlxG.mouse.justPressed) 
-                    {
-                        trace(port.ID);
-                        LoadingState.loadAndSwitchState(new PlayState());
-                        FlxG.sound.play(Paths.sound('confirmMenu'));
-                        var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
-                        var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-                        PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-                        PlayState.storyDifficulty = curDifficulty;
-                        FlxG.mouse.visible = false;
-                    }
-                }
+                }        
+                
                     if (controls.BACK)
                         {
                             selectedSomethin = true;
@@ -337,16 +347,6 @@ class BloxxinFreeplayState extends MusicBeatState
                             openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
                             FlxG.sound.play(Paths.sound('scrollMenu'));
                         }
-
-                        if (FlxG.keys.justPressed.ALT) 
-                        {
-                            timesPressed++;
-                            if (timesPressed == 5) 
-                            {
-                                LoadingState.loadAndSwitchState(new FreeplayState());
-                            }
-                        }
-                }
 
                     super.update(elapsed);
         }
