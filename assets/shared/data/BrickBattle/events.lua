@@ -105,6 +105,27 @@ if curStep == 432 then
     noteTweenY('noteY7', 6, 50, 2, 'cubeOut')
     noteTweenY('noteY8', 7, 50, 2, 'cubeOut')
 end
+if curStep == 959 then
+    doTweenAlpha('hiHUD1','healthBar', 0.25, 1,'cubeInOut')
+    doTweenAlpha('hiHUD2','healthBarAround', 0.25, 1, 'cubeInOut')
+    doTweenAlpha('hiHUD3','iconP1', 0.25, 1,'cubeInOut')
+    doTweenAlpha('hiHUD4','iconP2', 0.25, 1,'cubeInOut')
+    doTweenAlpha('hiHUD5','scoreTxt', 0.25, 1,'cubeInOut')
+    doTweenAlpha('hiHUD6', 'timeBar',0.25, 1,'cubeInOut')
+    doTweenAlpha('hiHUD7', 'songIcon',0.25, 1,'cubeInOut')
+    doTweenAlpha('hiHUD8', 'timeTxt',0.25, 1,'cubeInOut')
+end
+
+if curStep == 1087 then
+    doTweenAlpha('hiHUD1','healthBar', 1, 1,'cubeInOut')
+    doTweenAlpha('hiHUD2','healthBarAround', 1, 1, 'cubeInOut')
+    doTweenAlpha('hiHUD3','iconP1', 1, 1,'cubeInOut')
+    doTweenAlpha('hiHUD4','iconP2', 1, 1,'cubeInOut')
+    doTweenAlpha('hiHUD5','scoreTxt', 1, 1,'cubeInOut')
+    doTweenAlpha('hiHUD6', 'timeBar', 1, 1,'cubeInOut')
+    doTweenAlpha('hiHUD7', 'songIcon', 1, 1,'cubeInOut')
+    doTweenAlpha('hiHUD8', 'timeTxt', 1, 1,'cubeInOut')
+end
 
 if curStep == 1727 then
     noteTweenAlpha('noteAlpha1', 0, 0, 1, 'linear')
