@@ -91,15 +91,15 @@ function onUpdate(elapsed)
     setShaderFloat("floatingpointshader", "intensification", randomization)
 
     if randomization > 0 and curBeat < 420 then
-        randomization = randomization - 0.05;
+        randomization = randomization - 0.05 * elapsed * 60;
         if randomization < 0 then
             randomization = 0;
         end
     end
     if what > 0 and curBeat < 420 then
-       what = what - 1;
+       what = what - 1 * elapsed * 60;
        if what < 0 then
-        what = 0
+        what = 0;
        end
     end
 
