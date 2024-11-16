@@ -12,13 +12,21 @@ function onCreate()
 end
 
 function onSongStart()
-    doTweenY('woohooTop', 'bigblackbartop', -250, 1, 'cubeOut')
-    doTweenY('woohoobottom', 'bigblackbarbottom', 250, 1, 'cubeOut')
+    doTweenY('woohooTop', 'bigblackbartop', -250, 2, 'cubeOut')
+    doTweenY('woohoobottom', 'bigblackbarbottom', 250, 2, 'cubeOut')
 end
 
 function onBeatHit()
-    if curBeat == 60 then
-        doTweenY('woohooTop', 'bigblackbartop', -500, 1, 'cubeOut')
-        doTweenY('woohoobottom', 'bigblackbarbottom', 500, 1, 'cubeOut')
+    if curBeat == 60 or curBeat == 220 then
+        doTweenY('woohooTop', 'bigblackbartop', -500, 2, 'cubeOut')
+        doTweenY('woohoobottom', 'bigblackbarbottom', 500, 2, 'cubeOut')
+    end
+    if curBeat == 192 or curBeat == 352 then
+        doTweenY('woohooTop', 'bigblackbartop', -250, 2, 'cubeOut')
+        doTweenY('woohoobottom', 'bigblackbarbottom', 250, 2, 'cubeOut')
+    end
+    if curBeat == 420 then
+        doTweenY('woohooTop', 'bigblackbartop', 0, 5, 'cubeOut')
+        doTweenY('woohoobottom', 'bigblackbarbottom', 0, 5, 'cubeOut')
     end
 end
