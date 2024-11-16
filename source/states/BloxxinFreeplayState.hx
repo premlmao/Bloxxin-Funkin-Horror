@@ -40,10 +40,10 @@ class BloxxinFreeplayState extends MusicBeatState
     var curYforPortraitSpawn:Float = 125;
     
     var bg:FlxBackdrop;
-    var freeplayBox:FlxSprite;
     var intendedColor:Int;
     var colorTween:FlxTween;
   
+    var sky:FlxSprite;
     var line:FlxSprite;
     var story:FlxSprite;
     var extra:FlxSprite;
@@ -56,8 +56,18 @@ class BloxxinFreeplayState extends MusicBeatState
     var lerpRating:Float = 0;
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
+
+    var AllUnlocked:Bool = true;
+    var Deformation:FlxSprite = new FlxSprite(0, 0);
+    var currentTab:Int;
+
     override function create()
     {
+        if (currentTab == 0)
+            {
+                currentTab = 1;
+            } 
+            
         transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
@@ -72,15 +82,29 @@ class BloxxinFreeplayState extends MusicBeatState
         
         bg = new FlxBackdrop(Paths.image('codeLeakLOL'), XY); //Thats crazy! -nil
 		bg.velocity.set(0, -250);
-        bg.scale.set(3, 3);
-        bg.x = -1800;
+        bg.scale.set(2, 2);
+        bg.x = -1000;
 		add(bg);
+
+
+        Deformation.frames = Paths.getSparrowAtlas('freeplay/Deformation');
+        Deformation.animation.addByPrefix('anim', 'deform', 4, true);
+        Deformation.scale.y = 1.6;
+        Deformation.updateHitbox();
+        Deformation.screenCenter();
+
+        sky = new FlxSprite().loadGraphic(Paths.image('freeplay/Skybox'));
+        sky.antialiasing = ClientPrefs.data.antialiasing;
+        sky.scale.set(1, 1);
+        sky.updateHitbox();
+        sky.screenCenter();
+        add(sky);
 
         line = new FlxSprite().loadGraphic(Paths.image('freeplay/line'));
         line.antialiasing = ClientPrefs.data.antialiasing;
         line.setGraphicSize(Std.int(line.width * 0.95));
         line.updateHitbox();
-        line.x = 110;
+        line.x = 295;
         line.y = 187;
         add(line);
 
@@ -88,7 +112,7 @@ class BloxxinFreeplayState extends MusicBeatState
         story.antialiasing = ClientPrefs.data.antialiasing;
         story.setGraphicSize(Std.int(story.width * 0.75));
         story.updateHitbox();
-        story.x = 107;
+        story.x = 292;
         story.y = 57;
         add(story);
 
@@ -96,36 +120,14 @@ class BloxxinFreeplayState extends MusicBeatState
         extra.antialiasing = ClientPrefs.data.antialiasing;
         extra.setGraphicSize(Std.int(extra.width * 0.75));
         extra.updateHitbox();
-        extra.x = 107;
+        extra.x = 292;
         extra.y = 340;
         add(extra);
 
-        freeplayBox = new FlxSprite().loadGraphic(Paths.image('freeplay/freeplayBox'));
-        freeplayBox.antialiasing = ClientPrefs.data.antialiasing;
-        freeplayBox.setGraphicSize(Std.int(freeplayBox.width * 0.75));
-        freeplayBox.updateHitbox();
-        freeplayBox.color = 0xffDC3C3C;
-        freeplayBox.x = 875;
-        add(freeplayBox);
 
-        selectedPortrait = new FlxSprite().loadGraphic(Paths.image('freeplay/selectedOverlay'));
-        selectedPortrait.antialiasing = ClientPrefs.data.antialiasing;
-        selectedPortrait.scale.set(0.2, 0.2);
-        selectedPortrait.x = 115;
-        selectedPortrait.y = 110;
-        selectedPortrait.alpha = 0;
-        selectedPortrait.updateHitbox();
-        add(selectedPortrait);
 
         portraits = new FlxTypedGroup<FlxSprite>();
-        add(portraits);
-
-        scoreText = new FlxText(FlxG.width * 2, 2, 0, "", 32);
-		scoreText.setFormat(Paths.font("Gotham Black Regular.ttf"), 48, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        scoreText.borderSize = 1.75;
-        scoreText.y = 625;
-        add(scoreText);
-
+    
         WeekData.reloadWeekFiles(false);
 
         for (i in 0...WeekData.weeksList.length) {
@@ -155,9 +157,10 @@ class BloxxinFreeplayState extends MusicBeatState
 					colors = [146, 113, 253];
 				}
 
-                if (Highscore.getScore(song[0], curDifficulty) == 0)
+                if (Highscore.getScore(song[0], curDifficulty) == 0 && song[0] != "Deformed")
                 {
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
+                    AllUnlocked = false;
                 }
                 else if (!Assets.exists('assets/shared/images/freeplay/portrait_' + song[0] + '.png'))
                 {
@@ -166,11 +169,40 @@ class BloxxinFreeplayState extends MusicBeatState
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_' + song[0]));
                 }
 
-                portrait.x = ((l * 250)) + 108;
+                if (song[0] == "ContentDeleted")
+                    {
+                        l = 1;
+                    }
                 portrait.antialiasing = ClientPrefs.data.antialiasing;
                 portrait.scale.set(0.2, 0.2);
                 portrait.updateHitbox();
                 portrait.y = curYforPortraitSpawn;
+
+                if (song[0] == "Deformed")
+                {
+                    Deformation.y = curYforPortraitSpawn + 290;
+                    add(Deformation);
+                    Deformation.animation.play('anim', false, false); 
+                    if (!AllUnlocked)
+                    {
+                        portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_LocedDeform'));
+                        portrait.antialiasing = ClientPrefs.data.antialiasing;
+                        portrait.scale.set(0.2, 0.2);
+                        portrait.updateHitbox();
+                    }else if (AllUnlocked && Highscore.getScore(song[0], curDifficulty) == 0)
+                    {
+                        portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_LocedDeformClickable'));
+                        portrait.antialiasing = ClientPrefs.data.antialiasing;
+                        portrait.scale.set(0.2, 0.2);
+                        portrait.updateHitbox();
+                    }
+                    l = 1;
+                    portrait.y = curYforPortraitSpawn + 1195;
+                }
+
+                portrait.x = ((l * 250)) + 293;
+
+
 
                 portrait.ID = j;
                 
@@ -189,6 +221,16 @@ class BloxxinFreeplayState extends MusicBeatState
                 }
 			}
 		}
+        selectedPortrait = new FlxSprite().loadGraphic(Paths.image('freeplay/selectedOverlay'));
+        selectedPortrait.antialiasing = ClientPrefs.data.antialiasing;
+        selectedPortrait.scale.set(0.2, 0.2);
+        selectedPortrait.x = 115;
+        selectedPortrait.y = 110;
+        selectedPortrait.alpha = 0;
+        selectedPortrait.updateHitbox();
+        add(selectedPortrait);
+
+        add(portraits);
         var controls:FlxText = new FlxText(12, FlxG.height - 44, 0, "LEFT CLICK while hovering a song to select it.", 12);
         controls.x = 895;
         controls.scrollFactor.set();
@@ -202,10 +244,16 @@ class BloxxinFreeplayState extends MusicBeatState
         controls2.borderSize = 1.75;
         add(controls2);
 
+        scoreText = new FlxText(FlxG.width * 2, 2, 0, "", 32);
+		scoreText.setFormat(Paths.font("Gotham Black Regular.ttf"), 48, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        scoreText.borderSize = 1.75;
+        scoreText.y = 625;
+        add(scoreText);
+
+
         if(curSelected >= songs.length) curSelected = 0;
 		bg.color = songs[curSelected].color;
 		intendedColor = bg.color;
-        intendedColor = freeplayBox.color;
         
 		lerpSelected = curSelected;
         
@@ -215,7 +263,6 @@ class BloxxinFreeplayState extends MusicBeatState
     var selectedSomethin:Bool = false;
     var accepted:Bool = true;
     var timesPressed:Int = 0;
-    var currentTab:Int = 1;
     var transitioningBetweenPages:Bool = false;
 
     override function update(elapsed:Float)
@@ -233,7 +280,7 @@ class BloxxinFreeplayState extends MusicBeatState
         scoreText.text = 'SCORE: ' + lerpScore;
         positionHighscore();
 
-                if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((j) / 3)  && !transitioningBetweenPages) //
+                if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((j) / 3) + 4  && !transitioningBetweenPages) //
                 {
                     currentTab += 1;
                     for (i in 0...portraits.length)
@@ -245,16 +292,24 @@ class BloxxinFreeplayState extends MusicBeatState
                     FlxTween.tween(line, {y: line.y - 240}, 0.3, {ease: FlxEase.cubeOut});
                     FlxTween.tween(story, {y: story.y - 280}, 0.3, {ease: FlxEase.cubeOut});
                     FlxTween.tween(extra, {y: extra.y - 280}, 0.3, {ease: FlxEase.cubeOut});
+                    FlxTween.tween(Deformation, {y: Deformation.y - 280}, 0.3, {ease: FlxEase.cubeOut});
 
                     FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.linear});
                     new FlxTimer().start(0.3, function(timer:FlxTimer)
                         {
                             transitioningBetweenPages = false;
                         });
-
+                    if (currentTab == Math.floor((j) / 3) + 3)
+                    {
+                        FlxG.sound.music.fadeOut(1, 0);
+                    }
                 }
                 if (FlxG.mouse.wheel > 0 && currentTab > 1 && !transitioningBetweenPages)
                 {
+                    if (currentTab == Math.floor((j) / 3) + 3)
+                    {
+                        FlxG.sound.music.fadeIn(1, 0, 0.7);
+                    }
                     currentTab -= 1;
                     for (i in 0...portraits.length)
                     {
@@ -265,6 +320,7 @@ class BloxxinFreeplayState extends MusicBeatState
                     FlxTween.tween(line, {y: line.y + 240}, 0.3, {ease: FlxEase.cubeOut});
                     FlxTween.tween(story, {y: story.y + 280}, 0.3, {ease: FlxEase.cubeOut});
                     FlxTween.tween(extra, {y: extra.y + 280}, 0.3, {ease: FlxEase.cubeOut});
+                    FlxTween.tween(Deformation, {y: Deformation.y + 280}, 0.3, {ease: FlxEase.cubeOut});
 
                     FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.linear});
                     new FlxTimer().start(0.3, function(timer:FlxTimer)
@@ -307,24 +363,23 @@ class BloxxinFreeplayState extends MusicBeatState
                                                 colorTween = null;
                                             }
                                         });
-                                        colorTween = FlxTween.color(freeplayBox, 0.25, freeplayBox.color, intendedColor, {
-                                            onComplete: function(twn:FlxTween) {
-                                                colorTween = null;
-                                            }
-                                        });
                                     }
+                                }else{
+                                    FlxTween.tween(selectedPortrait, {alpha: 1}, 0.1, {ease: FlxEase.linear});
                                 }
-                            }
-                            if (FlxG.mouse.justPressed && !selectedSomethin) 
-                            {
-                                selectedSomethin = true;
-                                LoadingState.loadAndSwitchState(new PlayState());
-                                FlxG.sound.play(Paths.sound('confirmMenu'));
-                                var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
-                                var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-                                PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-                                PlayState.storyDifficulty = curDifficulty;
-                                FlxG.mouse.visible = false;
+                                if (FlxG.mouse.justPressed && !selectedSomethin) 
+                                    {
+                                        if (songs[curSelected].songName == "Deformed" && !AllUnlocked)
+                                        {
+
+                                        }else if(songs[curSelected].songName == "Deformed")
+                                        {
+                                            SelectedSong();
+                                        }else{
+                                            SelectedSong();
+                                        }
+
+                                    }
                             }
                     }
                 }        
@@ -350,6 +405,18 @@ class BloxxinFreeplayState extends MusicBeatState
 
                     super.update(elapsed);
         }
+    }
+
+    function SelectedSong()
+    {
+        selectedSomethin = true;
+        LoadingState.loadAndSwitchState(new PlayState());
+        FlxG.sound.play(Paths.sound('confirmMenu'));
+        var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
+        var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
+        PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+        PlayState.storyDifficulty = curDifficulty;
+        FlxG.mouse.visible = false;
     }
 
     public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)

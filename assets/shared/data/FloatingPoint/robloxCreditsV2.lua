@@ -10,14 +10,14 @@ function onCreate()
     setScrollFactor('bigblackbar', 0, 0)
     setProperty('bigblackbar.y', -200)
 
-    makeLuaText("[", '[', 0, 75, 5)
-    addLuaText('[');
-    setTextSize('[', 25);
-    setObjectCamera('[', 'hud');
-    setTextFont('[', 'Gotham Black Regular.ttf');
-    setTextBorder('[', 2.5, 'black')
-    setTextColor("[", "FFFFFF")
-    setProperty('[.y', -200)
+    makeLuaText("a", '[    ', 0, 75, 5)
+    addLuaText('a');
+    setTextSize('a', 25);
+    setObjectCamera('a', 'hud');
+    setTextFont('a', 'Gotham Black Regular.ttf');
+    setTextBorder('a', 2.5, 'black')
+    setTextColor("a", "FFFFFF")
+    setProperty('a.y', -200)
 
     makeLuaText("song", songName, 0, 115, 5)
     addLuaText('song');
@@ -102,34 +102,36 @@ end
 
 function onBeatHit()
 if curBeat == 64 then
-    doTweenY('hi', 'bigblackbar', 0, 1, 'circInOut')
-    doTweenY('hi2', '[', 15, 1, 'circInOut')
-    doTweenY('hi3', 'song', 15, 1, 'circInOut')
-    doTweenY('hi4', '|', 15, 1, 'circInOut')
-    doTweenY('hi5', 'musicText', 15, 1, 'circInOut')
-    doTweenY('hi6', 'musicians', 15, 1, 'circInOut')
-    doTweenY('hi7', 'chartText', 15, 1, 'circInOut')
-    doTweenY('hi8', 'charters', 15, 1, 'circInOut')
-    doTweenY('hi9', 'artText', 15, 1, 'circInOut')
-    doTweenY('hi10', 'artists', 15, 1, 'circInOut')
+    doTweenY('hi', 'bigblackbar', 0, 1, 'circInOut');
+    doTweenY('hi2', 'a', 15, 1, 'circInOut');
+    doTweenY('hi3', 'song', 15, 1, 'circInOut');
+    doTweenY('hi4', '|', 15, 1, 'circInOut');
+    doTweenY('hi5', 'musicText', 15, 1, 'circInOut');
+    doTweenY('hi6', 'musicians', 15, 1, 'circInOut');
+    doTweenY('hi7', 'chartText', 15, 1, 'circInOut');
+    doTweenY('hi8', 'charters', 15, 1, 'circInOut');
+    doTweenY('hi9', 'artText', 15, 1, 'circInOut');
+    doTweenY('hi10', 'artists', 15, 1, 'circInOut');
 end
 
 if curBeat == 72 then
-    doTweenY('bye', 'bigblackbar', -200, 1, 'circInOut')
-    doTweenY('bye2', '[', -200, 1, 'circInOut')
-    doTweenY('bye3', 'song', -200, 1, 'circInOut')
-    doTweenY('bye4', '|', -200, 1, 'circInOut')
-    doTweenY('bye5', 'musicText', -200, 1, 'circInOut')
-    doTweenY('bye6', 'musicians', -200, 1, 'circInOut')
-    doTweenY('bye7', 'chartText', -200, 1, 'circInOut')
-    doTweenY('bye8', 'charters', -200, 1, 'circInOut')
-    doTweenY('bye9', 'artText', -200, 1, 'circInOut')
-    doTweenY('bye10', 'artists', -200, 1, 'circInOut')
+    doTweenY('bye', 'bigblackbar', -200, 1, 'circInOut');
+
+
+    doTweenY('what', 'a', -200, 1, 'circInOut');
+    doTweenY('bye3', 'song', -200, 1, 'circInOut');
+    doTweenY('bye4', '|', -200, 1, 'circInOut');
+    doTweenY('bye5', 'musicText', -200, 1, 'circInOut');
+    doTweenY('bye6', 'musicians', -200, 1, 'circInOut');
+    doTweenY('bye7', 'chartText', -200, 1, 'circInOut');
+    doTweenY('bye8', 'charters', -200, 1, 'circInOut');
+    doTweenY('bye9', 'artText', -200, 1, 'circInOut');
+    doTweenY('bye10', 'artists', -200, 1, 'circInOut');
 end
 
 if curBeat == 80 then
     removeLuaSprite('bigblackbar', true)
-    removeLuaSprite('[', true)
+    removeLuaSprite('a', true)
     removeLuaSprite('song', true)
     removeLuaSprite('|', true)
     removeLuaSprite('musicText', true)

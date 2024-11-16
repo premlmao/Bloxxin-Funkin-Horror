@@ -136,7 +136,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			menuItem.scrollFactor.set(0, 0);
+			menuItem.scrollFactor.set();
 
 			//menuItem.x = -1000;
 			menuItem.y = -60;

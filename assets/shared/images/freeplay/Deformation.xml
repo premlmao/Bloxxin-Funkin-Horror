@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Deformation.png"><SubTexture name="deform0000" x="0" y="474" width="777" height="403" frameX="0" frameY="-317" frameWidth="777" frameHeight="720" />
+<SubTexture name="deform0001" x="777" y="0" width="777" height="426" frameX="0" frameY="-294" frameWidth="777" frameHeight="720" />
+<SubTexture name="deform0002" x="777" y="474" width="777" height="386" frameX="0" frameY="-334" frameWidth="777" frameHeight="720" />
+<SubTexture name="deform0003" x="0" y="0" width="777" height="474" frameX="0" frameY="-246" frameWidth="777" frameHeight="720" />
+<SubTexture name="deform0004" x="0" y="877" width="777" height="351" frameX="0" frameY="-369" frameWidth="777" frameHeight="720" />
+</TextureAtlas>
