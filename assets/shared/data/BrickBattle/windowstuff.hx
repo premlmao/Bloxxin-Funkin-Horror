@@ -9,8 +9,8 @@ var randomTitleText:Array<String> = ["biXlonx n'iFuk rrHoor - BkcltrBaet", "xxBn
 
 function onStepHit()
 {
-    if (curStep > 1951)
-        {
-            Lib.application.window.title = randomTitleText[FlxG.random.int(0, randomTitleText.length - 1)];
-        }
+if (curStep > 1951)
+    {
+        Lib.application.window.title = randomTitleText[FlxG.random.int(0, randomTitleText.length - 1)];
+    }
 }
