@@ -78,6 +78,10 @@ function onStepHit()
             if not getProperty('startingSong') and getTextString('timeTxt') ~= timeString then
                 setTextString('timeTxt', timeString)
             end
+            if curSection >= 187 then
+                setTextString('scoreTxt', 'Score: '..getRandomInt(0, 10000)..' | Misses: '..getRandomInt(0, 1000)..' | Rating: '..getProperty('ratingName')..' ('..getRandomInt(1, 100)..'%)')
+                setTextString('timeTxt', ''..getRandomInt(0, 59)..':'..getRandomInt(0, 59))
+            end
         end
         timeString = getRandomInt(0, 157)..':'..getRandomInt(0, 143)
     end
