@@ -3,21 +3,25 @@
 	"difficulties": "Normal",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
-	"weekBefore": "",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "",
 	"startUnlocked": true,
-	"hideStoryMode": true,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
 	"songs": [
 		[
 			"Copied",
 			"dad",
 			[
-				215,
-				215,
+				175,
+				195,
 				255
 			]
 		],
@@ -26,17 +30,17 @@
 			"dad",
 			[
 				255,
-				215,
-				235
+				135,
+				95
 			]
 		],
 		[
 			"Wipeout",
 			"dad",
 			[
-				215,
+				95,
 				255,
-				215
+				175
 			]
 		],
 		[
@@ -44,8 +48,8 @@
 			"dad",
 			[
 				255,
-				215,
-				155
+				155,
+				0
 			]
 		],
 		[
@@ -53,8 +57,8 @@
 			"dad",
 			[
 				255,
-				175,
-				175
+				115,
+				15
 			]
 		],
 		[
@@ -70,17 +74,17 @@
 			"NeedYouHere",
 			"dad",
 			[
-				255,
-				195,
-				195
+				155,
+				35,
+				35
 			]
 		],
 		[
 			"RabbitHole",
 			"dad",
 			[
-				175,
-				195,
+				135,
+				155,
 				255
 			]
 		],
@@ -89,26 +93,26 @@
 			"dad",
 			[
 				255,
-				155,
-				155
+				55,
+				55
 			]
 		],
 		[
 			"Stalked",
 			"dad",
 			[
-				195,
-				175,
-				175
+				255,
+				115,
+				95
 			]
 		],
 		[
 			"Abandoned",
 			"dad",
 			[
-				215,
-				215,
-				235
+				135,
+				135,
+				155
 			]
 		],
 		[
@@ -125,7 +129,7 @@
 			"dad",
 			[
 				215,
-				235,
+				215,
 				255
 			]
 		],
@@ -134,8 +138,8 @@
 			"dad",
 			[
 				255,
-				215,
-				235
+				155,
+				155
 			]
 		],
 		[
@@ -144,7 +148,7 @@
 			[
 				215,
 				255,
-				155
+				135
 			]
 		],
 		[
@@ -152,17 +156,17 @@
 			"dad",
 			[
 				255,
-				235,
-				135
+				195,
+				55
 			]
 		],
 		[
 			"RealMurderRap",
 			"dad",
 			[
-				235,
+				195,
 				215,
-				255
+				235
 			]
 		],
 		[
@@ -170,34 +174,30 @@
 			"dad",
 			[
 				255,
-				215,
-				235
+				135,
+				95
 			]
 		],
 		[
 			"ContentDeleted",
 			"dad",
 			[
-				255,
-				255,
-				255
+				55,
+				75,
+				55
 			]
-		],		
-                [
+		],
+		[
 			"Deformed",
 			"dad",
 			[
-				255,
-				155,
-				155
+				175,
+				20,
+				20
 			]
 		]
 	],
-	"weekCharacters": [
-		"dad",
-		"bf",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "Freeplay"
+	"hideStoryMode": true,
+	"weekName": "Freeplay",
+	"hiddenUntilUnlocked": false
 }
