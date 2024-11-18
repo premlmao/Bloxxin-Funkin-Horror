@@ -82,8 +82,8 @@ class BloxxinFreeplayState extends MusicBeatState
         
         bg = new FlxBackdrop(Paths.image('codeLeakLOL'), XY); //Thats crazy! -nil
 		bg.velocity.set(0, -250);
-        bg.scale.set(2, 2);
-        bg.x = -1000;
+        bg.scale.set(2.2, 2.2);
+        bg.x = -320;
 		add(bg);
 
 
@@ -295,6 +295,7 @@ class BloxxinFreeplayState extends MusicBeatState
                     FlxTween.tween(Deformation, {y: Deformation.y - 280}, 0.3, {ease: FlxEase.cubeOut});
 
                     FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.linear});
+                    FlxTween.tween(selectedPortrait, {y: selectedPortrait.y - 280}, 0.3, {ease: FlxEase.cubeOut});
                     new FlxTimer().start(0.3, function(timer:FlxTimer)
                         {
                             transitioningBetweenPages = false;
@@ -323,6 +324,7 @@ class BloxxinFreeplayState extends MusicBeatState
                     FlxTween.tween(Deformation, {y: Deformation.y + 280}, 0.3, {ease: FlxEase.cubeOut});
 
                     FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.linear});
+                    FlxTween.tween(selectedPortrait, {y: selectedPortrait.y + 280}, 0.3, {ease: FlxEase.cubeOut});
                     new FlxTimer().start(0.3, function(timer:FlxTimer)
                         {
                             transitioningBetweenPages = false;
@@ -365,6 +367,7 @@ class BloxxinFreeplayState extends MusicBeatState
                                         });
                                     }
                                 }else{
+                                    FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
                                     FlxTween.tween(selectedPortrait, {alpha: 1}, 0.1, {ease: FlxEase.linear});
                                 }
                                 if (FlxG.mouse.justPressed && !selectedSomethin) 

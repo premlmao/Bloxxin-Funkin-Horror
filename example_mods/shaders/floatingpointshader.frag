@@ -16,7 +16,7 @@ uniform vec4 iMouse;
 
 float rand(vec2 co)
 {
-    return fract(sin(dot(co.xy ,vec2(10,70))) * 35);
+    return fract(sin(dot(co.xy ,vec2(1,7))) * 2);
 }
 
 void mainImage()
@@ -30,7 +30,7 @@ void mainImage()
         o_trmono = vec2(0.1, 0.1);
     }
 
-    vec2 o_scale = vec2(rand(vec2(iTime * randomizationy, intensification))*o_trmono.x);
+    vec2 o_scale = vec2(rand(vec2(iTime * (randomizationy * 0.1), intensification * 0.1))*o_trmono.x);
     vec2 o_fragCoord_scaled = ((fragCoord.xy)*o_scale);
     vec2 o_iResolution_scaled = (iResolution.xy * o_scale);
 
@@ -48,8 +48,8 @@ void mainImage()
     float n_index_nor = n_index / (o_iResolution_scaled_floor.x * o_iResolution_scaled_floor.y);
     vec2 o_amp = vec2(0.4*o_trmono.y*2.);
     vec2 o_freq = vec2(
-        o_fragCoord_scaled_floor.x+iTime*rand(vec2(iTime * randomizationy, intensification)), //+o_fragCoord_scaled_floor.y * intensification, 
-        o_fragCoord_scaled_floor.x+iTime*rand(vec2(iTime * randomizationy, intensification))
+        o_fragCoord_scaled_floor.x+iTime*rand(vec2(iTime * (randomizationy * 0.01), intensification * 0.01)), //+o_fragCoord_scaled_floor.y * intensification, 
+        o_fragCoord_scaled_floor.x+iTime*rand(vec2(iTime * (randomizationy * 0.01), intensification * 0.01))
     );
     o_trpino_nooffset += vec2(
         sin(o_freq.x),

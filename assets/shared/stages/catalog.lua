@@ -1,7 +1,7 @@
 function onCreate()
 	-- background shit
-	makeLuaSprite('foolsstage', 'stages/foolsstage', -300, -100);
-	setScrollFactor('foolsstage', 0.5, 0.5);
+	makeLuaSprite('foolsstage', 'stages/foolsstage', -350, -50);
+	setScrollFactor('foolsstage', 1, 1);
 
 
         addLuaSprite('foolsstage', false);
