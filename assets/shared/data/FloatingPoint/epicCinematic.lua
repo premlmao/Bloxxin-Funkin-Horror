@@ -17,7 +17,7 @@ function onSongStart()
 end
 
 function onBeatHit()
-    if curBeat == 60 or curBeat == 220 then
+    if curBeat == 60 or curBeat == 222 then
         doTweenY('woohooTop', 'bigblackbartop', -500, 2, 'cubeOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 500, 2, 'cubeOut')
     end

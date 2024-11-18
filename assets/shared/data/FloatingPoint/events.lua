@@ -78,7 +78,7 @@ function onBeatHit()
     if curBeat == 192 then
         doTweenAlpha('byeHUD', 'camHUD', 0, 1, 'linear')
     end
-    if curBeat == 220 then
+    if curBeat == 222 then
         doTweenAlpha('byeHUD', 'camHUD', 1, 1, 'linear')
     end
     if curBeat == 352 then
