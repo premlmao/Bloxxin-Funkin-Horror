@@ -266,7 +266,7 @@ class MainMenuState extends MusicBeatState
 								PlayState.stageUI = 'normal';
 							}
 					case 'credits':
-						MusicBeatState.switchState(new CreditsState());
+						MusicBeatState.switchState(new BloxxinCreditsState());
 					case 'awards':
 						MusicBeatState.switchState(new AchievementsMenuState());
 				}
