@@ -30,7 +30,7 @@ function onCreate()
 end
 
 function onBeatHit()
-    if curBeat == 192 then
+    if curBeat == 332 then
 		removeLuaSprite('crossroadsmap');
 		removeLuaSprite('crossroadsback');
 		removeLuaSprite('crossroadsbacker');
@@ -57,7 +57,7 @@ function onBeatHit()
         addLuaSprite('pixelcrossroadsback', false);
         addLuaSprite('pixelcrossroadsmap', false);
 	end
-	if curBeat == 256 then
+	if curBeat == 400 then
 		removeLuaSprite('pixelcrossroadsmap');
 		removeLuaSprite('pixelcrossroadsback');
 		removeLuaSprite('pixelcrossroadsfog');

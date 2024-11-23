@@ -24,12 +24,12 @@ function onStepHit()
 {
 switch (curStep)
 {
-    case 752:
+    case 1320:
         add(Transition);
         Transition.animation.play('anim', false, false); 
-    case 776:
+    case 1340:
         Transition.destroy();
-    case 1008:
+    case 1592:
         Transition = new FlxSprite(0, 0);
         Transition.camera = FlxG.cameras.list[FlxG.cameras.list.length - 2];
         Transition.frames = Paths.getSparrowAtlas('blocks');
@@ -41,7 +41,7 @@ switch (curStep)
 
         add(Transition);
         Transition.animation.play('anim', false, false); 
-    case 1032:
+    case 1608:
         Transition.destroy();
 }
 }
