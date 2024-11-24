@@ -56,7 +56,7 @@ function onBeatHit()
         randomization = 0.5;
         what = 0.000000002;
     end
-    if curBeat == 225 then
+    if curBeat == 220 then
         dotheGlitchThing = true;
         runHaxeCode([[
             game.defaultCamZoom = 0.76;

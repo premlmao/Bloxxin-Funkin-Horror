@@ -9,7 +9,7 @@
 		253
 	],
 	"weekBefore": "freeplay",
-	"startUnlocked": false,
+	"startUnlocked": true,
 	"weekCharacters": [
 		"",
 		"",
