@@ -29,6 +29,9 @@ end
 
 function opponentNoteHit()
     triggerEvent('Screen Shake', '0.1, 0.0075')
+    if getHealth() >= 0.015 then
+        setHealth(getHealth() - 0.015)
+    end
 end
 
 function onStepHit()

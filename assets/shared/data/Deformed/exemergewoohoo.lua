@@ -29,22 +29,38 @@ function onUpdatePost()
     if getProperty('dad.animation.curAnim.name') == 'singLEFT' then
 
         objectPlayAnimation('oofexe', 'left')
-
+        runHaxeCode([[
+            import openfl.Lib;
+            Lib.application.window.title = "want to pl6y?";
+        ]])
     elseif getProperty('dad.animation.curAnim.name') == 'singRIGHT' then
 
         objectPlayAnimation('oofexe', 'right')
-
+        runHaxeCode([[
+            import openfl.Lib;
+            Lib.application.window.title = "5      1  7    0   3   7 0";
+        ]])
     elseif getProperty('dad.animation.curAnim.name') == 'singUP' then
 
         objectPlayAnimation('oofexe', 'up')
-
+        runHaxeCode([[
+            import openfl.Lib;
+            Lib.application.window.title = ".";
+        ]])
     elseif getProperty('dad.animation.curAnim.name') == 'singDOWN' then
 
         objectPlayAnimation('oofexe', 'down')
-
+        runHaxeCode([[
+            import openfl.Lib;
+            Lib.application.window.title = "Join us";
+        ]])
     elseif getProperty('dad.animation.curAnim.name') == 'idle' then
 
         objectPlayAnimation('oofexe', 'idle')
+        runHaxeCode([[
+            import openfl.Lib;
+            Lib.application.window.title = "";
+        ]])
     end
 
     if getProperty('healthBar.percent') > 80 then

@@ -1,5 +1,6 @@
 package states;
 
+import flixel.addons.transition.FlxTransitionableState;
 import objects.AttachedSprite;
 
 class BloxxinCreditsState extends MusicBeatState
@@ -28,6 +29,12 @@ class BloxxinCreditsState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
+        transIn = FlxTransitionableState.defaultTransIn;
+		transOut = FlxTransitionableState.defaultTransOut;
+		if (!FlxG.mouse.visible)
+            FlxG.mouse.visible = true;
+
+
 		persistentUpdate = true;
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
@@ -51,7 +58,7 @@ class BloxxinCreditsState extends MusicBeatState
 			"WORK IN\n
 			PROGRESS\n
 			HUZZAH!!!\n
-			hi unfunny and nil",
+			hi prem. - nil",
 			32);
 		wipText.setFormat("Gotham Black Regular.ttf", 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		wipText.borderSize = 2;
@@ -89,6 +96,8 @@ class BloxxinCreditsState extends MusicBeatState
 			['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",							 'https://twitter.com/evilsk8r',		'5ABD4B'],
 			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",							 'https://twitter.com/kawaisprite',		'378FC7']
 		];
+
+		super.create();
 	}
 
 	var quitting:Bool = false;
