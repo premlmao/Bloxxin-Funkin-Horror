@@ -181,7 +181,7 @@ class BloxxinFreeplayState extends MusicBeatState
 
                 if (song[0] == "Deformed")
                 {
-                    Deformation.y = curYforPortraitSpawn + 290;
+                    Deformation.y = curYforPortraitSpawn + 890;
                     add(Deformation);
                     Deformation.animation.play('anim', false, false); 
                     if (!AllUnlocked)
@@ -198,7 +198,7 @@ class BloxxinFreeplayState extends MusicBeatState
                         portrait.updateHitbox();
                     }
                     l = 1;
-                    portrait.y = curYforPortraitSpawn + 1195;
+                    portrait.y = curYforPortraitSpawn + 1725;
                 }
 
                 portrait.x = ((l * 250)) + 293;
