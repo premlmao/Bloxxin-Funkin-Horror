@@ -88,6 +88,8 @@ class ClientPrefs {
 		'note_left'		=> [A, LEFT],
 		'note_down'		=> [S, DOWN],
 		'note_right'	=> [D, RIGHT],
+
+		'mechanic'      => [SPACE],
 		
 		'ui_up'			=> [W, UP],
 		'ui_left'		=> [A, LEFT],
@@ -111,6 +113,8 @@ class ClientPrefs {
 		'note_left'		=> [DPAD_LEFT, X],
 		'note_down'		=> [DPAD_DOWN, A],
 		'note_right'	=> [DPAD_RIGHT, B],
+
+		'mechanic'      => [A],
 		
 		'ui_up'			=> [DPAD_UP, LEFT_STICK_DIGITAL_UP],
 		'ui_left'		=> [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT],

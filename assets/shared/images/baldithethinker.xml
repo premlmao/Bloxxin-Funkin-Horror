@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="baldithethinker.png">
+<SubTexture name="enter0000" x="0" y="0" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+<SubTexture name="enter0001" x="923" y="0" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+<SubTexture name="enter0002" x="0" y="783" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+<SubTexture name="enter0003" x="923" y="783" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+<SubTexture name="enter0004" x="1846" y="0" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+<SubTexture name="enter0005" x="1846" y="783" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+<SubTexture name="enter0006" x="0" y="1566" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+<SubTexture name="idle0000" x="923" y="1566" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+<SubTexture name="exit0000" x="1846" y="1566" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+<SubTexture name="exit0001" x="2769" y="0" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+<SubTexture name="exit0002" x="2769" y="783" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+<SubTexture name="exit0003" x="2769" y="1566" width="923" height="783" frameX="0" frameY="0" frameWidth="923" frameHeight="783" />
+</TextureAtlas>

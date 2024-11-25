@@ -23,7 +23,7 @@ function onBeatHit()
 {
     if (curBeat > 95 && curBeat < 160 || curBeat > 351 && curBeat < 416)
     {
-        bg.color = FlxColor.fromRGB(255,100,100);
+        bg.color = FlxColor.fromRGB(255,200,200); 
         modchartTweens.set('Whi', FlxTween.color(bg, 0.15, bg.color, FlxColor.WHITE));
     }
 }
