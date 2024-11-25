@@ -47,8 +47,9 @@ class BloxxinFreeplayState extends MusicBeatState
     var bg:FlxBackdrop;
     var intendedColor:Int;
     var colorTween:FlxTween;
-  
+
     var sky:FlxSprite;
+    var skyback:FlxSprite;
     var line:FlxSprite;
     var story:FlxSprite;
     var extra:FlxSprite;
@@ -89,11 +90,20 @@ class BloxxinFreeplayState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
         PlayState.isStoryMode = false;
-        
+
+        skyback = new FlxSprite().loadGraphic(Paths.image('freeplay/SkyboxBehind'));
+        skyback.antialiasing = ClientPrefs.data.antialiasing;
+        skyback.scale.set(1, 1);
+        skyback.updateHitbox();
+        skyback.screenCenter();
+        add(skyback);
+
+
         bg = new FlxBackdrop(Paths.image('codeLeakLOL'), XY); //Thats crazy! -nil
 		bg.velocity.set(0, -250);
         bg.scale.set(2.15, 2.15);
         bg.x = -306;
+        bg.alpha = 0.5;
 		add(bg);
 
 
@@ -333,7 +343,8 @@ class BloxxinFreeplayState extends MusicBeatState
     override function update(elapsed:Float)
     {
         var shiftMult:Int = 1; //too lazy to code this in sorry
-
+        
+        bg.alpha = 0.5;
         lerpScore = Math.floor(FlxMath.lerp(intendedScore, lerpScore, Math.exp(-elapsed * 24)));
 		lerpRating = FlxMath.lerp(intendedRating, lerpRating, Math.exp(-elapsed * 12));
 
@@ -436,7 +447,6 @@ class BloxxinFreeplayState extends MusicBeatState
                                         intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
                                         var newColor:Int = songs[curSelected].color;
             
-                                        
                                         if(newColor != intendedColor) 
                                         {
                                             if(colorTween != null) {
@@ -463,7 +473,7 @@ class BloxxinFreeplayState extends MusicBeatState
 
                         if (FlxG.mouse.overlaps(port)) 
                             { 
-                                if (songs[curSelected].songName == "Deformed")
+                                if (songs[curSelected].songName == "Deformed" && !OldSongsOpened)
                                 {
                                     var targetsArray:Array<FlxCamera> = FlxG.cameras.list;
                                     for (i in 0...targetsArray.length) {
@@ -481,7 +491,6 @@ class BloxxinFreeplayState extends MusicBeatState
                                     intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
                                     var newColor:Int = songs[curSelected].color;
         
-                                    
                                     if(newColor != intendedColor) 
                                     {
                                         if(colorTween != null) {
@@ -521,6 +530,7 @@ class BloxxinFreeplayState extends MusicBeatState
                             selectedSomethin = true;
                             FlxG.sound.play(Paths.sound('cancelMenu'));
                             persistentUpdate = false;
+
                             if(colorTween != null) {
                                 colorTween.cancel();
                             }
