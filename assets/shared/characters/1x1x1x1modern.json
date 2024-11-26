@@ -70,10 +70,10 @@
 		161
 	],
 	"camera_position": [
-		-50,
-		-70
+		-80,
+		-100
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.35,
+	"scale": 1.45,
 	"_editor_isPlayer": false
 }
