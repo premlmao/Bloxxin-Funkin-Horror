@@ -20,15 +20,15 @@ import objects.AttachedSprite;
 
 class BloxxinCreditsState extends MusicBeatState
 {
-	var curSelected:Int = -1;
+	var curSelected:Int = 0;
+	var currentMember:Int = 0;
 
 	var offsetThing:Float = -75;
 
-	var teamList:Array<Array<String>> = [
+	var teamList:Array<String> = [
 		'prem',
 		'nil',
-		'unfunny2',
-		'placeholder',
+		'unfunny2'
 	];
 
 	var bg:FlxSprite;
@@ -85,12 +85,26 @@ class BloxxinCreditsState extends MusicBeatState
 		}
 		members.add(member);
 
+		changeMember();
+
 		super.create();
 	}
 
 	var quitting:Bool = false;
 	override function update(elapsed:Float)
 		{
+			var leftP = controls.UI_LEFT_P;
+			var rightP = controls.UI_RIGHT_P;
+
+			if (leftP)
+			{
+				changeMember(-1);
+			}
+			if (rightP)
+			{
+				changeMember(1);
+			}
+
 			if (controls.BACK)
 			{
 				FlxG.sound.play(Paths.sound('cancelMenu'));
@@ -98,5 +112,22 @@ class BloxxinCreditsState extends MusicBeatState
 				quitting = true;
 			}
 			super.update(elapsed);
+		}
+
+		function changeMember(change:Int)
+		{
+			currentMember += change;
+
+            if(currentMember < 0)
+            {
+                currentMember = teamList.length - 1;
+            }
+
+            if(currentMember > teamList.length)
+            {
+                currentMember = 0;
+            }
+
+			trace(teamList[currentMember]);
 		}
 }
