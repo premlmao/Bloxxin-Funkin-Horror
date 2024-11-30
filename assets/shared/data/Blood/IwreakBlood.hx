@@ -6,9 +6,8 @@ import flixel.tweens.FlxEase;
 
 import flixel.text.FlxText;
 
-
+import flixel.FlxState;
 import flixel.math.FlxMath;
-
 
 var textHintJeff:FlxText = new FlxText();
 var centerized:Float;
@@ -19,8 +18,10 @@ var IsDodg:Bool = false;
 var onCoolDown:Bool = false;
 
 var jeffknifesound = (Paths.sound('JeffKnifeSwoosh'));
+var jeffscare = (Paths.sound('jeffscare'));
 var NextBeat:Int;
 var ActiveJeff:Bool = false;
+var JeffJumpscare:FlxSprite = new FlxSprite(0, 0);
 
 //BALDI
 var Thinkery:FlxSprite = new FlxSprite(0, 0);
@@ -29,8 +30,16 @@ var textAnswer:FlxText = new FlxText();
 var textTimer:FlxText = new FlxText();
 var timeRemaining:Int;
 var DoneEquation:Bool = false;
+var ThinkPadOn:Bool = false;
 var answerrr:Float;
+var baldiKillerStreak:Int = 0;
 
+var BaldYes:FlxSprite = new FlxSprite(0, 0, Paths.image("baldiHappy"));
+var BaldNo:FlxSprite = new FlxSprite(0, 0, Paths.image("baldiAnger"));
+
+var bald_slap = (Paths.sound('bald_slap'));
+var bald_yes = (Paths.sound('bald_yes'));
+var bald_no = (Paths.sound('bald_no'));
 
 function onCreate()
 { 
@@ -52,6 +61,63 @@ function onCreate()
     add(JeffsMechanic);
     add(textjeff);
     JeffsMechanic.alpha = 0;
+
+    JeffJumpscare.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
+    JeffJumpscare.frames = Paths.getSparrowAtlas('jeffjump');
+    JeffJumpscare.animation.addByPrefix('jump', ' jump', 8, false);
+    JeffJumpscare.scrollFactor.set();
+    JeffJumpscare.updateHitbox();
+    JeffJumpscare.screenCenter();
+    JeffJumpscare.visible = false;
+    add(JeffJumpscare);
+
+    //Baldi 
+    Thinkery.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
+    Thinkery.frames = Paths.getSparrowAtlas('baldithethinker');
+    Thinkery.animation.addByPrefix('enter', 'enter', 22, false);
+    Thinkery.animation.addByPrefix('idle', 'idle', 10, true);
+    Thinkery.animation.addByPrefix('exit', 'exit', 22, false);
+    Thinkery.scale.set(1, 1);
+    Thinkery.scrollFactor.set();
+    Thinkery.updateHitbox();
+    Thinkery.screenCenter();
+    Thinkery.visible = false;
+    
+
+
+    textQuestion.setFormat(Paths.font('Comic Sans MS.ttf'), 32, FlxColor.BLACK);
+    textQuestion.text = '9+9=?';
+    textQuestion.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
+    textQuestion.screenCenter();
+    textQuestion.y = textQuestion.y - 40;
+    textQuestion.x = textQuestion.x - 160;
+    textQuestion.visible = false;
+
+    textAnswer.setFormat(Paths.font('Comic Sans MS.ttf'), 32, FlxColor.BLACK);
+    textAnswer.text = 'Enter Answer';
+    textAnswer.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
+    textAnswer.screenCenter();
+    textAnswer.x = textAnswer.x - 20;
+    textAnswer.y = textQuestion.y + 160;
+    textAnswer.visible = false;
+
+    textTimer.setFormat(Paths.font('Comic Sans MS.ttf'), 22, FlxColor.RED, 'center');
+    textTimer.text = 'Use your keyboard to type in the answer\nhit the mechanic button to submit. Backspace resets it!\nTIME REMAINING: 99s';
+    textTimer.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
+    textTimer.screenCenter();
+    textTimer.y = textTimer.y + 260;
+    textTimer.visible = false;
+
+    BaldYes.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
+    BaldYes.screenCenter();
+    BaldYes.alpha = 0;
+
+    BaldNo.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
+    BaldNo.screenCenter();
+    BaldNo.alpha = 0;
+
+    add(BaldYes);
+    add(BaldNo);
 }
 
 
@@ -61,6 +127,13 @@ function onBeatHit()
     {
         jeffSlash();
     } 
+
+    if (baldiKillerStreak > 0)
+    {
+        bald_slap.play();
+        baldiKillerStreak -= 1;
+        game.health -= 0.3;
+    }
 switch (curBeat)
 {
     case 12:
@@ -83,48 +156,14 @@ switch (curBeat)
         JeffsMechanic.destroy();
         textjeff.destroy();
 
-        Thinkery.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
-        Thinkery.frames = Paths.getSparrowAtlas('baldithethinker');
-        Thinkery.animation.addByPrefix('enter', 'enter', 16, false);
-        Thinkery.animation.addByPrefix('idle', 'idle', 10, true);
-        Thinkery.animation.addByPrefix('exit', 'exit', 16, false);
-        Thinkery.scale.set(1, 1);
-        Thinkery.scrollFactor.set();
-        Thinkery.updateHitbox();
-        Thinkery.screenCenter();
-        Thinkery.visible = false;
-        
 
-
-        textQuestion.setFormat(Paths.font('Comic Sans MS.ttf'), 32, FlxColor.BLACK);
-        textQuestion.text = '9+9=?';
-        textQuestion.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
-        textQuestion.screenCenter();
-        textQuestion.y = textQuestion.y - 40;
-        textQuestion.x = textQuestion.x - 250;
-        textQuestion.visible = false;
-
-        textAnswer.setFormat(Paths.font('Comic Sans MS.ttf'), 32, FlxColor.BLACK);
-        textAnswer.text = 'Enter Answer';
-        textAnswer.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
-        textAnswer.screenCenter();
-        textAnswer.x = textAnswer.x - 20;
-        textAnswer.y = textQuestion.y + 160;
-        textAnswer.visible = false;
-
-        textTimer.setFormat(Paths.font('Comic Sans MS.ttf'), 32, FlxColor.RED, 'center');
-        textTimer.text = 'Use your keyboard to type in the answer, hit the mechanic button to submit.\nTIME REMAINING: 99s';
-        textTimer.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
-        textTimer.screenCenter();
-        textTimer.y = textTimer.y + 260;
-        textTimer.visible = false;
 
         add(Thinkery);
         add(textQuestion);
         add(textAnswer);
         add(textTimer);
     
-    case 328:
+    case 328,360, 424, 456, 488, 520:
         BaldiMechanic();
 }
 }
@@ -146,47 +185,85 @@ function jeffSlash()
     modchartTimers.set('a' ,new FlxTimer().start(0.2, function(tmr:FlxTimer)
         {
             jeffknifesound.play();
-            if (IsDodg == false)
-            {
-                trace("awh");
-            }
             ActiveJeff = false;
             modchartTweens.set('aaa', FlxTween.tween(JeffsMechanic, {alpha: 0}, 1, {ease: FlxEase.quadIn}));
             modchartTweens.set('aaaa', FlxTween.tween(textjeff, {alpha: 0}, 1, {ease: FlxEase.quadIn}));
+
+            if (IsDodg == false)
+            {
+                JeffJumpscare.alpha = 1;
+                game.health -= 1;
+                JeffJumpscare.visible = true;
+                JeffJumpscare.animation.play('jump', false, false);
+                jeffscare.play();
+                var targetsArray:Array<FlxCamera> = FlxG.cameras.list;
+                for (i in 0...targetsArray.length) {
+                targetsArray[i].shake(0.03, 3);
+                }
+
+                modchartTimers.set('a' ,new FlxTimer().start(2.3, function(tmr:FlxTimer)
+                    {
+                        modchartTweens.set('aaaaa', FlxTween.tween(JeffJumpscare, {alpha: 0}, 1, {ease: FlxEase.quadIn, onComplete: function(twn:FlxTween) {
+                            JeffJumpscare.visible = false;
+                        }}));
+
+                    }));
+
+                trace("awh");
+            }
         }));
 }
 
 
 function BaldiMechanic()
 {
+    textAnswer.text = 'Enter Answer';
     Thinkery.visible = true;
     Thinkery.animation.play('enter', false, false);
-    modchartTimers.set('a' ,new FlxTimer().start(1, function(tmr:FlxTimer)
+    modchartTimers.set('a' ,new FlxTimer().start(0.14, function(tmr:FlxTimer)
     {
+        ThinkPadOn = true;
         Thinkery.animation.play('idle', false, false);
         BaldiGetNum();
         textTimer.visible = true;
         textAnswer.visible = true;
+        textTimer.text = 'Use your keyboard to type in the answer\nhit the mechanic button to submit. Backspace resets it!\nTIME REMAINING: 6s';
         modchartTimers.set('a' ,new FlxTimer().start(1 / game.playbackRate, function(tmr:FlxTimer)
         {
-            textTimer.text = 'Use your keyboard to type in the answer, hit the mechanic button to submit.\nTIME REMAINING: ' + tmr.loopsLeft;
+            textTimer.text = 'Use your keyboard to type in the answer\nhit the mechanic button to submit. Backspace resets it!\nTIME REMAINING: ' + tmr.loopsLeft + 's';
             if (tmr.loopsLeft == 0 && DoneEquation == false)
             {
-                trace("awh");
-                BaldiRemove();
+
+                BaldiRemove(false);
+            }else if(tmr.loopsLeft == 0)
+            {
+                DoneEquation = false;
             }
-        }, 4));
+        }, 5));
 
     }));
 }
 
-function BaldiRemove()
+function BaldiRemove(Result:Bool)
 {
+    if (Result == false)
+    {
+        bald_no.play();
+        baldiKillerStreak = 4;
+        BaldNo.alpha = 1;
+        modchartTweens.set('aaa', FlxTween.tween(BaldNo, {alpha: 0}, 1, {ease: FlxEase.quadIn}));
+    }else{
+        bald_yes.play();
+        BaldYes.alpha = 1;
+        modchartTweens.set('aaa', FlxTween.tween(BaldYes, {alpha: 0}, 1, {ease: FlxEase.quadIn}));
+    }
+    
+    ThinkPadOn = false;
     textAnswer.visible = false;
     textTimer.visible = false;
     textQuestion.visible = false;
     Thinkery.animation.play('exit', false, false);
-    modchartTimers.set('a' ,new FlxTimer().start(0.3, function(tmr:FlxTimer) //im too lazy to just check if the anims done playing
+    modchartTimers.set('a' ,new FlxTimer().start(0.14, function(tmr:FlxTimer) //im too lazy to just check if the anims done playing
     {
         Thinkery.visible = false;
 
@@ -216,7 +293,7 @@ function BaldiGetNum()
     }else{
         num1 = FlxG.random.int(1, 9);
         num2 = FlxG.random.int(1, 9);
-        while (num1 - num2 == 0 || num1 - num2 == -10)
+        while (num1 - num2 == 0 || num1 - num2 < 1)
         {
             num1 = FlxG.random.int(1, 9);
             num2 = FlxG.random.int(1, 9);
@@ -227,6 +304,16 @@ function BaldiGetNum()
 
     textQuestion.visible = true;
     
+}
+
+function AddKey(keythin:String)
+{
+    if (textAnswer.text == 'Enter Answer')
+        {
+            textAnswer.text = "";
+        }
+
+        textAnswer.text = textAnswer.text + keythin;
 }
 
 
@@ -259,6 +346,56 @@ function onUpdate(elapsed:Float)
                     }));
                 
             }));
+    }
+
+    if (ThinkPadOn == true)
+    {
+        if(controls.justPressed('mechanic'))
+        {
+            DoneEquation = true;
+            var real:Float = Std.parseFloat(textAnswer.text);
+            if (real == answerrr)
+            {
+                BaldiRemove(true);
+            }else{
+                BaldiRemove(false);
+            }
+        }
+
+        //Im sorry detective
+        if (FlxG.keys.justPressed.ONE) {
+            AddKey("1");
+        }
+        if (FlxG.keys.justPressed.TWO) {
+            AddKey("2");
+        }
+        if (FlxG.keys.justPressed.THREE) {
+            AddKey("3");
+        }
+        if (FlxG.keys.justPressed.FOUR) {
+            AddKey("4");
+        }
+        if (FlxG.keys.justPressed.FIVE) {
+            AddKey("5");
+        }
+        if (FlxG.keys.justPressed.SIX) {
+            AddKey("6");
+        }
+        if (FlxG.keys.justPressed.SEVEN) {
+            AddKey("7");
+        }
+        if (FlxG.keys.justPressed.EIGHT) {
+            AddKey("8");
+        }
+        if (FlxG.keys.justPressed.NINE) {
+            AddKey("9");
+        }
+
+        if (FlxG.keys.justPressed.BACKSPACE)
+        {
+            textAnswer.text = 'Enter Answer';
+        }
+
     }
 
 
