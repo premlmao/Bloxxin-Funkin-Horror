@@ -11,6 +11,7 @@ import flixel.util.FlxStringUtil;
 import states.StoryMenuState;
 import states.BloxxinFreeplayState;
 import states.MainMenuState;
+import states.PlayState;
 import options.OptionsState;
 
 import lime.utils.Assets;
@@ -54,11 +55,17 @@ class PauseSubState extends MusicBeatSubstate
 		portrait.x = -700;
 		portrait.y = 100;
 
-		var pauseBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pause'));
+		var pauseBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pauseShit/pausebg'));
 		pauseBG.antialiasing = ClientPrefs.data.antialiasing;
 		pauseBG.y = 1200;
-		pauseBG.x = 460;
+		pauseBG.screenCenter(X);
 		pauseBG.updateHitbox();
+
+		var buttons:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pauseShit/buttons'));
+		buttons.antialiasing = ClientPrefs.data.antialiasing;
+		buttons.screenCenter(X);
+		buttons.y = 1200;
+		buttons.updateHitbox();
 
 
 		if(PlayState.chartingMode)
@@ -112,32 +119,22 @@ class PauseSubState extends MusicBeatSubstate
 
 		add(portrait);
 		add(pauseBG);
+		add(buttons);
 
 		var placeholder:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pauseShit/placeholder'));
 		placeholder.antialiasing = ClientPrefs.data.antialiasing;
 		placeholder.y = 170;
 		placeholder.x = 2000;
 		placeholder.updateHitbox();
+		placeholder.alpha = 0;
 		add(placeholder);
 
-
-		var levelInfo:FlxText = new FlxText(20, 15, 0, PlayState.SONG.song, 32);
+		var levelInfo:FlxText = new FlxText(20, 685, 0, PlayState.SONG.song + " • "  + "OOFED: " + PlayState.deathCounter, 32);
 		levelInfo.scrollFactor.set();
-		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
+		levelInfo.setFormat(Paths.font("Gotham Black Regular.ttf"), 32, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		levelInfo.borderSize = 2;
 		levelInfo.updateHitbox();
 		add(levelInfo);
-
-		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, Difficulty.getString().toUpperCase(), 32);
-		levelDifficulty.scrollFactor.set();
-		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 32);
-		levelDifficulty.updateHitbox();
-		add(levelDifficulty);
-
-		var blueballedTxt:FlxText = new FlxText(20, 15 + 64, 0, "Blueballed: " + PlayState.deathCounter, 32);
-		blueballedTxt.scrollFactor.set();
-		blueballedTxt.setFormat(Paths.font('vcr.ttf'), 32);
-		blueballedTxt.updateHitbox();
-		add(blueballedTxt);
 
 		practiceText = new FlxText(20, 15 + 101, 0, "PRACTICE MODE", 32);
 		practiceText.scrollFactor.set();
@@ -156,21 +153,17 @@ class PauseSubState extends MusicBeatSubstate
 		chartingText.visible = PlayState.chartingMode;
 		add(chartingText);
 
-		blueballedTxt.alpha = 0;
-		levelDifficulty.alpha = 0;
 		levelInfo.alpha = 0;
 
-		levelInfo.x = FlxG.width - (levelInfo.width + 20);
-		levelDifficulty.x = FlxG.width - (levelDifficulty.width + 20);
-		blueballedTxt.x = FlxG.width - (blueballedTxt.width + 20);
+		levelInfo.x = FlxG.width - (levelInfo.width + 30);
 
 		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
-		FlxTween.tween(pauseBG, {y: 170}, 0.75, {ease: FlxEase.cubeOut});
-		FlxTween.tween(portrait, {x: -115}, 0.75, {ease: FlxEase.cubeOut});
-		FlxTween.tween(placeholder, {x: 835}, 0.75, {ease: FlxEase.cubeOut});
-		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
-		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+		FlxTween.tween(pauseBG, {y: 170}, 0.75, {ease: FlxEase.circOut});
+		FlxTween.tween(buttons, {y: 170}, 0.75, {ease: FlxEase.circOut});
+		FlxTween.tween(portrait, {x: -115}, 0.75, {ease: FlxEase.circOut});
+		FlxTween.tween(placeholder, {x: 835}, 0.75, {ease: FlxEase.circOut});
+		FlxTween.tween(levelInfo, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+		// FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 
 		grpMenuShit = new FlxTypedGroup<FlxText>();
 		add(grpMenuShit);
@@ -192,6 +185,15 @@ class PauseSubState extends MusicBeatSubstate
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
+	}
+
+	override public function create()
+	{
+		switch (PlayState.SONG.song)
+		{
+			case 'Copied':
+				portrait.y = 150;
+		}
 	}
 
 	var holdTime:Float = 0;
@@ -419,11 +421,13 @@ class PauseSubState extends MusicBeatSubstate
 			bullShit++;
 
 			item.alpha = 0.6;
+			item.color = 0xFFFCFCFC;
 			// item.setGraphicSize(Std.int(item.width * 0.8));
 
 			if (item.ID == 0)
 			{
 				item.alpha = 1;
+				item.color = 0xFFFF0000;
 				// item.setGraphicSize(Std.int(item.width));
 
 				if(item == skipTimeTracker)
@@ -446,31 +450,39 @@ class PauseSubState extends MusicBeatSubstate
 		}
 
 		for (i in 0...menuItems.length) {
-			var item = new FlxText(535, (75 * i) + 1200, menuItems[i], true);
-			item.setFormat(Paths.font("Gotham Black Regular.ttf"), 24, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			var item = new FlxText(535, 1200, menuItems[i], true);
+			item.setFormat(Paths.font("Gotham Black Regular.ttf"), 28, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			item.ID = i;
-			FlxTween.tween(item, {y: (75 * i) + 210}, 0.75, {ease: FlxEase.cubeOut});
 			grpMenuShit.add(item);
 
 			if(menuItems[i] == 'Resume Game')
 			{
-				item.x = 545;
+				item.x = 538;
+				FlxTween.tween(item, {y: 239}, 0.75, {ease: FlxEase.circOut});
+			}
+
+			if(menuItems[i] == 'Reset Character')
+			{
+				item.x = 527;
+				FlxTween.tween(item, {y: 300}, 0.75, {ease: FlxEase.circOut});
 			}
 
 			if(menuItems[i] == 'Game Options')
 			{
-				item.x = 545;
+				item.x = 538;
+				FlxTween.tween(item, {y: 360}, 0.75, {ease: FlxEase.circOut});
 			}
 
 			if(menuItems[i] == 'Leave Game')
 			{
-				item.x = 560;
+				item.x = 550;
+				FlxTween.tween(item, {y: 423}, 0.75, {ease: FlxEase.circOut});
 			}
 
 			if(PlayState.chartingMode)
 			{
 				item.x = 510;
-				FlxTween.tween(item, {y: (50 * i) + 150}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(item, {y: (50 * i) + 150}, 0.75, {ease: FlxEase.circOut});
 				item.setFormat(Paths.font("Gotham Black Regular.ttf"), 28, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			}
 

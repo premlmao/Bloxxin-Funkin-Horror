@@ -13,7 +13,7 @@ end
 
 function onBeatHit()
     if curBeat == 12 then
-        setObjectOrder('oofexe', getObjectOrder('healthBar') + 1)
+        setObjectOrder('oofexe', getObjectOrder('iconP1'))
         addLuaSprite('oofexe', true)
     end
 end

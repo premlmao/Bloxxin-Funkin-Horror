@@ -28,7 +28,16 @@ class BloxxinCreditsState extends MusicBeatState
 	var teamList:Array<Array<String>> = [ //fyi, Name -- File name -- Status -- Quote -- Color
 		['Unfunny2',	'unfunny2',		'Director, Animator, Charter, Composer',					 '"what"',		'8a00b4'],
 		['Nil',	    	'nil',		    'Coder, Animator',		                        			 '"I want to kms"',		'ff0000'],
-		['Prem',		'prem',		    'Coder',				                                 	 '"hahahahaha"',		'444444']
+		['Prem',		'prem',		    'Coder',				                                 	 '"hahahahaha"',		'444444'],
+		['Brawlify',	'placeholder',		'Animator',					 '"this shit is unplayable"',		'000000'],
+		['Placeholder',	    	'placeholder',		    'Placeholder',		                        			 '"Placeholder"',		'000000'],
+		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000'],
+		['Placeholder',	'placeholder',		'Placeholder',					 '"Placeholder"',		'000000'],
+		['Placeholder',	    	'placeholder',		    'Placeholder',		                        			 '"Placeholder"',		'000000'],
+		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000'],
+		['Placeholder',	'placeholder',		'Placeholder',					 '"Placeholder"',		'000000'],
+		['Placeholder',	    	'placeholder',		    'Placeholder',		                        			 '"Placeholder"',		'000000'],
+		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000']
 	];
 
 	var bg:FlxSprite;

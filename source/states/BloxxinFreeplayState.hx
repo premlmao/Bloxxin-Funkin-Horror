@@ -58,7 +58,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var portraitsOLD:FlxTypedGroup<FlxSprite>;
     var portrait:FlxSprite;
 
-    var scoreText:FlxText;
+    var pbText:FlxText;
     var lerpScore:Int = 0;
     var lerpRating:Float = 0;
 	var intendedScore:Int = 0;
@@ -298,11 +298,11 @@ class BloxxinFreeplayState extends MusicBeatState
         controls2.borderSize = 1.75;
         add(controls2);
 
-        scoreText = new FlxText(FlxG.width * 2, 2, 0, "", 32);
-		scoreText.setFormat(Paths.font("Gotham Black Regular.ttf"), 48, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        scoreText.borderSize = 1.75;
-        scoreText.y = 625;
-        add(scoreText);
+        pbText = new FlxText(FlxG.width * 2, 2, 0, "", 32);
+		pbText.setFormat(Paths.font("Gotham Black Regular.ttf"), 48, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        pbText.borderSize = 1.75;
+        pbText.y = 625;
+        add(pbText);
 
 
         buttonOldSong = new FlxSprite(0, 0).loadGraphic(Paths.image('freeplay/InventoryButton'), true, 108, 108);
@@ -353,7 +353,16 @@ class BloxxinFreeplayState extends MusicBeatState
 		if (Math.abs(lerpRating - intendedRating) <= 0.01)
 			lerpRating = intendedRating;
 
-        scoreText.text = 'SCORE: ' + lerpScore;
+        var ratingSplit:Array<String> = Std.string(CoolUtil.floorDecimal(lerpRating * 100, 2)).split('.');
+		if(ratingSplit.length < 2) { //No decimals, add an empty space
+			ratingSplit.push('');
+		}
+		
+		while(ratingSplit[1].length < 2) { //Less than 2 decimals in it, add decimals then
+			ratingSplit[1] += '0';
+		}
+
+        pbText.text = 'PB: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
         positionHighscore();
 
 
@@ -580,7 +589,7 @@ class BloxxinFreeplayState extends MusicBeatState
      }
 
      private function positionHighscore() {
-		scoreText.x = FlxG.width - scoreText.width - 6;
+		pbText.x = FlxG.width - pbText.width - 6;
 	}
 }
 
