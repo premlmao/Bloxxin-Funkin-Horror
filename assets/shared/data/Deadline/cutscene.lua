@@ -3,7 +3,7 @@ playVideo = true;
 function onStartCountdown()
 	if isStoryMode and not seenCutscene then
 		if playVideo then
-			startVideo('DeadlineCutscene');
+			startVideo('GoodDeadlineCutscene'); -- i'll do the cutscene acc thing later
 			playVideo = false;
 			return Function_Stop;
 		end
