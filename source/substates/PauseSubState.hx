@@ -194,7 +194,7 @@ class PauseSubState extends MusicBeatSubstate
 		switch (PlayState.SONG.song)
 		{
 			case 'ProveIt':
-				descText = '';
+				descText.text = '';
 			case 'Copied':
 				portrait.y = 150;
 			case 'Predecessor':
