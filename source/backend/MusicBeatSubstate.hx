@@ -1,6 +1,10 @@
 package backend;
 
 import flixel.FlxSubState;
+import flixel.addons.ui.FlxUIState;
+import flixel.addons.transition.FlxTransitionableState;
+import backend.PsychCamera;
+import flixel.FlxG;
 
 class MusicBeatSubstate extends FlxSubState
 {
@@ -19,7 +23,7 @@ class MusicBeatSubstate extends FlxSubState
 	private var curBeat:Int = 0;
 
 	private var curDecStep:Float = 0;
-	private var curDecBeat:Float = 0;
+	private var curDecBeat:Float = 0; 
 	private var controls(get, never):Controls;
 
 	inline function get_controls():Controls
@@ -27,6 +31,7 @@ class MusicBeatSubstate extends FlxSubState
 
 	override function update(elapsed:Float)
 	{
+		
 		//everyStep();
 		if(!persistentUpdate) MusicBeatState.timePassedOnState += elapsed;
 		var oldStep:Int = curStep;
@@ -47,6 +52,11 @@ class MusicBeatSubstate extends FlxSubState
 					rollbackSection();
 			}
 		}
+
+		stagesFunc(function(stage:BaseStage) {
+			stage.update(elapsed);
+			curBeat = stage.curBeat;
+		});
 
 		super.update(elapsed);
 	}
@@ -108,8 +118,19 @@ class MusicBeatSubstate extends FlxSubState
 	public function beatHit():Void
 	{
 		//do literally nothing dumbass
+		//frick you too
 	}
+
+	public var stages:Array<BaseStage> = [];
+	function stagesFunc(func:BaseStage->Void)
+		{
+			for (stage in stages)
+				if(stage != null && stage.exists && stage.active)
+					func(stage);
+		}
 	
+	
+
 	public function sectionHit():Void
 	{
 		//yep, you guessed it, nothing again, dumbass

@@ -35,7 +35,7 @@ class MusicBeatState extends FlxUIState
 		if(!skip) {
 			openSubState(new CustomFadeTransition(0.7, true));
 		}
-		FlxTransitionableState.skipNextTransOut = false;
+		FlxTransitionableState.skipNextTransOut = false; 
 		timePassedOnState = 0;
 
 		FlxG.mouse.load(Paths.image("Cursor").bitmap, 0.23, 0);

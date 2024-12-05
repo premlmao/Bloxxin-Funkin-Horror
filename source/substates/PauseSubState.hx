@@ -31,6 +31,7 @@ class PauseSubState extends MusicBeatSubstate
 	var practiceText:FlxText;
 	var skipTimeText:FlxText;
 	var skipTimeTracker:FlxText;
+	var descText:FlxText;
 	var curTime:Float = Math.max(0, Conductor.songPosition);
 
 	var portrait:FlxSprite;
@@ -121,20 +122,21 @@ class PauseSubState extends MusicBeatSubstate
 		add(pauseBG);
 		add(buttons);
 
-		var placeholder:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pauseShit/placeholder'));
-		placeholder.antialiasing = ClientPrefs.data.antialiasing;
-		placeholder.y = 170;
-		placeholder.x = 2000;
-		placeholder.updateHitbox();
-		placeholder.alpha = 0;
-		add(placeholder);
-
 		var levelInfo:FlxText = new FlxText(20, 685, 0, PlayState.SONG.song + " • "  + "OOFED: " + PlayState.deathCounter, 32);
 		levelInfo.scrollFactor.set();
 		levelInfo.setFormat(Paths.font("Gotham Black Regular.ttf"), 32, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		levelInfo.borderSize = 2;
 		levelInfo.updateHitbox();
 		add(levelInfo);
+
+		descText = new FlxText(20, 685, 0, "insert Desc here\nif ur seeing this\ntheres no desc yet!", 32);
+		descText.alignment = "right";
+		descText.scrollFactor.set();
+		descText.screenCenter(Y);
+		descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 24, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		descText.borderSize = 2.5;
+		descText.updateHitbox();
+		add(descText);
 
 		practiceText = new FlxText(20, 15 + 101, 0, "PRACTICE MODE", 32);
 		practiceText.scrollFactor.set();
@@ -154,15 +156,17 @@ class PauseSubState extends MusicBeatSubstate
 		add(chartingText);
 
 		levelInfo.alpha = 0;
+		descText.alpha = 0;
 
 		levelInfo.x = FlxG.width - (levelInfo.width + 30);
+		descText.x = FlxG.width - (descText.width + 40);
 
 		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
 		FlxTween.tween(pauseBG, {y: 170}, 0.75, {ease: FlxEase.circOut});
 		FlxTween.tween(buttons, {y: 170}, 0.75, {ease: FlxEase.circOut});
 		FlxTween.tween(portrait, {x: -115}, 0.75, {ease: FlxEase.circOut});
-		FlxTween.tween(placeholder, {x: 835}, 0.75, {ease: FlxEase.circOut});
 		FlxTween.tween(levelInfo, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+		FlxTween.tween(descText, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.4});
 		// FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 
 		grpMenuShit = new FlxTypedGroup<FlxText>();
@@ -185,16 +189,29 @@ class PauseSubState extends MusicBeatSubstate
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
-	}
+		trace("hello??");
 
-	override public function create()
-	{
 		switch (PlayState.SONG.song)
 		{
+			case 'ProveIt':
+				descText = '';
 			case 'Copied':
 				portrait.y = 150;
+			case 'Predecessor':
+				trace(curBeat);
+				if (curBeat > 127 )
+				{
+					trace("Hello!");
+					levelInfo.x = levelInfo.x - 500;
+				}else{
+					portrait.x -= 280;
+				}
+
+
 		}
+
 	}
+
 
 	var holdTime:Float = 0;
 	var cantUnpause:Float = 0.1;
