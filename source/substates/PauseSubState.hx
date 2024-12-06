@@ -130,7 +130,7 @@ class PauseSubState extends MusicBeatSubstate
 		add(levelInfo);
 
 		descText = new FlxText(20, 685, 0, "insert Desc here\nif ur seeing this\ntheres no desc yet!", 32);
-		descText.alignment = "right";
+		descText.alignment = "center";
 		descText.scrollFactor.set();
 		descText.screenCenter(Y);
 		descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 24, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -194,20 +194,133 @@ class PauseSubState extends MusicBeatSubstate
 		switch (PlayState.SONG.song)
 		{
 			case 'ProveIt':
-				descText.text = '';
+				descText.x -= 165;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 12, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text = 
+				'Guest666 is an old roblox hoax\n
+				involving a Guest having destructive powers on any game they joined.\n
+				The game where this song takes place is "Prove it",\n
+				which many acclaim is the spot where various hackers got their fame.';
+			case 'Deadline':
+				portrait.y = 125;
+				descText.x -= 150;
+				descText.y -= 50;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 14, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text = 
+				'John Doe is an account\n
+				made by the Roblox staff back in the websites early stages.\n
+				One day however, someone got into the account\n
+				and gave John Doe various odd badges.\n
+				Since then, numerous creepypastas and hoaxes\n
+				have sprung up regarding the account.';
+			case 'Powering':
+				descText.x -= 160;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 14, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'The hacker who caused everything,\n
+				TheC0mmunity has been pulling the strings this entire time.\n
+				Dont let him hack you!';
 			case 'Copied':
 				portrait.y = 150;
+				descText.x -= 135;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 10, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'1x1x1x1 was theorized to be a hacker of some sorts,\n
+				causing concern and fear throughout the Roblox community.\n
+				This was started by Shedletsky claiming that 1x1x1x1 was quite "evil".\n
+				That combined with an exploiter named Zuka explaining 1x1x1x1s misdeeds\n
+				created a vast negative aura around the account.';
+			case 'CorrodedMetal':
+				descText.x -= 135;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 14, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'RUST_010 was a very interesting account,\n
+				hosting a truckload of games meant to\n
+				spark confusion and dread.';
+			case 'Wipeout':
+				descText.x -= 150;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 10, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'Perhaps the first Roblox myth,\n
+				Spirit was an account meant to scare players that saw it.\n
+				This sparked a war on the forums which also created the Torture Chamber,\n
+				the place where this song takes place.';
+			case 'GloryDay':
+				descText.x -= 150;
+				descText.y -= 50;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 12, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'Cronostal is an amalgamation of the Roblox communitys nostalgia.\n
+				After somehow joining the game where they reside,\n
+				BFs updated appearance causes Cronostal to change...\n
+				(They dont like that very much.)\n
+				Cronostal by Unfunny2!';
+			case 'BrickBattle':
+				descText.x -= 155;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 12, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'The Conqueror is an alien exiled from their home,\n
+				who then inserted themselves into the world of Roblox.\n
+				They reside in fighting games, always challenging anyone to a duel.\n
+				Conqueror by cheezydynamite and shaggyiscool!';
 			case 'Predecessor':
 				trace(curBeat);
-				if (curBeat > 127 )
+				if (curBeat > 127)
 				{
 					trace("Hello!");
 					levelInfo.x = levelInfo.x - 500;
 				}else{
 					portrait.x -= 280;
 				}
-
-
+			case 'NeedYouHere':
+				descText.x -= 145;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 14, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'After getting a message by someone\n
+				you dont know asking you to play their game,\n
+				you join in and you are met with Smile.';
+			case 'RabbitHole':
+				descText.x -= 155;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 11, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'Party.exe is a very peculiar game, featuring multiple endings to get.\n
+				Not much is known about the opponent Subject_0,\n
+				other than they make several appearances throughout most of the endings.';
+			case 'Kenophobia':
+				descText.x -= 85;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 32, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text = 'rooms';
+			case 'Stalked':
+				descText.x -= 148;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 12, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'"There is someone inside my home. Keep quiet and stay calm it said."\n
+				Based on Jims Computer.';
+			case 'Abandoned':
+				descText.x -= 150;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 12, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'You wouldnt expect a light hearted game like "A Normal Elevator"\n
+				to have a disturbing story underneath its surface.\n
+				Gavins story is a secret sub place you could access by\n
+				putting in a code next to a door in the main lobby.';
+			case 'Fools':
+				descText.x -= 135;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 12, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'On April Fools 2012,\n
+				a few people gained access to the Roblox admin panel\n
+				and caused widespread mayhem and chaos across the site.\n
+				They did many acts, but the most famous thing they caused\n
+				was the C: face being uploaded onto the catalog.';
+			case 'FloatingPoint':
+				descText.x -= 150;
+				descText.setFormat(Paths.font("Gotham Black Regular.ttf"), 12, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				descText.text =
+				'The Floating Point/Null Zone glitch occurs\n
+				when you go too far in any direction in a Roblox game.\n
+				The rendering of everything begins to corrupt showing polygons rapidly shaking.\n
+				The further you go, the worse it gets.';
 		}
 
 	}
