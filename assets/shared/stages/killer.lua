@@ -3,9 +3,11 @@ function onCreate()
 
 	makeLuaSprite('sky', 'stages/sky', -300, -100);
 	setScrollFactor('sky', 0.2, 0.2);
+        setProperty('sky.antialiasing', false);
 
 	makeLuaSprite('killermap', 'stages/killermap', -320, -100);
 	setScrollFactor('killermap', 1, 1);
+        setProperty('killermap.antialiasing', false);
 
 
         addLuaSprite('sky', false);

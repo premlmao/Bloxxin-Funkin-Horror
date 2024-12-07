@@ -30,8 +30,6 @@ function onCreate()
 
         makeLuaSprite('sfothfog', 'stages/sfothfog', -300, -100);
 	setScrollFactor('sfothfog', 0.5, 0.5);
-        setProperty('sfothfog.antialiasing', false);
-
 
 	addLuaSprite('sfothsky', false);
 	addLuaSprite('moon', false);

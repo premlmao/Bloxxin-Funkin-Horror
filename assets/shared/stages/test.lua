@@ -2,6 +2,7 @@ function onCreate()
 	-- background shit
 	makeLuaSprite('test', 'stages/test', -300, -100);
 	setScrollFactor('test', 1, 1);
+        setProperty('test.antialiasing', false);
 
 
 	addLuaSprite('test', false);

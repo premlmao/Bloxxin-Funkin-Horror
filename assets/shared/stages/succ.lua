@@ -2,9 +2,11 @@ function onCreate()
 	-- background shit
 	makeLuaSprite('truss', 'stages/truss', -300, -100);
 	setScrollFactor('truss', 1, 1);
+        setProperty('truss.antialiasing', false);
 
         makeLuaSprite('classicsky', 'stages/classicsky', -300, -100);
 	setScrollFactor('classicsky', 0.1, 0.1);
+        setProperty('classicsky.antialiasing', false);
 
 
 	addLuaSprite('classicsky', false);

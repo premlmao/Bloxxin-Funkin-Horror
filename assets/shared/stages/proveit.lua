@@ -7,7 +7,6 @@ function onCreate()
 
 	makeLuaSprite('proveitfog', 'stages/proveitfog', -300, -100);
 	setScrollFactor('proveitfog', 0.5, 0.5);
-        setProperty('proveitfog.antialiasing', false);
 
 	makeLuaSprite('proveitbacker', 'stages/proveitbacker', -300, -300);
 	setScrollFactor('proveitbacker', 0.1, 0.1);

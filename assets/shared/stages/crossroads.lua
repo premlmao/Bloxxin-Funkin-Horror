@@ -7,18 +7,22 @@ function onCreate()
 
 	makeLuaSprite('crossroadsmap', 'stages/crossroadsmap', -300, -80);
 	setScrollFactor('crossroadsmap', 1, 1);
+        setProperty('crossroadsmap.antialiasing', false);
 
 	makeLuaSprite('crossroadsback', 'stages/crossroadsback', -300, -100);
 	setScrollFactor('crossroadsback', 0.8, 0.8);
+        setProperty('crossroadsback.antialiasing', false);
 
 	makeLuaSprite('crossroadsbacker', 'stages/crossroadsbacker', -300, -100);
 	setScrollFactor('crossroadsbacker', 0.2, 0.2);
+        setProperty('crossroadsbacker.antialiasing', false);
 
 	makeLuaSprite('crossroadsfog', 'stages/crossroadsfog', -300, -100);
 	setScrollFactor('crossroadsfog', 0.5, 0.5);
 
 	makeLuaSprite('crossroadssky', 'stages/crossroadssky', -300, -100);
 	setScrollFactor('crossroadssky', 0.05, 0.05);
+        setProperty('crossroadssky.antialiasing', false);
 
 
         addLuaSprite('crossroadsfog', true);
@@ -62,25 +66,6 @@ function onBeatHit()
 		removeLuaSprite('pixelcrossroadsback');
 		removeLuaSprite('pixelcrossroadsfog');
 		removeLuaSprite('pixelcrossroadssky');
-
-	makeLuaSprite('tv', 'stages/tv', -1100, -500);
-	setScrollFactor('tv', 0, 0);
-	scaleObject ('tv', 1.75, 1.75);
-
-	makeLuaSprite('crossroadsmap', 'stages/crossroadsmap', -300, -80);
-	setScrollFactor('crossroadsmap', 1, 1);
-
-	makeLuaSprite('crossroadsback', 'stages/crossroadsback', -300, -100);
-	setScrollFactor('crossroadsback', 0.8, 0.8);
-
-	makeLuaSprite('crossroadsbacker', 'stages/crossroadsbacker', -300, -100);
-	setScrollFactor('crossroadsbacker', 0.2, 0.2);
-
-	makeLuaSprite('crossroadsfog', 'stages/crossroadsfog', -300, -100);
-	setScrollFactor('crossroadsfog', 0.5, 0.5);
-
-	makeLuaSprite('crossroadssky', 'stages/crossroadssky', -300, -100);
-	setScrollFactor('crossroadssky', 0.05, 0.05);
 
         addLuaSprite('crossroadsfog', true);
         addLuaSprite('tv', true);

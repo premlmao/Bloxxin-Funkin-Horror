@@ -9,12 +9,15 @@ function onCreate()
 
 	makeLuaSprite('torturechamberfloor', 'stages/torturechamberfloor', -300, -100);
 	setScrollFactor('torturechamberfloor', 1, 1);
+        setProperty('torturechamberfloor.antialiasing', false);
 
 	makeLuaSprite('torturechamber', 'stages/torturechamber', -300, -130);
 	setScrollFactor('torturechamber', 0.7, 0.7);
+        setProperty('torturechamber.antialiasing', false);
 
 	makeLuaSprite('torturechamberback', 'stages/torturechamberback', -300, -185);
 	setScrollFactor('torturechamberback', 0.2, 0.2);
+        setProperty('torturechamberback.antialiasing', false);
 
         addLuaSprite('torturechamberback', false);
         addLuaSprite('torturechamber', false);
@@ -34,6 +37,7 @@ end
 
 	makeLuaSprite('spiritprofile', 'stages/spiritprofile', -300, -100);
 	setScrollFactor('spiritprofile', 1, 1);
+        setProperty('spiritprofile.antialiasing', false);
 
         addLuaSprite('spiritprofile', false);
 end
