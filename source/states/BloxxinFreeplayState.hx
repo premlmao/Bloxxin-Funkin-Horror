@@ -24,6 +24,7 @@ import haxe.Json;
  
 import substates.GameplayChangersSubstate;
 import substates.ResetScoreSubState;
+import substates.SongInfoSubState;
 import states.editors.MasterEditorMenu;
 
 class BloxxinFreeplayState extends MusicBeatState
@@ -553,6 +554,13 @@ class BloxxinFreeplayState extends MusicBeatState
                             openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
                             FlxG.sound.play(Paths.sound('scrollMenu'));
                         }
+
+                    if(FlxG.keys.justPressed.I)
+                    {
+                        persistentUpdate = false;
+                        openSubState(new SongInfoSubState());
+                        FlxG.sound.play(Paths.sound('scrollMenu'));
+                    }
 
                     #if desktop
                     if (controls.justPressed('debug_1'))
