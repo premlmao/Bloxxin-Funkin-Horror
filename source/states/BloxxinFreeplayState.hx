@@ -558,7 +558,7 @@ class BloxxinFreeplayState extends MusicBeatState
                     if(FlxG.keys.justPressed.I)
                     {
                         persistentUpdate = false;
-                        openSubState(new SongInfoSubState());
+                        openSubState(new SongInfoSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
                         FlxG.sound.play(Paths.sound('scrollMenu'));
                     }
 

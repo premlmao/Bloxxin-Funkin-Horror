@@ -14,7 +14,7 @@ class SongInfoSubState extends MusicBeatSubstate
 	var difficulty:Int;
 	var week:Int;
 
-    public function new(song:String, difficulty:Int, character:String, week:Int = -1, x:Float, y:Float)
+    public function new(song:String, difficulty:Int, character:String, week:Int = -1)
 	{
         this.song = song;
         this.difficulty = difficulty;
