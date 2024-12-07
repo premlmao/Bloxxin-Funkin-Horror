@@ -24,6 +24,12 @@ function onCreate()
 	setScrollFactor('nightlight', 0.05, 0.05);
         setProperty('nightlight.antialiasing', false);
 
+    	makeAnimatedLuaSprite('gracefuljohndive','stages/gracefuljohndive',-300,-100);
+	addAnimationByPrefix('gracefuljohndive','dance','dive',15,true);
+	objectPlayAnimation('gracefuljohndive','dance',false);
+	setScrollFactor('gracefuljohndive', 0.4, 0.4);
+	setProperty('gracefuljohndive.antialiasing', false);
+
 	addLuaSprite('nightlight', false);
 	addLuaSprite('proveitfog', true);
         addLuaSprite('proveitbacker', false);
@@ -40,6 +46,16 @@ end
 
 function onBeatHit()
 	--For ProveIt
+    if curBeat == 214 and songName == "ProveIt" then
+
+        addLuaSprite('gracefuljohndive', false);
+end
+
+    if curBeat == 224 and songName == "ProveIt" then
+
+                removeLuaSprite('gracefuljohndive');
+end
+
     if curBeat == 240 and songName == "ProveIt" then
 
 		removeLuaSprite('nightlight');
