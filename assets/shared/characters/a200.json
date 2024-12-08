@@ -1,106 +1,106 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 17,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
+			"fps": 17,
+			"name": "left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-10
 			],
-			"loop": false,
-			"fps": 17,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
+			"fps": 17,
+			"name": "down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-10,
 				20
 			],
-			"loop": false,
-			"fps": 17,
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
+			"fps": 17,
+			"name": "up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-30,
 				10
 			],
-			"loop": false,
-			"fps": 17,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
+			"fps": 17,
+			"name": "right",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"indices": [],
-			"fps": 17,
 			"anim": "singLEFT-loop",
-			"loop": true,
-			"name": "loopleft"
+			"fps": 17,
+			"name": "loopleft",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				0,
 				-10
 			],
-			"indices": [],
-			"fps": 17,
 			"anim": "singDOWN-loop",
-			"loop": true,
-			"name": "loopdown"
+			"fps": 17,
+			"name": "loopdown",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				-10,
 				20
 			],
-			"indices": [],
-			"fps": 17,
 			"anim": "singUP-loop",
-			"loop": true,
-			"name": "loopup"
+			"fps": 17,
+			"name": "loopup",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				-30,
 				10
 			],
-			"indices": [],
-			"fps": 17,
 			"anim": "singRIGHT-loop",
-			"loop": true,
-			"name": "loopright"
+			"fps": 17,
+			"name": "loopright",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"indices": [],
-			"fps": 15,
 			"anim": "idle",
-			"loop": true,
-			"name": "idle"
+			"fps": 15,
+			"name": "idle",
+			"indices": []
 		}
 	],
-	"no_antialiasing": true,
+	"no_antialiasing": false,
 	"image": "characters/a200",
 	"position": [
 		80,
