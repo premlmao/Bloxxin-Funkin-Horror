@@ -50,7 +50,7 @@ class SongInfoSubState extends MusicBeatSubstate
 			FlxTween.tween(robloxBackdrop, {angle: 180}, 5, {ease: FlxEase.linear, type: FlxTweenType.LOOPING});
         */
 
-        portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_' + PlayState.curSong));
+        portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_' + PlayState.SONG.song));
 		portrait.antialiasing = ClientPrefs.data.antialiasing;
 		portrait.scale.set(1, 1);
 		portrait.updateHitbox();

@@ -555,12 +555,14 @@ class BloxxinFreeplayState extends MusicBeatState
                             FlxG.sound.play(Paths.sound('scrollMenu'));
                         }
 
+                    /* disabled until someone fixes it idfk - prem
                     if(FlxG.keys.justPressed.I)
                     {
                         persistentUpdate = false;
                         openSubState(new SongInfoSubState());
                         FlxG.sound.play(Paths.sound('scrollMenu'));
                     }
+                    */
 
                     #if desktop
                     if (controls.justPressed('debug_1'))
