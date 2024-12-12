@@ -128,12 +128,12 @@
 		-130,
 		0
 	],
-	"healthicon": "johndoe",
+	"healthicon": "johndoedeleted",
 	"flip_x": false,
 	"healthbar_colors": [
 		255,
-		216,
-		60
+		255,
+		255
 	],
 	"camera_position": [
 		-145,

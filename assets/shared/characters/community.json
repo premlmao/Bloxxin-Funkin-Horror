@@ -3,8 +3,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				30,
-				-30
+				-3,
+				0
 			],
 			"anim": "singLEFT",
 			"fps": 24,
@@ -76,9 +76,9 @@
 	"healthicon": "community",
 	"flip_x": false,
 	"healthbar_colors": [
-		161,
-		161,
-		161
+		198,
+		26,
+		26
 	],
 	"camera_position": [
 		-50,
