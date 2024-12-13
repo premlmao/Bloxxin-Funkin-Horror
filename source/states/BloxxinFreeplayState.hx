@@ -49,6 +49,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var intendedColor:Int;
     var colorTween:FlxTween;
 
+    var disconnected:FlxSprite;
     var sky:FlxSprite;
     var skyback:FlxSprite;
     var line:FlxSprite;
@@ -66,10 +67,12 @@ class BloxxinFreeplayState extends MusicBeatState
 	var intendedRating:Float = 0;
 
     var AllUnlocked:Bool = true;
+    var storyBeaten:Int = 0;
     var Deformation:FlxSprite = new FlxSprite(0, 0);
     var currentTab:Int;
 
     var OldSongsOpened:Bool = false;
+    var selectedSomethin:Bool = false;
     var buttonOldSong:FlxSprite;
     var oldInventory:FlxSprite;
 
@@ -146,7 +149,6 @@ class BloxxinFreeplayState extends MusicBeatState
         add(extra);
 
 
-
         portraits = new FlxTypedGroup<FlxSprite>();
         portraitsOLD = new FlxTypedGroup<FlxSprite>();
     
@@ -180,6 +182,8 @@ class BloxxinFreeplayState extends MusicBeatState
 					colors = [146, 113, 253];
 				}
 
+                
+
                 if (Highscore.getScore(song[0], curDifficulty) == 0 && song[0] != "Deformed")
                 {
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
@@ -187,13 +191,18 @@ class BloxxinFreeplayState extends MusicBeatState
                         {
                             AllUnlocked = false;
                         }
-
                 }
                 else if (!Assets.exists('assets/shared/images/freeplay/portrait_' + song[0] + '.png'))
                 {
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Placeholder'));
                 }else{
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_' + song[0]));
+                }
+
+                if (j < 3 && Highscore.getScore(song[0], curDifficulty) != 0 && storyBeaten == 0)
+                {
+                    storyBeaten += 1;
+                    disconnected = new FlxSprite().loadGraphic(Paths.image('disconnectedbecausefuckyou'));
                 }
 
                 if (song[0] == "ContentDeleted")
@@ -336,7 +345,6 @@ class BloxxinFreeplayState extends MusicBeatState
         super.create();
     }
 
-    var selectedSomethin:Bool = false;
     var accepted:Bool = true;
     var timesPressed:Int = 0;
     var transitioningBetweenPages:Bool = false;
@@ -470,7 +478,7 @@ class BloxxinFreeplayState extends MusicBeatState
                                             });
                                         }
                                     }
-                                    if (FlxG.mouse.justPressed && !selectedSomethin && OldSongsOpened) 
+                                    if (FlxG.mouse.justPressed && !selectedSomethin && OldSongsOpened)
                                         {
                                             SelectedSong();
                                         }
