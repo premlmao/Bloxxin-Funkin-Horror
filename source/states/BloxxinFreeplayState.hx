@@ -102,14 +102,12 @@ class BloxxinFreeplayState extends MusicBeatState
         skyback.screenCenter();
         add(skyback);
 
-
         bg = new FlxBackdrop(Paths.image('codeLeakLOL'), XY); //Thats crazy! -nil
 		bg.velocity.set(0, -250);
         bg.scale.set(2.15, 2.15);
         bg.x = -306;
         bg.alpha = 0.5;
 		add(bg);
-
 
         Deformation.frames = Paths.getSparrowAtlas('freeplay/Deformation');
         Deformation.animation.addByPrefix('anim', 'deform', 4, true);
@@ -242,6 +240,7 @@ class BloxxinFreeplayState extends MusicBeatState
 
                 portrait.ID = j;
 
+                /* hi nil....
                 if (j < 3 && Highscore.getScore(song[0], curDifficulty) != 0 && storyBeaten == 0)
                 {
                     storyBeaten += 1;
@@ -252,6 +251,7 @@ class BloxxinFreeplayState extends MusicBeatState
                     disconnected.visible = false;
                     SelectedSong();
                 }
+                */
                 
 
                 addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
@@ -324,7 +324,6 @@ class BloxxinFreeplayState extends MusicBeatState
         pbText.borderSize = 1.75;
         pbText.y = 625;
         add(pbText);
-
 
         buttonOldSong = new FlxSprite(0, 0).loadGraphic(Paths.image('freeplay/InventoryButton'), true, 108, 108);
 		buttonOldSong.animation.add('idle', [0], 0, false);
