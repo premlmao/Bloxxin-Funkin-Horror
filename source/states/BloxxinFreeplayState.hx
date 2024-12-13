@@ -148,6 +148,12 @@ class BloxxinFreeplayState extends MusicBeatState
         extra.y = 340;
         add(extra);
 
+        disconnected = new FlxSprite().loadGraphic(Paths.image('disconnectedbecausefuckyou'));
+        disconnected.antialiasing = ClientPrefs.data.antialiasing;
+        disconnected.updateHitbox();
+        disconnected.visible = false;
+        add(disconnected);
+
 
         portraits = new FlxTypedGroup<FlxSprite>();
         portraitsOLD = new FlxTypedGroup<FlxSprite>();
@@ -199,12 +205,6 @@ class BloxxinFreeplayState extends MusicBeatState
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_' + song[0]));
                 }
 
-                if (j < 3 && Highscore.getScore(song[0], curDifficulty) != 0 && storyBeaten == 0)
-                {
-                    storyBeaten += 1;
-                    disconnected = new FlxSprite().loadGraphic(Paths.image('disconnectedbecausefuckyou'));
-                }
-
                 if (song[0] == "ContentDeleted")
                     {
                         l = 1;
@@ -241,6 +241,17 @@ class BloxxinFreeplayState extends MusicBeatState
 
 
                 portrait.ID = j;
+
+                if (j < 3 && Highscore.getScore(song[0], curDifficulty) != 0 && storyBeaten == 0)
+                {
+                    storyBeaten += 1;
+                    disconnected.visible = true;
+                }
+                else if(j > 3 && storyBeaten == 3)
+                {
+                    disconnected.visible = false;
+                    SelectedSong();
+                }
                 
 
                 addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
