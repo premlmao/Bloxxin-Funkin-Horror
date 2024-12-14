@@ -49,7 +49,6 @@ class BloxxinFreeplayState extends MusicBeatState
     var intendedColor:Int;
     var colorTween:FlxTween;
 
-    var disconnected:FlxSprite;
     var sky:FlxSprite;
     var skyback:FlxSprite;
     var line:FlxSprite;
@@ -59,6 +58,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var portraits:FlxTypedGroup<FlxSprite>;
     var portraitsOLD:FlxTypedGroup<FlxSprite>;
     var portrait:FlxSprite;
+    var disconnected:FlxSprite;
 
     var pbText:FlxText;
     var lerpScore:Int = 0;
@@ -145,13 +145,6 @@ class BloxxinFreeplayState extends MusicBeatState
         extra.x = 292;
         extra.y = 340;
         add(extra);
-
-        disconnected = new FlxSprite().loadGraphic(Paths.image('disconnectedbecausefuckyou'));
-        disconnected.antialiasing = ClientPrefs.data.antialiasing;
-        disconnected.updateHitbox();
-        disconnected.visible = false;
-        add(disconnected);
-
 
         portraits = new FlxTypedGroup<FlxSprite>();
         portraitsOLD = new FlxTypedGroup<FlxSprite>();
@@ -345,6 +338,13 @@ class BloxxinFreeplayState extends MusicBeatState
         add(oldInventory);
 
         add(portraitsOLD);
+
+        disconnected = new FlxSprite().loadGraphic(Paths.image('disconnectedbecausefuckyou'));
+        disconnected.antialiasing = ClientPrefs.data.antialiasing;
+        disconnected.updateHitbox();
+        disconnected.screenCenter();
+        disconnected.visible = false;
+        add(disconnected);
 
         if(curSelected >= songs.length) curSelected = 0;
 		bg.color = songs[curSelected].color;
@@ -546,7 +546,10 @@ class BloxxinFreeplayState extends MusicBeatState
                                         }else{
                                             SelectedSong();
                                         }
-
+                                        if (songs[curSelected].songName == "Copied")
+                                        {
+                                            RestrictedSong();
+                                        }
                                     }
                             }
 
@@ -602,6 +605,7 @@ class BloxxinFreeplayState extends MusicBeatState
     function SelectedSong()
     {
         selectedSomethin = true;
+        disconnected.visible = false;
         LoadingState.loadAndSwitchState(new PlayState());
         FlxG.sound.play(Paths.sound('confirmMenu'));
         var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
@@ -609,6 +613,12 @@ class BloxxinFreeplayState extends MusicBeatState
         PlayState.SONG = Song.loadFromJson(poop, songLowercase);
         PlayState.storyDifficulty = curDifficulty;
         FlxG.mouse.visible = false;
+    }
+
+    function RestrictedSong()
+    {
+        selectedSomethin = false;
+        disconnected.visible = true;
     }
 
     public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
