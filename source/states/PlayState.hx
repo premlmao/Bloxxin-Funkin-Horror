@@ -183,6 +183,7 @@ class PlayState extends MusicBeatState
 	public var healthBarAround:FlxSprite;
 	public var timeBar:Bar;
 	public var songIcon:FlxSprite;
+	public var songTxt:FlxText;
 	var songPercent:Float = 0;
 
 	public var ratingsData:Array<Rating> = Rating.loadDefault();
@@ -495,6 +496,13 @@ class PlayState extends MusicBeatState
 		var songData = SONG;
 		curSong = songData.song;
 
+		songTxt = new FlxText(0, 20, FlxG.width, "•  " + PlayState.curSong + "  •", 32);
+		songTxt.screenCenter(X);
+		songTxt.alignment = "center";
+		songTxt.scrollFactor.set();
+		songTxt.setFormat("Gotham Black Regular.ttf", 24, FlxColor.WHITE);
+		songTxt.alpha = 0.35;
+		
 		songIcon = new FlxSprite().loadGraphic(Paths.image('iconsWow/icon_' + PlayState.curSong));
 		songIcon.antialiasing = ClientPrefs.data.antialiasing;
 		songIcon.scale.set(0.55, 0.55);
@@ -503,6 +511,7 @@ class PlayState extends MusicBeatState
 		songIcon.y = 580;
 		songIcon.alpha = 0;
 		if(ClientPrefs.data.downScroll) songIcon.y = 0;
+		uiGroup.add(songTxt);
 		uiGroup.add(songIcon);
 		uiGroup.add(timeBar);
 		uiGroup.add(timeTxt);

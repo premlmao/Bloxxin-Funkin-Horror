@@ -20,6 +20,8 @@ import objects.AttachedSprite;
 
 class BloxxinCreditsState extends MusicBeatState
 {
+	public static var firstStart:Bool = true;
+
 	var curSelected:Int = 0;
 	var currentMember:Int = 0;
 
@@ -30,7 +32,7 @@ class BloxxinCreditsState extends MusicBeatState
 		['Nil',	    	'nil',		    'Coder, Animator',		                        			 '"I want to kms"',		'ff0000'],
 		['Prem',		'prem',		    'Coder',				                                 	 '"hahahahaha"',		'444444'],
 		['Brawlify',	'placeholder',		'Animator',					 '"this shit is unplayable"',		'000000'],
-		['Placeholder',	    	'placeholder',		    'Placeholder',		                        			 '"Placeholder"',		'000000'],
+		['UrFestive_Travago',	    	'travago',		    'Artist',		                        			 '"Placeholder"',		'7600bc'],
 		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000'],
 		['Placeholder',	'placeholder',		'Placeholder',					 '"Placeholder"',		'000000'],
 		['Placeholder',	    	'placeholder',		    'Placeholder',		                        			 '"Placeholder"',		'000000'],
@@ -79,7 +81,6 @@ class BloxxinCreditsState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
 
-
 		baseplate = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/baseplate'));
 		baseplate.antialiasing = ClientPrefs.data.antialiasing;
 		add(baseplate);
@@ -124,7 +125,6 @@ class BloxxinCreditsState extends MusicBeatState
 			member.ID = i;
 			member.visible = false;
 			memberss.add(member);
-			
 		}
 		add(memberss);
 
@@ -133,6 +133,15 @@ class BloxxinCreditsState extends MusicBeatState
 		grad.color = CoolUtil.colorFromString(teamList[currentMember][4]);
 		intendedColor = grad.color;
 
+		var controls:FlxText = new FlxText(365, 0, FlxG.width, "LEFT ARROW | RIGHT ARROW to navigate!", 32);
+        controls.scrollFactor.set();
+        controls.setFormat("Gotham Black Regular.ttf", 24, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        controls.borderSize = 2;
+		controls.alpha = 0;
+		add(controls);
+		if (firstStart)
+			FlxTween.tween(controls, {alpha: 1}, 0.5, {ease: FlxEase.linear, type: PINGPONG});
+		
 		super.create();
 	}
 
@@ -182,7 +191,6 @@ class BloxxinCreditsState extends MusicBeatState
 					member.y = 250;
 					member.y = member.y + 10;
 					FlxTween.tween(member, {y: member.y - 10}, 0.2, {ease: FlxEase.quartOut});
-
 				}else{
 					member.visible = false;
 				}
