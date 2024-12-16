@@ -31,7 +31,7 @@ class BloxxinCreditsState extends MusicBeatState
 		['Unfunny2',	'unfunny2',		'Director, Animator, Charter, Composer',					 '"what"',		'8a00b4'],
 		['Nil',	    	'nil',		    'Coder, Animator',		                        			 '"I want to kms"',		'ff0000'],
 		['Prem',		'prem',		    'Coder',				                                 	 '"hahahahaha"',		'444444'],
-		['Brawlify',	'placeholder',		'Animator',					 '"this shit is unplayable"',		'000000'],
+		['Nohomatta',	'nohomatta',		'Animator',					 '"this shit is unplayable"',		'000000'],
 		['UrFestive_Travago',	    	'travago',		    'Artist',		                        			 '"Placeholder"',		'7600bc'],
 		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000'],
 		['Placeholder',	'placeholder',		'Placeholder',					 '"Placeholder"',		'000000'],
@@ -47,6 +47,8 @@ class BloxxinCreditsState extends MusicBeatState
 	var grad:FlxSprite;
 
 	var baseplate:FlxSprite;
+
+	var window:FlxSprite;
 
 	var nameText:FlxText;
 	var statusText:FlxText;
@@ -78,39 +80,44 @@ class BloxxinCreditsState extends MusicBeatState
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
-		add(bg);
 		bg.screenCenter();
+		add(bg);
 
 		baseplate = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/baseplate'));
 		baseplate.antialiasing = ClientPrefs.data.antialiasing;
-		add(baseplate);
 		baseplate.screenCenter();
+		add(baseplate);
 
 		grad = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/gradient'));
 		grad.antialiasing = ClientPrefs.data.antialiasing;
-		add(grad);
 		grad.screenCenter();
+		add(grad);
+
+		window = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/window'));
+		window.antialiasing = ClientPrefs.data.antialiasing;
+		window.screenCenter();
+		window.x += 300;
+		window.y -= 24;
+		add(window);
 
 		nameText = new FlxText(0, 0, FlxG.width,"NULL",32);
-		nameText.setFormat("Gotham Black Regular.ttf", 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		nameText.borderSize = 2;
+		nameText.setFormat("MS Sans Serif.ttf", 16, FlxColor.WHITE, CENTER);
 		nameText.screenCenter(Y);
-		nameText.y -= 150;
-		nameText.x = 300;
+		nameText.y -= 192;
+		nameText.x = 80;
 		add(nameText);
 
 		statusText = new FlxText(0, 0, FlxG.width,"NULL",32);
-		statusText.setFormat("Gotham Black Regular.ttf", 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		statusText.borderSize = 2;
-		statusText.y = nameText.y + 100;
-		statusText.x = 300;
+		statusText.setFormat("MS Sans Serif.ttf", 18, FlxColor.GRAY, LEFT);
+		statusText.y = nameText.y + 25;
+		statusText.x = 665;
 		add(statusText);
 
 		quoteText = new FlxText(0, 0, FlxG.width,"NULL",32);
-		quoteText.setFormat("Gotham Black Regular.ttf", 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		quoteText.setFormat("MS Sans Serif.ttf", 18, FlxColor.GRAY, LEFT);
 		quoteText.borderSize = 2;
-		quoteText.y = nameText.y + 200;
-		quoteText.x = 300;
+		quoteText.y = nameText.y + 125;
+		quoteText.x = 665;
 		add(quoteText);
 
 		
@@ -133,9 +140,11 @@ class BloxxinCreditsState extends MusicBeatState
 		grad.color = CoolUtil.colorFromString(teamList[currentMember][4]);
 		intendedColor = grad.color;
 
-		var controls:FlxText = new FlxText(365, 0, FlxG.width, "LEFT ARROW | RIGHT ARROW to navigate!", 32);
+		var controls:FlxText = new FlxText(0, 0, FlxG.width, "LEFT ARROW | RIGHT ARROW to navigate!", 32);
         controls.scrollFactor.set();
-        controls.setFormat("Gotham Black Regular.ttf", 24, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		controls.screenCenter(X);
+		controls.alignment = "center";
+        controls.setFormat("Gotham Black Regular.ttf", 24, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         controls.borderSize = 2;
 		controls.alpha = 0;
 		add(controls);
@@ -199,6 +208,20 @@ class BloxxinCreditsState extends MusicBeatState
 			nameText.text = teamList[currentMember][0];
 			statusText.text = teamList[currentMember][2];
 			quoteText.text = teamList[currentMember][3];
+
+			switch(teamList[currentMember][0])
+			{
+				case 'Unfunny2':
+					nameText.x = 80;
+				case 'Nil':
+					nameText.x = 55;
+				case 'Prem':
+					nameText.x = 64;
+				case 'Nohomatta':
+					nameText.x = 83;
+				case 'UrFestive_Travago':
+					nameText.x = 113;
+			}
 
 			var newColor:FlxColor = CoolUtil.colorFromString(teamList[currentMember][4]);
 			if(newColor != intendedColor) {
