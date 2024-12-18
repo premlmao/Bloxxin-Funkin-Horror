@@ -339,7 +339,7 @@ class BloxxinFreeplayState extends MusicBeatState
 
         add(portraitsOLD);
 
-        disconnected = new FlxSprite().loadGraphic(Paths.image('disconnectedbecausefuckyou'));
+        disconnected = new FlxSprite().loadGraphic(Paths.image('freeplay/disconnectedbecausefuckyou'));
         disconnected.antialiasing = ClientPrefs.data.antialiasing;
         disconnected.updateHitbox();
         disconnected.screenCenter();
