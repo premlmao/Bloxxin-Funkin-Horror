@@ -80,7 +80,7 @@ function onCreate()
     setTextBorder('artText', 2.5, 'black')
     setProperty('artText.y', -200)
 
-	makeLuaText("artists", 'Unfunny2, Brawlify  ]', 0, 945 , 5); --change this to artists name
+	makeLuaText("artists", 'Unfunny2, Nohomatta  ]', 0, 945 , 5); --change this to artists name
 	addLuaText('artists');
 	setTextSize('artists', 25);
 	setObjectCamera('artists', 'hud');

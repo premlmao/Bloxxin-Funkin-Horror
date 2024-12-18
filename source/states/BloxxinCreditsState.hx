@@ -28,18 +28,18 @@ class BloxxinCreditsState extends MusicBeatState
 	var offsetThing:Float = -75;
 
 	var teamList:Array<Array<String>> = [ //fyi, Name -- File name -- Status -- Quote -- Color
-		['Unfunny2',	'unfunny2',		'Director, Animator, Charter, Composer',					 '"what"',		'8a00b4'],
-		['Nil',	    	'nil',		    'Coder, Animator',		                        			 '"I want to kms"',		'ff0000'],
-		['Prem',		'prem',		    'Coder',				                                 	 '"hahahahaha"',		'444444'],
-		['Brawlify',	'placeholder',		'Animator',					 '"this shit is unplayable"',		'000000'],
-		['UrFestive_Travago',	    	'travago',		    'Artist',		                        			 '"Placeholder"',		'7600bc'],
-		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000'],
-		['Placeholder',	'placeholder',		'Placeholder',					 '"Placeholder"',		'000000'],
-		['Placeholder',	    	'placeholder',		    'Placeholder',		                        			 '"Placeholder"',		'000000'],
-		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000'],
-		['Placeholder',	'placeholder',		'Placeholder',					 '"Placeholder"',		'000000'],
-		['Placeholder',	    	'placeholder',		    'Placeholder',		                        			 '"Placeholder"',		'000000'],
-		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000']
+		['Unfunny2',	'unfunny2',		'Director, Animator, Charter, Composer',					 '"what"',		'8a00b4', '6a038a'],
+		['Nil',	    	'nil',		    'Coder, Animator',		                        			 '"I want to kms"',		'ff0000', '5c0202'],
+		['Prem',		'prem',		    'Coder',				                                 	 '"hahahahaha"',		'444444', '1c1c1c'],
+		['Nohomatta',	'nohomatta',		'Animator',					 '"this shit is unplayable"',		'000000', '383737'],
+		['UrFestive_Travago',	    	'travago',		    'Artist',		                        			 '"Placeholder"',		'7600bc', '3c025e'],
+		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000', '1c1c1c'],
+		['Placeholder',	'placeholder',		'Placeholder',					 '"Placeholder"',		'000000', '1c1c1c'],
+		['Placeholder',	    	'placeholder',		    'Placeholder',		                        			 '"Placeholder"',		'000000', '1c1c1c'],
+		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000', '1c1c1c'],
+		['Placeholder',	'placeholder',		'Placeholder',					 '"Placeholder"',		'000000', '1c1c1c'],
+		['Placeholder',	    	'placeholder',		    'Placeholder',		                        			 '"Placeholder"',		'000000', '1c1c1c'],
+		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000', '1c1c1c']
 	];
 
 	var bg:FlxSprite;
@@ -48,14 +48,18 @@ class BloxxinCreditsState extends MusicBeatState
 
 	var baseplate:FlxSprite;
 
+	var window:FlxSprite;
+
 	var nameText:FlxText;
 	var statusText:FlxText;
 	var quoteText:FlxText;
 
 	var member:FlxSprite;
 
-	var intendedColor:FlxColor;
-	var colorTween:FlxTween;
+	var intendedGradColor:FlxColor;
+	var intendedBgColor:FlxColor;
+	var bgTween:FlxTween;
+	var gradTween:FlxTween;
 
 	var memberss:FlxTypedGroup<FlxSprite>;
 
@@ -78,39 +82,44 @@ class BloxxinCreditsState extends MusicBeatState
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
-		add(bg);
 		bg.screenCenter();
-
-		baseplate = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/baseplate'));
-		baseplate.antialiasing = ClientPrefs.data.antialiasing;
-		add(baseplate);
-		baseplate.screenCenter();
+		add(bg);
 
 		grad = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/gradient'));
 		grad.antialiasing = ClientPrefs.data.antialiasing;
-		add(grad);
 		grad.screenCenter();
+		add(grad);
+
+		baseplate = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/baseplate'));
+		baseplate.antialiasing = ClientPrefs.data.antialiasing;
+		baseplate.screenCenter();
+		add(baseplate);
+
+		window = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/window'));
+		window.antialiasing = ClientPrefs.data.antialiasing;
+		window.screenCenter();
+		window.x += 300;
+		window.y -= 24;
+		add(window);
 
 		nameText = new FlxText(0, 0, FlxG.width,"NULL",32);
-		nameText.setFormat("Gotham Black Regular.ttf", 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		nameText.borderSize = 2;
+		nameText.setFormat("MS Sans Serif.ttf", 16, FlxColor.WHITE, CENTER);
 		nameText.screenCenter(Y);
-		nameText.y -= 150;
-		nameText.x = 300;
+		nameText.y -= 192;
+		nameText.x = 80;
 		add(nameText);
 
 		statusText = new FlxText(0, 0, FlxG.width,"NULL",32);
-		statusText.setFormat("Gotham Black Regular.ttf", 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		statusText.borderSize = 2;
-		statusText.y = nameText.y + 100;
-		statusText.x = 300;
+		statusText.setFormat("MS Sans Serif.ttf", 18, FlxColor.GRAY, LEFT);
+		statusText.y = nameText.y + 25;
+		statusText.x = 665;
 		add(statusText);
 
 		quoteText = new FlxText(0, 0, FlxG.width,"NULL",32);
-		quoteText.setFormat("Gotham Black Regular.ttf", 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		quoteText.setFormat("MS Sans Serif.ttf", 18, FlxColor.GRAY, LEFT);
 		quoteText.borderSize = 2;
-		quoteText.y = nameText.y + 200;
-		quoteText.x = 300;
+		quoteText.y = nameText.y + 125;
+		quoteText.x = 665;
 		add(quoteText);
 
 		
@@ -131,11 +140,16 @@ class BloxxinCreditsState extends MusicBeatState
 		changeMember(0);
 
 		grad.color = CoolUtil.colorFromString(teamList[currentMember][4]);
-		intendedColor = grad.color;
+		intendedGradColor = grad.color;
+		bg.color = CoolUtil.colorFromString(teamList[currentMember][5]);
+		intendedBgColor = bg.color;
 
-		var controls:FlxText = new FlxText(365, 0, FlxG.width, "LEFT ARROW | RIGHT ARROW to navigate!", 32);
+
+		var controls:FlxText = new FlxText(0, 0, FlxG.width, "LEFT ARROW | RIGHT ARROW to navigate!", 32);
         controls.scrollFactor.set();
-        controls.setFormat("Gotham Black Regular.ttf", 24, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		controls.screenCenter(X);
+		controls.alignment = "center";
+        controls.setFormat("Gotham Black Regular.ttf", 24, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         controls.borderSize = 2;
 		controls.alpha = 0;
 		add(controls);
@@ -200,15 +214,41 @@ class BloxxinCreditsState extends MusicBeatState
 			statusText.text = teamList[currentMember][2];
 			quoteText.text = teamList[currentMember][3];
 
-			var newColor:FlxColor = CoolUtil.colorFromString(teamList[currentMember][4]);
-			if(newColor != intendedColor) {
-				if(colorTween != null) {
-					colorTween.cancel();
+			switch(teamList[currentMember][0])
+			{
+				case 'Unfunny2':
+					nameText.x = 80;
+				case 'Nil':
+					nameText.x = 55;
+				case 'Prem':
+					nameText.x = 64;
+				case 'Nohomatta':
+					nameText.x = 83;
+				case 'UrFestive_Travago':
+					nameText.x = 113;
+			}
+
+			var gradColor:FlxColor = CoolUtil.colorFromString(teamList[currentMember][4]);
+			if(gradColor != intendedGradColor) {
+				if(gradTween != null) {
+					gradTween.cancel();
 				}
-				intendedColor = newColor;
-				colorTween = FlxTween.color(grad, 0.3, grad.color, intendedColor, {
+				intendedGradColor = gradColor;
+				gradTween = FlxTween.color(grad, 0.3, grad.color, intendedGradColor, {
 					onComplete: function(twn:FlxTween) {
-						colorTween = null;
+						gradTween = null;
+					}
+				});
+			}
+			var bgColor:FlxColor = CoolUtil.colorFromString(teamList[currentMember][5]);
+			if(bgColor != intendedBgColor){
+				if(bgTween != null) {
+					bgTween.cancel();
+				}
+				intendedBgColor = bgColor;
+				bgTween = FlxTween.color(bg, 0.3, bg.color, intendedBgColor, {
+					onComplete: function(twn:FlxTween) {
+						bgTween = null;
 					}
 				});
 			}
