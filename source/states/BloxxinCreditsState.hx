@@ -81,22 +81,18 @@ class BloxxinCreditsState extends MusicBeatState
 
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.screenCenter();
 		add(bg);
 
 		grad = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/gradient'));
-		grad.antialiasing = ClientPrefs.data.antialiasing;
 		grad.screenCenter();
 		add(grad);
 
 		baseplate = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/baseplate'));
-		baseplate.antialiasing = ClientPrefs.data.antialiasing;
 		baseplate.screenCenter();
 		add(baseplate);
 
 		window = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/window'));
-		window.antialiasing = ClientPrefs.data.antialiasing;
 		window.screenCenter();
 		window.x += 300;
 		window.y -= 24;
@@ -127,7 +123,6 @@ class BloxxinCreditsState extends MusicBeatState
 
 		for (i in 0...teamList.length) {
 			member = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/member_' + teamList[i][1]));
-			member.antialiasing = ClientPrefs.data.antialiasing;
 			member.scale.set(1.5, 1.5);
 			member.x = 100;
 			member.y = 250;
