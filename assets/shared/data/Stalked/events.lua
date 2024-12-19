@@ -13,16 +13,6 @@ end
 function opponentNoteHit()
     triggerEvent('Screen Shake', '0.1, 0.004', '0.1, 0.004')
 end
-function onStepHit()
-    if curSection >= 1 then
-        function onUpdatePost()
-            if not getProperty('startingSong') and getTextString('timeTxt') ~= timeString then
-                setTextString('timeTxt', timeString)
-            end
-        end
-        timeString = getRandomInt(0, 157)..':'..getRandomInt(0, 143)
-    end
-end
 function onSongStart()
     noteTweenAlpha('noteAlpha1', 0, 0.075, 0.1, linear)
     noteTweenAlpha('noteAlpha2', 1, 0.075, 0.1, linear)

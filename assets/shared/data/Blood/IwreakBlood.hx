@@ -5,6 +5,7 @@ import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 
 import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
 
 import flixel.FlxState;
 import flixel.math.FlxMath;
@@ -137,7 +138,7 @@ function onBeatHit()
 switch (curBeat)
 {
     case 12:
-        textHintJeff.setFormat(Paths.font('Comic Sans MS.ttf'), 32, FlxColor.WHITE, 'center');
+        textHintJeff.setFormat(Paths.font('Comic Sans MS.ttf'), 32, FlxColor.WHITE, 'center', FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         textHintJeff.text = 'Press the mechanic key to Dodge!\nCheck settings to know the mechanic key!';
         textHintJeff.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
         textHintJeff.screenCenter();
@@ -173,8 +174,8 @@ function JeffMechanic()
     textjeff.text = 'Prepare..';
     ActiveJeff = true;
     NextBeat = curBeat + 4;
-    modchartTweens.set('aaa', FlxTween.tween(JeffsMechanic, {alpha: 0.7}, 1, {ease: FlxEase.quadIn}));
-    modchartTweens.set('aaaa', FlxTween.tween(textjeff, {alpha: 0.7}, 1, {ease: FlxEase.quadIn}));
+    modchartTweens.set('aaa', FlxTween.tween(JeffsMechanic, {alpha: 1}, 0.5, {ease: FlxEase.quadIn}));
+    modchartTweens.set('aaaa', FlxTween.tween(textjeff, {alpha: 1}, 0.5, {ease: FlxEase.quadIn}));
 }
 
 function jeffSlash()
