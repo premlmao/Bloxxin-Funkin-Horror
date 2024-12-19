@@ -40,34 +40,16 @@ setProperty('black.visible', true)
 doTweenAlpha('silly','black',0,0.5)
 end
 
-if curStep == 828 then
+if curStep == 828 or curStep == 1472 or curStep == 1600 then
 setProperty('black.visible', true)
 doTweenAlpha('silly','black',1,0.01)
+setObjectCamera('black', 'other')
 end
 
-if curStep == 832 then
+if curStep == 832 or curStep == 1476 or curStep == 1604 then
 setProperty('black.visible', true)
 doTweenAlpha('silly','black',0,0.01)
-end
-
-if curStep == 1472 then
-setProperty('black.visible', true)
-doTweenAlpha('silly','black',1,0.01)
-end
-
-if curStep == 1476 then
-setProperty('black.visible', true)
-doTweenAlpha('silly','black',0,0.01)
-end
-
-if curStep == 1600 then
-setProperty('black.visible', true)
-doTweenAlpha('silly','black',1,0.01)
-end
-
-if curStep == 1604 then
-setProperty('black.visible', true)
-doTweenAlpha('silly','black',0,0.01)
+setObjectCamera('black', 'hud')
 end
 
 if curStep == 1872 then
