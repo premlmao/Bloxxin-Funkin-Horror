@@ -48,6 +48,10 @@ class TitleState extends MusicBeatState
 
 	public static var initialized:Bool = false;
 
+	var video:VideoHandler;
+
+	var videoComplete:Bool = false;
+
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
@@ -177,7 +181,7 @@ class TitleState extends MusicBeatState
 			{
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
-					startVideo('beforeintrocreds');
+					startVideo('FINALINTRO');
                     trace('video is now being played');
 				});
 			}
@@ -409,7 +413,7 @@ class TitleState extends MusicBeatState
 				titleText.alpha = FlxMath.lerp(titleTextAlphas[0], titleTextAlphas[1], timer);
 			}
 			
-			if(pressedEnter)
+			if(pressedEnter && videoComplete)
 			{
 				titleText.color = FlxColor.WHITE;
 				titleText.alpha = 1;
@@ -494,6 +498,21 @@ class TitleState extends MusicBeatState
 		{
 			if(controls.UI_LEFT) swagShader.hue -= elapsed * 0.1;
 			if(controls.UI_RIGHT) swagShader.hue += elapsed * 0.1;
+		}
+
+		if(!videoComplete && !initialized)
+		{
+			if(pressedEnter)
+			{
+				video.dispose();
+				video.stop();
+				startIntro();
+				initialized = true;
+				videoComplete = true;
+				FlxG.camera.flash(ClientPrefs.data.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
+				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+				trace("they skipped it :(");
+			}
 		}
 
 		super.update(elapsed);
@@ -703,15 +722,22 @@ class TitleState extends MusicBeatState
 			initialized = true;
 			return;
 		}
-		var video:VideoHandler = new VideoHandler();
+			video = new VideoHandler();
 			#if (hxCodec >= "3.0.0")
-			// Recent versions
 			video.play(filepath);
 			video.onEndReached.add(function()
 			{
-				video.dispose();
-				startIntro();
-				initialized = true;
+				if(!videoComplete)
+				{
+					video.dispose();
+					video.stop();
+					startIntro();
+					initialized = true;
+					videoComplete = true;
+					FlxG.camera.flash(ClientPrefs.data.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
+					FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+					trace("they skipped it :(");
+				}
 				return;
 			}, true);
 			#else
@@ -723,9 +749,6 @@ class TitleState extends MusicBeatState
 				return;
 			}
 			#end
-		#else
-		FlxG.log.warn('Platform not supported!');
-		return;
-		#end
+			#end
 	}
 }
