@@ -7,7 +7,7 @@ function onUpdatePost()
 local barX = getProperty('healthBar.x')
 local barCenter = barX + getProperty('healthBar.width') * .5
 setProperty('iconP1.x', barX - getProperty('iconP1.x') + barCenter + getProperty('iconP1.frameWidth'))
-setProperty('iconP2.x', 300)
+setProperty('iconP2.x', 190)
 end
 
 function opponentNoteHit(_, _, type)
