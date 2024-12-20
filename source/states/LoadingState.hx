@@ -4,6 +4,7 @@ import lime.app.Promise;
 import lime.app.Future;
 
 import flixel.FlxState;
+import flixel.text.FlxText;
 
 import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
@@ -38,36 +39,68 @@ class LoadingState extends MusicBeatState
 		this.directory = directory;
 	}
 
-	var funkay:FlxSprite;
-	var loadBar:FlxSprite;
+	var loadRoblox:FlxSprite;
+	var portrait:FlxSprite;
+	var songText:FlxText;
+	var credText:FlxText;
+	var joiningText:FlxText;
 	override function create()
 	{
-		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, 0xffcaff4d);
+		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, 0xff2c2c2c);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
-		funkay = new FlxSprite(0, 0).loadGraphic(Paths.getPath('images/funkay.png', IMAGE));
-		funkay.setGraphicSize(0, FlxG.height);
-		funkay.updateHitbox();
-		add(funkay);
-		funkay.antialiasing = ClientPrefs.data.antialiasing;
-		funkay.scrollFactor.set();
-		funkay.screenCenter();
 
-		loadBar = new FlxSprite(0, FlxG.height - 20).makeGraphic(FlxG.width, 10, 0xffff16d2);
-		loadBar.screenCenter(X);
-		add(loadBar);
-		
+		loadRoblox = new FlxSprite().loadGraphic(Paths.image('mainmenuUI/robloxBackdropWhite'));
+		loadRoblox.antialiasing = ClientPrefs.data.antialiasing;
+		loadRoblox.updateHitbox();
+		loadRoblox.screenCenter();
+		loadRoblox.x += 575;
+		loadRoblox.y += 300;
+		add(loadRoblox);
+		FlxTween.tween(loadRoblox, {angle: 180}, 1, {ease: FlxEase.backInOut, type: FlxTweenType.LOOPING});
+
+		songText = new FlxText(FlxG.width * 2, 2, 0, PlayState.SONG.song, 32);
+		songText.setFormat(Paths.font("Arial Regular.ttf"), 48, FlxColor.WHITE);
+		songText.alignment = "center";
+		songText.screenCenter();
+		songText.y += 70;
+		add(songText);
+
+		credText = new FlxText(FlxG.width * 2, 2, 0, "[no creds yet]", 32);
+		credText.setFormat(Paths.font("Arial Regular.ttf"), 24, FlxColor.GRAY);
+		credText.alignment = "center";
+		credText.screenCenter();
+		credText.y = songText.y + 60;
+		credText.alpha = 0.85;
+		add(credText);
+
+		joiningText = new FlxText(FlxG.width * 2, 2, 0, "Joining server", 32);
+		joiningText.setFormat(Paths.font("Arial Regular.ttf"), 22, FlxColor.GRAY);
+		joiningText.alignment = "center";
+		joiningText.screenCenter();
+		joiningText.y = credText.y + 35;
+		joiningText.alpha = 0.75;
+		add(joiningText);
+
+		portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_' + PlayState.SONG.song));
+		portrait.antialiasing = ClientPrefs.data.antialiasing;
+		portrait.scale.set(0.275, 0.275);
+		portrait.updateHitbox();
+		portrait.screenCenter();
+		portrait.y -= 100;
+		add(portrait);
+
 		initSongsManifest().onComplete
 		(
 			function (lib)
 			{
 				callbacks = new MultiCallback(onLoad);
 				var introComplete = callbacks.add("introComplete");
-				if (PlayState.SONG != null) {
+				/*if (PlayState.SONG != null) {
 					checkLoadSong(getSongPath());
 					if (PlayState.SONG.needsVoices)
 						checkLoadSong(getVocalPath());
-				}
+				}*/
 				if(directory != null && directory.length > 0 && directory != 'shared') {
 					checkLibrary('week_assets');
 				}
@@ -110,17 +143,9 @@ class LoadingState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		funkay.setGraphicSize(Std.int(0.88 * FlxG.width + 0.9 * (funkay.width - 0.88 * FlxG.width)));
-		funkay.updateHitbox();
-		if(controls.ACCEPT)
-		{
-			funkay.setGraphicSize(Std.int(funkay.width + 60));
-			funkay.updateHitbox();
-		}
 
 		if(callbacks != null) {
 			targetShit = FlxMath.remapToRange(callbacks.numRemaining / callbacks.length, 1, 0, 0, 1);
-			loadBar.scale.x += 0.5 * (targetShit - loadBar.scale.x);
 		}
 	}
 	
@@ -158,22 +183,22 @@ class LoadingState extends MusicBeatState
 		Paths.setCurrentLevel(directory);
 		trace('Setting asset folder to ' + directory);
 
-		/*#if NO_PRELOAD_ALL
+		
 		var loaded:Bool = false;
 		if (PlayState.SONG != null) {
-			loaded = isSoundLoaded(getSongPath()) && (!PlayState.SONG.needsVoices || isSoundLoaded(getVocalPath())) && isLibraryLoaded('week_assets');
+			loaded = isSoundLoaded(getSongPath()) && (!PlayState.SONG.needsVoices || isSoundLoaded(getVocalPath())) && isLibraryLoaded("shared") && isLibraryLoaded('week_assets');
 		}
 		
 		if (!loaded)
 			return new LoadingState(target, stopMusic, directory);
-		#end*/
+		
 		if (stopMusic && FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 		
 		return target;
 	}
 	
-	/*#if NO_PRELOAD_ALL
+	
 	static function isSoundLoaded(path:String):Bool
 	{
 		trace(path);
@@ -184,7 +209,7 @@ class LoadingState extends MusicBeatState
 	{
 		return Assets.getLibrary(library) != null;
 	}
-	#end*/
+	
 	
 	override function destroy()
 	{
