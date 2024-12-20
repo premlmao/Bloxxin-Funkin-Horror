@@ -12,6 +12,9 @@ import lime.utils.AssetLibrary;
 import lime.utils.AssetManifest;
 
 import backend.StageData;
+import backend.WeekData;
+import backend.Highscore;
+import backend.Song;
 
 import haxe.io.Path;
 
@@ -24,6 +27,8 @@ class LoadingState extends MusicBeatState
 	// I'd recommend doing it on both actually lol
 	
 	// TO DO: Make this easier
+
+	var curDifficulty:Int = 0;
 	
 	var target:FlxState;
 	var stopMusic = false;
@@ -82,7 +87,22 @@ class LoadingState extends MusicBeatState
 		joiningText.alpha = 0.75;
 		add(joiningText);
 
-		portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_' + PlayState.SONG.song));
+		if (Highscore.getScore(PlayState.SONG.song, curDifficulty) == 0 && PlayState.SONG.song != "Deformed")
+		{
+			portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
+			songText.text = 'RESTRICTED_AREA';
+			songText.alignment = "center";
+			songText.screenCenter();
+			songText.y += 70;
+			credText.text = 'ERROR_404';
+			credText.alignment = "center";
+			credText.screenCenter();
+			credText.y = songText.y + 60;
+		}
+		else
+		{
+			portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_' + PlayState.SONG.song));
+		}
 		portrait.antialiasing = ClientPrefs.data.antialiasing;
 		portrait.scale.set(0.275, 0.275);
 		portrait.updateHitbox();
