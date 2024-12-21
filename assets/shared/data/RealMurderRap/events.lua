@@ -333,6 +333,9 @@ if curStep == 68 then
 setProperty('lyric1.visible', true)
 noteTweenY('noteY5', 4, 150, 1, 'backOut')
 noteTweenAlpha('noteAlpha5', 4, 1, 1, 'linear')
+if downscroll then
+    noteTweenY('noteY5', 4, 470, 1, 'backOut')
+end
 end
 
 if curStep == 78 then
@@ -343,11 +346,17 @@ if curStep == 84 then
 setProperty('lyric2.visible', true)
 noteTweenY('noteY6', 5, 150, 1, 'backOut')
 noteTweenAlpha('noteAlpha6', 5, 1, 1, 'linear')
+if downscroll then
+    noteTweenY('noteY6', 5, 470, 1, 'backOut')
+end
 end
 
 if curStep == 96 then
     noteTweenY('noteY7', 6, 150, 1, 'backOut')
     noteTweenAlpha('noteAlpha7', 6, 1, 1, 'linear')
+    if downscroll then
+        noteTweenY('noteY7', 6, 470, 1, 'backOut')
+    end
 end
 
 if curStep == 108 then
@@ -355,6 +364,9 @@ setProperty('lyric2.visible', false)
 setProperty('lyric3.visible', true)
 noteTweenY('noteY8', 7, 150, 1, 'backOut')
 noteTweenAlpha('noteAlpha8', 7, 1, 1, 'linear')
+if downscroll then
+    noteTweenY('noteY8', 7, 470, 1, 'backOut')
+end
 end
 
 if curStep == 110 then

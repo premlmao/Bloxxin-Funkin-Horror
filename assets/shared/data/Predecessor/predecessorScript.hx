@@ -334,7 +334,7 @@ switch (curStep)
         Lib.application.window.title = "LINE?";
     case 1500:
         Lib.application.window.title = "...";
-}
+
 if (curStep > 1536)
     {
     function onUpdatePost()
@@ -342,6 +342,7 @@ if (curStep > 1536)
             Lib.application.window.title = "Interactive Physics - [" + randomTitleText[FlxG.random.int(0, randomTitleText.length - 1)] + "]";
         }
     }
+}
 }
 
 
