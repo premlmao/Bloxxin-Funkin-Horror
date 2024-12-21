@@ -48,6 +48,7 @@ class LoadingState extends MusicBeatState
 	var portrait:FlxSprite;
 	var songText:FlxText;
 	var credText:FlxText;
+	var roleText:FlxText;
 	var joiningText:FlxText;
 	override function create()
 	{
@@ -79,6 +80,23 @@ class LoadingState extends MusicBeatState
 		credText.alpha = 0.85;
 		add(credText);
 
+		var musician = new FlxTextFormatMarkerPair(new FlxTextFormat(FlxColor.RED, false, false), "!");
+		var charter = new FlxTextFormatMarkerPair(new FlxTextFormat(FlxColor.BLUE, false, false), "#");
+		var artist = new FlxTextFormatMarkerPair(new FlxTextFormat(FlxColor.YELLOW, false, false), "$");
+		var animator = new FlxTextFormatMarkerPair(new FlxTextFormat(FlxColor.ORANGE, false, false), "^");
+		var modeller = new FlxTextFormatMarkerPair(new FlxTextFormat(FlxColor.CYAN, false, false), "&");
+		var coder = new FlxTextFormatMarkerPair(new FlxTextFormat(FlxColor.LIME, false, false), "%");
+
+		roleText = new FlxText(0, 2, 0, "Musician(s) = Red\nCharter(s) = Blue\nArtist(s) = Yellow\nAnimator(s) = Orange\nModeller(s) = Cyan\nCoder(s) = Lime", 32);
+		roleText.setFormat(Paths.font("Comic Sans MS.ttf"), 18, FlxColor.WHITE);
+		roleText.alignment = "left";
+		roleText.screenCenter(Y);
+		roleText.x = 0;
+		roleText.y += 275;
+		roleText.alpha = 0;
+		add(roleText);
+		FlxTween.tween(roleText, {alpha: 1}, 0.5, {ease: FlxEase.linear, type: PINGPONG});
+
 		joiningText = new FlxText(FlxG.width * 2, 2, 0, "Joining server", 32);
 		joiningText.setFormat(Paths.font("Arial Regular.ttf"), 22, FlxColor.GRAY);
 		joiningText.alignment = "center";
@@ -94,7 +112,7 @@ class LoadingState extends MusicBeatState
 			songText.alignment = "center";
 			songText.screenCenter();
 			songText.y += 70;
-			credText.text = 'ERROR_404';
+			credText.text = 'By ERROR_404';
 			credText.alignment = "center";
 			credText.screenCenter();
 			credText.y = songText.y + 60;
@@ -109,6 +127,58 @@ class LoadingState extends MusicBeatState
 		portrait.screenCenter();
 		portrait.y -= 100;
 		add(portrait);
+
+		/*
+		musicians = !
+		charters = #
+		artist = $
+		animator = ^
+		modeller = &
+		coder = %
+		*/
+		switch (PlayState.SONG.song)
+		{
+			case 'ProveIt':
+				credText.applyMarkup("By !Unf!#un#$ny$^2^, ^Nohomatta^, &TheStaringEye&, %Prem% ", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'Deadline' | 'Copied':
+				credText.applyMarkup("By !Unf!#un#^ny2^, ^Nohomatta^, $Qiwiiqasers$, %Prem%", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'Powering':
+				credText.applyMarkup("By !Unf!#un#$ny$^2^, ^Nohomatta^, %Prem%", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'CorrodedMetal':
+				credText.applyMarkup("By !Unf!#un#$ny2$, ^Nohomatta^, %Prem%", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'Wipeout':
+				credText.applyMarkup("By !Unfu!#nny2#, ^Nohomatta^, %Prem%", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'GloryDay':
+				credText.applyMarkup("By !Unf!#un#$ny$^2^, $Qiwiiqasers$, ^Nohomatta^, ^Ballsnecrosis^, %Prem%", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'BrickBattle':
+				credText.applyMarkup("By !Unf!#unn#^y2^, &TheStaringEye&, %Nil%, %Prem%", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'Predecessor':
+				credText.applyMarkup("By !Unf!#un#$ny$^2^, !GREXA!, $Ni$%l%, %Prem% ", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+		}
 
 		initSongsManifest().onComplete
 		(
