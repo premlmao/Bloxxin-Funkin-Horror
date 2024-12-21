@@ -15,40 +15,16 @@ end
 
 function onStepHit()
     if curStep == 267 or curStep == 666 then
-        noteTweenY('notesY1', 0, 150, 1, 'backInOut');
-        noteTweenY('notesY2', 1, 150, 1, 'backInOut');
-        noteTweenY('notesY3', 2, 150, 1, 'backInOut');
-        noteTweenY('notesY4', 3, 150, 1, 'backInOut');
-        noteTweenY('notesY5', 4, 150, 1, 'backInOut');
-        noteTweenY('notesY6', 5, 150, 1, 'backInOut');
-        noteTweenY('notesY7', 6, 150, 1, 'backInOut');
-        noteTweenY('notesY8', 7, 150, 1, 'backInOut');
         doTweenY('woohooTop', 'bigblackbartop', -250, 2, 'cubeOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 250, 2, 'cubeOut')
     end
 
     if curStep == 400 or curStep == 720 then
-        noteTweenY('notesY1', 0, 50, 1, 'backInOut');
-        noteTweenY('notesY2', 1, 50, 1, 'backInOut');
-        noteTweenY('notesY3', 2, 50, 1, 'backInOut');
-        noteTweenY('notesY4', 3, 50, 1, 'backInOut');
-        noteTweenY('notesY5', 4, 50, 1, 'backInOut');
-        noteTweenY('notesY6', 5, 50, 1, 'backInOut');
-        noteTweenY('notesY7', 6, 50, 1, 'backInOut');
-        noteTweenY('notesY8', 7, 50, 1, 'backInOut');
         doTweenY('woohooTop', 'bigblackbartop', -500, 2, 'cubeOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 500, 2, 'cubeOut')
     end
 
     if curStep == 704 then
-        noteTweenY('notesY1', 0, 200, 1, 'cubeOut');
-        noteTweenY('notesY2', 1, 200, 1, 'cubeOut');
-        noteTweenY('notesY3', 2, 200, 1, 'cubeOut');
-        noteTweenY('notesY4', 3, 200, 1, 'cubeOut');
-        noteTweenY('notesY5', 4, 200, 1, 'cubeOut');
-        noteTweenY('notesY6', 5, 200, 1, 'cubeOut');
-        noteTweenY('notesY7', 6, 200, 1, 'cubeOut');
-        noteTweenY('notesY8', 7, 200, 1, 'cubeOut');
         doTweenY('woohooTop', 'bigblackbartop', -200, 1, 'cubeOut')
         doTweenY('woohoobottom', 'bigblackbarbottom', 200, 1, 'cubeOut')
     end

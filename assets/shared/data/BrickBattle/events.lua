@@ -69,6 +69,16 @@ function onSongStart()
     noteTweenY('noteY6', 5, 100, 0.2, 'linear')
     noteTweenY('noteY7', 6, 100, 0.2, 'linear')
     noteTweenY('noteY8', 7, 100, 0.2, 'linear')
+    if downscroll then
+        noteTweenY('noteY1', 0, 520, 0.2, 'linear')
+        noteTweenY('noteY2', 1, 520, 0.2, 'linear')
+        noteTweenY('noteY3', 2, 520, 0.2, 'linear')
+        noteTweenY('noteY4', 3, 520, 0.2, 'linear')
+        noteTweenY('noteY5', 4, 520, 0.2, 'linear')
+        noteTweenY('noteY6', 5, 520, 0.2, 'linear')
+        noteTweenY('noteY7', 6, 520, 0.2, 'linear')
+        noteTweenY('noteY8', 7, 520, 0.2, 'linear')
+    end
 end
 
 function onStepHit()
@@ -108,6 +118,16 @@ if curStep == 432 then
     noteTweenY('noteY6', 5, 50, 2, 'cubeOut')
     noteTweenY('noteY7', 6, 50, 2, 'cubeOut')
     noteTweenY('noteY8', 7, 50, 2, 'cubeOut')
+    if downscroll then
+        noteTweenY('noteY1', 0, 570, 2, 'cubeOut')
+        noteTweenY('noteY2', 1, 570, 2, 'cubeOut')
+        noteTweenY('noteY3', 2, 570, 2, 'cubeOut')
+        noteTweenY('noteY4', 3, 570, 2, 'cubeOut')
+        noteTweenY('noteY5', 4, 570, 2, 'cubeOut')
+        noteTweenY('noteY6', 5, 570, 2, 'cubeOut')
+        noteTweenY('noteY7', 6, 570, 2, 'cubeOut')
+        noteTweenY('noteY8', 7, 570, 2, 'cubeOut')
+    end
 end
 if curStep == 959 then
     doTweenAlpha('hiHUD1','healthBar', 0.25, 1,'cubeInOut')
