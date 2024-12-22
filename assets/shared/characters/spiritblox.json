@@ -3,8 +3,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				-10
+				-10,
+				0
 			],
 			"anim": "singLEFT",
 			"fps": 15,
@@ -14,19 +14,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				5,
-				-10
-			],
-			"anim": "singDOWN",
-			"fps": 15,
-			"name": "down",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				5,
-				-5
+				0,
+				0
 			],
 			"anim": "singUP",
 			"fps": 15,
@@ -36,7 +25,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				40,
+				-30,
 				0
 			],
 			"anim": "singRIGHT",
@@ -54,13 +43,24 @@
 			"anim": "idle",
 			"indices": [],
 			"name": "idle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 15,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "down"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/spiritblox",
 	"position": [
-		170,
-		430
+		150,
+		420
 	],
 	"healthicon": "spiritblox",
 	"flip_x": false,
@@ -70,8 +70,8 @@
 		84
 	],
 	"camera_position": [
-		-240,
-		-230
+		-320,
+		-290
 	],
 	"sing_duration": 5.99999999999999,
 	"scale": 4.25,
