@@ -95,7 +95,7 @@ class LoadingState extends MusicBeatState
 		roleText.y += 275;
 		roleText.alpha = 0;
 		add(roleText);
-		FlxTween.tween(roleText, {alpha: 1}, 0.5, {ease: FlxEase.linear, type: PINGPONG});
+		FlxTween.tween(roleText, {alpha: 0.3}, 0.3, {ease: FlxEase.linear, type: PINGPONG});
 
 		joiningText = new FlxText(FlxG.width * 2, 2, 0, "Joining server", 32);
 		joiningText.setFormat(Paths.font("Arial Regular.ttf"), 22, FlxColor.GRAY);
@@ -139,7 +139,7 @@ class LoadingState extends MusicBeatState
 		switch (PlayState.SONG.song)
 		{
 			case 'ProveIt':
-				credText.applyMarkup("By !Unf!#un#$ny$^2^, ^Nohomatta^, &TheStaringEye&, %Prem% ", [musician, charter, artist, animator, modeller, coder]);
+				credText.applyMarkup("By !Unf!#un#$ny$^2^, &TheStaringEye&, %Prem% ", [musician, charter, artist, animator, modeller, coder]);
 				credText.alignment = "center";
 				credText.screenCenter();
 				credText.y = songText.y + 60;
@@ -159,7 +159,7 @@ class LoadingState extends MusicBeatState
 				credText.screenCenter();
 				credText.y = songText.y + 60;
 			case 'Wipeout':
-				credText.applyMarkup("By !Unfu!#nny2#, ^Nohomatta^, %Prem%", [musician, charter, artist, animator, modeller, coder]);
+				credText.applyMarkup("By !Unfu!#nny2#, $UrFestive_Travago$, $CZ_789$, ^vinxie_dev^, ^Nohomatta^, %Prem%", [musician, charter, artist, animator, modeller, coder]);
 				credText.alignment = "center";
 				credText.screenCenter();
 				credText.y = songText.y + 60;
@@ -175,6 +175,16 @@ class LoadingState extends MusicBeatState
 				credText.y = songText.y + 60;
 			case 'Predecessor':
 				credText.applyMarkup("By !Unf!#un#$ny$^2^, !GREXA!, $Ni$%l%, %Prem% ", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'NeedYouHere':
+				credText.applyMarkup("By !Vesselturnedeif!, #Unf#$unn$^y2^, $UrFestive_Travago", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'RabbitHole':
+				credText.applyMarkup("By !Unf!#un#$ny$^2^, $UrFestive_Travago$, ^Nohomatta^, %Prem%", [musician, charter, artist, animator, modeller, coder]);
 				credText.alignment = "center";
 				credText.screenCenter();
 				credText.y = songText.y + 60;
