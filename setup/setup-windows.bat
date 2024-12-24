@@ -17,6 +17,8 @@ haxelib install flixel-tools 1.5.1
 haxelib set flixel-tools 1.5.1
 haxelib install hxCodec 3.0.2
 haxelib set hxCodec 3.0.2
+haxelib install SScript 7.7.0
+haxelib set SScript 7.7.0
 haxelib install tjson 1.4.0
 haxelib set tjson 1.4.0
 haxelib git flxanimate https://github.com/ShadowMario/flxanimate dev
