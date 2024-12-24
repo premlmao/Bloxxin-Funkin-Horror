@@ -208,6 +208,8 @@ class PauseSubState extends MusicBeatSubstate
 				}
 		}
 
+		descText.screenCenter(Y);
+
 	}
 
 

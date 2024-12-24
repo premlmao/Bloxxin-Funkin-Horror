@@ -68,6 +68,7 @@ class BloxxinFreeplayState extends MusicBeatState
 
     var AllUnlocked:Bool = true;
     var storyBeaten:Int = 0;
+    var heyyousucksogokillyourself:Bool = false;
     var Deformation:FlxSprite = new FlxSprite(0, 0);
     var currentTab:Int;
 
@@ -233,18 +234,22 @@ class BloxxinFreeplayState extends MusicBeatState
 
                 portrait.ID = j;
 
-                /* hi nil....
+                trace(j);
+
                 if (j < 3 && Highscore.getScore(song[0], curDifficulty) != 0 && storyBeaten == 0)
                 {
                     storyBeaten += 1;
-                    disconnected.visible = true;
                 }
-                else if(j > 3 && storyBeaten == 3)
+
+                if(j > 2 && storyBeaten == 1)
                 {
-                    disconnected.visible = false;
-                    SelectedSong();
+                    trace('wow you did it congra');
+                }else if(j > 2)
+                {
+                    trace('yikes.');
+                    trace(storyBeaten);
                 }
-                */
+
                 
 
                 addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
@@ -339,18 +344,18 @@ class BloxxinFreeplayState extends MusicBeatState
 
         add(portraitsOLD);
 
-        disconnected = new FlxSprite().loadGraphic(Paths.image('freeplay/disconnectedbecausefuckyou'));
-        disconnected.antialiasing = ClientPrefs.data.antialiasing;
-        disconnected.updateHitbox();
-        disconnected.screenCenter();
-        disconnected.visible = false;
-        add(disconnected);
-
         if(curSelected >= songs.length) curSelected = 0;
 		bg.color = songs[curSelected].color;
 		intendedColor = bg.color;
         
 		lerpSelected = curSelected;
+
+        if(storyBeaten != 1)
+        {
+            heyyousucksogokillyourself = true;
+            DisconnectAHFHAGFeuagheuoa();
+        }
+
         
         super.create();
     }
@@ -385,7 +390,7 @@ class BloxxinFreeplayState extends MusicBeatState
         positionHighscore();
 
 
-                if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((baseddd) / 3) + 4  && !transitioningBetweenPages && !OldSongsOpened) //
+                if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((baseddd) / 3) + 4  && !transitioningBetweenPages && !OldSongsOpened && !heyyousucksogokillyourself) //
                 {
                     currentTab += 1;
                     for (i in 0...portraits.length)
@@ -410,7 +415,7 @@ class BloxxinFreeplayState extends MusicBeatState
                         FlxG.sound.music.fadeOut(1, 0);
                     }
                 }
-                if (FlxG.mouse.wheel > 0 && currentTab > 1 && !transitioningBetweenPages && !OldSongsOpened)
+                if (FlxG.mouse.wheel > 0 && currentTab > 1 && !transitioningBetweenPages && !OldSongsOpened && !heyyousucksogokillyourself)
                 {
                     if (currentTab == Math.floor((baseddd) / 3) + 3)
                     {
@@ -499,7 +504,7 @@ class BloxxinFreeplayState extends MusicBeatState
                     if (!transitioningBetweenPages)
                     {
 
-                        if (FlxG.mouse.overlaps(port)) 
+                        if (FlxG.mouse.overlaps(port) && !heyyousucksogokillyourself) 
                             { 
                                 if (songs[curSelected].songName == "Deformed" && !OldSongsOpened)
                                 {
@@ -545,10 +550,6 @@ class BloxxinFreeplayState extends MusicBeatState
                                             SelectedSong();
                                         }else{
                                             SelectedSong();
-                                        }
-                                        if (songs[curSelected].songName == "Copied")
-                                        {
-                                            RestrictedSong();
                                         }
                                     }
                             }
@@ -604,22 +605,21 @@ class BloxxinFreeplayState extends MusicBeatState
 
     function SelectedSong()
     {
-        selectedSomethin = true;
-        disconnected.visible = false;
-        LoadingState.loadAndSwitchState(new PlayState());
-        FlxG.sound.play(Paths.sound('confirmMenu'));
-        var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
-        var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-        PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-        PlayState.storyDifficulty = curDifficulty;
-        FlxG.mouse.visible = false;
+        if (!heyyousucksogokillyourself)
+        {
+            selectedSomethin = true;
+            disconnected.visible = false;
+            LoadingState.loadAndSwitchState(new PlayState());
+            FlxG.sound.play(Paths.sound('confirmMenu'));
+            var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
+            var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
+            PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+            PlayState.storyDifficulty = curDifficulty;
+            FlxG.mouse.visible = false;
+        }
     }
 
-    function RestrictedSong()
-    {
-        selectedSomethin = false;
-        disconnected.visible = true;
-    }
+
 
     public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
         {
@@ -634,6 +634,25 @@ class BloxxinFreeplayState extends MusicBeatState
      private function positionHighscore() {
 		pbText.x = FlxG.width - pbText.width - 6;
 	}
+
+    private function DisconnectAHFHAGFeuagheuoa()
+    {
+        new FlxTimer().start(2, function(timer:FlxTimer)
+            {
+
+
+                disconnected = new FlxSprite().loadGraphic(Paths.image('freeplay/disconnectedbecausefuckyou'));
+                disconnected.antialiasing = ClientPrefs.data.antialiasing;
+                disconnected.screenCenter();
+                disconnected.updateHitbox();
+                add(disconnected);
+            });
+
+
+
+    }
+
+
 }
 
 class CustomSongMetadata
