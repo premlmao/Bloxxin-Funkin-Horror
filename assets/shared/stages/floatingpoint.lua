@@ -5,7 +5,6 @@ function onCreate()
         objectPlayAnimation('floatingpoint','dance',false)
         setScrollFactor('floatingpoint', 0.05, 0.05);
         setProperty('floatingpoint.antialiasing', false);
-        setProperty('floatingpoint.scale', 1.2);
 
         addLuaSprite('floatingpoint', false);
 	
