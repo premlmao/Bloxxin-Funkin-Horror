@@ -60,9 +60,10 @@ class BloxxinFreeplayState extends MusicBeatState
     var portrait:FlxSprite;
     var blur:FlxSprite;
     var disconnected:FlxSprite;
+    var disconnectedbutton:FlxSprite;
     var disconnectedtext:FlxText;
     var beatstorymodelilbro:FlxText;
-    var pressesc:FlxText;
+    var ok:FlxText;
 
     var pbText:FlxText;
     var lerpScore:Int = 0;
@@ -345,6 +346,50 @@ class BloxxinFreeplayState extends MusicBeatState
         
 		lerpSelected = curSelected;
 
+        blur = new FlxSprite().loadGraphic(Paths.image('freeplay/yesimahorrendouscoder'));
+        blur.antialiasing = ClientPrefs.data.antialiasing;
+        blur.screenCenter();
+        blur.updateHitbox();
+        blur.visible = false;
+        add(blur);
+        
+        disconnected = new FlxSprite().loadGraphic(Paths.image('freeplay/disconnectedbecausefuckyou'));
+        disconnected.antialiasing = ClientPrefs.data.antialiasing;
+        disconnected.screenCenter();
+        disconnected.updateHitbox();
+        disconnected.visible = false;
+        add(disconnected);
+        
+        disconnectedbutton = new FlxSprite().loadGraphic(Paths.image('freeplay/disconnectedbecausefuckyoubutton'));
+        disconnectedbutton.antialiasing = ClientPrefs.data.antialiasing;
+        disconnectedbutton.screenCenter();
+        disconnectedbutton.updateHitbox();
+        disconnectedbutton.visible = false;
+        add(disconnectedbutton);
+
+        disconnectedtext = new FlxText(FlxG.width * 2, 2, 0, "Disconnected", 32);
+        disconnectedtext.setFormat(Paths.font("Arial Regular.ttf"), 24, FlxColor.WHITE);
+        disconnectedtext.alignment = "center";
+        disconnectedtext.screenCenter();
+        disconnectedtext.y -= 75;
+        disconnectedtext.visible = false;
+        add(disconnectedtext);
+
+        beatstorymodelilbro = new FlxText(FlxG.width * 2, 2, 0, "beat story mode lil bro\n(Error Code: 69)", 32);
+        beatstorymodelilbro.setFormat(Paths.font("Arial Regular.ttf"), 18, 0xFFACACAC);
+        beatstorymodelilbro.alignment = "center";
+        beatstorymodelilbro.screenCenter();
+        beatstorymodelilbro.visible = false;
+        add(beatstorymodelilbro);
+        
+        ok = new FlxText(FlxG.width * 2, 2, 0, "OK", 32);
+        ok.setFormat(Paths.font("Arial Regular.ttf"), 22, 0xFF000000);
+        ok.alignment = "center";
+        ok.screenCenter();
+        ok.y += 55;
+        ok.visible = false;
+        add(ok);
+
         if(storyBeaten != 1)
         {
             heyyousucksogokillyourself = true;
@@ -551,7 +596,23 @@ class BloxxinFreeplayState extends MusicBeatState
                             }
 
                     }
-                }        
+                }
+                
+                if(heyyousucksogokillyourself)
+                {
+                    if (FlxG.mouse.overlaps(disconnectedbutton) && FlxG.mouse.justPressed)
+                    {
+                        selectedSomethin = true;
+                        FlxG.sound.play(Paths.sound('cancelMenu'));
+                        persistentUpdate = false;
+
+                        if(colorTween != null) {
+                            colorTween.cancel();
+                        }
+                        MusicBeatState.switchState(new MainMenuState());
+                        FlxG.mouse.visible = false;
+                    }
+                }
                 
                     if (controls.BACK)
                         {
@@ -634,41 +695,13 @@ class BloxxinFreeplayState extends MusicBeatState
     {
         new FlxTimer().start(1, function(timer:FlxTimer)
             {
-                blur = new FlxSprite().loadGraphic(Paths.image('freeplay/yesimahorrendouscoder'));
-                blur.antialiasing = ClientPrefs.data.antialiasing;
-                blur.screenCenter();
-                blur.updateHitbox();
-                add(blur);
-                
-                disconnected = new FlxSprite().loadGraphic(Paths.image('freeplay/disconnectedbecausefuckyou'));
-                disconnected.antialiasing = ClientPrefs.data.antialiasing;
-                disconnected.screenCenter();
-                disconnected.updateHitbox();
-                add(disconnected);
-
-                disconnectedtext = new FlxText(FlxG.width * 2, 2, 0, "Disconnected", 32);
-                disconnectedtext.setFormat(Paths.font("Arial Regular.ttf"), 24, FlxColor.WHITE);
-                disconnectedtext.alignment = "center";
-                disconnectedtext.screenCenter();
-                disconnectedtext.y -= 75;
-                add(disconnectedtext);
-
-                beatstorymodelilbro = new FlxText(FlxG.width * 2, 2, 0, "beat story mode lil bro\n(Error Code: 69)", 32);
-                beatstorymodelilbro.setFormat(Paths.font("Arial Regular.ttf"), 18, 0xFFACACAC);
-                beatstorymodelilbro.alignment = "center";
-                beatstorymodelilbro.screenCenter();
-                add(beatstorymodelilbro);
-                
-                pressesc = new FlxText(FlxG.width * 2, 2, 0, "Press [ESC]", 32);
-                pressesc.setFormat(Paths.font("Arial Regular.ttf"), 22, 0xFF000000);
-                pressesc.alignment = "center";
-                pressesc.screenCenter();
-                pressesc.y += 55;
-                add(pressesc);
+                blur.visible = true;
+                disconnected.visible = true;
+                disconnectedbutton.visible = true;
+                disconnectedtext.visible = true;
+                beatstorymodelilbro.visible = true;
+                ok.visible = true;
             });
-
-
-
     }
 
 
