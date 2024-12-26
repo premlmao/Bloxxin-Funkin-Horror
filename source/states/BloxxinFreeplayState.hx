@@ -90,8 +90,6 @@ class BloxxinFreeplayState extends MusicBeatState
         if (!FlxG.mouse.visible)
             FlxG.mouse.visible = true;
 
-        Difficulty.list = ['Normal'];
-
 		persistentUpdate = persistentDraw = true;
 
         PlayState.isStoryMode = false;
@@ -234,13 +232,10 @@ class BloxxinFreeplayState extends MusicBeatState
 
                 portrait.ID = j;
 
-                trace(j);
-
                 if (j < 3 && Highscore.getScore(song[0], curDifficulty) != 0 && storyBeaten == 0)
                 {
                     storyBeaten += 1;
                 }
-
                 if(j > 2 && storyBeaten == 1)
                 {
                     trace('wow you did it congra');
@@ -354,6 +349,7 @@ class BloxxinFreeplayState extends MusicBeatState
         {
             heyyousucksogokillyourself = true;
             DisconnectAHFHAGFeuagheuoa();
+            trace('you got disconnected dumbass');
         }
 
         
@@ -605,17 +601,18 @@ class BloxxinFreeplayState extends MusicBeatState
 
     function SelectedSong()
     {
+        var difficulty:String = "";
         if (!heyyousucksogokillyourself)
         {
             selectedSomethin = true;
-            disconnected.visible = false;
             LoadingState.loadAndSwitchState(new PlayState());
             FlxG.sound.play(Paths.sound('confirmMenu'));
-            var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
+            var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName.toLowerCase());
             var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-            PlayState.SONG = Song.loadFromJson(poop, songLowercase);
             PlayState.storyDifficulty = curDifficulty;
+            PlayState.SONG = Song.loadFromJson(poop, songLowercase);
             FlxG.mouse.visible = false;
+            trace("loaded song successfully: " + PlayState.SONG + "");
         }
     }
 

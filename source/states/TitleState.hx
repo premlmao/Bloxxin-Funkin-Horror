@@ -734,7 +734,6 @@ class TitleState extends MusicBeatState
 					startIntro();
 					initialized = true;
 					videoComplete = true;
-					trace("they skipped it :(");
 				}
 				return;
 			}, true);

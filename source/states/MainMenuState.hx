@@ -249,7 +249,7 @@ class MainMenuState extends MusicBeatState
 						PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
 						PlayState.isStoryMode = true;
 						WeekData.reloadWeekFiles(true);
-						PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+						PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + "", PlayState.storyPlaylist[0].toLowerCase());
 						PlayState.campaignScore = 0;
 						PlayState.campaignMisses = 0;
 						LoadingState.loadAndSwitchState(new PlayState(), true);
@@ -280,7 +280,7 @@ class MainMenuState extends MusicBeatState
 						PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
 						PlayState.isStoryMode = true;
 						WeekData.reloadWeekFiles(true);
-						PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+						PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + "", PlayState.storyPlaylist[0].toLowerCase());
 						PlayState.campaignScore = 0;
 						PlayState.campaignMisses = 0;
 						LoadingState.loadAndSwitchState(new PlayState(), true);
