@@ -58,6 +58,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var portraits:FlxTypedGroup<FlxSprite>;
     var portraitsOLD:FlxTypedGroup<FlxSprite>;
     var portrait:FlxSprite;
+    var vignette:FlxSprite;
     var blur:FlxSprite;
     var disconnected:FlxSprite;
     var disconnectedbutton:FlxSprite;
@@ -149,6 +150,13 @@ class BloxxinFreeplayState extends MusicBeatState
         extra.x = 292;
         extra.y = 340;
         add(extra);
+
+        vignette = new FlxSprite().loadGraphic(Paths.image('vignette'));
+        vignette.antialiasing = ClientPrefs.data.antialiasing;
+        vignette.updateHitbox();
+        vignette.screenCenter();
+        vignette.alpha = 0;
+        add(vignette);
 
         portraits = new FlxTypedGroup<FlxSprite>();
         portraitsOLD = new FlxTypedGroup<FlxSprite>();
@@ -612,6 +620,15 @@ class BloxxinFreeplayState extends MusicBeatState
                         MusicBeatState.switchState(new MainMenuState());
                         FlxG.mouse.visible = false;
                     }
+                }
+
+                if (FlxG.mouse.overlaps(Deformation))
+                {
+                    FlxTween.tween(vignette, {alpha: 1}, 1, {ease: FlxEase.cubeInOut});
+                }
+                else
+                {
+                    FlxTween.tween(vignette, {alpha: 0}, 1, {ease: FlxEase.cubeInOut});
                 }
                 
                     if (controls.BACK)
