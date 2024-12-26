@@ -601,18 +601,16 @@ class BloxxinFreeplayState extends MusicBeatState
 
     function SelectedSong()
     {
-        var difficulty:String = "";
         if (!heyyousucksogokillyourself)
         {
             selectedSomethin = true;
             LoadingState.loadAndSwitchState(new PlayState());
             FlxG.sound.play(Paths.sound('confirmMenu'));
-            var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName.toLowerCase());
-            var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
+            Difficulty.list = [''];
             PlayState.storyDifficulty = curDifficulty;
-            PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+            PlayState.SONG = Song.loadFromJson(songs[curSelected].songName, songs[curSelected].songName);
             FlxG.mouse.visible = false;
-            trace("loaded song successfully: " + PlayState.SONG + "");
+            trace("loaded song successfully: " + songs[curSelected].songName + "");
         }
     }
 
