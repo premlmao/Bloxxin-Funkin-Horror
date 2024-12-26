@@ -58,6 +58,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var portraits:FlxTypedGroup<FlxSprite>;
     var portraitsOLD:FlxTypedGroup<FlxSprite>;
     var portrait:FlxSprite;
+    var blur:FlxSprite;
     var disconnected:FlxSprite;
 
     var pbText:FlxText;
@@ -610,7 +611,7 @@ class BloxxinFreeplayState extends MusicBeatState
             PlayState.storyDifficulty = curDifficulty;
             PlayState.SONG = Song.loadFromJson(songs[curSelected].songName, songs[curSelected].songName);
             FlxG.mouse.visible = false;
-            trace("loaded song successfully: " + songs[curSelected].songName + "");
+            trace("loaded song successfully: " + songs[curSelected].songName);
         }
     }
 
@@ -634,8 +635,12 @@ class BloxxinFreeplayState extends MusicBeatState
     {
         new FlxTimer().start(2, function(timer:FlxTimer)
             {
-
-
+                blur = new FlxSprite().loadGraphic(Paths.image('freeplay/yesimahorrendouscoder'));
+                blur.antialiasing = ClientPrefs.data.antialiasing;
+                blur.screenCenter();
+                blur.updateHitbox();
+                add(blur);
+                
                 disconnected = new FlxSprite().loadGraphic(Paths.image('freeplay/disconnectedbecausefuckyou'));
                 disconnected.antialiasing = ClientPrefs.data.antialiasing;
                 disconnected.screenCenter();
