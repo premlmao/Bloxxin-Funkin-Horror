@@ -60,6 +60,9 @@ class BloxxinFreeplayState extends MusicBeatState
     var portrait:FlxSprite;
     var blur:FlxSprite;
     var disconnected:FlxSprite;
+    var disconnectedtext:FlxText;
+    var beatstorymodelilbro:FlxText;
+    var pressesc:FlxText;
 
     var pbText:FlxText;
     var lerpScore:Int = 0;
@@ -240,10 +243,6 @@ class BloxxinFreeplayState extends MusicBeatState
                 if(j > 2 && storyBeaten == 1)
                 {
                     trace('wow you did it congra');
-                }else if(j > 2)
-                {
-                    trace('yikes.');
-                    trace(storyBeaten);
                 }
 
                 
@@ -633,7 +632,7 @@ class BloxxinFreeplayState extends MusicBeatState
 
     private function DisconnectAHFHAGFeuagheuoa()
     {
-        new FlxTimer().start(2, function(timer:FlxTimer)
+        new FlxTimer().start(1, function(timer:FlxTimer)
             {
                 blur = new FlxSprite().loadGraphic(Paths.image('freeplay/yesimahorrendouscoder'));
                 blur.antialiasing = ClientPrefs.data.antialiasing;
@@ -646,6 +645,26 @@ class BloxxinFreeplayState extends MusicBeatState
                 disconnected.screenCenter();
                 disconnected.updateHitbox();
                 add(disconnected);
+
+                disconnectedtext = new FlxText(FlxG.width * 2, 2, 0, "Disconnected", 32);
+                disconnectedtext.setFormat(Paths.font("Arial Regular.ttf"), 24, FlxColor.WHITE);
+                disconnectedtext.alignment = "center";
+                disconnectedtext.screenCenter();
+                disconnectedtext.y -= 75;
+                add(disconnectedtext);
+
+                beatstorymodelilbro = new FlxText(FlxG.width * 2, 2, 0, "beat story mode lil bro\n(Error Code: 69)", 32);
+                beatstorymodelilbro.setFormat(Paths.font("Arial Regular.ttf"), 18, 0xFFACACAC);
+                beatstorymodelilbro.alignment = "center";
+                beatstorymodelilbro.screenCenter();
+                add(beatstorymodelilbro);
+                
+                pressesc = new FlxText(FlxG.width * 2, 2, 0, "Press [ESC]", 32);
+                pressesc.setFormat(Paths.font("Arial Regular.ttf"), 22, 0xFF000000);
+                pressesc.alignment = "center";
+                pressesc.screenCenter();
+                pressesc.y += 55;
+                add(pressesc);
             });
 
 
