@@ -667,8 +667,6 @@ class BloxxinFreeplayState extends MusicBeatState
             selectedSomethin = true;
             LoadingState.loadAndSwitchState(new PlayState());
             FlxG.sound.play(Paths.sound('confirmMenu'));
-            Difficulty.list = [''];
-            PlayState.storyDifficulty = curDifficulty;
             PlayState.SONG = Song.loadFromJson(songs[curSelected].songName, songs[curSelected].songName);
             FlxG.mouse.visible = false;
             trace("loaded song successfully: " + songs[curSelected].songName);
