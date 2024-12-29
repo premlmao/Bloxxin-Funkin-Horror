@@ -249,7 +249,7 @@ class BloxxinFreeplayState extends MusicBeatState
                 {
                     storyBeaten += 1;
                 }
-                if(j > 2 && storyBeaten == 1)
+                if(storyBeaten == 1)
                 {
                     trace('wow you did it congra');
                 }
