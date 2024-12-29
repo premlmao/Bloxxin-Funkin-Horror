@@ -166,11 +166,11 @@ function onCreate()
             doTweenAlpha('byeHUD7', 'songIcon', 0, crochet*0.0025, 'linear')
             doTweenAlpha('byeHUD8', 'timeTxt', 0, crochet*0.0025, 'linear')
             if downscroll then
-                doTweenY('byeHUD1','healthBar',-300,crochet*0.0025,'cubeInOut')
-                doTweenY('byeHUD2','healthBarAround',-300,crochet*0.0025,'cubeInOut')
-                doTweenY('byeHUD3','iconP1',-300,crochet*0.0025,'cubeInOut')
-                doTweenY('byeHUD4','iconP2',-300,crochet*0.0025,'cubeInOut')
-                doTweenY('byeHUD5','scoreTxt',-300,crochet*0.0025,'cubeInOut')
+                doTweenY('byeHUD1','healthBar',-300,crochet*0.0099,'cubeInOut')
+                doTweenY('byeHUD2','healthBarAround',-300,crochet*0.0099,'cubeInOut')
+                doTweenY('byeHUD3','iconP1',-300,crochet*0.0099,'cubeInOut')
+                doTweenY('byeHUD4','iconP2',-300,crochet*0.0099,'cubeInOut')
+                doTweenY('byeHUD5','scoreTxt',-300,crochet*0.0099,'cubeInOut')
             end
         end
 

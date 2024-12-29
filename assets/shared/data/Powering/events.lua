@@ -15,6 +15,7 @@ function onCreate()
     setProperty('iconP1.y', 900)
     setProperty('iconP2.y', 900)
     setProperty('scoreTxt.y', 900)
+    setProperty('skipCountdown', true)
     
     downscroll = getPropertyFromClass('backend.ClientPrefs', 'data.downScroll')
     if downscroll then

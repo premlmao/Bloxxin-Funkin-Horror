@@ -51,7 +51,7 @@ function onCreate()
     JeffsMechanic.scale.set(0.6,0.6);
     JeffsMechanic.screenCenter();
 
-    textjeff.setFormat(Paths.font('Comic Sans MS.ttf'), 32, FlxColor.RED, 'center');
+    textjeff.setFormat(Paths.font('Comic Sans MS.ttf'), 32, FlxColor.RED, 'center', FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     textjeff.borderColor = FlxColor.RED;
     textjeff.text = 'Prepare..';
     textjeff.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
@@ -102,7 +102,7 @@ function onCreate()
     textAnswer.y = textQuestion.y + 160;
     textAnswer.visible = false;
 
-    textTimer.setFormat(Paths.font('Comic Sans MS.ttf'), 22, FlxColor.RED, 'center');
+    textTimer.setFormat(Paths.font('Comic Sans MS.ttf'), 22, FlxColor.RED, 'center', FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     textTimer.text = 'Use your keyboard to type in the answer\nhit the mechanic button to submit. Backspace resets it!\nTIME REMAINING: 99s';
     textTimer.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
     textTimer.screenCenter();
@@ -176,6 +176,7 @@ function JeffMechanic()
     NextBeat = curBeat + 4;
     modchartTweens.set('aaa', FlxTween.tween(JeffsMechanic, {alpha: 1}, 0.5, {ease: FlxEase.quadIn}));
     modchartTweens.set('aaaa', FlxTween.tween(textjeff, {alpha: 1}, 0.5, {ease: FlxEase.quadIn}));
+    modchartTweens.set('aaaaa', FlxTween.color(textjeff, 0.05, FlxColor.LIME, FlxColor.RED, {type: 8}));
 }
 
 function jeffSlash()
@@ -183,12 +184,14 @@ function jeffSlash()
     textjeff.text = 'SLASH!';
     modchartTweens.set('aaa', FlxTween.tween(JeffsMechanic, {alpha: 1}, 0.2, {ease: FlxEase.quadIn}));
     modchartTweens.set('aaaa', FlxTween.tween(textjeff, {alpha: 1}, 1, {ease: FlxEase.quadIn}));
+    modchartTweens.set('aaaaa', FlxTween.color(textjeff, 0.05, FlxColor.RED, FlxColor.LIME, {type: 8}));
     modchartTimers.set('a' ,new FlxTimer().start(0.2, function(tmr:FlxTimer)
         {
             jeffknifesound.play();
             ActiveJeff = false;
             modchartTweens.set('aaa', FlxTween.tween(JeffsMechanic, {alpha: 0}, 1, {ease: FlxEase.quadIn}));
             modchartTweens.set('aaaa', FlxTween.tween(textjeff, {alpha: 0}, 1, {ease: FlxEase.quadIn}));
+            modchartTweens.set('aaaaa', FlxTween.color(textjeff, 0.05, FlxColor.LIME, FlxColor.RED, {type: 8}));
 
             if (IsDodg == false)
             {
