@@ -36,12 +36,6 @@ class MainMenuState extends MusicBeatState
 
 	var camFollow:FlxObject;
 	var bg:FlxSprite;
-	var magenta:FlxSprite;
-	var robloxBackdrop:FlxBackdrop;
-	var selector:FlxSprite;
-	var trussAndStuds:FlxBackdrop;
-	var menuBox:FlxSprite;
-	var menuText:FlxSprite;
 	var menuItem:FlxSprite;
 
 	override function create()
@@ -65,63 +59,12 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		bg = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		bg = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, 0xff232527);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set(0, yScroll);
-		bg.setGraphicSize(Std.int(bg.width * 1.1));
 		bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);
-
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
-		magenta.antialiasing = ClientPrefs.data.antialiasing;
-		magenta.scrollFactor.set(0, yScroll);
-		magenta.setGraphicSize(Std.int(magenta.width * 1));
-		magenta.updateHitbox();
-		magenta.screenCenter();
-		magenta.visible = false;
-		magenta.color = 0xFFfd719b;
-		add(magenta);
-
-		robloxBackdrop = new FlxBackdrop(Paths.image('mainmenuUI/robloxBackdrop'), XY);
-		robloxBackdrop.velocity.set(100, 100);
-		robloxBackdrop.scale.set(0.75, 0.75);
-		robloxBackdrop.alpha = 0.4;
-		add(robloxBackdrop);
-		if (firstStart)
-			FlxTween.tween(robloxBackdrop, {angle: 180}, 5, {ease: FlxEase.linear, type: FlxTweenType.LOOPING});
-
-		trussAndStuds = new FlxBackdrop(Paths.image('mainmenuUI/trussAndStuds'), XY);
-		trussAndStuds.velocity.set(200, 0);
-		trussAndStuds.alpha = 0;
-		add(trussAndStuds);
-
-		menuBox = new FlxSprite(-80).loadGraphic(Paths.image('mainmenuUI/menuBox'));
-		menuBox.antialiasing = ClientPrefs.data.antialiasing;
-		menuBox.setGraphicSize(Std.int(menuBox.width * 1.2));
-		menuBox.updateHitbox();
-		menuBox.x = -500;
-		add(menuBox);
-
-		menuText = new FlxSprite(-80).loadGraphic(Paths.image('mainmenuUI/menuText'));
-		menuText.antialiasing = ClientPrefs.data.antialiasing;
-		menuText.setGraphicSize(Std.int(menuText.width * 1));
-		menuText.updateHitbox();
-		menuText.x = 30;
-		menuText.y = -200;
-		add(menuText);
-
-		selector = new FlxSprite(-80).loadGraphic(Paths.image('mainmenuUI/selector'));
-		selector.antialiasing = ClientPrefs.data.antialiasing;
-		selector.setGraphicSize(Std.int(selector.width * 1.25));
-		selector.updateHitbox();
-		// selector.screenCenter();
-		selector.x = 365;
-		selector.y = 160;
-		selector.alpha = 0;
-		add(selector);
-		if (firstStart)
-			FlxTween.tween(selector, {x: 425}, 0.5, {ease: FlxEase.sineInOut, type: PINGPONG});
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -142,24 +85,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.y = -60;
 			menuItem.updateHitbox();
 			menuItems.add(menuItem);
-
-			
-			if (firstStart)
-			{
-				
-				FlxTween.tween(menuBox, {x: -5}, 0.75, {ease: FlxEase.sineInOut});
-				FlxTween.tween(trussAndStuds, {alpha: 1}, 0.75, {ease: FlxEase.linear});
-				FlxTween.tween(menuText, {y: 35}, 1.2, {ease: FlxEase.backInOut, startDelay: 0.2});
-
-				/*
-				FlxTween.tween(menuItem, {x: -285}, 1 + (i * 0.3), {ease: FlxEase.backInOut, startDelay: 0.45, onComplete: function(FlxTween:FlxTween)
-				{
-					finishedFunnyMove = true;
-				}});
-				*/
-
-				FlxTween.tween(selector, {alpha: 1}, 0.75, {ease: FlxEase.sineInOut, startDelay: 0.6});
-			}
 
 		}
 
@@ -233,15 +158,7 @@ class MainMenuState extends MusicBeatState
 			if (FlxG.mouse.visible == true)
 				FlxG.mouse.visible = false;
 
-			if (ClientPrefs.data.flashing)
-				FlxFlicker.flicker(magenta, 1.1, 0.15, false);
-
 			FlxTween.tween(FlxG.camera, {zoom: 2.5}, 0.5, {ease: FlxEase.circIn});
-			FlxTween.tween(menuBox, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-			FlxTween.tween(menuText, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-			FlxTween.tween(menuItem, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-			FlxTween.tween(selector, {alpha: 0}, 0.5, {ease: FlxEase.linear});
-			FlxTween.tween(robloxBackdrop, {alpha: 0}, 0.5, {ease: FlxEase.linear});
 			{
 				switch (optionShit[curSelected])
 				{
@@ -339,14 +256,6 @@ class MainMenuState extends MusicBeatState
 			curSelected = 0;
 		if (curSelected < 0)
 			curSelected = menuItems.length - 1;
-
-		switch (curSelected) {
-			case 0: FlxTween.tween(selector, {y: 175}, 0.15, {ease: FlxEase.sineInOut});
-            case 1: FlxTween.tween(selector, {y: 275}, 0.15, {ease: FlxEase.sineInOut});
-            case 2: FlxTween.tween(selector, {y: 375}, 0.15, {ease: FlxEase.sineInOut});
-            case 3: FlxTween.tween(selector, {y: 475}, 0.15, {ease: FlxEase.sineInOut});
-			case 4: FlxTween.tween(selector, {y: 575}, 0.15, {ease: FlxEase.sineInOut});
-		}
 
 		menuItems.members[curSelected].animation.play('selected');
 		menuItems.members[curSelected].updateHitbox();
