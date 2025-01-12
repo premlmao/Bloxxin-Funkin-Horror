@@ -144,6 +144,7 @@ class FunkinLua {
 		set('inGameOver', false);
 		set('mustHitSection', false);
 		set('altAnim', false);
+		set('altAnim2', false);
 		set('gfSection', false);
 
 		// Gameplay settings

@@ -192,6 +192,8 @@ class Note extends FlxSprite
 					hitsoundChartEditor = false;
 				case 'Alt Animation':
 					animSuffix = '-alt';
+				case 'Alt Animation2':
+					animSuffix = '-alt2';
 				case 'No Animation':
 					noAnimation = true;
 					noMissAnimation = true;

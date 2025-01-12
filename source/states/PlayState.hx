@@ -2945,13 +2945,19 @@ class PlayState extends MusicBeatState
 			dad.heyTimer = 0.6;
 		} else if(!note.noAnimation) {
 			var altAnim:String = note.animSuffix;
+			var altAnim2:String = note.animSuffix;
 
 			if (SONG.notes[curSection] != null)
 				if (SONG.notes[curSection].altAnim && !SONG.notes[curSection].gfSection)
 					altAnim = '-alt';
 
+			if (SONG.notes[curSection] != null)
+				if (SONG.notes[curSection].altAnim2 && !SONG.notes[curSection].gfSection)
+					altAnim2 = '-alt2';
+
 			var char:Character = dad;
 			var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length-1, note.noteData)))] + altAnim;
+			var animToPlay2:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length-1, note.noteData)))] + altAnim2;
 			if(note.gfNote) char = gf;
 
 			if(char != null)
@@ -3205,6 +3211,7 @@ class PlayState extends MusicBeatState
 			}
 			setOnScripts('mustHitSection', SONG.notes[curSection].mustHitSection);
 			setOnScripts('altAnim', SONG.notes[curSection].altAnim);
+			setOnScripts('altAnim2', SONG.notes[curSection].altAnim2);
 			setOnScripts('gfSection', SONG.notes[curSection].gfSection);
 		}
 		super.sectionHit();
