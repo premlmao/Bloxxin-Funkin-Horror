@@ -27,7 +27,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	var optionShit:Array<String> = [
-		'story_mode',
+		'week1',
 		'freeplay',
 		'options',
 		'credits',
@@ -59,7 +59,7 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		bg = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, 0xff232527);
+		bg = new FlxSprite(0, 0).loadGraphic(Paths.image('mainmenu/bg'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set(0, yScroll);
 		bg.updateHitbox();
@@ -72,7 +72,7 @@ class MainMenuState extends MusicBeatState
 		for (i in 0...optionShit.length)
 		{
 			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-			menuItem = new FlxSprite(-285, (i * 140) + offset);
+			menuItem = new FlxSprite(0, (i * 140) + offset);
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
@@ -81,11 +81,24 @@ class MainMenuState extends MusicBeatState
 			menuItem.ID = i;
 			menuItem.scrollFactor.set();
 
-			//menuItem.x = -1000;
-			menuItem.y = -60;
+			menuItem.x = -715;
+			menuItem.y = -300;
 			menuItem.updateHitbox();
 			menuItems.add(menuItem);
 
+			switch(i)
+			{
+				case 0:
+					menuItem.scale.x = 0.35;
+					menuItem.scale.y = 0.35;
+					menuItem.screenCenter();
+					menuItem.x += 50;
+					menuItem.y += 315;
+					trace(menuItem.x, menuItem.y);
+					case 1 | 2 | 3 | 4:
+						menuItem.scale.x = 0.4;
+						menuItem.scale.y = 0.4;
+			}
 		}
 
 		var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Bloxxin Funkin Horror' v2.0", 12);
@@ -115,16 +128,10 @@ class MainMenuState extends MusicBeatState
 				changeItem(-FlxG.mouse.wheel, false);
 			}
 
-			if (controls.UI_UP_P)
-				changeItem(-1, false);
-
-			if (controls.UI_DOWN_P)
-				changeItem(1, false);
-
-			if (controls.ACCEPT || FlxG.mouse.justPressed)
-				{
-					acceptedAThing();
-				}
+			if (FlxG.mouse.justPressed)
+			{
+				acceptedAThing();
+			}
 
 			if (controls.BACK)
 			{
@@ -162,7 +169,7 @@ class MainMenuState extends MusicBeatState
 			{
 				switch (optionShit[curSelected])
 				{
-					case 'story_mode':
+					case 'week1':
 						PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
 						PlayState.isStoryMode = true;
 						WeekData.reloadWeekFiles(true);
@@ -193,7 +200,7 @@ class MainMenuState extends MusicBeatState
 			{
 				switch (optionShit[curSelected])
 				{
-					case 'story_mode':
+					case 'week1':
 						PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
 						PlayState.isStoryMode = true;
 						WeekData.reloadWeekFiles(true);
