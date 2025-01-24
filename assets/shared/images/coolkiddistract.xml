@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="coolkiddistract.png">
+<SubTexture name="spin0000" x="0" y="0" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0001" x="332" y="0" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0002" x="664" y="0" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0003" x="0" y="411" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0004" x="332" y="411" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0005" x="664" y="411" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0006" x="996" y="0" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0007" x="996" y="411" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0008" x="0" y="822" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0009" x="332" y="822" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0010" x="664" y="822" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0011" x="996" y="822" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0012" x="1328" y="0" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0013" x="1328" y="411" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+<SubTexture name="spin0014" x="1328" y="822" width="332" height="411" frameX="0" frameY="0" frameWidth="332" frameHeight="411" />
+</TextureAtlas>

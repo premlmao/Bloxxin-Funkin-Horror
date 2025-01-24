@@ -13,3 +13,15 @@ function onCreate()
         addLuaSprite('night', false);
         addLuaSprite('ndslobby', false);
 end
+
+function onBeatHit()
+    if curBeat == 328 then
+		removeLuaSprite('ndslobby');
+
+	makeLuaSprite('ndslobbycorrupt', 'stages/ndslobbycorrupt', -300, -100);
+	setScrollFactor('ndslobbycorrupt', 1, 1);
+        setProperty('ndslobbycorrupt.antialiasing', false);
+
+        addLuaSprite('ndslobbycorrupt', false);
+end
+end
