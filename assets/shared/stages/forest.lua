@@ -12,10 +12,32 @@ function onCreate()
 	setScrollFactor('foresttree', 1.7, 1.7);
         setProperty('foresttree.antialiasing', false);
 
+	makeLuaSprite('rustcomputer', 'stages/rustcomputer', -400, 1000);
+	setScrollFactor('rustcomputer', 0.8, 0.8);
+        setProperty('rustcomputer.antialiasing', false);
+
 
 	addLuaSprite('foresttree', true);
 	addLuaSprite('forest', false);
 	addLuaSprite('forestfloor', false);
+	addLuaSprite('rustcomputer', false);
 	
-	close(true); --For performance reasons, close this script once the stage is fully loaded, as this script won't be used anymore after loading the stage
+end
+
+function onBeatHit()
+    if curBeat == 177 then
+        doTweenY('computer', 'rustcomputer', -100, 1, 'cubeInOut')
+        doTweenY('forestf', 'forestfloor', -500, 1, 'cubeInOut')
+        doTweenY('forest', 'forest', -500, 1, 'cubeInOut')
+        doTweenY('tree', 'foresttree', -1000, 1, 'cubeInOut')
+        doTweenAlpha('boygrend', 'boyfriend', 0, 1, 'cubeInOut')
+end
+    if curBeat == 320 then
+	removeLuaSprite('rustcomputer', false);
+
+        doTweenAlpha('boygrend', 'boyfriend', 1, 0.01, 'cubeInOut')
+        doTweenY('forestf', 'forestfloor', -100, 0.01, 'cubeInOut')
+        doTweenY('forest', 'forest', -100, 0.01, 'cubeInOut')
+        doTweenY('tree', 'foresttree', -100, 0.01, 'cubeInOut')
+end
 end
