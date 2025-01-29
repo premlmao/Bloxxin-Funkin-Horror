@@ -12,7 +12,7 @@ function onCreate()
 	setScrollFactor('foresttree', 1.7, 1.7);
         setProperty('foresttree.antialiasing', false);
 
-	makeLuaSprite('rustcomputer', 'stages/rustcomputer', -400, 1000);
+	makeLuaSprite('rustcomputer', 'stages/rustcomputer', -560, 1000);
 	setScrollFactor('rustcomputer', 0.8, 0.8);
         setProperty('rustcomputer.antialiasing', false);
 
