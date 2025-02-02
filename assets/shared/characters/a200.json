@@ -1,103 +1,103 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 17,
 			"anim": "singLEFT",
-			"fps": 17,
-			"name": "left",
-			"indices": []
+			"indices": [],
+			"name": "left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-10
 			],
+			"loop": false,
+			"fps": 17,
 			"anim": "singDOWN",
-			"fps": 17,
-			"name": "down",
-			"indices": []
+			"indices": [],
+			"name": "down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-10,
 				20
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 17,
-			"name": "up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-30,
 				10
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 17,
-			"name": "right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "singLEFT-loop",
+			"loop": true,
 			"fps": 17,
-			"name": "loopleft",
-			"indices": []
+			"anim": "singLEFT-loop",
+			"indices": [],
+			"name": "loopleft"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				0,
 				-10
 			],
-			"anim": "singDOWN-loop",
+			"loop": true,
 			"fps": 17,
-			"name": "loopdown",
-			"indices": []
+			"anim": "singDOWN-loop",
+			"indices": [],
+			"name": "loopdown"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				-10,
 				20
 			],
-			"anim": "singUP-loop",
+			"loop": true,
 			"fps": 17,
-			"name": "loopup",
-			"indices": []
+			"anim": "singUP-loop",
+			"indices": [],
+			"name": "loopup"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				-30,
 				10
 			],
-			"anim": "singRIGHT-loop",
+			"loop": true,
 			"fps": 17,
-			"name": "loopright",
-			"indices": []
+			"anim": "singRIGHT-loop",
+			"indices": [],
+			"name": "loopright"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": true,
 			"fps": 15,
-			"name": "idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
 		}
 	],
 	"no_antialiasing": false,
@@ -115,7 +115,7 @@
 	],
 	"camera_position": [
 		-150,
-		120
+		150
 	],
 	"sing_duration": 5.99999999999999,
 	"scale": 1,
