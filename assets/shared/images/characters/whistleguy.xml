@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="whistleguy.png">
+<SubTexture name="idle0000" x="688" y="0" width="165" height="288" frameX="-81" frameY="-36" frameWidth="329" frameHeight="327" />
+<SubTexture name="idle0001" x="408" y="309" width="156" height="291" frameX="-83" frameY="-31" frameWidth="329" frameHeight="327" />
+<SubTexture name="idle0002" x="342" y="0" width="150" height="301" frameX="-87" frameY="-20" frameWidth="329" frameHeight="327" />
+<SubTexture name="idle0003" x="189" y="0" width="153" height="303" frameX="-85" frameY="-18" frameWidth="329" frameHeight="327" />
+<SubTexture name="left0000" x="198" y="309" width="210" height="296" frameX="-8" frameY="-26" frameWidth="329" frameHeight="327" />
+<SubTexture name="left0001" x="0" y="309" width="198" height="297" frameX="-14" frameY="-25" frameWidth="329" frameHeight="327" />
+<SubTexture name="down0000" x="0" y="606" width="217" height="262" frameX="-39" frameY="-63" frameWidth="329" frameHeight="327" />
+<SubTexture name="down0001" x="853" y="0" width="200" height="268" frameX="-49" frameY="-57" frameWidth="329" frameHeight="327" />
+<SubTexture name="up0000" x="492" y="0" width="196" height="298" frameX="-21" frameY="-24" frameWidth="329" frameHeight="327" />
+<SubTexture name="up0001" x="0" y="0" width="189" height="309" frameX="-23" frameY="-13" frameWidth="329" frameHeight="327" />
+<SubTexture name="right0000" x="217" y="606" width="205" height="253" frameX="-106" frameY="-70" frameWidth="329" frameHeight="327" />
+<SubTexture name="right0001" x="422" y="606" width="204" height="252" frameX="-104" frameY="-71" frameWidth="329" frameHeight="327" />
+</TextureAtlas>
