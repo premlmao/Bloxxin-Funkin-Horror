@@ -92,9 +92,7 @@ class MainMenuState extends MusicBeatState
 					menuItem.scale.x = 0.35;
 					menuItem.scale.y = 0.35;
 					menuItem.screenCenter();
-					menuItem.x += 50;
-					menuItem.y += 315;
-					trace(menuItem.x, menuItem.y);
+					menuItem.setPosition(-715, -300);
 					case 1 | 2 | 3 | 4:
 						menuItem.scale.x = 0.4;
 						menuItem.scale.y = 0.4;
@@ -105,7 +103,7 @@ class MainMenuState extends MusicBeatState
 		fnfVer.scrollFactor.set();
 		fnfVer.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
-		changeItem(0, false);
+		changeItem(0);
 
 		super.create();
 	}
@@ -123,9 +121,14 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			if (FlxG.mouse.wheel != 0) 
+			for (i in 0...optionShit.length)
 			{
-				changeItem(-FlxG.mouse.wheel, false);
+				var memb:FlxSprite = menuItems.members[i];
+				if(FlxG.mouse.overlaps(memb))
+				{
+					curSelected = memb.ID;
+					trace('hovering over:' + curSelected);
+				}
 			}
 
 			if (FlxG.mouse.justPressed)
@@ -244,21 +247,12 @@ class MainMenuState extends MusicBeatState
 		}
 	}
 
-	function changeItem(huh:Int, woah:Bool) 
+	function changeItem(huh:Int) 
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 		menuItems.members[curSelected].animation.play('idle');
 		menuItems.members[curSelected].updateHitbox();
-
-		trace(woah);
-		if (!woah)
-		{
-			curSelected += huh;
-		}else if(woah){
-			curSelected = huh;
-		}
 			
-
 		if (curSelected >= menuItems.length)
 			curSelected = 0;
 		if (curSelected < 0)
