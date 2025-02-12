@@ -21,6 +21,8 @@ class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.7.2h'; // This is also used for Discord RPC
 	public static var firstStart:Bool = true;
+	public static var canselect:Bool = true;
+	public var hovering:Bool = false;
 	public static var finishedFunnyMove:Bool = false;
 	public static var curSelected:Int = 0;
 
@@ -92,7 +94,8 @@ class MainMenuState extends MusicBeatState
 					menuItem.scale.x = 0.35;
 					menuItem.scale.y = 0.35;
 					menuItem.screenCenter();
-					menuItem.setPosition(-715, -300);
+					menuItem.setPosition(100, 200);
+					trace(menuItem.x, menuItem.y);
 					case 1 | 2 | 3 | 4:
 						menuItem.scale.x = 0.4;
 						menuItem.scale.y = 0.4;
@@ -121,19 +124,28 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			for (i in 0...optionShit.length)
+			if(canselect)
 			{
-				var memb:FlxSprite = menuItems.members[i];
-				if(FlxG.mouse.overlaps(memb))
+				hovering = false;
+				menuItems.forEach(function(memb:FlxSprite)
 				{
-					curSelected = memb.ID;
-					trace('hovering over:' + curSelected);
-				}
-			}
+					if (FlxG.mouse.overlaps(memb))
+						{
+							hovering = true;
+							trace('hovering:' + optionShit[curSelected]);
 
-			if (FlxG.mouse.justPressed)
-			{
-				acceptedAThing();
+							if (curSelected != memb.ID)
+							{
+								curSelected = memb.ID;
+								changeItem(0);
+							}
+							if (FlxG.mouse.justPressed)
+							{
+								acceptedAThing();
+								trace('accepted:' + optionShit[curSelected]);
+							}
+					}
+				});
 			}
 
 			if (controls.BACK)
