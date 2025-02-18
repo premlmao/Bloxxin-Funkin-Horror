@@ -21,6 +21,8 @@ class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.7.2h'; // This is also used for Discord RPC
 	public static var firstStart:Bool = true;
+	public static var canselect:Bool = true;
+	public var hovering:Bool = false;
 	public static var finishedFunnyMove:Bool = false;
 	public static var curSelected:Int = 0;
 
@@ -92,8 +94,7 @@ class MainMenuState extends MusicBeatState
 					menuItem.scale.x = 0.35;
 					menuItem.scale.y = 0.35;
 					menuItem.screenCenter();
-					menuItem.x += 50;
-					menuItem.y += 315;
+					menuItem.setPosition(100, 200);
 					trace(menuItem.x, menuItem.y);
 					case 1 | 2 | 3 | 4:
 						menuItem.scale.x = 0.4;
@@ -105,7 +106,7 @@ class MainMenuState extends MusicBeatState
 		fnfVer.scrollFactor.set();
 		fnfVer.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
-		changeItem(0, false);
+		changeItem(0);
 
 		super.create();
 	}
@@ -123,14 +124,28 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			if (FlxG.mouse.wheel != 0) 
+			if(canselect)
 			{
-				changeItem(-FlxG.mouse.wheel, false);
-			}
+				hovering = false;
+				menuItems.forEach(function(memb:FlxSprite)
+				{
+					if (FlxG.mouse.overlaps(memb))
+						{
+							hovering = true;
+							trace('hovering:' + optionShit[curSelected]);
 
-			if (FlxG.mouse.justPressed)
-			{
-				acceptedAThing();
+							if (curSelected != memb.ID)
+							{
+								curSelected = memb.ID;
+								changeItem(0);
+							}
+							if (FlxG.mouse.justPressed)
+							{
+								acceptedAThing();
+								trace('accepted:' + optionShit[curSelected]);
+							}
+					}
+				});
 			}
 
 			if (controls.BACK)
@@ -244,21 +259,12 @@ class MainMenuState extends MusicBeatState
 		}
 	}
 
-	function changeItem(huh:Int, woah:Bool) 
+	function changeItem(huh:Int) 
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 		menuItems.members[curSelected].animation.play('idle');
 		menuItems.members[curSelected].updateHitbox();
-
-		trace(woah);
-		if (!woah)
-		{
-			curSelected += huh;
-		}else if(woah){
-			curSelected = huh;
-		}
 			
-
 		if (curSelected >= menuItems.length)
 			curSelected = 0;
 		if (curSelected < 0)
