@@ -65,23 +65,21 @@ end
 		removeLuaSprite('proveitstage');
 		removeLuaSprite('moon');
 
-        makeLuaSprite('pixelnightlight', 'stages/pixelnightlight', -302, 208);
-	setScrollFactor('pixelnightlight', 0.05, 0.05);
-	scaleObject ('pixelnightlight', 10, 10);
-        setProperty('pixelnightlight.antialiasing', false);
+        makeLuaSprite('nightlight', 'stages/nightlightclassic', -300, -100);
+	setScrollFactor('nightlight', 0.05, 0.05);
+        setProperty('nightlightclassic.antialiasing', false);
 
-        makeLuaSprite('pixelproveit', 'stages/pixelproveit', -302, 158);
-	setScrollFactor('pixelproveit', 1, 1);
-	scaleObject ('pixelproveit', 10, 10);
-        setProperty('pixelproveit.antialiasing', false);
+        makeLuaSprite('proveitstageclassic', 'stages/proveitstageclassic', -300, -100);
+	setScrollFactor('proveitstageclassic', 1, 1);
+        setProperty('proveitstageclassic.antialiasing', false);
 
-        addLuaSprite('pixelnightlight', false);
-        addLuaSprite('pixelproveit', false);
+        addLuaSprite('nightlightclassic', false);
+        addLuaSprite('proveitstageclassic', false);
 end
     if curBeat == 304 and songName == "ProveIt" then
 
-		removeLuaSprite('pixelnightlight');
-		removeLuaSprite('pixelproveit');
+		removeLuaSprite('nightlightclassic');
+		removeLuaSprite('proveitstageclassic');
 
 		makeAnimatedLuaSprite('proveitperspectiveback','stages/proveitperspectiveback',-200,-100);
     	addAnimationByPrefix('proveitperspectiveback','dance','shake',5,true);

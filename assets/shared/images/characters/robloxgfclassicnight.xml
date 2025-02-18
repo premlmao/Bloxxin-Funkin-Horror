@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="robloxgfclassicnight.png">
+<SubTexture name="right0000" x="0" y="0" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="right0001" x="214" y="0" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="right0002" x="0" y="177" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="right0003" x="214" y="177" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="right0004" x="428" y="0" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="right0005" x="428" y="177" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="right0006" x="0" y="354" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="left0000" x="214" y="354" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="left0001" x="428" y="354" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="left0002" x="642" y="0" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="left0003" x="642" y="177" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="left0004" x="642" y="354" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="left0005" x="0" y="531" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="cheer0000" x="214" y="531" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="cheer0001" x="428" y="531" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="cheer0002" x="642" y="531" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="cheer0003" x="856" y="0" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="cheer0004" x="856" y="177" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="sad0000" x="856" y="354" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="sad0001" x="856" y="531" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="sad0002" x="0" y="708" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="sad0003" x="214" y="708" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+<SubTexture name="sad0004" x="428" y="708" width="214" height="177" frameX="0" frameY="0" frameWidth="214" frameHeight="177" />
+</TextureAtlas>
