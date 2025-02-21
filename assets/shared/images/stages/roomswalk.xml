@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="roomswalk.png">
+<SubTexture name="walk0000" x="0" y="0" width="1178" height="769" frameX="0" frameY="0" frameWidth="1178" frameHeight="769" />
+<SubTexture name="walk0001" x="1178" y="0" width="1178" height="769" frameX="0" frameY="0" frameWidth="1178" frameHeight="769" />
+<SubTexture name="walk0002" x="0" y="769" width="1178" height="769" frameX="0" frameY="0" frameWidth="1178" frameHeight="769" />
+<SubTexture name="walk0003" x="1178" y="769" width="1178" height="769" frameX="0" frameY="0" frameWidth="1178" frameHeight="769" />
+<SubTexture name="walk0004" x="0" y="1538" width="1178" height="769" frameX="0" frameY="0" frameWidth="1178" frameHeight="769" />
+</TextureAtlas>
