@@ -47,9 +47,10 @@ end
     if curBeat == 350 then
 		removeLuaSprite('roomslocker');
 
-        makeLuaSprite('rooms200locker', 'stages/rooms200locker', -300, -100);
+        makeLuaSprite('rooms200locker', 'stages/rooms200locker', -500, -80);
 	setScrollFactor('rooms200locker', 1, 1);
         setProperty('rooms200locker.antialiasing', false);
+	scaleObject ('runpovrooms', 0.7, 0.7);
 
         addLuaSprite('rooms200locker', true);
 end
@@ -57,11 +58,11 @@ end
     if curBeat == 414 then
 		removeLuaSprite('rooms200locker');
 
-        makeAnimatedLuaSprite('runpovrooms','stages/runpovrooms',-300,-100)
+        makeAnimatedLuaSprite('runpovrooms','stages/runpovrooms',-150,100)
         addAnimationByPrefix('runpovrooms','dance','roomspov run',15,true)
         objectPlayAnimation('runpovrooms','dance',false)
         setScrollFactor('runpovrooms', 1, 1);
-	scaleObject ('runpovrooms', 2.5, 2.5);
+	scaleObject ('runpovrooms', 1.2, 1.2);
         setProperty('runpovrooms.antialiasing', false);
 
         addLuaSprite('runpovrooms', false);
