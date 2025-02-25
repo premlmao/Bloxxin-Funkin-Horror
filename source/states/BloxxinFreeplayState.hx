@@ -25,6 +25,7 @@ import haxe.Json;
 import substates.GameplayChangersSubstate;
 import substates.ResetScoreSubState;
 import substates.SongInfoSubState;
+import substates.ControlsSubState;
 import states.editors.MasterEditorMenu;
 
 class BloxxinFreeplayState extends MusicBeatState
@@ -81,6 +82,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var OldSongsOpened:Bool = false;
     var selectedSomethin:Bool = false;
     var buttonOldSong:FlxSprite;
+    var mouse:FlxSprite;
     var oldInventory:FlxSprite;
 
     override function create()
@@ -305,21 +307,6 @@ class BloxxinFreeplayState extends MusicBeatState
         {
             port.visible = false;
         }
-        
-
-
-        var controls:FlxText = new FlxText(12, FlxG.height - 44, 0, "LEFT CLICK while hovering a song to select it.", 12);
-        controls.x = 895;
-        controls.scrollFactor.set();
-        controls.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        controls.borderSize = 1.75;
-        add(controls);
-        var controls2:FlxText = new FlxText(12, FlxG.height - 24, 0, "Use SCROLL WHEEL to shift through the pages.", 12);
-        controls2.x = 885;
-        controls2.scrollFactor.set();
-        controls2.setFormat("Gotham Black Regular.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        controls2.borderSize = 1.75;
-        add(controls2);
 
         pbText = new FlxText(FlxG.width * 2, 2, 0, "", 32);
 		pbText.setFormat(Paths.font("Gotham Black Regular.ttf"), 48, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -336,6 +323,15 @@ class BloxxinFreeplayState extends MusicBeatState
 		add(buttonOldSong);
 		buttonOldSong.x = 20;
 		buttonOldSong.y = 590;
+
+        mouse = new FlxSprite(0, 0).loadGraphic(Paths.image('freeplay/mouse'), true, 108, 108);
+        mouse.animation.add('idle', [0], 0, false);
+		mouse.scale.set(1, 1);
+		mouse.updateHitbox();
+		mouse.animation.play('idle');
+		add(mouse);
+		mouse.x = 20;
+		mouse.y = 490;
 
         oldInventory = new FlxSprite().loadGraphic(Paths.image('freeplay/Inventory'));
         oldInventory.antialiasing = ClientPrefs.data.antialiasing;
@@ -435,6 +431,9 @@ class BloxxinFreeplayState extends MusicBeatState
 			ratingSplit[1] += '0';
 		}
 
+        camera.scroll.x = FlxMath.lerp(camera.scroll.x, (FlxG.mouse.x / FlxG.width) * 15, Math.exp(-elapsed * 5));
+camera.scroll.y = FlxMath.lerp(camera.scroll.y, (FlxG.mouse.y / FlxG.height) * 10, Math.exp(-elapsed * 5));
+
         pbText.text = 'PB: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
         positionHighscore();
 
@@ -514,6 +513,12 @@ class BloxxinFreeplayState extends MusicBeatState
                                 port.visible = false;
                             }
                     }
+                }
+            if (FlxG.mouse.overlaps(mouse) && FlxG.mouse.justPressed)
+                {
+                    persistentUpdate = false;
+                    openSubState(new ControlsSubState());
+                    FlxG.sound.play(Paths.sound('scrollMenu'));
                 } 
                 for (port in portraitsOLD)
                     {
