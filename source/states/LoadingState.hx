@@ -169,7 +169,7 @@ class LoadingState extends MusicBeatState
 				credText.screenCenter();
 				credText.y = songText.y + 60;
 			case 'BrickBattle':
-				credText.applyMarkup("By !Unf!#unn#^y2^, &TheStaringEye&, %Nil%, %Prem%", [musician, charter, artist, animator, modeller, coder]);
+				credText.applyMarkup("By !Unf!#unn#^y2^, !5cvc!, &TheStaringEye&, %Nil%, %Prem%", [musician, charter, artist, animator, modeller, coder]);
 				credText.alignment = "center";
 				credText.screenCenter();
 				credText.y = songText.y + 60;
@@ -185,6 +185,21 @@ class LoadingState extends MusicBeatState
 				credText.y = songText.y + 60;
 			case 'RabbitHole':
 				credText.applyMarkup("By !Unf!#un#$ny$^2^, $UrFestive_Travago$, ^Nohomatta^, %Prem%", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'Kenophobia':
+				credText.applyMarkup("By !Unf!#un#$ny$^2^, $N$^i^%l%, %Prem% ", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'Stalked':
+				credText.applyMarkup("By !Unf!#un#$ny2$, ^Nohomatta^, !LukasP!, %Prem% ", [musician, charter, artist, animator, modeller, coder]);
+				credText.alignment = "center";
+				credText.screenCenter();
+				credText.y = songText.y + 60;
+			case 'Abandoned':
+				credText.applyMarkup("By !Unf!#un#$ny$^2^, %Nil%, ^Nohomatta^, !GREXA! ", [musician, charter, artist, animator, modeller, coder]);
 				credText.alignment = "center";
 				credText.screenCenter();
 				credText.y = songText.y + 60;
