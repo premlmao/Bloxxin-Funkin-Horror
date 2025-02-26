@@ -50,8 +50,8 @@ class BloxxinFreeplayState extends MusicBeatState
     var intendedColor:Int;
     var colorTween:FlxTween;
 
-    var sky:FlxSprite;
-    var skyback:FlxSprite;
+    var stage:FlxSprite;
+    var box:FlxSprite;
     var line:FlxSprite;
     var story:FlxSprite;
     var extra:FlxSprite;
@@ -80,6 +80,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var currentTab:Int;
 
     var OldSongsOpened:Bool = false;
+    var ControlsOpened:Bool = false;
     var selectedSomethin:Bool = false;
     var buttonOldSong:FlxSprite;
     var mouse:FlxSprite;
@@ -102,13 +103,6 @@ class BloxxinFreeplayState extends MusicBeatState
 
         PlayState.isStoryMode = false;
 
-        skyback = new FlxSprite().loadGraphic(Paths.image('freeplay/SkyboxBehind'));
-        skyback.antialiasing = ClientPrefs.data.antialiasing;
-        skyback.scale.set(1, 1);
-        skyback.updateHitbox();
-        skyback.screenCenter();
-        add(skyback);
-
         bg = new FlxBackdrop(Paths.image('codeLeakLOL'), XY); //Thats crazy! -nil
 		bg.velocity.set(0, -250);
         bg.scale.set(2.15, 2.15);
@@ -121,13 +115,6 @@ class BloxxinFreeplayState extends MusicBeatState
         Deformation.scale.y = 1.6;
         Deformation.updateHitbox();
         Deformation.screenCenter();
-
-        sky = new FlxSprite().loadGraphic(Paths.image('freeplay/Skybox'));
-        sky.antialiasing = ClientPrefs.data.antialiasing;
-        sky.scale.set(1, 1);
-        sky.updateHitbox();
-        sky.screenCenter();
-        add(sky);
 
         line = new FlxSprite().loadGraphic(Paths.image('freeplay/line'));
         line.antialiasing = ClientPrefs.data.antialiasing;
@@ -193,8 +180,22 @@ class BloxxinFreeplayState extends MusicBeatState
 					colors = [146, 113, 253];
 				}
 
-                
+                stage = new FlxSprite().loadGraphic(Paths.image('freeplay/bg/' + song[curSelected]));
+                stage.antialiasing = ClientPrefs.data.antialiasing;
+                stage.scale.set(1, 1);
+                stage.updateHitbox();
+                stage.screenCenter();
+                add(stage);
 
+                box = new FlxSprite().loadGraphic(Paths.image('freeplay/freeplayBox'));
+                box.antialiasing = ClientPrefs.data.antialiasing;
+                box.scale.set(1, 1);
+                box.updateHitbox();
+                box.screenCenter();
+                box.alpha = 0.5;
+                add(box);
+
+                
                 if (Highscore.getScore(song[0], curDifficulty) == 0 && song[0] != "Deformed")
                 {
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
@@ -326,12 +327,13 @@ class BloxxinFreeplayState extends MusicBeatState
 
         mouse = new FlxSprite(0, 0).loadGraphic(Paths.image('freeplay/mouse'), true, 108, 108);
         mouse.animation.add('idle', [0], 0, false);
+        mouse.animation.add('selected', [1], 0, false);
 		mouse.scale.set(1, 1);
 		mouse.updateHitbox();
 		mouse.animation.play('idle');
 		add(mouse);
 		mouse.x = 20;
-		mouse.y = 490;
+		mouse.y = 450;
 
         oldInventory = new FlxSprite().loadGraphic(Paths.image('freeplay/Inventory'));
         oldInventory.antialiasing = ClientPrefs.data.antialiasing;
@@ -431,14 +433,11 @@ class BloxxinFreeplayState extends MusicBeatState
 			ratingSplit[1] += '0';
 		}
 
-        camera.scroll.x = FlxMath.lerp(camera.scroll.x, (FlxG.mouse.x / FlxG.width) * 15, Math.exp(-elapsed * 5));
-camera.scroll.y = FlxMath.lerp(camera.scroll.y, (FlxG.mouse.y / FlxG.height) * 10, Math.exp(-elapsed * 5));
-
         pbText.text = 'PB: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
         positionHighscore();
 
 
-                if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((baseddd) / 3) + 4  && !transitioningBetweenPages && !OldSongsOpened && !heyyousucksogokillyourself) //
+                if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((baseddd) / 3) + 4  && !transitioningBetweenPages && !OldSongsOpened && !ControlsOpened && !heyyousucksogokillyourself) //
                 {
                     currentTab += 1;
                     for (i in 0...portraits.length)
@@ -463,7 +462,7 @@ camera.scroll.y = FlxMath.lerp(camera.scroll.y, (FlxG.mouse.y / FlxG.height) * 1
                         FlxG.sound.music.fadeOut(1, 0);
                     }
                 }
-                if (FlxG.mouse.wheel > 0 && currentTab > 1 && !transitioningBetweenPages && !OldSongsOpened && !heyyousucksogokillyourself)
+                if (FlxG.mouse.wheel > 0 && currentTab > 1 && !transitioningBetweenPages && !OldSongsOpened && !ControlsOpened && !heyyousucksogokillyourself)
                 {
                     if (currentTab == Math.floor((baseddd) / 3) + 3)
                     {
@@ -516,9 +515,19 @@ camera.scroll.y = FlxMath.lerp(camera.scroll.y, (FlxG.mouse.y / FlxG.height) * 1
                 }
             if (FlxG.mouse.overlaps(mouse) && FlxG.mouse.justPressed)
                 {
-                    persistentUpdate = false;
-                    openSubState(new ControlsSubState());
-                    FlxG.sound.play(Paths.sound('scrollMenu'));
+                    if (!ControlsOpened)
+                    {
+                        persistentUpdate = false;
+                        ControlsOpened = true;
+                        mouse.animation.play('selected');
+                        openSubState(new ControlsSubState());
+                        FlxG.sound.play(Paths.sound('scrollMenu'));
+                    }
+                    else
+                    {
+                        ControlsOpened = false;
+                        mouse.animation.play('idle');
+                    }
                 } 
                 for (port in portraitsOLD)
                     {
@@ -560,14 +569,14 @@ camera.scroll.y = FlxMath.lerp(camera.scroll.y, (FlxG.mouse.y / FlxG.height) * 1
 
                         if (FlxG.mouse.overlaps(port) && !heyyousucksogokillyourself) 
                             { 
-                                if (songs[curSelected].songName == "Deformed" && !OldSongsOpened)
+                                if (songs[curSelected].songName == "Deformed" && !OldSongsOpened && !ControlsOpened)
                                 {
                                     var targetsArray:Array<FlxCamera> = FlxG.cameras.list;
                                     for (i in 0...targetsArray.length) {
                                     targetsArray[i].shake(0.001, 0.1);
                                     }
                                 }
-                                if (curSelected != port.ID && !OldSongsOpened)
+                                if (curSelected != port.ID && !OldSongsOpened && !ControlsOpened)
                                 {
                                     curSelected = port.ID;
                                     SelectedObject = port;
@@ -590,11 +599,11 @@ camera.scroll.y = FlxMath.lerp(camera.scroll.y, (FlxG.mouse.y / FlxG.height) * 1
                                             }
                                         });
                                     }
-                                }else if(!OldSongsOpened){
+                                }else if(!OldSongsOpened && !ControlsOpened){
                                     FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
                                     FlxTween.tween(selectedPortrait, {alpha: 1}, 0.1, {ease: FlxEase.linear});
                                 }
-                                if (FlxG.mouse.justPressed && !selectedSomethin && !OldSongsOpened) 
+                                if (FlxG.mouse.justPressed && !selectedSomethin && !OldSongsOpened && !ControlsOpened) 
                                     {
                                         if (songs[curSelected].songName == "Deformed" && !AllUnlocked)
                                         {
@@ -656,14 +665,12 @@ camera.scroll.y = FlxMath.lerp(camera.scroll.y, (FlxG.mouse.y / FlxG.height) * 1
                             FlxG.sound.play(Paths.sound('scrollMenu'));
                         }
 
-                    /* disabled until someone fixes it idfk - prem
-                    if(FlxG.keys.justPressed.I)
+                    if(FlxG.keys.justPressed.V)
                     {
                         persistentUpdate = false;
-                        openSubState(new SongInfoSubState());
+                        openSubState(new SongInfoSubState(songs[curSelected].songName, curDifficulty));
                         FlxG.sound.play(Paths.sound('scrollMenu'));
                     }
-                    */
 
                     #if desktop
                     if (controls.justPressed('debug_1'))
