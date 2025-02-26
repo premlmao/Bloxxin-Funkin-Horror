@@ -23,34 +23,25 @@ import flixel.FlxSubState;
 
 class SongInfoSubState extends MusicBeatSubstate
 {
-    public static var firstStart:Bool = true;
-
     var bg:FlxSprite;
-    // var robloxBackdrop:FlxBackdrop;
-    var portrait:FlxSprite;
-
     var song:String;
 	var difficulty:Int;
-	var week:Int;
 
-    override function create()
+    public function new(song:String, difficulty:Int)
 	{
+        this.song = song;
+		this.difficulty = difficulty;
+
+        var name:String = song;
+
+        super();
+        
         bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
         bg.alpha = 0;
         bg.scrollFactor.set();
         add(bg);
 
-        /*
-        robloxBackdrop = new FlxBackdrop(Paths.image('mainmenuUI/robloxBackdrop'), XY);
-		robloxBackdrop.velocity.set(100, 100);
-		robloxBackdrop.scale.set(0.75, 0.75);
-		robloxBackdrop.alpha = 0.4;
-		add(robloxBackdrop);
-        if (firstStart)
-			FlxTween.tween(robloxBackdrop, {angle: 180}, 5, {ease: FlxEase.linear, type: FlxTweenType.LOOPING});
-        */
-
-        portrait = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_' + PlayState.SONG.song));
+        var portrait:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pauseShit/portrait_' + name));
 		portrait.antialiasing = ClientPrefs.data.antialiasing;
 		portrait.scale.set(1, 1);
 		portrait.updateHitbox();
@@ -60,9 +51,7 @@ class SongInfoSubState extends MusicBeatSubstate
 
         FlxTween.tween(portrait, {x: -115}, 0.75, {ease: FlxEase.circOut});
 
-        trace("theyre viewing the desc");
-
-        super.create();
+        trace("viewing:" + name);
     }
 
     override function update(elapsed:Float)
@@ -74,7 +63,7 @@ class SongInfoSubState extends MusicBeatSubstate
         {
             FlxG.sound.play(Paths.sound('scrollMenu'));
             close();
-            trace("they stopped viewing the desc");
+            trace("stopped viewing");
         }
         super.update(elapsed);
     }
