@@ -525,8 +525,11 @@ class BloxxinFreeplayState extends MusicBeatState
                     }
                     else
                     {
+                        if (FlxG.state.substate.subStateClosed.add(substate -> {
+                        persistentUpdate = true;
                         ControlsOpened = false;
                         mouse.animation.play('idle');
+                        }));
                     }
                 } 
                 for (port in portraitsOLD)
