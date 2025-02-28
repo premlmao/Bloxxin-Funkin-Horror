@@ -110,11 +110,26 @@ class BloxxinFreeplayState extends MusicBeatState
         bg.alpha = 0.5;
 		add(bg);
 
+        stage = new FlxSprite().loadGraphic(Paths.image('freeplay/bg/ProveIt'));
+        stage.antialiasing = ClientPrefs.data.antialiasing;
+        stage.scale.set(1, 1);
+        stage.updateHitbox();
+        stage.screenCenter();
+        add(stage);
+
         Deformation.frames = Paths.getSparrowAtlas('freeplay/Deformation');
         Deformation.animation.addByPrefix('anim', 'deform', 4, true);
         Deformation.scale.y = 1.6;
         Deformation.updateHitbox();
         Deformation.screenCenter();
+
+        box = new FlxSprite().loadGraphic(Paths.image('freeplay/freeplayBox'));
+        box.antialiasing = ClientPrefs.data.antialiasing;
+        box.scale.set(1, 1);
+        box.updateHitbox();
+        box.screenCenter();
+        box.alpha = 0.5;
+        add(box);
 
         line = new FlxSprite().loadGraphic(Paths.image('freeplay/line'));
         line.antialiasing = ClientPrefs.data.antialiasing;
@@ -179,21 +194,6 @@ class BloxxinFreeplayState extends MusicBeatState
 				{
 					colors = [146, 113, 253];
 				}
-
-                stage = new FlxSprite().loadGraphic(Paths.image('freeplay/bg/' + song[curSelected]));
-                stage.antialiasing = ClientPrefs.data.antialiasing;
-                stage.scale.set(1, 1);
-                stage.updateHitbox();
-                stage.screenCenter();
-                add(stage);
-
-                box = new FlxSprite().loadGraphic(Paths.image('freeplay/freeplayBox'));
-                box.antialiasing = ClientPrefs.data.antialiasing;
-                box.scale.set(1, 1);
-                box.updateHitbox();
-                box.screenCenter();
-                box.alpha = 0.5;
-                add(box);
 
                 
                 if (Highscore.getScore(song[0], curDifficulty) == 0 && song[0] != "Deformed")
@@ -525,7 +525,10 @@ class BloxxinFreeplayState extends MusicBeatState
                     }
                     else
                     {
+<<<<<<< HEAD
                         if (FlxG.state.substate.subStateClosed.add(substate -> {
+=======
+>>>>>>> c51971d2e52d4c585a5c429fb439b304a1bac455
                         persistentUpdate = true;
                         ControlsOpened = false;
                         mouse.animation.play('idle');
