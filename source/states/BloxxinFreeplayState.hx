@@ -521,28 +521,23 @@ class BloxxinFreeplayState extends MusicBeatState
                             }
                     }
                 }
-            if (FlxG.mouse.overlaps(mouse))
-                {
-                    if (!ControlsOpened && FlxG.mouse.justPressed)
+                if (FlxG.mouse.overlaps(mouse))
                     {
-                        persistentUpdate = false;
-                        ControlsOpened = true;
-                        mouse.animation.play('selected');
-                        openSubState(new ControlsSubState());
-                        FlxG.sound.play(Paths.sound('scrollMenu'));
+                        if (!ControlsOpened && FlxG.mouse.justPressed)
+                        {
+                            persistentUpdate = false;
+                            ControlsOpened = true;
+                            mouse.animation.play('selected');
+                            openSubState(new ControlsSubState());
+                            FlxG.sound.play(Paths.sound('scrollMenu'));
+                        }
+                        else
+                        {
+                            persistentUpdate = true;
+                            ControlsOpened = false;
+                            mouse.animation.play('idle');
+                        }
                     }
-                    else
-                    {
-<<<<<<< HEAD
-                        if (FlxG.state.substate.subStateClosed.add(substate -> {
-=======
->>>>>>> c51971d2e52d4c585a5c429fb439b304a1bac455
-                        persistentUpdate = true;
-                        ControlsOpened = false;
-                        mouse.animation.play('idle');
-                        }));
-                    }
-                } 
                 for (port in portraitsOLD)
                     {
                             if (FlxG.mouse.overlaps(port)) 
