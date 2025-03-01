@@ -98,7 +98,6 @@ class BloxxinFreeplayState extends MusicBeatState
 
         if (!FlxG.mouse.visible)
             FlxG.mouse.visible = true;
-
 		persistentUpdate = persistentDraw = true;
 
         PlayState.isStoryMode = false;
@@ -113,9 +112,18 @@ class BloxxinFreeplayState extends MusicBeatState
         stage = new FlxSprite().loadGraphic(Paths.image('freeplay/bg/ProveIt'));
         stage.antialiasing = ClientPrefs.data.antialiasing;
         stage.scale.set(1, 1);
+        stage.alpha = 0;
         stage.updateHitbox();
         stage.screenCenter();
         add(stage);
+        if (stage.alpha == 0)
+        {
+            FlxTween.tween(bg, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+        }
+        else
+        {
+            FlxTween.tween(bg, {alpha: 0}, 0.5, {ease: FlxEase.circOut});
+        }
 
         Deformation.frames = Paths.getSparrowAtlas('freeplay/Deformation');
         Deformation.animation.addByPrefix('anim', 'deform', 4, true);
@@ -310,7 +318,7 @@ class BloxxinFreeplayState extends MusicBeatState
         }
 
         pbText = new FlxText(FlxG.width * 2, 2, 0, "", 32);
-		pbText.setFormat(Paths.font("Gotham Black Regular.ttf"), 48, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		pbText.setFormat(Paths.font("Comic Sans MS.ttf"), 24, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         pbText.borderSize = 1.75;
         pbText.y = 625;
         add(pbText);
@@ -433,7 +441,7 @@ class BloxxinFreeplayState extends MusicBeatState
 			ratingSplit[1] += '0';
 		}
 
-        pbText.text = 'PB: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+        pbText.text = 'SCORE: ' + lerpScore + ' \nACC: ' + ratingSplit.join('.') + '%';
         positionHighscore();
 
 
@@ -513,9 +521,9 @@ class BloxxinFreeplayState extends MusicBeatState
                             }
                     }
                 }
-            if (FlxG.mouse.overlaps(mouse) && FlxG.mouse.justPressed)
+            if (FlxG.mouse.overlaps(mouse))
                 {
-                    if (!ControlsOpened)
+                    if (!ControlsOpened && FlxG.mouse.justPressed)
                     {
                         persistentUpdate = false;
                         ControlsOpened = true;
@@ -555,7 +563,7 @@ class BloxxinFreeplayState extends MusicBeatState
                                                     colorTween = null;
                                                 }
                                             });
-                                        }
+                                        } 
                                     }
                                     if (FlxG.mouse.justPressed && !selectedSomethin && OldSongsOpened)
                                         {
@@ -567,16 +575,8 @@ class BloxxinFreeplayState extends MusicBeatState
                 {
                     if (!transitioningBetweenPages)
                     {
-
                         if (FlxG.mouse.overlaps(port) && !heyyousucksogokillyourself) 
                             { 
-                                if (songs[curSelected].songName == "Deformed" && !OldSongsOpened && !ControlsOpened)
-                                {
-                                    var targetsArray:Array<FlxCamera> = FlxG.cameras.list;
-                                    for (i in 0...targetsArray.length) {
-                                    targetsArray[i].shake(0.001, 0.1);
-                                    }
-                                }
                                 if (curSelected != port.ID && !OldSongsOpened && !ControlsOpened)
                                 {
                                     curSelected = port.ID;
@@ -640,6 +640,11 @@ class BloxxinFreeplayState extends MusicBeatState
                 if (FlxG.mouse.overlaps(Deformation))
                 {
                     FlxTween.tween(vignette, {alpha: 1}, 1, {ease: FlxEase.cubeInOut});
+                    var targetsArray:Array<FlxCamera> = FlxG.cameras.list;
+                    for (i in 0...targetsArray.length) 
+                    {
+                        targetsArray[i].shake(0.001, 0.1);
+                    }
                 }
                 else
                 {
@@ -666,7 +671,7 @@ class BloxxinFreeplayState extends MusicBeatState
                             FlxG.sound.play(Paths.sound('scrollMenu'));
                         }
 
-                    if(FlxG.keys.justPressed.V)
+                    if(FlxG.mouse.pressedRight)
                     {
                         persistentUpdate = false;
                         openSubState(new SongInfoSubState(songs[curSelected].songName, curDifficulty));
