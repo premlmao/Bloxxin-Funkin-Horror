@@ -49,16 +49,24 @@ class SongInfoSubState extends MusicBeatSubstate
 		portrait.y = 100;
         add(portrait);
 
-        FlxTween.tween(portrait, {x: -115}, 0.75, {ease: FlxEase.circOut});
+        FlxTween.tween(bg, {alpha: 0.8}, 1, {ease: FlxEase.cubeInOut});
+        FlxTween.tween(portrait, {x: -115}, 1, {ease: FlxEase.backInOut});
+
+        switch (name)
+		{
+			case 'Deadline':
+				portrait.y = 125;
+			case 'Copied':
+				portrait.y = 150;
+			case 'Predecessor':
+				portrait.x -= 280;
+		}
 
         trace("viewing:" + name);
     }
 
     override function update(elapsed:Float)
     {
-        bg.alpha += elapsed * 1.5;
-        if(bg.alpha > 0.8) bg.alpha = 0.8;
-
         if(controls.BACK)
         {
             FlxG.sound.play(Paths.sound('scrollMenu'));
