@@ -1,81 +1,81 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 15,
 			"anim": "idle",
-			"indices": [],
-			"name": "idle"
+			"fps": 15,
+			"name": "idle",
+			"indices": []
 		},
 		{
-			"loop": true,
 			"offsets": [
 				0,
 				30
 			],
-			"anim": "scream",
+			"loop": true,
 			"fps": 15,
-			"name": "scream",
-			"indices": []
+			"anim": "scream",
+			"indices": [],
+			"name": "scream"
 		},
 		{
 			"loop": false,
-			"offsets": [
-				70,
-				10
-			],
-			"anim": "singLEFT",
-			"fps": 20,
-			"name": "left",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				-90
-			],
-			"anim": "singDOWN",
-			"fps": 20,
-			"name": "down",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				100
-			],
-			"anim": "singUP",
-			"fps": 20,
-			"name": "up",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-70,
-				20
-			],
-			"anim": "singRIGHT",
-			"fps": 20,
-			"name": "right",
-			"indices": []
-		},
-		{
 			"offsets": [
 				107,
 				131
 			],
-			"indices": [],
-			"fps": 15,
 			"anim": "endscream",
+			"fps": 15,
+			"name": "endscream",
+			"indices": []
+		},
+		{
+			"offsets": [
+				70,
+				10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
 			"loop": false,
-			"name": "endscream"
+			"name": "left"
+		},
+		{
+			"offsets": [
+				0,
+				100
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-70,
+				20
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "right"
+		},
+		{
+			"offsets": [
+				0,
+				-90
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "down"
 		}
 	],
 	"no_antialiasing": true,
