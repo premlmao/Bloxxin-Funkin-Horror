@@ -124,10 +124,10 @@ end
 function onBeatHit()
     function opponentNoteHit()
         if curBeat >= 30 and curBeat < 100 or curBeat >= 216 and curBeat < 288 then
-            triggerEvent('Screen Shake', '0.1, 0.004,', '0.1, 0.003')
+            triggerEvent('Screen Shake', '0.1, 0.004', '0.1, 0.003')
         end
         if curBeat >= 100 and curBeat < 208 then
-            triggerEvent('Screen Shake', '0.1, 0.0055,', '0.1, 0.0055')
+            triggerEvent('Screen Shake', '0.1, 0.0055', '0.1, 0.0055')
         end
     end
     if curBeat == 216 then

@@ -17,6 +17,8 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.utils.Assets;
 
+import flixel.FlxSubState;
+
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
@@ -48,7 +50,9 @@ class BloxxinFreeplayState extends MusicBeatState
     
     var bg:FlxBackdrop;
     var intendedColor:Int;
+    var intendedBG:Int;
     var colorTween:FlxTween;
+    var bgTween:FlxTween;
 
     var stage:FlxSprite;
     var box:FlxSprite;
@@ -109,20 +113,29 @@ class BloxxinFreeplayState extends MusicBeatState
         bg.alpha = 0.5;
 		add(bg);
 
-        stage = new FlxSprite().loadGraphic(Paths.image('freeplay/bg/ProveIt'));
-        stage.antialiasing = ClientPrefs.data.antialiasing;
-        stage.scale.set(1, 1);
-        stage.alpha = 0;
-        stage.updateHitbox();
-        stage.screenCenter();
-        add(stage);
-        if (stage.alpha == 0)
+        for (p in 0...WeekData.weeksList.length)
         {
-            FlxTween.tween(bg, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
-        }
-        else
-        {
-            FlxTween.tween(bg, {alpha: 0}, 0.5, {ease: FlxEase.circOut});
+            var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[p]);
+            var leSongs:Array<String> = [];
+			var leChars:Array<String> = [];
+
+            for (q in 0...leWeek.songs.length)
+				{
+					leSongs.push(leWeek.songs[j][0]);
+					leChars.push(leWeek.songs[j][1]);
+				}
+                WeekData.setDirectoryFromWeek(leWeek);
+
+                for (song in leWeek.songs)
+                {
+                    stage = new FlxSprite().loadGraphic(Paths.image('freeplay/bg/' + song[0]));
+                    stage.antialiasing = ClientPrefs.data.antialiasing;
+                    stage.scale.set(1, 1);
+                    stage.alpha = 0;
+                    stage.updateHitbox();
+                    stage.screenCenter();
+                    add(stage);
+                }
         }
 
         Deformation.frames = Paths.getSparrowAtlas('freeplay/Deformation');
@@ -533,9 +546,12 @@ class BloxxinFreeplayState extends MusicBeatState
                         }
                         else
                         {
-                            persistentUpdate = true;
-                            ControlsOpened = false;
-                            mouse.animation.play('idle');
+                                subStateClosed.add((subState:FlxSubState) -> {
+                                if (Std.isOfType(subState, ControlsSubState))
+                                    persistentUpdate = true;
+                                    ControlsOpened = false;
+                                    mouse.animation.play('idle');
+                              });
                         }
                     }
                 for (port in portraitsOLD)
