@@ -41,6 +41,8 @@ class BloxxinFreeplayState extends MusicBeatState
     var curDifficulty:Int = 0;
 
     var j:Int = 0;
+    var p:Int = 0;
+    var q:Int = 0;
     var baseddd:Int = 0;
     var l:Int = 0;
     var curYforPortraitSpawn:Float = 125;
@@ -48,12 +50,10 @@ class BloxxinFreeplayState extends MusicBeatState
     var inventoryI:Int = 0;
     var inventoryB:Int = 0;
     
-    var bg:FlxBackdrop;
     var intendedColor:Int;
-    var intendedBG:Int;
     var colorTween:FlxTween;
-    var bgTween:FlxTween;
 
+    var stageGrp:FlxTypedGroup<FlxSprite>;
     var stage:FlxSprite;
     var box:FlxSprite;
     var line:FlxSprite;
@@ -106,37 +106,17 @@ class BloxxinFreeplayState extends MusicBeatState
 
         PlayState.isStoryMode = false;
 
-        bg = new FlxBackdrop(Paths.image('codeLeakLOL'), XY); //Thats crazy! -nil
-		bg.velocity.set(0, -250);
-        bg.scale.set(2.15, 2.15);
-        bg.x = -306;
-        bg.alpha = 0.5;
-		add(bg);
+        stageGrp = new FlxTypedGroup<FlxSprite>();
 
-        for (p in 0...WeekData.weeksList.length)
-        {
-            var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[p]);
-            var leSongs:Array<String> = [];
-			var leChars:Array<String> = [];
-
-            for (q in 0...leWeek.songs.length)
-				{
-					leSongs.push(leWeek.songs[j][0]);
-					leChars.push(leWeek.songs[j][1]);
-				}
-                WeekData.setDirectoryFromWeek(leWeek);
-
-                for (song in leWeek.songs)
-                {
-                    stage = new FlxSprite().loadGraphic(Paths.image('freeplay/bg/' + song[0]));
-                    stage.antialiasing = ClientPrefs.data.antialiasing;
-                    stage.scale.set(1, 1);
-                    stage.alpha = 0;
-                    stage.updateHitbox();
-                    stage.screenCenter();
-                    add(stage);
-                }
-        }
+        stage = new FlxSprite().loadGraphic(Paths.image('freeplay/bg/ProveIt'));
+        stage.antialiasing = ClientPrefs.data.antialiasing;
+        stage.scale.set(1, 1);
+        stage.alpha = 1;
+        stage.ID = q;
+        stage.updateHitbox();
+        stage.screenCenter();
+        stageGrp.add(stage);
+        add(stageGrp);
 
         Deformation.frames = Paths.getSparrowAtlas('freeplay/Deformation');
         Deformation.animation.addByPrefix('anim', 'deform', 4, true);
@@ -368,8 +348,6 @@ class BloxxinFreeplayState extends MusicBeatState
         add(portraitsOLD);
 
         if(curSelected >= songs.length) curSelected = 0;
-		bg.color = songs[curSelected].color;
-		intendedColor = bg.color;
         
 		lerpSelected = curSelected;
 
@@ -436,7 +414,6 @@ class BloxxinFreeplayState extends MusicBeatState
     {
         var shiftMult:Int = 1; //too lazy to code this in sorry
         
-        bg.alpha = 0.5;
         lerpScore = Math.floor(FlxMath.lerp(intendedScore, lerpScore, Math.exp(-elapsed * 24)));
 		lerpRating = FlxMath.lerp(intendedRating, lerpRating, Math.exp(-elapsed * 12));
 
@@ -566,20 +543,6 @@ class BloxxinFreeplayState extends MusicBeatState
             
                                         intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
                                         intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
-                                        var newColor:Int = songs[curSelected].color;
-            
-                                        if(newColor != intendedColor) 
-                                        {
-                                            if(colorTween != null) {
-                                                colorTween.cancel();
-                                            }
-                                            intendedColor = newColor;
-                                            colorTween = FlxTween.color(bg, 0.25, bg.color, intendedColor, {
-                                                onComplete: function(twn:FlxTween) {
-                                                    colorTween = null;
-                                                }
-                                            });
-                                        } 
                                     }
                                     if (FlxG.mouse.justPressed && !selectedSomethin && OldSongsOpened)
                                         {
@@ -592,7 +555,7 @@ class BloxxinFreeplayState extends MusicBeatState
                     if (!transitioningBetweenPages)
                     {
                         if (FlxG.mouse.overlaps(port) && !heyyousucksogokillyourself) 
-                            { 
+                            {
                                 if (curSelected != port.ID && !OldSongsOpened && !ControlsOpened)
                                 {
                                     curSelected = port.ID;
@@ -602,20 +565,7 @@ class BloxxinFreeplayState extends MusicBeatState
         
                                     intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
                                     intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
-                                    var newColor:Int = songs[curSelected].color;
-        
-                                    if(newColor != intendedColor) 
-                                    {
-                                        if(colorTween != null) {
-                                            colorTween.cancel();
-                                        }
-                                        intendedColor = newColor;
-                                        colorTween = FlxTween.color(bg, 0.25, bg.color, intendedColor, {
-                                            onComplete: function(twn:FlxTween) {
-                                                colorTween = null;
-                                            }
-                                        });
-                                    }
+                                    
                                 }else if(!OldSongsOpened && !ControlsOpened){
                                     FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
                                     FlxTween.tween(selectedPortrait, {alpha: 1}, 0.1, {ease: FlxEase.linear});
@@ -632,6 +582,15 @@ class BloxxinFreeplayState extends MusicBeatState
                                             SelectedSong();
                                         }
                                     }
+                                for (stag in stageGrp)
+                                {
+                                    if (curSelected != port.ID)
+                                    {
+                                        curSelected = port.ID;
+                                        port.ID = stag.ID;
+                                        SelectedObject = stag;
+                                    }
+                                }
                             }
 
                     }
