@@ -2,7 +2,8 @@
 <TextureAtlas imagePath="logoBumpin.png">
 	<!-- Created with Adobe Animate version 24.0.7.61 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="bop0000" x="0" y="0" width="774" height="521" frameX="-37" frameY="-24" frameWidth="848" frameHeight="569"/>
-	<SubTexture name="bop0001" x="774" y="0" width="848" height="569"/>
-	<SubTexture name="bop0002" x="0" y="569" width="792" height="527" frameX="-28" frameY="-21" frameWidth="848" frameHeight="569"/>
+	<SubTexture name="bop0000" x="0" y="0" width="654" height="429" frameX="-38" frameY="-64" frameWidth="730" frameHeight="557"/>
+	<SubTexture name="bop0001" x="654" y="0" width="694" height="557" frameX="-18" frameY="0" frameWidth="730" frameHeight="557"/>
+	<SubTexture name="bop0002" x="0" y="557" width="730" height="487" frameX="0" frameY="-35" frameWidth="730" frameHeight="557"/>
+	<SubTexture name="bop0003" x="0" y="0" width="654" height="429" frameX="-38" frameY="-64" frameWidth="730" frameHeight="557"/>
 </TextureAtlas>
