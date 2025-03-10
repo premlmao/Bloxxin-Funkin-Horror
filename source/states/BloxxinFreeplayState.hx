@@ -54,7 +54,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var colorTween:FlxTween;
 
     var stageGrp:FlxTypedGroup<FlxSprite>;
-    var stage:FlxSprite;
+    var stage:FlxSprite = new FlxSprite();
     var box:FlxSprite;
     var line:FlxSprite;
     var story:FlxSprite;
@@ -107,16 +107,10 @@ class BloxxinFreeplayState extends MusicBeatState
         PlayState.isStoryMode = false;
 
         stageGrp = new FlxTypedGroup<FlxSprite>();
-
-        stage = new FlxSprite().loadGraphic(Paths.image('freeplay/bg/ProveIt'));
-        stage.antialiasing = ClientPrefs.data.antialiasing;
-        stage.scale.set(1, 1);
-        stage.alpha = 1;
-        stage.ID = q;
-        stage.updateHitbox();
-        stage.screenCenter();
-        stageGrp.add(stage);
         add(stageGrp);
+        stageGrp.add(stage);
+
+        
 
         Deformation.frames = Paths.getSparrowAtlas('freeplay/Deformation');
         Deformation.animation.addByPrefix('anim', 'deform', 4, true);
@@ -566,6 +560,13 @@ class BloxxinFreeplayState extends MusicBeatState
                                     intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
                                     intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
                                     
+                                    stage.loadGraphic(Paths.image('freeplay/bg/' + songs[curSelected].songName));
+                                    stage.antialiasing = ClientPrefs.data.antialiasing;
+                                    stage.scale.set(1, 1);
+                                    stage.alpha = 1;
+                                    stage.updateHitbox();
+                                    stage.screenCenter();
+                                    
                                 }else if(!OldSongsOpened && !ControlsOpened){
                                     FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
                                     FlxTween.tween(selectedPortrait, {alpha: 1}, 0.1, {ease: FlxEase.linear});
@@ -582,15 +583,6 @@ class BloxxinFreeplayState extends MusicBeatState
                                             SelectedSong();
                                         }
                                     }
-                                for (stag in stageGrp)
-                                {
-                                    if (curSelected != port.ID)
-                                    {
-                                        curSelected = port.ID;
-                                        port.ID = stag.ID;
-                                        SelectedObject = stag;
-                                    }
-                                }
                             }
 
                     }
