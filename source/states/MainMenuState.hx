@@ -80,9 +80,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			menuItem.scrollFactor.set();
-
-			menuItem.x = -715;
-			menuItem.y = -300;
 			menuItem.updateHitbox();
 			menuItems.add(menuItem);
 
@@ -91,9 +88,9 @@ class MainMenuState extends MusicBeatState
 				case 0:
 					menuItem.scale.x = 0.35;
 					menuItem.scale.y = 0.35;
+					menuItem.x = 100;
+					menuItem.y = 500;
 					menuItem.screenCenter();
-					menuItem.x += 50;
-					menuItem.y += 315;
 					trace(menuItem.x, menuItem.y);
 					case 1 | 2 | 3 | 4:
 						menuItem.scale.x = 0.4;

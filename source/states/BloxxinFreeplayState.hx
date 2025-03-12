@@ -597,7 +597,6 @@ class BloxxinFreeplayState extends MusicBeatState
                                             FlxG.sound.play(Paths.sound('deformedSelect'));
                                         }else{
                                             SelectedSong();
-                                            FlxG.sound.play(Paths.sound('deformedSelect'));
                                         }
                                     }
                             }

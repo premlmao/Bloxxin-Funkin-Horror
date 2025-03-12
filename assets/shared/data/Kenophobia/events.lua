@@ -1,7 +1,7 @@
 function onCreate()
 makeLuaSprite('black',nil,0,0)
 makeGraphic('black',0xff00000,screenWidth * 2,screenHeight * 2)
-setObjectCamera('black', 'hud')
+setObjectCamera('black', 'other')
 setProperty('black.alpha', 1)
 screenCenter('black')
 addLuaSprite('black',true)
@@ -10,7 +10,7 @@ end
 
 function onStepHit()
 if curStep == 24 then
-setObjectCamera('black', 'hud')
+setObjectCamera('black', 'other')
 doTweenAlpha('silly','black',0,5)
 end
 
@@ -45,22 +45,22 @@ doTweenAlpha('silly','black',0,2)
 end
 
 if curStep == 1376 then
-setObjectCamera('black', 'hud')
+setObjectCamera('black', 'other')
 doTweenAlpha('silly','black',1,1)
 end
 
 if curStep == 1400 then
-setObjectCamera('black', 'hud')
+setObjectCamera('black', 'other')
 doTweenAlpha('silly','black',0,5)
 end
 
 if curStep == 1648 then
-setObjectCamera('black', 'hud')
+setObjectCamera('black', 'other')
 doTweenAlpha('silly','black',1,0.5)
 end
 
 if curStep == 1656 then
-setObjectCamera('black', 'hud')
+setObjectCamera('black', 'other')
 doTweenAlpha('silly','black',0,0.5)
 doTweenAlpha('happyscribble', 'dad', 0, 0.01, 'cubeInOut')
 end
