@@ -146,13 +146,6 @@ function onBeatHit()
             noteTweenY('noteY8', 7, 570, 1, 'backOut')
         end
     end
-    if curBeat == 288 then
-        doTweenAlpha('wholeHUDgoaway', 'camHUD', 0, 5, 'linear')
-        noteTweenX('noteX5', 4, 750, 1, 'backOut');
-        noteTweenX('noteX6', 5, 860, 1, 'backOut');
-        noteTweenX('noteX7', 6, 970, 1, 'backOut');
-        noteTweenX('noteX8', 7, 1080, 1, 'backOut');
-    end
 end
 
 function onStepHit()
@@ -221,5 +214,22 @@ function onStepHit()
     end
     if curStep == 144 then
         noteTweenAngle('noteAngle8', 7, 0, 1.3, 'cubeOut')
+    end
+    if curStep == 1136 then
+        doTweenY('byeHUD1','healthBar',900,crochet*0.005,'cubeInOut')
+        doTweenY('byeHUD2','healthBarAround',900,crochet*0.005,'cubeInOut')
+        doTweenY('byeHUD3','iconP1',900,crochet*0.005,'cubeInOut')
+        doTweenY('byeHUD4','iconP2',900,crochet*0.005,'cubeInOut')
+        doTweenY('byeHUD5','scoreTxt',900,crochet*0.005,'cubeInOut')
+        if downscroll then
+            doTweenY('byeHUD1','healthBar',-300,crochet*0.005,'cubeInOut')
+            doTweenY('byeHUD2','healthBarAround',-300,crochet*0.005,'cubeInOut')
+            doTweenY('byeHUD3','iconP1',-300,crochet*0.005,'cubeInOut')
+            doTweenY('byeHUD4','iconP2',-300,crochet*0.005,'cubeInOut')
+            doTweenY('byeHUD5','scoreTxt',-300,crochet*0.005,'cubeInOut')
+        end
+    end
+    if curStep == 1264 then
+        doTweenAlpha('silly','black',1,8)
     end
 end
