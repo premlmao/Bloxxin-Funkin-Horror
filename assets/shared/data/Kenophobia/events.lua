@@ -68,5 +68,6 @@ end
 if curStep == 2232 then
 setObjectCamera('black', 'game')
 doTweenAlpha('silly','black',1,5)
+doTweenAlpha('silly2', 'camHUD', 0, 5, 'linear')
 end
 end

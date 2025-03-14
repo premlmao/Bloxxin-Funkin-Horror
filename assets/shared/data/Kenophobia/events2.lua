@@ -1,23 +1,23 @@
 function onCreate()
     downscroll = getPropertyFromClass('backend.ClientPrefs', 'data.downScroll')
 end
-function onCreatePost()
-for _, element in ipairs({'iconP1', 'healthBar'}) do
-    setProperty(element .. '.flipX', true)
-end
-end
 function onUpdatePost()
 local barX = getProperty('healthBar.x')
 local barCenter = barX + getProperty('healthBar.width') * .5
 setProperty('iconP1.x', barX - getProperty('iconP1.x') + barCenter + getProperty('iconP1.frameWidth'))
 setProperty('iconP2.x', 190)
+if curSection < 56 or curSection >= 104 then
+for _, element in ipairs({'iconP1', 'healthBar'}) do
+    setProperty(element .. '.flipX', true)
+end
+end
 if curSection >= 23 and curSection < 56 then
     setProperty('camHUD.y', math.sin((getSongPosition() / 200) * (curBpm / 35) * 1.0) * 0.6);
     setProperty('camHUD.angle', math.sin((getSongPosition() / 250) * (curBpm / 65) * -1.0) * 0.6);
     setProperty('camGame.y', math.sin((getSongPosition() / 100) * (curBpm / 35) * 1.0) * 0.4);
     setProperty('camGame.angle', math.sin((getSongPosition() / 150) * (curBpm / 65) * -1.0) * 0.4);
     end
-    if curSection >= 56 then
+    if curSection >= 56 and curSection < 104 then
         callMethod('updateIconsPosition', {''})
         for _, element in ipairs({'iconP1', 'healthBar'}) do
             setProperty(element .. '.flipX', false)
@@ -51,8 +51,16 @@ function onSongStart()
 end
 
 function onBeatHit()
-    function opponentNoteHit()
+    function opponentNoteHit(_, _, type)
         triggerEvent('Screen Shake', '0.1, 0.006', '0.1, 0.005')
+        if getHealth() >= 0.02 then
+            setHealth(getHealth() - 0.02)
+        end
+    end
+    function goodNoteHit()
+        if getHealth() >= 0.025 then
+            setHealth(getHealth() + 0.025)
+        end
     end
     if curBeat == 32 then
         noteTweenAlpha('noteAlpha5', 4, 1, 1, 'linear')
@@ -74,7 +82,7 @@ function onBeatHit()
             doTweenY('hiHUD5','scoreTxt',129,crochet*0.005,'cubeInOut')
         end
     end
-    if curBeat == 218 then
+    if curBeat == 218 or curBeat == 282 or curBeat == 410 then
         doTweenY('byeHUD1','healthBar',900,crochet*0.005,'cubeInOut')
         doTweenY('byeHUD2','healthBarAround',900,crochet*0.005,'cubeInOut')
         doTweenY('byeHUD3','iconP1',900,crochet*0.005,'cubeInOut')
@@ -88,11 +96,10 @@ function onBeatHit()
             doTweenY('byeHUD5','scoreTxt',-300,crochet*0.005,'cubeInOut')
         end
     end
-    if curBeat == 220 then
+    if curBeat == 220 or curBeat == 350 or curBeat == 412 then
         setHealth(50/50)
-        
     end
-    if curBeat == 222 then
+    if curBeat == 222 or curBeat == 350 or curBeat == 414 then
         doTweenY('hiHUD1','healthBar',641,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
