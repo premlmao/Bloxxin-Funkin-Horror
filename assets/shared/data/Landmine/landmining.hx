@@ -12,6 +12,11 @@ import flixel.FlxState;
 import flixel.math.FlxMath;
 
 var randomize:FlxText = new FlxText();
+var prevMech:String;
+var newMech:String;
+
+var healthDecay:Float;
+
 
 function onCreate()
 {
@@ -61,9 +66,24 @@ function onBeatHit()
     }
     switch (curBeat)
     {
+        case 152:
+            resetallEvents();
+        case 347:
+            resetallEvents();
+                    for (i in 0...4)
+                        {
+                            FlxTween.tween(game.strumLineNotes.members[i], {x: (100 + 110 * i) + 650}, 0.6, {ease: FlxEase.cubeOut});
+                            FlxTween.tween(game.strumLineNotes.members[i], {alpha: 1}, 1, {ease: FlxEase.cubeOut});
+                        }
+                    for (i in 4...8)
+                        {
+                            FlxTween.tween(game.strumLineNotes.members[i], {x: (300 + 110 * i) - 650}, 0.6, {ease: FlxEase.cubeOut});
+                        }
         case 32,96,224,256:
             Randomize();
             randomize.visible = true;
+            randomize.scale.set(1,1);
+            randomize.alpha = 1;
             modchartTweens.set('randoalpha', FlxTween.tween(randomize, {alpha: 0}, 1, {ease: FlxEase.quadIn}));
             modchartTweens.set('randoscale', FlxTween.tween(randomize.scale, {x: 1.5, y: 1.5}, 1, {ease: FlxEase.quadIn}));
         case 35,99,227,269:
@@ -73,11 +93,36 @@ function onBeatHit()
     }
 }
 
-var prevMech:String;
-var newMech:String;
+function resetallEvents()
+{
+    prevMech = newMech;
+
+    switch (prevMech)
+    {
+        case "random h drain":
+            healthDecay = 0;
+        case "random scroll speed":
+            game.songSpeed = 2.7;
+        case "strum swap":
+            for (i in 0...8)
+                {
+                    FlxTween.cancelTweensOf(game.strumLineNotes.members[i]);
+                }
+    }
+}
+
+function opponentNoteHit()
+{
+    if (game.health > 0.2)
+    {
+        game.health -= healthDecay;
+    }
+}
+
 
 function Randomize()
 {
+    trace("RANDOMIZEeE!!1");
     var mechanics = [
     "random h drain",
     "random scroll speed",
@@ -85,47 +130,50 @@ function Randomize()
     "random note pos"
     ];
 
-    prevMech = newMech;
+    resetallEvents();
 
     newMech = mechanics[FlxG.random.int(0, mechanics.length - 1)];
 
-    switch (prevMech)
+    if (newMech != "random note pos")
     {
-        case "random h drain":
-        case "random scroll speed":
-            game.songSpeed = 2.7;
-            trace('scroll speed: ' + songSpeed);
-        case "strum swap" | "random note pos":
-            for (i in 0...4)
-                {
-                    FlxTween.tween(game.strumLineNotes.members[i], {x: 300 + (110 * i), y: 50}, 1, {ease: FlxEase.cubeOut});
-                }
-                for (i in 4...8)
-                {
-                    FlxTween.tween(game.strumLineNotes.members[i], {x: 100 + (110 * i), y: 50}, 1, {ease: FlxEase.cubeOut});
-                }
+        
+        for (i in 0...4)
+            {
+                FlxTween.tween(game.strumLineNotes.members[i], {x: (100 + 110 * i) + 650}, 0.6, {ease: FlxEase.cubeOut});
+                FlxTween.tween(game.strumLineNotes.members[i], {alpha: 1}, 1, {ease: FlxEase.cubeOut});
+            }
+        for (i in 4...8)
+            {
+                FlxTween.tween(game.strumLineNotes.members[i], {x: (300 + 110 * i) - 650}, 0.6, {ease: FlxEase.cubeOut});
+            }
     }
 
     switch(newMech)
     {
         case "random h drain":
+            healthDecay = FlxG.random.float(0.05, 0.15);
         case "random scroll speed":
             game.songSpeed = FlxG.random.float(1.5, 4.5);
-            trace('scroll speed: ' + songSpeed);
         case "strum swap":
                 for (i in 0...4)
                 {
-                    FlxTween.tween(game.strumLineNotes.members[i], {x: 100 + (110 * i)}, 1, {ease: FlxEase.cubeOut, type: 4});
+                    FlxTween.tween(game.strumLineNotes.members[i], {x: 100 + (110 * i)}, 1, {ease: FlxEase.cubeOut, type: 4, startDelay: 1});
                 }
                 for (i in 4...8)
                 {
-                    FlxTween.tween(game.strumLineNotes.members[i], {x: 300 + (110 * i)}, 1, {ease: FlxEase.cubeOut, type: 4});
+                    FlxTween.tween(game.strumLineNotes.members[i], {x: 300 + (110 * i)}, 1, {ease: FlxEase.cubeOut, type: 4, startDelay: 1});
                 }
         case "random note pos":
-            for (i in 0...7)
+            for (i in 0...8)
                 {
+                    if (i < 4)
+                        {
+                            game.strumLineNotes.members[i].alpha = 0.3;
+                        }
                     FlxTween.tween(game.strumLineNotes.members[i], {x: FlxG.random.int(100, 350) + (110 * i)}, 1, {ease: FlxEase.cubeOut});
                 }
-    trace(newMech);
     }
+
+    trace(prevMech);
+    trace(newMech);
 }

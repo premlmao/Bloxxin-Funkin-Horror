@@ -58,16 +58,6 @@ function onBeatHit()
             doTweenY('hiHUD5','scoreTxt',129,crochet*0.005,'cubeInOut')
         end
     end
-    if curBeat == 225 then
-        noteTweenX('noteX1', 0, 750, 1, 'cubeOut')
-        noteTweenX('noteX2', 1, 860, 1, 'cubeOut')
-        noteTweenX('noteX3', 2, 970, 1, 'cubeOut')
-        noteTweenX('noteX4', 3, 1080, 1, 'cubeOut')
-        noteTweenX('noteX5', 4, 100, 1, 'cubeOut')
-        noteTweenX('noteX6', 5, 210, 1, 'cubeOut')
-        noteTweenX('noteX7', 6, 320, 1, 'cubeOut')
-        noteTweenX('noteX8', 7, 430, 1, 'cubeOut')
-    end
     if curBeat == 416 then
         setProperty('camHUD.visible', false)
     end
