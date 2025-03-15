@@ -442,33 +442,22 @@ class PauseSubState extends MusicBeatSubstate
 		}
 
 		for (i in 0...menuItems.length) {
-			var item = new FlxText(535, 1200, menuItems[i], true);
+			var item = new FlxText(535, 1250, menuItems[i], true);
 			item.setFormat(Paths.font("Gotham Black Regular.ttf"), 28, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			item.ID = i;
+			item.y += (60 * i);
 			grpMenuShit.add(item);
 
-			if(menuItems[i] == 'Resume Game')
-			{
-				item.x = 538;
-				FlxTween.tween(item, {y: 239}, 0.75, {ease: FlxEase.circOut});
-			}
+			FlxTween.tween(item, {y: (60 * i) + 240}, 0.75, {ease: FlxEase.circOut});
 
-			if(menuItems[i] == 'Reset Character')
+			switch(menuItems[i])
 			{
-				item.x = 527;
-				FlxTween.tween(item, {y: 300}, 0.75, {ease: FlxEase.circOut});
-			}
-
-			if(menuItems[i] == 'Game Options')
-			{
-				item.x = 538;
-				FlxTween.tween(item, {y: 360}, 0.75, {ease: FlxEase.circOut});
-			}
-
-			if(menuItems[i] == 'Leave Game')
-			{
-				item.x = 550;
-				FlxTween.tween(item, {y: 423}, 0.75, {ease: FlxEase.circOut});
+				case 'Resume Game' | 'Game Options':
+					item.x = 538;
+				case 'Reset Character':
+					item.x = 527;
+				case 'Leave Game':
+					item.x = 550;
 			}
 
 			if(PlayState.chartingMode)
