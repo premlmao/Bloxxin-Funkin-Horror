@@ -7,7 +7,7 @@ function onCreate()
     addAnimationByPrefix('oofexe', 'right', 'right', 24, true);
     addAnimationByPrefix('oofexe', 'up', 'up', 24, true);
     addAnimationByPrefix('oofexe', 'down', 'down', 24, true);
-    setObjectCamera('oofexe', 'hud')
+    setObjectCamera('oofexe', 'other')
     addLuaSprite('oofexe', false)
 end
 

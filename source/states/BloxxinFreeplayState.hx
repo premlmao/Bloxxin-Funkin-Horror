@@ -731,12 +731,6 @@ class BloxxinFreeplayState extends MusicBeatState
                         MusicBeatState.switchState(new FreeplayState());
                     }
 
-                    if(FlxG.keys.justPressed.CONTROL)
-                    {
-                        persistentUpdate = false;
-                        openSubState(new GameplayChangersSubstate());
-                    }
-
                     super.update(elapsed);
         }
     }

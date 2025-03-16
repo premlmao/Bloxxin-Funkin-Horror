@@ -253,7 +253,7 @@ function onBeatHit()
 end
 
 function opponentNoteHit()
-    if curSection >= 34 then
+    if curSection >= 34 and curSection < 79 then
     triggerEvent('Screen Shake', '0.1, 0.006', '0.1, 0.006')
     if getHealth() >= 0.02 then
         setHealth(getHealth() - 0.02)
