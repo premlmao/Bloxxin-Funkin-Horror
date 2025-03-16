@@ -44,9 +44,9 @@ class BloxxinCreditsState extends MusicBeatState
 
 	var bg:FlxSprite;
 
-	var grad:FlxSprite;
-
 	var baseplate:FlxSprite;
+
+	var grad:FlxSprite;	
 
 	var window:FlxSprite;
 
@@ -80,17 +80,20 @@ class BloxxinCreditsState extends MusicBeatState
 
 
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/background'));
+		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg.scale.set(1, 1);
+        bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);
-
-		grad = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/gradient'));
-		grad.screenCenter();
-		add(grad);
 
 		baseplate = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/baseplate'));
 		baseplate.screenCenter();
 		add(baseplate);
+
+		grad = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/gradient'));
+		grad.screenCenter();
+		add(grad);
 
 		window = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/window'));
 		window.screenCenter();
@@ -136,8 +139,6 @@ class BloxxinCreditsState extends MusicBeatState
 
 		grad.color = CoolUtil.colorFromString(teamList[currentMember][4]);
 		intendedGradColor = grad.color;
-		bg.color = CoolUtil.colorFromString(teamList[currentMember][5]);
-		intendedBgColor = bg.color;
 
 
 		var controls:FlxText = new FlxText(0, 0, FlxG.width, "LEFT ARROW | RIGHT ARROW to navigate!", 32);
@@ -172,7 +173,7 @@ class BloxxinCreditsState extends MusicBeatState
 			if (controls.BACK)
 			{
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new MainMenuState());
+				MusicBeatState.switchState(new BloxxinMainMenuState());
 				quitting = true;
 			}
 			super.update(elapsed);
@@ -232,18 +233,6 @@ class BloxxinCreditsState extends MusicBeatState
 				gradTween = FlxTween.color(grad, 0.3, grad.color, intendedGradColor, {
 					onComplete: function(twn:FlxTween) {
 						gradTween = null;
-					}
-				});
-			}
-			var bgColor:FlxColor = CoolUtil.colorFromString(teamList[currentMember][5]);
-			if(bgColor != intendedBgColor){
-				if(bgTween != null) {
-					bgTween.cancel();
-				}
-				intendedBgColor = bgColor;
-				bgTween = FlxTween.color(bg, 0.3, bg.color, intendedBgColor, {
-					onComplete: function(twn:FlxTween) {
-						bgTween = null;
 					}
 				});
 			}

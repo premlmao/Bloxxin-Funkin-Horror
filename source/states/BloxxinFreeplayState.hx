@@ -1,5 +1,7 @@
 package states;
 
+import shaders.BlurShader;
+
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -39,6 +41,7 @@ class BloxxinFreeplayState extends MusicBeatState
 {
     var songs:Array<CustomSongMetadata> = [];
 
+    public var blur:BlurShader;
     private static var SelectedObject:FlxSprite;
     public static var curSelected:Int = 0;
     var lerpSelected:Float = 0;
@@ -54,9 +57,6 @@ class BloxxinFreeplayState extends MusicBeatState
 
     var inventoryI:Int = 0;
     var inventoryB:Int = 0;
-    
-    var intendedColor:Int;
-    var colorTween:FlxTween;
 
     var stageGrp:FlxTypedGroup<FlxSprite>;
     var stage:FlxSprite = new FlxSprite();
@@ -66,15 +66,18 @@ class BloxxinFreeplayState extends MusicBeatState
     var extra:FlxSprite;
     var selectedPortrait:FlxSprite;
     var portraits:FlxTypedGroup<FlxSprite>;
+    var selectedPortraitSmall:FlxSprite;
     var portraitsOLD:FlxTypedGroup<FlxSprite>;
     var portrait:FlxSprite;
     var vignette:FlxSprite;
-    var blur:FlxSprite;
     var disconnected:FlxSprite;
     var disconnectedbutton:FlxSprite;
     var disconnectedtext:FlxText;
     var beatstorymodelilbro:FlxText;
     var ok:FlxText;
+
+    var popup:FlxSprite;
+    var theText:FlxText;
 
     var pbText:FlxText;
     var lerpScore:Int = 0;
@@ -91,12 +94,22 @@ class BloxxinFreeplayState extends MusicBeatState
     var OldSongsOpened:Bool = false;
     var ControlsOpened:Bool = false;
     var selectedSomethin:Bool = false;
+    var PopupMessage:Bool = false;
     var buttonOldSong:FlxSprite;
     var mouse:FlxSprite;
     var oldInventory:FlxSprite;
 
+    var camGame:FlxCamera;
+    var camFreeplay:FlxCamera;
+
     override function create()
-    {
+    {     
+        camGame = initPsychCamera();
+
+        camFreeplay = new FlxCamera();
+        camFreeplay.bgColor.alpha = 0;
+        FlxG.cameras.add(camFreeplay, false);
+
         if (currentTab == 0)
             {
                 currentTab = 1;
@@ -124,7 +137,7 @@ class BloxxinFreeplayState extends MusicBeatState
 
         Deformation.frames = Paths.getSparrowAtlas('freeplay/Deformation');
         Deformation.animation.addByPrefix('anim', 'deform', 4, true);
-        Deformation.scale.y = 1.6;
+        Deformation.scale.y = 1.8;
         Deformation.updateHitbox();
         Deformation.screenCenter();
 
@@ -164,6 +177,7 @@ class BloxxinFreeplayState extends MusicBeatState
         vignette.antialiasing = ClientPrefs.data.antialiasing;
         vignette.updateHitbox();
         vignette.screenCenter();
+        vignette.scale.set(1.1, 1.1);
         vignette.alpha = 0;
         add(vignette);
 
@@ -205,9 +219,9 @@ class BloxxinFreeplayState extends MusicBeatState
                 {
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
                     if (WeekData.weeksList[i] != "weekold")
-                        {
-                            AllUnlocked = false;
-                        }
+                    {
+                        AllUnlocked = false;
+                    }
                 }
                 else if (!Assets.exists('assets/shared/images/freeplay/portrait_' + song[0] + '.png'))
                 {
@@ -216,7 +230,7 @@ class BloxxinFreeplayState extends MusicBeatState
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_' + song[0]));
                 }
 
-                if (song[0] == "ContentDeleted")
+                if (song[0] == "RealMurderRap")
                     {
                         l = 1;
                     }
@@ -296,6 +310,15 @@ class BloxxinFreeplayState extends MusicBeatState
                 }else{
                     l++;
                 }
+
+                if(Highscore.getScore(song[0], curDifficulty) != 0 && song[0] == "Deformed")
+                    {
+                        if (!PopupMessage)
+                        {
+                            PopupMessage = true;
+                            Finale();
+                        }
+                    }
 			}
 		}
         selectedPortrait = new FlxSprite().loadGraphic(Paths.image('freeplay/selectedOverlay'));
@@ -349,48 +372,87 @@ class BloxxinFreeplayState extends MusicBeatState
         oldInventory.visible = false;
         add(oldInventory);
 
+        selectedPortraitSmall = new FlxSprite().loadGraphic(Paths.image('freeplay/selectedOverlay'));
+        selectedPortraitSmall.antialiasing = ClientPrefs.data.antialiasing;
+        selectedPortraitSmall.scale.set(0.1, 0.1);
+        selectedPortraitSmall.x = 115;
+        selectedPortraitSmall.y = 110;
+        selectedPortraitSmall.alpha = 0;
+        selectedPortraitSmall.updateHitbox();
+        add(selectedPortraitSmall);
+
         add(portraitsOLD);
 
         if(curSelected >= songs.length) curSelected = 0;
         
 		lerpSelected = curSelected;
         
+        blur = new BlurShader();
+        FlxG.camera.setFilters([]);
+        
         disconnected = new FlxSprite().loadGraphic(Paths.image('freeplay/disconnectedbecausefuckyou'));
         disconnected.antialiasing = ClientPrefs.data.antialiasing;
         disconnected.screenCenter();
         disconnected.updateHitbox();
+        disconnected.scale.set(0.1, 0.1);
         disconnected.visible = false;
+        disconnected.camera = camFreeplay;
         add(disconnected);
         
         disconnectedbutton = new FlxSprite().loadGraphic(Paths.image('freeplay/disconnectedbecausefuckyoubutton'));
         disconnectedbutton.antialiasing = ClientPrefs.data.antialiasing;
         disconnectedbutton.screenCenter();
         disconnectedbutton.updateHitbox();
+        disconnectedbutton.scale.set(0.1, 0.1);
         disconnectedbutton.visible = false;
+        disconnectedbutton.camera = camFreeplay;
         add(disconnectedbutton);
 
         disconnectedtext = new FlxText(FlxG.width * 2, 2, 0, "Disconnected", 32);
         disconnectedtext.setFormat(Paths.font("Arial Regular.ttf"), 24, FlxColor.WHITE);
+        disconnectedtext.scale.set(0.1, 0.1);
         disconnectedtext.alignment = "center";
         disconnectedtext.screenCenter();
         disconnectedtext.y -= 75;
         disconnectedtext.visible = false;
+        disconnectedtext.camera = camFreeplay;
         add(disconnectedtext);
 
-        beatstorymodelilbro = new FlxText(FlxG.width * 2, 2, 0, "beat story mode lil bro\n(Error Code: 69)", 32);
+        beatstorymodelilbro = new FlxText(FlxG.width * 2, 2, 0, "beat story mode lil bro\n(Error Code: 267)", 32);
         beatstorymodelilbro.setFormat(Paths.font("Arial Regular.ttf"), 18, 0xFFACACAC);
+        beatstorymodelilbro.scale.set(0.1, 0.1);
         beatstorymodelilbro.alignment = "center";
         beatstorymodelilbro.screenCenter();
         beatstorymodelilbro.visible = false;
+        beatstorymodelilbro.camera = camFreeplay;
         add(beatstorymodelilbro);
         
         ok = new FlxText(FlxG.width * 2, 2, 0, "OK", 32);
         ok.setFormat(Paths.font("Arial Regular.ttf"), 22, 0xFF000000);
+        ok.scale.set(0.1, 0.1);
         ok.alignment = "center";
         ok.screenCenter();
         ok.y += 55;
         ok.visible = false;
+        ok.camera = camFreeplay;
         add(ok);
+
+        popup = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/window'));
+        popup.antialiasing = ClientPrefs.data.antialiasing;
+        popup.scale.set(0.1, 0.1);
+        popup.updateHitbox();
+        popup.screenCenter();
+        popup.visible = false;
+        add(popup);
+
+        theText = new FlxText(FlxG.width * 2, 2, 0, "hey yasdgiasbdjkwbadbs\nsadbadhhwaihdbisdihaiushdiuhwands\nashbdjhbwajbsjdbwuagsdw", 32);
+        theText.setFormat(Paths.font("Gotham Black Regular.ttf"), 24, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        theText.borderSize = 2;
+        theText.alignment = "center";
+        theText.scale.set(0.1, 0.1);
+        theText.screenCenter();
+        theText.visible = false;
+        add(theText);
 
         if(storyBeaten != 1)
         {
@@ -497,6 +559,7 @@ class BloxxinFreeplayState extends MusicBeatState
                         OldSongsOpened = true;
                         buttonOldSong.animation.play('selected');
                         oldInventory.visible = true;
+                        selectedPortraitSmall.visible = true;
                         for (port in portraitsOLD)
                             {
                                 port.visible = true;
@@ -505,6 +568,7 @@ class BloxxinFreeplayState extends MusicBeatState
                         OldSongsOpened = false;
                         buttonOldSong.animation.play('idle');
                         oldInventory.visible = false;
+                        selectedPortraitSmall.visible = false;
                         for (port in portraitsOLD)
                             {
                                 port.visible = false;
@@ -539,6 +603,8 @@ class BloxxinFreeplayState extends MusicBeatState
                                     {
                                         curSelected = port.ID;
                                         SelectedObject = port;
+                                        FlxTween.tween(selectedPortraitSmall, {x: port.x - 5, y: port.y - 5, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                                        FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.sineInOut});
                                         FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
             
                                         intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
@@ -562,6 +628,8 @@ class BloxxinFreeplayState extends MusicBeatState
                                     SelectedObject = port;
                                     FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
                                     FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                                    FlxTween.tween(selectedPortraitSmall, {alpha: 0}, 0.1, {ease: FlxEase.sineInOut});
+                                    selectedPortrait.scale.set(0.2, 0.2);
         
                                     intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
                                     intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
@@ -572,15 +640,6 @@ class BloxxinFreeplayState extends MusicBeatState
                                     stage.alpha = 1;
                                     stage.updateHitbox();
                                     stage.screenCenter();
-                                    if (stage.alpha == 1)
-                                    {
-                                        FlxTween.tween(stage, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
-                                    }
-                                    else
-                                    {
-                                        FlxTween.tween(stage, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
-                                    }
-                                        
                                     
                                 }else if(!OldSongsOpened && !ControlsOpened){
                                     FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
@@ -611,12 +670,14 @@ class BloxxinFreeplayState extends MusicBeatState
                         selectedSomethin = true;
                         FlxG.sound.play(Paths.sound('cancelMenu'));
                         persistentUpdate = false;
-
-                        if(colorTween != null) {
-                            colorTween.cancel();
-                        }
-                        MusicBeatState.switchState(new MainMenuState());
+                        MusicBeatState.switchState(new BloxxinMainMenuState());
                         FlxG.mouse.visible = false;
+
+                        disconnected.visible = false;
+                        disconnectedbutton.visible = false;
+                        disconnectedtext.visible = false;
+                        beatstorymodelilbro.visible = false;
+                        ok.visible = false;
                     }
                 }
 
@@ -639,11 +700,7 @@ class BloxxinFreeplayState extends MusicBeatState
                             selectedSomethin = true;
                             FlxG.sound.play(Paths.sound('cancelMenu'));
                             persistentUpdate = false;
-
-                            if(colorTween != null) {
-                                colorTween.cancel();
-                            }
-                            MusicBeatState.switchState(new MainMenuState());
+                            MusicBeatState.switchState(new BloxxinMainMenuState());
                             FlxG.mouse.visible = false;
                         }
 
@@ -711,12 +768,28 @@ class BloxxinFreeplayState extends MusicBeatState
     {
         new FlxTimer().start(1, function(timer:FlxTimer)
             {
+                FlxTween.tween(disconnected.scale, {x: 1, y: 1}, 0.05, {ease: FlxEase.linear});
+                FlxTween.tween(disconnectedbutton.scale, {x: 1, y: 1}, 0.05, {ease: FlxEase.linear});
+                FlxTween.tween(disconnectedtext.scale, {x: 1, y: 1}, 0.05, {ease: FlxEase.linear});
+                FlxTween.tween(beatstorymodelilbro.scale, {x: 1, y: 1}, 0.05, {ease: FlxEase.linear});
+                FlxTween.tween(ok.scale, {x: 1, y: 1}, 0.05, {ease: FlxEase.linear});
+                FlxG.camera.setFilters([new ShaderFilter(blur)]);
                 disconnected.visible = true;
                 disconnectedbutton.visible = true;
                 disconnectedtext.visible = true;
                 beatstorymodelilbro.visible = true;
                 ok.visible = true;
             });
+    }
+    public function Finale()
+    {
+        new FlxTimer().start(1, function(timer:FlxTimer)
+        {
+            FlxTween.tween(popup.scale, {x: 1, y: 1}, 0.05, {ease: FlxEase.linear});
+            FlxTween.tween(theText.scale, {x: 1, y: 1}, 0.05, {ease: FlxEase.linear});
+            popup.visible = true;
+            theText.visible = true;
+        });
     }
 
 

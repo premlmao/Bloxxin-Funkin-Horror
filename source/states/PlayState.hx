@@ -2404,7 +2404,7 @@ class PlayState extends MusicBeatState
 					if(FlxTransitionableState.skipNextTransIn) {
 						CustomFadeTransition.nextCamera = null;
 					}
-					MusicBeatState.switchState(new MainMenuState());
+					MusicBeatState.switchState(new BloxxinMainMenuState());
 
 					// if ()
 					if(!ClientPrefs.getGameplaySetting('practice') && !ClientPrefs.getGameplaySetting('botplay')) {

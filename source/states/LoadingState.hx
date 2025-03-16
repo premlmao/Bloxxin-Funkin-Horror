@@ -56,7 +56,7 @@ class LoadingState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
 
-		loadRoblox = new FlxSprite().loadGraphic(Paths.image('mainmenuUI/robloxBackdropWhite'));
+		loadRoblox = new FlxSprite().loadGraphic(Paths.image('robloxBackdropWhite'));
 		loadRoblox.antialiasing = ClientPrefs.data.antialiasing;
 		loadRoblox.updateHitbox();
 		loadRoblox.screenCenter();
