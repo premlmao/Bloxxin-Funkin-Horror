@@ -22,7 +22,7 @@ import objects.Note;
 import objects.NoteSplash;
 import objects.Character;
 
-import states.MainMenuState;
+import states.BloxxinMainMenuState;
 import states.StoryMenuState;
 import states.BloxxinFreeplayState;
 
@@ -139,7 +139,7 @@ class FunkinLua {
 		set('rating', 0);
 		set('ratingName', '');
 		set('ratingFC', '');
-		set('version', MainMenuState.psychEngineVersion.trim());
+		set('version', BloxxinMainMenuState.psychEngineVersion.trim());
 
 		set('inGameOver', false);
 		set('mustHitSection', false);

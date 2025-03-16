@@ -19,7 +19,7 @@ import shaders.ColorSwap;
 
 import states.StoryMenuState;
 import states.OutdatedState;
-import states.MainMenuState;
+import states.BloxxinMainMenuState;
 
 #if VIDEOS_ALLOWED
 #if (hxCodec >= "3.0.0") import hxcodec.flixel.FlxVideo as VideoHandler;
@@ -111,7 +111,7 @@ class TitleState extends MusicBeatState
 			http.onData = function (data:String)
 			{
 				updateVersion = data.split('\n')[0].trim();
-				var curVersion:String = MainMenuState.psychEngineVersion.trim();
+				var curVersion:String = BloxxinMainMenuState.psychEngineVersion.trim();
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
 				if(updateVersion != curVersion) {
 					trace('versions arent matching!');
@@ -224,7 +224,7 @@ class TitleState extends MusicBeatState
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 		logoBl.antialiasing = ClientPrefs.data.antialiasing;
 
-		logoBl.animation.addByPrefix('bump', 'bop', 24, false);
+		logoBl.animation.addByPrefix('bump', 'logo bop', 12, false);
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
 		// logoBl.screenCenter();
@@ -431,7 +431,7 @@ class TitleState extends MusicBeatState
 					if (mustUpdate) {
 						MusicBeatState.switchState(new OutdatedState());
 					} else {
-						MusicBeatState.switchState(new MainMenuState());
+						MusicBeatState.switchState(new BloxxinMainMenuState());
 					}
 					closedState = true;
 				});

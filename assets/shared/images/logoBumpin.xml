@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="logoBumpin.png">
-	<!-- Created with Adobe Animate version 24.0.7.61 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="bop0000" x="0" y="0" width="654" height="429" frameX="-38" frameY="-64" frameWidth="730" frameHeight="557"/>
-	<SubTexture name="bop0001" x="654" y="0" width="694" height="557" frameX="-18" frameY="0" frameWidth="730" frameHeight="557"/>
-	<SubTexture name="bop0002" x="0" y="557" width="730" height="487" frameX="0" frameY="-35" frameWidth="730" frameHeight="557"/>
-	<SubTexture name="bop0003" x="0" y="0" width="654" height="429" frameX="-38" frameY="-64" frameWidth="730" frameHeight="557"/>
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="logo.png"><SubTexture name="logo bop0000" x="832" y="1040" width="838" height="370" frameX="-15" frameY="-100" frameWidth="868" frameHeight="569" />
+<SubTexture name="logo bop0001" x="0" y="1040" width="832" height="378" frameX="-18" frameY="-96" frameWidth="868" frameHeight="569" />
+<SubTexture name="logo bop0002" x="0" y="0" width="650" height="548" frameX="-109" frameY="-11" frameWidth="868" frameHeight="569" />
+<SubTexture name="logo bop0003" x="1394" y="0" width="768" height="462" frameX="-50" frameY="-54" frameWidth="868" frameHeight="569" />
+<SubTexture name="logo bop0004" x="650" y="0" width="744" height="496" frameX="-62" frameY="-37" frameWidth="868" frameHeight="569" />
+<SubTexture name="logo bop0005" x="0" y="548" width="750" height="492" frameX="-59" frameY="-39" frameWidth="868" frameHeight="569" />
 </TextureAtlas>

@@ -66,6 +66,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var extra:FlxSprite;
     var selectedPortrait:FlxSprite;
     var portraits:FlxTypedGroup<FlxSprite>;
+    var selectedPortraitSmall:FlxSprite;
     var portraitsOLD:FlxTypedGroup<FlxSprite>;
     var portrait:FlxSprite;
     var vignette:FlxSprite;
@@ -88,7 +89,6 @@ class BloxxinFreeplayState extends MusicBeatState
     var storyBeaten:Int = 0;
     var heyyousucksogokillyourself:Bool = false;
     var Deformation:FlxSprite = new FlxSprite(0, 0);
-    var clickme:FlxSprite = new FlxSprite(0, 0);
     var currentTab:Int;
 
     var OldSongsOpened:Bool = false;
@@ -135,12 +135,6 @@ class BloxxinFreeplayState extends MusicBeatState
         stage.screenCenter();
         stageGrp.add(stage);
 
-        clickme.frames = Paths.getSparrowAtlas('freeplay/clickme');
-        clickme.animation.addByPrefix('smile', 'bop', 3, true);
-        clickme.updateHitbox();
-        clickme.screenCenter();
-        add(clickme);
-
         Deformation.frames = Paths.getSparrowAtlas('freeplay/Deformation');
         Deformation.animation.addByPrefix('anim', 'deform', 4, true);
         Deformation.scale.y = 1.8;
@@ -183,6 +177,7 @@ class BloxxinFreeplayState extends MusicBeatState
         vignette.antialiasing = ClientPrefs.data.antialiasing;
         vignette.updateHitbox();
         vignette.screenCenter();
+        vignette.scale.set(1.1, 1.1);
         vignette.alpha = 0;
         add(vignette);
 
@@ -235,7 +230,7 @@ class BloxxinFreeplayState extends MusicBeatState
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_' + song[0]));
                 }
 
-                if (song[0] == "ContentDeleted")
+                if (song[0] == "RealMurderRap")
                     {
                         l = 1;
                     }
@@ -376,6 +371,15 @@ class BloxxinFreeplayState extends MusicBeatState
         oldInventory.y = 280;
         oldInventory.visible = false;
         add(oldInventory);
+
+        selectedPortraitSmall = new FlxSprite().loadGraphic(Paths.image('freeplay/selectedOverlay'));
+        selectedPortraitSmall.antialiasing = ClientPrefs.data.antialiasing;
+        selectedPortraitSmall.scale.set(0.1, 0.1);
+        selectedPortraitSmall.x = 115;
+        selectedPortraitSmall.y = 110;
+        selectedPortraitSmall.alpha = 0;
+        selectedPortraitSmall.updateHitbox();
+        add(selectedPortraitSmall);
 
         add(portraitsOLD);
 
@@ -555,6 +559,7 @@ class BloxxinFreeplayState extends MusicBeatState
                         OldSongsOpened = true;
                         buttonOldSong.animation.play('selected');
                         oldInventory.visible = true;
+                        selectedPortraitSmall.visible = true;
                         for (port in portraitsOLD)
                             {
                                 port.visible = true;
@@ -563,6 +568,7 @@ class BloxxinFreeplayState extends MusicBeatState
                         OldSongsOpened = false;
                         buttonOldSong.animation.play('idle');
                         oldInventory.visible = false;
+                        selectedPortraitSmall.visible = false;
                         for (port in portraitsOLD)
                             {
                                 port.visible = false;
@@ -597,6 +603,8 @@ class BloxxinFreeplayState extends MusicBeatState
                                     {
                                         curSelected = port.ID;
                                         SelectedObject = port;
+                                        FlxTween.tween(selectedPortraitSmall, {x: port.x - 5, y: port.y - 5, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                                        FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.sineInOut});
                                         FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
             
                                         intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
@@ -620,6 +628,8 @@ class BloxxinFreeplayState extends MusicBeatState
                                     SelectedObject = port;
                                     FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
                                     FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
+                                    FlxTween.tween(selectedPortraitSmall, {alpha: 0}, 0.1, {ease: FlxEase.sineInOut});
+                                    selectedPortrait.scale.set(0.2, 0.2);
         
                                     intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
                                     intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
@@ -660,7 +670,7 @@ class BloxxinFreeplayState extends MusicBeatState
                         selectedSomethin = true;
                         FlxG.sound.play(Paths.sound('cancelMenu'));
                         persistentUpdate = false;
-                        MusicBeatState.switchState(new MainMenuState());
+                        MusicBeatState.switchState(new BloxxinMainMenuState());
                         FlxG.mouse.visible = false;
 
                         disconnected.visible = false;
@@ -690,7 +700,7 @@ class BloxxinFreeplayState extends MusicBeatState
                             selectedSomethin = true;
                             FlxG.sound.play(Paths.sound('cancelMenu'));
                             persistentUpdate = false;
-                            MusicBeatState.switchState(new MainMenuState());
+                            MusicBeatState.switchState(new BloxxinMainMenuState());
                             FlxG.mouse.visible = false;
                         }
 
@@ -719,6 +729,12 @@ class BloxxinFreeplayState extends MusicBeatState
                     if (FlxG.keys.justPressed.ALT && FlxG.keys.pressed.CONTROL)
                     {
                         MusicBeatState.switchState(new FreeplayState());
+                    }
+
+                    if(FlxG.keys.justPressed.CONTROL)
+                    {
+                        persistentUpdate = false;
+                        openSubState(new GameplayChangersSubstate());
                     }
 
                     super.update(elapsed);

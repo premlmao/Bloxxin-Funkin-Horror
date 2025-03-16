@@ -1,6 +1,6 @@
 package options;
 
-import states.MainMenuState;
+import states.BloxxinMainMenuState;
 import backend.StageData;
 
 class OptionsState extends MusicBeatState
@@ -89,7 +89,7 @@ class OptionsState extends MusicBeatState
 				MusicBeatState.switchState(new PlayState());
 				FlxG.sound.music.volume = 0;
 			}
-			else MusicBeatState.switchState(new MainMenuState());
+			else MusicBeatState.switchState(new BloxxinMainMenuState());
 		}
 		else if (controls.ACCEPT) openSelectedSubstate(options[curSelected]);
 	}

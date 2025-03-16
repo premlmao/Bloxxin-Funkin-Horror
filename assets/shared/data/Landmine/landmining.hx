@@ -66,7 +66,7 @@ function onBeatHit()
     }
     switch (curBeat)
     {
-        case 152:
+        case 156:
             resetallEvents();
         case 347:
             resetallEvents();
@@ -101,8 +101,10 @@ function resetallEvents()
     {
         case "random h drain":
             healthDecay = 0;
+            trace('health decay:' + healthDecay);
         case "random scroll speed":
             game.songSpeed = 2.7;
+            trace('scroll speed:' + game.songSpeed);
         case "strum swap":
             for (i in 0...8)
                 {
@@ -151,9 +153,11 @@ function Randomize()
     switch(newMech)
     {
         case "random h drain":
-            healthDecay = FlxG.random.float(0.05, 0.15);
+            healthDecay = FlxG.random.float(0.01, 0.05);
+            trace('health decay:' + healthDecay);
         case "random scroll speed":
             game.songSpeed = FlxG.random.float(1.5, 4.5);
+            trace('scroll speed:' + game.songSpeed);
         case "strum swap":
                 for (i in 0...4)
                 {
