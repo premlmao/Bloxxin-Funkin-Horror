@@ -107,6 +107,14 @@ class BloxxinMainMenuState extends MusicBeatState
                 }
             }
         });
+
+        if (!selected)
+        {
+            if (FlxG.keys.justPressed.ALT && FlxG.keys.pressed.CONTROL)
+            {
+                MusicBeatState.switchState(new BloxxinFreeplayState());
+            }
+        }
         super.update(elapsed);
     }
 
