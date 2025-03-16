@@ -293,7 +293,7 @@ class BloxxinFreeplayState extends MusicBeatState
                     portrait.y = 265 + (110 * (inventoryB + 1));
 
                     inventoryI += 1;
-                    if (inventoryI > 5)
+                    if (inventoryI > 4)
                     {
                         inventoryI = 0;
                         inventoryB += 1;
