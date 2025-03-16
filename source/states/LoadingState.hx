@@ -154,7 +154,7 @@ class LoadingState extends MusicBeatState
 				credText.screenCenter();
 				credText.y = songText.y + 60;
 			case 'CorrodedMetal':
-				credText.applyMarkup("By !Un!%fu%#n#$ny$^2^, ^Nohomatta^, %Prem%", $Nullinary$ [musician, charter, artist, animator, modeller, coder]);
+				credText.applyMarkup("By !Un!%fu%#n#$ny$^2^, ^Nohomatta^, %Prem%", $Nullinary$, [musician, charter, artist, animator, modeller, coder]);
 				credText.alignment = "center";
 				credText.screenCenter();
 				credText.y = songText.y + 60;
