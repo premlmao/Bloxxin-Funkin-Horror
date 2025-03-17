@@ -76,9 +76,6 @@ class BloxxinFreeplayState extends MusicBeatState
     var beatstorymodelilbro:FlxText;
     var ok:FlxText;
 
-    var popup:FlxSprite;
-    var theText:FlxText;
-
     var pbText:FlxText;
     var lerpScore:Int = 0;
     var lerpRating:Float = 0;
@@ -310,15 +307,6 @@ class BloxxinFreeplayState extends MusicBeatState
                 }else{
                     l++;
                 }
-
-                if(Highscore.getScore(song[0], curDifficulty) != 0 && song[0] == "Deformed")
-                    {
-                        if (!PopupMessage)
-                        {
-                            PopupMessage = true;
-                            Finale();
-                        }
-                    }
 			}
 		}
         selectedPortrait = new FlxSprite().loadGraphic(Paths.image('freeplay/selectedOverlay'));
@@ -436,23 +424,6 @@ class BloxxinFreeplayState extends MusicBeatState
         ok.visible = false;
         ok.camera = camFreeplay;
         add(ok);
-
-        popup = new FlxSprite().loadGraphic(Paths.image('credits/Bloxxin/window'));
-        popup.antialiasing = ClientPrefs.data.antialiasing;
-        popup.scale.set(0.1, 0.1);
-        popup.updateHitbox();
-        popup.screenCenter();
-        popup.visible = false;
-        add(popup);
-
-        theText = new FlxText(FlxG.width * 2, 2, 0, "hey yasdgiasbdjkwbadbs\nsadbadhhwaihdbisdihaiushdiuhwands\nashbdjhbwajbsjdbwuagsdw", 32);
-        theText.setFormat(Paths.font("Gotham Black Regular.ttf"), 24, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        theText.borderSize = 2;
-        theText.alignment = "center";
-        theText.scale.set(0.1, 0.1);
-        theText.screenCenter();
-        theText.visible = false;
-        add(theText);
 
         if(storyBeaten != 1)
         {
@@ -781,18 +752,6 @@ class BloxxinFreeplayState extends MusicBeatState
                 ok.visible = true;
             });
     }
-    public function Finale()
-    {
-        new FlxTimer().start(1, function(timer:FlxTimer)
-        {
-            FlxTween.tween(popup.scale, {x: 1, y: 1}, 0.05, {ease: FlxEase.linear});
-            FlxTween.tween(theText.scale, {x: 1, y: 1}, 0.05, {ease: FlxEase.linear});
-            popup.visible = true;
-            theText.visible = true;
-        });
-    }
-
-
 }
 
 class CustomSongMetadata
