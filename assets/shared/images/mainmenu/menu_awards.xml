@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="menu_badges.png">
-<SubTexture name="idle0000" x="0" y="0" width="252" height="89" frameX="-332" frameY="-613" frameWidth="2127" frameHeight="754" />
-<SubTexture name="idle0001" x="0" y="89" width="252" height="89" frameX="-332" frameY="-613" frameWidth="2127" frameHeight="754" />
-<SubTexture name="idle0002" x="252" y="0" width="252" height="89" frameX="-332" frameY="-613" frameWidth="2127" frameHeight="754" />
-<SubTexture name="selected0000" x="252" y="89" width="247" height="87" frameX="-334" frameY="-614" frameWidth="2127" frameHeight="754" />
-</TextureAtlas>

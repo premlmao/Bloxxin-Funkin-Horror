@@ -54,33 +54,31 @@ class BloxxinMainMenuState extends MusicBeatState
 
         for (i in 0...optionArray.length)
         {
-            menuItem = new FlxSprite();
+            menuItem = new FlxSprite().loadGraphic(Paths.image('mainmenu/menu_' + optionArray[i]));
             menuItem.antialiasing = ClientPrefs.data.antialiasing;
-            menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionArray[i]);
-            menuItem.animation.add('idle', [0], 0, false);
-            menuItem.animation.play('idle');
             menuItem.ID = i;
-            menuItem.updateHitbox();
+            
             menuItem.scale.set(0.5, 0.5);
-            menuOptions.add(menuItem);
 
             switch(i)
             {
                 case 0:
                     menuItem.scale.set(0.35, 0.35);
-                    menuItem.setPosition(-125, 200);
+                    menuItem.setPosition(190, 390);
                 case 1:
                     menuItem.scale.set(0.35, 0.35);
-                    menuItem.setPosition(235, 200);
+                    menuItem.setPosition(555, 390);
                 case 2:
-                    menuItem.setPosition(-660, -300);
+                    menuItem.setPosition(45, 50);
                 case 3:
-                    menuItem.setPosition(-665, -298);
+                    menuItem.setPosition(32, 100);
                 case 4:
-                    menuItem.setPosition(-664, -296);
+                    menuItem.setPosition(37, 150);
                 case 5:
-                    menuItem.setPosition(-664, -293);
+                    menuItem.setPosition(36, 200);
             }
+            menuItem.updateHitbox();
+            menuOptions.add(menuItem);
         }
 
         super.create();
