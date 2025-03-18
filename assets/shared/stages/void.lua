@@ -32,6 +32,7 @@ function onCreate()
       addLuaSprite('voidfog', true);
 end
 
+if songName == 'Deformed' then
 function onBeatHit()
     if curBeat == 336 then
         makeAnimatedLuaSprite('voidstatic','stages/voidstatic',-120,100);
@@ -45,5 +46,6 @@ function onBeatHit()
 end
     if curBeat == 400 then
         removeLuaSprite('voidstatic');
+end
 end
 end

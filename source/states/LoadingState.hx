@@ -234,7 +234,7 @@ class LoadingState extends MusicBeatState
 				credText.screenCenter();
 				credText.y = songText.y + 60;
 			case 'Decay':
-				credText.applyMarkup("By #Unf#$un$^ny2^, !GREXA!, ^Nohomatta^, $Nullinary$ ", [musician, charter, artist, animator, modeller, coder]);
+				credText.applyMarkup("By $Unfu$^nny2^, !GRE!#XA#, ^Nohomatta^, $Nullinary$ ", [musician, charter, artist, animator, modeller, coder]);
 				credText.alignment = "center";
 				credText.screenCenter();
 				credText.y = songText.y + 60;
@@ -244,7 +244,7 @@ class LoadingState extends MusicBeatState
 				credText.screenCenter();
 				credText.y = songText.y + 60;
 			case 'ReportOrAbort':
-				credText.applyMarkup("By !Un!%fu%#n#$ny$^2^, !Honkish! ", [musician, charter, artist, animator, modeller, coder]);
+				credText.applyMarkup("By !Un!%fu%#n#$ny$^2^, $Nil$, !Honkish! ", [musician, charter, artist, animator, modeller, coder]);
 				credText.alignment = "center";
 				credText.screenCenter();
 				credText.y = songText.y + 60;

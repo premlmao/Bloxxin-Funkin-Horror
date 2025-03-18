@@ -24,6 +24,7 @@ function onCreate()
 	
 end
 
+if songName == 'CorrodedMetal' then
 function onBeatHit()
     if curBeat == 177 then
         doTweenY('computer', 'rustcomputer', -100, 1, 'cubeInOut')
@@ -39,5 +40,6 @@ end
         doTweenY('forestf', 'forestfloor', -100, 0.01, 'cubeInOut')
         doTweenY('forest', 'forest', -100, 0.01, 'cubeInOut')
         doTweenY('tree', 'foresttree', -100, 0.01, 'cubeInOut')
+end
 end
 end

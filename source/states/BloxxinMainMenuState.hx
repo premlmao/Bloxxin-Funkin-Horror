@@ -23,7 +23,7 @@ class BloxxinMainMenuState extends MusicBeatState
 
     var menuOptions:FlxTypedGroup<FlxSprite>;
 
-    var optionArray:Array<String> = ['week1', 'week2', 'freeplay', 'credits', 'options', 'awards'];
+    var optionArray:Array<String> = ['week1', 'week2', 'freeplay', 'credits', 'options'];
 
     var bg:FlxSprite;
     var menuItem:FlxSprite;
@@ -131,6 +131,17 @@ class BloxxinMainMenuState extends MusicBeatState
 
     function accepted()
     {
+            if (optionArray[curSelected] == 'week2' )
+                {
+                    selected = false;
+                    var targetsArray:Array<FlxCamera> = FlxG.cameras.list;
+                    for (i in 0...targetsArray.length) 
+                    {
+                        targetsArray[i].shake(0.001, 0.1);
+                    }
+                }
+                else
+                {
         FlxG.sound.play(Paths.sound('confirmMenu'));
         
         selected = true;
@@ -151,12 +162,6 @@ class BloxxinMainMenuState extends MusicBeatState
                     PlayState.campaignMisses = 0;
                     LoadingState.loadAndSwitchState(new PlayState(), true);
                     FreeplayState.destroyFreeplayVocals();
-                case 'week2' | 'awards':
-                    var targetsArray:Array<FlxCamera> = FlxG.cameras.list;
-                    for (i in 0...targetsArray.length) 
-                    {
-                        targetsArray[i].shake(0.001, 0.1);
-                    }
                 case 'freeplay':
                     MusicBeatState.switchState(new BloxxinFreeplayState());
                 case 'options':
@@ -173,4 +178,5 @@ class BloxxinMainMenuState extends MusicBeatState
             }
         }
     }
+}
 }

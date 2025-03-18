@@ -28,18 +28,24 @@ class BloxxinCreditsState extends MusicBeatState
 	var offsetThing:Float = -75;
 
 	var teamList:Array<Array<String>> = [ //fyi, Name -- File name -- Status -- Quote -- Color
-		['Unfunny2',	'unfunny2',		'Director, Animator, Charter, Composer',					 '"what"',		'8a00b4', '6a038a'],
-		['Nil',	    	'nil',		    'Coder, Animator',		                        			 '"I want to kms"',		'ff0000', '5c0202'],
+		['Unfunny2',	'unfunny2',		'Director, Animator, Charter, Musician, Artist',					 '"was it w o r t h it in the end"',		'8a00b4', '6a038a'],
+		['Nil',	    	'nil',		    'Coder, Animator, Artist',		                        			 '"I want to kms"',		'ff0000', '5c0202'],
 		['Prem',		'prem',		    'Coder',				                                 	 '"hahahahaha"',		'444444', '1c1c1c'],
 		['Nohomatta',	'nohomatta',		'Animator',					 '"this shit is unplayable"',		'000000', '383737'],
-		['UrFestive_Travago',	    	'travago',		    'Artist',		                        			 '"Placeholder"',		'7600bc', '3c025e'],
-		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000', '1c1c1c'],
-		['Placeholder',	'placeholder',		'Placeholder',					 '"Placeholder"',		'000000', '1c1c1c'],
-		['Placeholder',	    	'placeholder',		    'Placeholder',		                        			 '"Placeholder"',		'000000', '1c1c1c'],
-		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000', '1c1c1c'],
-		['Placeholder',	'placeholder',		'Placeholder',					 '"Placeholder"',		'000000', '1c1c1c'],
-		['Placeholder',	    	'placeholder',		    'Placeholder',		                        			 '"Placeholder"',		'000000', '1c1c1c'],
-		['Placeholder',		'placeholder',		    'Placeholder',				                                 	 '"Placeholder"',		'000000', '1c1c1c']
+		['Travago',	    	'travago',		    'Artist',		                        			 '"If i helped with it then it was peak lol (hi mum I'm on the brick game)"',		'7600bc', '3c025e'],
+		['GREXA',		'grexa',		    'Musician, Charter',				                                 	 '"no comment"',		'000000', '1c1c1c'],
+		['Platinum',	'platinum',		'Musician',					 '"holy shit! its the fucking landmine guy! i'm fcuckig bloxxing ou t"',		'000000', 'FF8C00'],
+		['5cvc',	    	'5cvc',		    'Musician',		                        			 '"no comment"',		'000000', '1c1c1c'],
+		['Ballsnecrosis',		'ballsnecrosis',		    'Animator',				                                 	 '"no comment"',		'000000', '1c1c1c'],
+		['Vinxie',	'vinxie',		'Animator',					 '"no comment"',		'000000', '1c1c1c'],
+		['TheStaringEye',	    	'thestaringeye',		    'Modeler',		                        			 '"no comment"',		'000000', '1c1c1c'],
+		['Null',		'null',		    'Artist',				                                 	 '"no comment"',		'000000', '1c1c1c'],
+		['Qiwi',		'qiwi',		    'Artist',				                                 	 '"no comment"',		'000000', '1c1c1c'],
+		['Mint',		'mint',		    'Artist',				                                 	 '"no comment"',		'000000', '1c1c1c'],
+		['Anars_x',		'anars',		    'Artist',				                                 	 '"no comment"',		'000000', '1c1c1c'],
+		['Bundev',		'bundev',		    'V1.5 Coder',				                                 	 '"no comment"',		'000000', '1c1c1c'],
+		['LukasP',		'lukasp',		    'Support',				                                 	 '"no comment"',		'000000', '1c1c1c'],
+		['Berry',		'berry',		    'Voice Actor',				                                 	 '"no comment"',		'000000', '1c1c1c']
 	];
 
 	var bg:FlxSprite;
