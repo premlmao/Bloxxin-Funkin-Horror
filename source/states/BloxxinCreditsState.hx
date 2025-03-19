@@ -226,8 +226,8 @@ class BloxxinCreditsState extends MusicBeatState
 					nameText.x = 64;
 				case 'Nohomatta':
 					nameText.x = 83;
-				case 'UrFestive_Travago':
-					nameText.x = 113;
+				case 'Travago':
+					nameText.x = 90;
 			}
 
 			var gradColor:FlxColor = CoolUtil.colorFromString(teamList[currentMember][4]);
