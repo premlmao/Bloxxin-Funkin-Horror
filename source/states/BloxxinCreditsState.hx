@@ -218,7 +218,7 @@ class BloxxinCreditsState extends MusicBeatState
 
 			switch(teamList[currentMember][0])
 			{
-				case 'Unfunny2':
+				case 'Unfunny2' | 'Platinum':
 					nameText.x = 80;
 				case 'Nil':
 					nameText.x = 55;
@@ -226,8 +226,16 @@ class BloxxinCreditsState extends MusicBeatState
 					nameText.x = 64;
 				case 'Nohomatta':
 					nameText.x = 83;
-				case 'Travago':
-					nameText.x = 90;
+				case 'Travago' | 'GREXA':
+					nameText.x = 73;
+				case '5cvc' | 'Null' | 'Qiwi' | 'Mint':
+					nameText.x = 70;
+				case 'TheStaringEye' | 'Ballsnecrosis':
+					nameText.x = 95;
+				case 'Vinxie' | 'Berry':
+					nameText.x = 75;
+				case 'LukasP':
+					nameText.x = 77;
 			}
 
 			var gradColor:FlxColor = CoolUtil.colorFromString(teamList[currentMember][4]);

@@ -16,8 +16,7 @@ class ControlsSubState extends MusicBeatSubstate
         
         var control:FlxText = new FlxText(0, 180,
             "SCROLL WHEEL to navigate the menu\n
-            HOVER and LEFT CLICK on a song to enter that song\n
-            HOVER and RIGHT CLICK on a song to view that song's information", true);
+            HOVER and LEFT CLICK on a song to enter that song", true);
 		control.setFormat(Paths.font("Comic Sans MS.ttf"), 32, FlxColor.WHITE, CENTER);
 		control.alignment = "center";
         control.screenCenter();

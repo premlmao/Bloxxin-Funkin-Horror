@@ -21,6 +21,7 @@ haxelib install tjson 1.4.0
 haxelib set tjson 1.4.0
 haxelib git flxanimate https://github.com/ShadowMario/flxanimate dev
 haxelib git linc_luajit https://github.com/superpowers04/linc_luajit
-haxelib git hxdiscord_rpc https://github.com/MAJigsaw77/hxdiscord_rpc
+haxelib install hxdiscord_rpc 1.2.0
+haxelib set hxdiscord_rpc 1.2.0
 echo Finished!
 pause
