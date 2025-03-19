@@ -4,6 +4,7 @@ import flixel.addons.display.FlxBackdrop;
 import flixel.FlxG;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
+import flixel.util.FlxTimer;
 
 import flixel.text.FlxText;
 import flixel.text.FlxTextBorderStyle;
@@ -17,17 +18,16 @@ var newMech:String;
 
 var healthDecay:Float;
 
+var popup:FlxSprite;
+
 
 function onCreate()
 {
-    randomize.setFormat(Paths.font('Comic Sans MS.ttf'), 80, FlxColor.RED, 'center', FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-    randomize.borderColor = FlxColor.BLACK;
-    randomize.text = 'RANDOMIZE!';
-    randomize.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
-    randomize.screenCenter();
-    randomize.visible = false;
-    randomize.alpha = 1;
-    add(randomize);
+    popup = new FlxSprite();
+    popup.setPosition(400, 250);
+    popup.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
+    popup.visible = false;
+    add(popup);
 }
 
 function onBeatHit()
@@ -81,16 +81,7 @@ function onBeatHit()
                         }
         case 32,96,224,256:
             Randomize();
-            randomize.visible = true;
-            randomize.scale.set(1,1);
-            randomize.alpha = 1;
-            modchartTweens.set('randoalpha', FlxTween.tween(randomize, {alpha: 0}, 1, {ease: FlxEase.quadIn}));
-            modchartTweens.set('randoscale', FlxTween.tween(randomize.scale, {x: 1.5, y: 1.5}, 1, {ease: FlxEase.quadIn}));
-        case 35,99,227,269:
-            randomize.visible = false;
-            randomize.alpha = 1;
-            randomize.scale.set(1,1);
-    }
+}
 }
 
 function resetallEvents()
@@ -99,13 +90,13 @@ function resetallEvents()
 
     switch (prevMech)
     {
-        case "random h drain":
+        case "drainmultiply":
             healthDecay = 0;
             trace('health decay:' + healthDecay);
-        case "random scroll speed":
+        case "scrollspeed":
             game.songSpeed = 2.7;
             trace('scroll speed:' + game.songSpeed);
-        case "strum swap":
+        case "strumswap":
             for (i in 0...8)
                 {
                     FlxTween.cancelTweensOf(game.strumLineNotes.members[i]);
@@ -126,17 +117,25 @@ function Randomize()
 {
     trace("RANDOMIZEeE!!1");
     var mechanics = [
-    "random h drain",
-    "random scroll speed",
-    "strum swap",
-    "random note pos"
+    "drainmultiply",
+    "scrollspeed",
+    "strumswap",
+    "notepos"
     ];
 
     resetallEvents();
 
     newMech = mechanics[FlxG.random.int(0, mechanics.length - 1)];
 
-    if (newMech != "random note pos")
+    popup.loadGraphic(Paths.image('landmine/' + newMech));
+    popup.visible = true;
+    new FlxTimer().start(3, function(timer:FlxTimer)
+    {
+        popup.visible = false;
+    });
+    trace(popup.x, popup.y);
+
+    if (newMech != "notepos")
     {
         
         for (i in 0...4)
@@ -152,13 +151,13 @@ function Randomize()
 
     switch(newMech)
     {
-        case "random h drain":
+        case "drainmultiply":
             healthDecay = FlxG.random.float(0.01, 0.05);
             trace('health decay:' + healthDecay);
-        case "random scroll speed":
+        case "scrollspeed":
             game.songSpeed = FlxG.random.float(1.5, 4.5);
             trace('scroll speed:' + game.songSpeed);
-        case "strum swap":
+        case "strumswap":
                 for (i in 0...4)
                 {
                     FlxTween.tween(game.strumLineNotes.members[i], {x: 100 + (110 * i)}, 1, {ease: FlxEase.cubeOut, type: 4, startDelay: 1});
@@ -167,7 +166,7 @@ function Randomize()
                 {
                     FlxTween.tween(game.strumLineNotes.members[i], {x: 300 + (110 * i)}, 1, {ease: FlxEase.cubeOut, type: 4, startDelay: 1});
                 }
-        case "random note pos":
+        case "notepos":
             for (i in 0...8)
                 {
                     if (i < 4)

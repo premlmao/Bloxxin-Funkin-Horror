@@ -88,6 +88,7 @@ class BloxxinFreeplayState extends MusicBeatState
     var Deformation:FlxSprite = new FlxSprite(0, 0);
     var currentTab:Int;
 
+    var isLocked:Bool = false;
     var OldSongsOpened:Bool = false;
     var ControlsOpened:Bool = false;
     var selectedSomethin:Bool = false;
@@ -215,6 +216,7 @@ class BloxxinFreeplayState extends MusicBeatState
                 if (Highscore.getScore(song[0], curDifficulty) == 0 && song[0] != "Deformed")
                 {
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
+                    isLocked = true;
                     if (WeekData.weeksList[i] != "weekold")
                     {
                         AllUnlocked = false;
@@ -681,13 +683,25 @@ class BloxxinFreeplayState extends MusicBeatState
                             openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
                             FlxG.sound.play(Paths.sound('scrollMenu'));
                         }
-
+                    /*
                     if(FlxG.mouse.pressedRight)
                     {
-                        persistentUpdate = false;
-                        openSubState(new SongInfoSubState(songs[curSelected].songName, curDifficulty));
-                        FlxG.sound.play(Paths.sound('scrollMenu'));
+                        if (!isLocked)
+                            {
+                                persistentUpdate = false;
+                                openSubState(new SongInfoSubState(songs[curSelected].songName, curDifficulty));
+                                FlxG.sound.play(Paths.sound('scrollMenu'));
+                            }
+                            else
+                            {
+                                var targetsArray:Array<FlxCamera> = FlxG.cameras.list;
+                                for (i in 0...targetsArray.length) 
+                                {
+                                    targetsArray[i].shake(0.001, 0.1);
+                                }
+                            }
                     }
+                            */
 
                     #if desktop
                     if (controls.justPressed('debug_1'))
