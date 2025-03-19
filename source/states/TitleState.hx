@@ -224,6 +224,8 @@ class TitleState extends MusicBeatState
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 		logoBl.antialiasing = ClientPrefs.data.antialiasing;
         logoBl.scale.set(0.8, 0.8);
+		logoBl.x = 100;
+		logoBl.y = 75;
 		logoBl.animation.addByPrefix('bump', 'logo bop', 12, false);
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
@@ -260,6 +262,7 @@ class TitleState extends MusicBeatState
 			//EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
 			//EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
 			    gfDance.scale.set(1.4, 1.4);
+				gfDance.x = 650;
 				gfDance.frames = Paths.getSparrowAtlas('robloxgf');
 				gfDance.animation.addByIndices('danceLeft', 'danceLeft', [0, 1, 2, 3, 4, 5, 6], "", 24, false);
 				gfDance.animation.addByIndices('danceRight', 'danceRight', [0, 1, 2, 3, 4, 5, 6, 7], "", 24, false);
