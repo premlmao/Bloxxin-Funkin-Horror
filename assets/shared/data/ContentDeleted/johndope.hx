@@ -11,6 +11,8 @@ import flixel.text.FlxTextBorderStyle;
 import flixel.FlxState;
 import flixel.math.FlxMath;
 
+import openfl.Lib;
+
 var hi:FlxText = new FlxText();
 
 function onCreate()
@@ -25,7 +27,6 @@ function onCreate()
 
 function onStepHit()
 {
-    trace(hi.x, hi.y);
     switch (curStep)
     {
         case 7:
@@ -126,5 +127,77 @@ function onStepHit()
             hi.text = "Your punishment begins tomorrow on March 18th.";
         case 189:
             FlxTween.tween(hi, {alpha: 0}, 2, {ease: FlxEase.linear});
+        case 240:
+            hi.setFormat(Paths.font('vcr.ttf'), 40, FlxColor.WHITE, 'center', FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+            hi.alpha = 1;
+            hi.text = "";
+        case 320:
+            hi.text = "March";
+        case 324:
+            hi.text = "March 18";
+        case 328:
+            hi.text = "March 18th.";
+        case 332:
+            hi.alpha = 0;
+            hi.text = "";
+        case 474:
+            hi.alpha = 1;
+            hi.text = "You";
+        case 478:
+            hi.text = "You realize";
+        case 481:
+            hi.text = "You realize this";
+        case 483:
+            hi.text = "You realize this is";
+        case 485:
+            hi.text = "You realize this is just";
+        case 487:
+            hi.text = "You realize this is just a";
+        case 490:
+            hi.text = "You realize this is just a stupid";
+        case 494:
+            hi.text = "You realize this is just a stupid block";
+        case 497:
+            hi.text = "You realize this is just a stupid block game,";
+        case 501:
+            hi.text = "";
+        case 503:
+            hi.text = "right?";
+        case 511:
+            hi.alpha = 0;
+            hi.text = "";
     }
 }
+
+function onUpdatePost()
+    {
+        if (curSection > 55 && curSection < 57)
+        {
+            switch (dad.animation.curAnim.name)
+            {
+                case 'idle':
+                    Lib.application.window.x = 340;
+                    Lib.application.window.y = 200;
+                case 'singLEFT':
+                    Lib.application.window.x = 290;
+                case 'singRIGHT':
+                    Lib.application.window.x = 390;
+                case 'singUP':
+                    Lib.application.window.y = 150;
+                case 'singDOWN':
+                    Lib.application.window.y = 250;
+            }
+        }
+        if (curSection > 56)
+            {
+                Lib.application.window.x = 340;
+                Lib.application.window.y = 200;
+            }
+    }
+
+    function onDestroy()
+    {
+        FlxTween.tween(Lib.application.window, {width: 1280, height: 720, x: 340, y: 200}, 1, {ease: FlxEase.cubeInOut});
+        Lib.application.window.resizable = true;
+        Lib.application.window.fullscreen = false;
+    }
