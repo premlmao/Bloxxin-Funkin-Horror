@@ -144,21 +144,21 @@ function onStepHit()
             hi.alpha = 1;
             hi.text = "You";
         case 478:
-            hi.text = "You realize";
+            hi.text = "You know";
         case 481:
-            hi.text = "You realize this";
+            hi.text = "You know this";
         case 483:
-            hi.text = "You realize this is";
+            hi.text = "You know this is";
         case 485:
-            hi.text = "You realize this is just";
+            hi.text = "You know this is just";
         case 487:
-            hi.text = "You realize this is just a";
+            hi.text = "You know this is just a";
         case 490:
-            hi.text = "You realize this is just a stupid";
+            hi.text = "You know this is just a stupid";
         case 494:
-            hi.text = "You realize this is just a stupid block";
+            hi.text = "You know this is just a stupid block";
         case 497:
-            hi.text = "You realize this is just a stupid block game,";
+            hi.text = "You know this is just a stupid block game,";
         case 501:
             hi.text = "";
         case 503:
