@@ -31,7 +31,7 @@ class BloxxinCreditsState extends MusicBeatState
 		['Unfunny2',	'unfunny2',		'Director, Animator, Charter, Musician, Artist',					 '"was it w o r t h it in the end"',		'8a00b4', '6a038a'],
 		['Nil',	    	'nil',		    'Coder, Animator, Artist',		                        			 '"I want to kms"',		'ff0000', '5c0202'],
 		['Prem',		'prem',		    'Coder',				                                 	 '"my back hurts from carrying this mod"',		'444444', '1c1c1c'],
-		['Nohomatta',	'nohomatta',		'Animator',					 '"this shit is unplayable"',		'000000', '383737'],
+		['Nohomatta',	'nohomatta',		'Lead Animator',					 '"this shit is unplayable"',		'000000', '383737'],
 		['Travago',	    	'travago',		    'Artist',		                        			 '"If i helped with it then it was peak lol hi mum Im on the brick game"',		'7600bc', '3c025e'],
 		['GREXA',		'grexa',		    'Musician, Charter',				                                 	 '"no comment"',		'000000', '1c1c1c'],
 		['Platinum',	'platinum',		'Musician',					 '"holy shit! its the fucking landmine guy! im fcuckig bloxxing ou t"',		'000000', 'FF8C00'],
