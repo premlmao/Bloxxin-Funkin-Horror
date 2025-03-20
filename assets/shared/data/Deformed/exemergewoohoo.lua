@@ -7,13 +7,13 @@ function onCreate()
     addAnimationByPrefix('oofexe', 'right', 'right', 24, true);
     addAnimationByPrefix('oofexe', 'up', 'up', 24, true);
     addAnimationByPrefix('oofexe', 'down', 'down', 24, true);
-    setObjectCamera('oofexe', 'other')
+    setObjectCamera('oofexe', 'hud')
     addLuaSprite('oofexe', false)
 end
 
 function onBeatHit()
     if curBeat == 12 then
-        setObjectOrder('oofexe', getObjectOrder('iconP1'))
+        setObjectOrder('oofexe', getObjectOrder('healthBar') + 20)
         addLuaSprite('oofexe', true)
     end
 end
@@ -31,7 +31,7 @@ function onUpdatePost()
         objectPlayAnimation('oofexe', 'left')
         runHaxeCode([[
             import openfl.Lib;
-            Lib.application.window.title = "want to pl6y?";
+            Lib.application.window.title = "want to pl6y?"
         ]])
     elseif getProperty('dad.animation.curAnim.name') == 'singRIGHT' then
 
@@ -69,5 +69,11 @@ function onUpdatePost()
     else
         setProperty('oofexe.alpha', 1)
         setProperty('iconP2.alpha', 0)
+    end
+
+    function onStepHit()
+        if curStep >= 1872 then
+            doTweenAlpha('iconP2', 'iconP2', 0, 18)
+        end
     end
 end

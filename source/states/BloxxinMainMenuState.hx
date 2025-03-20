@@ -105,14 +105,6 @@ class BloxxinMainMenuState extends MusicBeatState
                 }
             }
         });
-
-        if (!selected)
-        {
-            if (FlxG.keys.justPressed.ALT && FlxG.keys.pressed.CONTROL)
-            {
-                MusicBeatState.switchState(new BloxxinFreeplayState());
-            }
-        }
         super.update(elapsed);
     }
 
@@ -137,7 +129,7 @@ class BloxxinMainMenuState extends MusicBeatState
                     var targetsArray:Array<FlxCamera> = FlxG.cameras.list;
                     for (i in 0...targetsArray.length) 
                     {
-                        targetsArray[i].shake(0.001, 0.1);
+                        targetsArray[i].shake(0.075, 0.1);
                     }
                 }
                 else
