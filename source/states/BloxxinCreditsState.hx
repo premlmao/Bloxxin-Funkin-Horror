@@ -41,7 +41,7 @@ class BloxxinCreditsState extends MusicBeatState
 		['TheStaringEye',	    	'thestaringeye',		    'Modeler',		                        			 '"no comment"',		'000000', '1c1c1c'],
 		['Null',		'null',		    'Artist',				                                 	 '"no comment"',		'000000', '1c1c1c'],
 		['Qiwi',		'qiwi',		    'Artist',				                                 	 '"no comment"',		'000000', '1c1c1c'],
-		['Mint',		'mint',		    'Artist',				                                 	 '"no comment"',		'000000', '1c1c1c'],
+		['Mint',		'mint',		    'Artist',				                                 	 '"Hi"',		'000000', '1c1c1c'],
 		['Anars_x',		'anars',		    'Artist',				                                 	 '"no comment"',		'000000', '1c1c1c'],
 		['Bundev',		'bundev',		    'V1.5 Coder',				                                 	 '"no comment"',		'000000', '1c1c1c'],
 		['LukasP',		'lukasp',		    'Support',				                                 	 '"no comment"',		'000000', '1c1c1c'],
