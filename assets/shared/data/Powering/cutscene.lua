@@ -1,7 +1,7 @@
 playVideo = true;
 
 function onEndSong()
-	if isStoryMode then
+	if isStoryMode and not seenCutscene then
 		if playVideo then
 			startVideo('bfgetswhooped');
 			playVideo = false;
