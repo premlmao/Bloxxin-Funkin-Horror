@@ -1,77 +1,121 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				30,
-				5
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				90,
+				-15
+			],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
+			"fps": 24,
+			"name": "left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
+				-20
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-20,
 				-10
 			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
-		},
-		{
-			"offsets": [
-				-5,
-				0
-			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
+			"fps": 24,
+			"name": "up",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-60,
-				-5
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				-120,
+				-25
+			],
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "idle",
-			"indices": [],
-			"name": "idle"
+			"name": "right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				60,
+				-25
+			],
 			"indices": [],
-			"fps": 20,
-			"anim": "stare",
+			"fps": 24,
+			"anim": "idle-alt",
 			"loop": false,
-			"name": "stare"
+			"name": "altidle"
+		},
+		{
+			"offsets": [
+				60,
+				-25
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"loop": false,
+			"name": "altleft"
+		},
+		{
+			"offsets": [
+				60,
+				-25
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"loop": false,
+			"name": "altdown"
+		},
+		{
+			"offsets": [
+				60,
+				-25
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP-alt",
+			"loop": false,
+			"name": "altup"
+		},
+		{
+			"offsets": [
+				60,
+				-25
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"loop": false,
+			"name": "altright"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/johndoe",
 	"position": [
-		0,
-		240
+		70,
+		330
 	],
 	"healthicon": "johndoe",
 	"flip_x": false,
@@ -81,8 +125,8 @@
 		60
 	],
 	"camera_position": [
-		-60,
-		-60
+		-50,
+		-90
 	],
 	"sing_duration": 5.99999999999999,
 	"scale": 1.4,
