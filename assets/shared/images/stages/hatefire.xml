@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="hatefire.png">
+<SubTexture name="fire0000" x="0" y="0" width="457" height="234" frameX="0" frameY="0" frameWidth="457" frameHeight="234" />
+<SubTexture name="fire0001" x="457" y="0" width="457" height="234" frameX="0" frameY="0" frameWidth="457" frameHeight="234" />
+<SubTexture name="fire0002" x="0" y="234" width="457" height="234" frameX="0" frameY="0" frameWidth="457" frameHeight="234" />
+</TextureAtlas>
