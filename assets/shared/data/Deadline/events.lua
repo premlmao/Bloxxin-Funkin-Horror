@@ -23,23 +23,17 @@ end
 end
 
 function onSongStart()
-    noteTweenX('noteX1', 0, -1000, 0.1, 'backInOut');
-    noteTweenX('noteX2', 1, -1000, 0.1, 'backInOut');
-    noteTweenX('noteX3', 2, -1000, 0.1, 'backInOut');
-    noteTweenX('noteX4', 3, -1000, 0.1, 'backInOut');
-    noteTweenY('noteY5', 4, -1000, 0.1, 'backInOut');
-    noteTweenY('noteY6', 5, -1000, 0.1, 'backInOut');
-    noteTweenY('noteY7', 6, -1000, 0.1, 'backInOut');
-    noteTweenY('noteY8', 7, -1000, 0.1, 'backInOut');
-    noteTweenAlpha('alphaNotes1', 0, 0, 0.6, 'linear');
-    noteTweenAlpha('alphaNotes2', 1, 0, 0.6, 'linear');
-    noteTweenAlpha('alphaNotes3', 2, 0, 0.6, 'linear');
-    noteTweenAlpha('alphaNotes4', 3, 0, 0.6, 'linear');
+    for i = 0,3 do
+        noteTweenX('noteX'..i, i, -1000, 0.1, 'backInOut');
+        noteTweenAlpha('alphaNotes'..i, i, 0, 0.6, 'linear');
+    end
+    for i = 4,7 do
+        noteTweenY('noteY'..i, i, -1000, 0.1, 'backInOut');
+    end
     if downscroll then
-        noteTweenY('noteY5', 4, 1000, 0.1, 'backInOut');
-        noteTweenY('noteY6', 5, 1000, 0.1, 'backInOut');
-        noteTweenY('noteY7', 6, 1000, 0.1, 'backInOut');
-        noteTweenY('noteY8', 7, 1000, 0.1, 'backInOut');
+        for i = 4,7 do
+            noteTweenY('noteY'..i, i, 1000, 0.1, 'backInOut');
+        end
     end
 end
 
@@ -53,43 +47,24 @@ function onBeatHit()
             end
         end
     if curBeat == 4 then
-    noteTweenY('noteY1', 0, 150, 5, 'backInOut');
-    noteTweenY('noteY2', 1, 150, 5, 'backInOut');
-    noteTweenY('noteY3', 2, 150, 5, 'backInOut');
-    noteTweenY('noteY4', 3, 150, 5, 'backInOut');
-    noteTweenY('noteY5', 4, 150, 5, 'backInOut');
-    noteTweenY('noteY6', 5, 150, 5, 'backInOut');
-    noteTweenY('noteY7', 6, 150, 5, 'backInOut');
-    noteTweenY('noteY8', 7, 150, 5, 'backInOut');
+        for i = 0,7 do
+            noteTweenY('noteY'..i, i, 150, 5, 'backInOut');
+        end
     if downscroll then
-        noteTweenY('noteY1', 0, 470, 5, 'backInOut');
-        noteTweenY('noteY2', 1, 470, 5, 'backInOut');
-        noteTweenY('noteY3', 2, 470, 5, 'backInOut');
-        noteTweenY('noteY4', 3, 470, 5, 'backInOut');
-        noteTweenY('noteY5', 4, 470, 5, 'backInOut');
-        noteTweenY('noteY6', 5, 470, 5, 'backInOut');
-        noteTweenY('noteY7', 6, 470, 5, 'backInOut');
-        noteTweenY('noteY8', 7, 470, 5, 'backInOut');
+        for i = 0,7 do
+            noteTweenY('noteY'..i, i, 470, 5, 'backInOut');
+        end
     end
     end
 
     if curBeat == 40 or curBeat == 304 then
-        noteTweenY('hiNotes1', 0, 50, 1.75, 'sineInOut');
-        noteTweenY('hiNotes2', 1, 50, 1.75, 'sineInOut');
-        noteTweenY('hiNotes3', 2, 50, 1.75, 'sineInOut');
-        noteTweenY('hiNotes4', 3, 50, 1.75, 'sineInOut');
-        noteTweenY('hiNotes5', 4, 50, 1.75, 'sineInOut');
-        noteTweenY('hiNotes6', 5, 50, 1.75, 'sineInOut');
-        noteTweenY('hiNotes7', 6, 50, 1.75, 'sineInOut');
-        noteTweenY('hiNotes8', 7, 50, 1.75, 'sineInOut');
-        noteTweenX('NoteX0', 0, 100, 1.75, 'sineInOut')
-        noteTweenX('NoteX1', 1, 210, 1.75, 'sineInOut')
-        noteTweenX('NoteX2', 2, 320 ,1.75, 'sineInOut')
-        noteTweenX('NoteX3', 3, 430, 1.75, 'sineInOut')
-        noteTweenAlpha('alphaNotes1', 0, 1, 0.1, 'linear');
-        noteTweenAlpha('alphaNotes2', 1, 1, 0.1, 'linear');
-        noteTweenAlpha('alphaNotes3', 2, 1, 0.1, 'linear');
-        noteTweenAlpha('alphaNotes4', 3, 1, 0.1, 'linear');
+        for i = 0,7 do
+            noteTweenY('noteY'..i, i, 50, 1.75, 'sineInOut');
+        end
+        for i = 0,3 do
+            noteTweenX('noteX'..i, i, 100*i+110, 1.75, 'sineInOut')
+            noteTweenAlpha('alphaNotes'..i, i, 1, 0.1, 'linear')
+        end
         setHealth(50/50)
         doTweenY('hiHUD1','healthBar',641,crochet*0.0099,'cubeInOut')
         doTweenY('hiHUD2','healthBarAround',629,crochet*0.0099,'cubeInOut')
@@ -100,14 +75,9 @@ function onBeatHit()
         doTweenAlpha('hiHUD7', 'songIcon',1,crochet*0.0099,'linear')
         doTweenAlpha('hiHUD8', 'timeTxt',1,crochet*0.0099,'linear')
         if downscroll then
-        noteTweenY('hiNotes1', 0, 570, 1.75, 'sineInOut');
-        noteTweenY('hiNotes2', 1, 570, 1.75, 'sineInOut');
-        noteTweenY('hiNotes3', 2, 570, 1.75, 'sineInOut');
-        noteTweenY('hiNotes4', 3, 570, 1.75, 'sineInOut');
-        noteTweenY('hiNotes5', 4, 570, 1.75, 'sineInOut');
-        noteTweenY('hiNotes6', 5, 570, 1.75, 'sineInOut');
-        noteTweenY('hiNotes7', 6, 570, 1.75, 'sineInOut');
-        noteTweenY('hiNotes8', 7, 570, 1.75, 'sineInOut');
+        for i = 0,7 do
+            noteTweenY('noteY'..i, i, 570, 1.75, 'sineInOut');
+        end
         doTweenY('hiHUD1','healthBar',79,crochet*0.0099,'cubeInOut')
         doTweenY('hiHUD2','healthBarAround',67,crochet*0.0099,'cubeInOut')
         doTweenY('hiHUD3','iconP1',4,crochet*0.0099,'cubeInOut')
@@ -135,22 +105,10 @@ function onBeatHit()
     end
 
     if curBeat == 264 then
-        noteTweenY('noteY1', 0, 200, 1, 'cubeOut');
-        noteTweenY('noteY2', 1, 200, 1, 'cubeOut');
-        noteTweenY('noteY3', 2, 200, 1, 'cubeOut');
-        noteTweenY('noteY4', 3, 200, 1, 'cubeOut');
-        noteTweenY('noteY5', 4, 200, 1, 'cubeOut');
-        noteTweenY('noteY6', 5, 200, 1, 'cubeOut');
-        noteTweenY('noteY7', 6, 200, 1, 'cubeOut');
-        noteTweenY('noteY8', 7, 200, 1, 'cubeOut');
-        noteTweenAlpha('alphaNotes1', 0, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes2', 1, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes3', 2, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes4', 3, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes5', 4, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes6', 5, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes7', 6, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes8', 7, 0, 0.4, 'linear');
+        for i = 0,7 do
+            noteTweenY('noteY'..i, i, 200, 1, 'cubeOut')
+            noteTweenAlpha('alphaNotes'..i, i, 0, 0.4, 'linear')
+        end
         doTweenY('hiHUD1','healthBar',900,crochet*0.0099,'cubeInOut')
         doTweenY('hiHUD2','healthBarAround',900,crochet*0.0099,'cubeInOut')
         doTweenY('hiHUD3','iconP1',900,crochet*0.0099,'cubeInOut')
@@ -160,14 +118,9 @@ function onBeatHit()
         doTweenAlpha('hiHUD7', 'songIcon',0,crochet*0.0099,'linear')
         doTweenAlpha('hiHUD8', 'timeTxt',0,crochet*0.0099,'linear')
         if downscroll then
-            noteTweenY('noteY1', 0, 420, 1, 'cubeOut');
-            noteTweenY('noteY2', 1, 420, 1, 'cubeOut');
-            noteTweenY('noteY3', 2, 420, 1, 'cubeOut');
-            noteTweenY('noteY4', 3, 420, 1, 'cubeOut');
-            noteTweenY('noteY5', 4, 420, 1, 'cubeOut');
-            noteTweenY('noteY6', 5, 420, 1, 'cubeOut');
-            noteTweenY('noteY7', 6, 420, 1, 'cubeOut');
-            noteTweenY('noteY8', 7, 420, 1, 'cubeOut');
+            for i = 0,7 do
+                noteTweenY('noteY'..i, i, 420, 1, 'cubeOut')
+            end
             doTweenY('hiHUD1','healthBar',-300,crochet*0.0099,'cubeInOut')
             doTweenY('hiHUD2','healthBarAround',-300,crochet*0.0099,'cubeInOut')
             doTweenY('hiHUD3','iconP1',-300,crochet*0.0099,'cubeInOut')
@@ -176,31 +129,14 @@ function onBeatHit()
         end
     end
     if curBeat == 280 then
-        noteTweenY('noteY1', 0, 150, 1, 'cubeOut');
-        noteTweenY('noteY2', 1, 150, 1, 'cubeOut');
-        noteTweenY('noteY3', 2, 150, 1, 'cubeOut');
-        noteTweenY('noteY4', 3, 150, 1, 'cubeOut');
-        noteTweenY('noteY5', 4, 150, 1, 'cubeOut');
-        noteTweenY('noteY6', 5, 150, 1, 'cubeOut');
-        noteTweenY('noteY7', 6, 150, 1, 'cubeOut');
-        noteTweenY('noteY8', 7, 150, 1, 'cubeOut');
-        noteTweenAlpha('alphaNotes1', 0, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes2', 1, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes3', 2, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes4', 3, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes5', 4, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes6', 5, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes7', 6, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes8', 7, 1, 0.4, 'linear');
+        for i = 0,7 do
+            noteTweenY('noteY'..i, i, 150, 1, 'cubeOut')
+            noteTweenAlpha('alphaNotes'..i, i, 1, 0.4, 'linear')
+        end
         if downscroll then
-            noteTweenY('noteY1', 0, 470, 1, 'cubeOut');
-            noteTweenY('noteY2', 1, 470, 1, 'cubeOut');
-            noteTweenY('noteY3', 2, 470, 1, 'cubeOut');
-            noteTweenY('noteY4', 3, 470, 1, 'cubeOut');
-            noteTweenY('noteY5', 4, 470, 1, 'cubeOut');
-            noteTweenY('noteY6', 5, 470, 1, 'cubeOut');
-            noteTweenY('noteY7', 6, 470, 1, 'cubeOut');
-            noteTweenY('noteY8', 7, 470, 1, 'cubeOut');
+            for i = 0,7 do
+                noteTweenY('noteY'..i, i, 470, 1, 'cubeOut')
+            end
         end
     end
     if curBeat == 332 then
@@ -221,31 +157,18 @@ function onBeatHit()
         end
     end
     if curBeat == 338 then
-        noteTweenAlpha('alphaNotes1', 0, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes2', 1, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes3', 2, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes4', 3, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes5', 4, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes6', 5, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes7', 6, 1, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes8', 7, 1, 0.4, 'linear');
-        noteTweenX('noteX1', 0, -1000, 0.4, 'backInOut');
-        noteTweenX('noteX2', 1, -1000, 0.4, 'backInOut');
-        noteTweenX('noteX3', 2, -1000, 0.4, 'backInOut');
-        noteTweenX('noteX4', 3, -1000, 0.4, 'backInOut');
-        noteTweenY('noteY5', 4, -1000, 0.4, 'backInOut');
-        noteTweenY('noteY6', 5, -1000, 0.4, 'backInOut');
-        noteTweenY('noteY7', 6, -1000, 0.4, 'backInOut');
-        noteTweenY('noteY8', 7, -1000, 0.4, 'backInOut');
-        noteTweenAngle('noteAngle5', 4, 360, 1, 'cubeOut')
-        noteTweenAngle('noteAngle6', 5, 360, 1, 'cubeOut')
-        noteTweenAngle('noteAngle7', 6, 360, 1, 'cubeOut')
-        noteTweenAngle('noteAngle8', 7, 360, 1, 'cubeOut')
+        for i = 0,3 do
+            noteTweenX('noteX'..i, i, -1000, 0.4, 'backInOut')
+            noteTweenAlpha('alphaNotes'..i, i, 1, 0.4, 'linear')
+        end
+        for i in 4,7 do
+            noteTweenY('noteY'..i, i, -1000, 0.4, 'backInOut')
+            noteTweenAngle('noteAngle'..i, i, 360, 1, 'cubeOut')
+        end
         if downscroll then
-            noteTweenY('noteY5', 4, 1000, 0.4, 'backInOut');
-            noteTweenY('noteY6', 5, 1000, 0.4, 'backInOut');
-            noteTweenY('noteY7', 6, 1000, 0.4, 'backInOut');
-            noteTweenY('noteY8', 7, 1000, 0.4, 'backInOut');
+            for i in 4,7 do
+                noteTweenY('noteY'..i, i, 1000, 0.4, 'backInOut')
+            end
         end
     end
 
@@ -262,14 +185,9 @@ function onBeatHit()
     if curBeat == 433 then
         doTweenY('johnnydope', 'dad', 1000, 2, 'sineInOut')
         doTweenY('boyfriend', 'boyfriend', 1000, 2, 'sineInOut')
-        noteTweenAlpha('alphaNotes1', 0, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes2', 1, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes3', 2, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes4', 3, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes5', 4, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes6', 5, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes7', 6, 0, 0.4, 'linear');
-        noteTweenAlpha('alphaNotes8', 7, 0, 0.4, 'linear');
+        for i = 0,7 do
+            noteTweenAlpha('alphaNotes'..i, i, 0, 0.4, 'linear')
+        end
     end 
 end
 
