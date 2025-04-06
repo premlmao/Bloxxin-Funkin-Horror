@@ -2,7 +2,6 @@ package states;
 
 import flixel.FlxG;
 import flixel.FlxObject;
-import flixel.addons.transition.FlxTransitionableState;
 import lime.app.Application;
 
 
@@ -37,10 +36,7 @@ class BloxxinMainMenuState extends MusicBeatState
 
 		if (!FlxG.mouse.visible)
             FlxG.mouse.visible = true;
-
-        transIn = FlxTransitionableState.defaultTransIn;
-        transOut = FlxTransitionableState.defaultTransOut;
-
+        
         persistentUpdate = persistentDraw = true;
 
         bg = new FlxSprite(0, 0).loadGraphic(Paths.image('mainmenu/bg'));
@@ -97,7 +93,7 @@ class BloxxinMainMenuState extends MusicBeatState
                 {
                     curSelected = item.ID;
                     trace("hovering: " + optionArray[curSelected]);
-
+                    
                     if (FlxG.mouse.justPressed)
                     {
                         accepted();
@@ -107,68 +103,54 @@ class BloxxinMainMenuState extends MusicBeatState
         });
         super.update(elapsed);
     }
-
-    function changeItem(huh:Int = 0)
-    {
-        FlxG.sound.play(Paths.sound('scrollMenu'));
-        menuOptions.members[curSelected].animation.play('idle');
-        menuOptions.members[curSelected].updateHitbox();
-        curSelected += huh;
-
-        if (curSelected >= menuOptions.length)
-            curSelected = 0;
-        if (curSelected < 0)
-            curSelected = menuOptions.length - 1;
-    }
-
     function accepted()
     {
-            if (optionArray[curSelected] == 'week2' )
-                {
-                    selected = false;
-                    var targetsArray:Array<FlxCamera> = FlxG.cameras.list;
-                    for (i in 0...targetsArray.length) 
-                    {
-                        targetsArray[i].shake(0.075, 0.1);
-                    }
-                }
-                else
-                {
-        FlxG.sound.play(Paths.sound('confirmMenu'));
-        
-        selected = true;
-
-        if (FlxG.mouse.visible == true)
-            FlxG.mouse.visible = false;
-
-        FlxTween.tween(FlxG.camera, {zoom: 2.5}, 1, {ease: FlxEase.circIn});
+        if (optionArray[curSelected] == 'week2')
         {
-            switch(optionArray[curSelected])
+            selected = false;
+            var targetsArray:Array<FlxCamera> = FlxG.cameras.list;
+            for (i in 0...targetsArray.length)
             {
-                case 'week1':
-                    PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
-                    PlayState.isStoryMode = true;
-                    WeekData.reloadWeekFiles(true);
-                    PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + "", PlayState.storyPlaylist[0].toLowerCase());
-                    PlayState.campaignScore = 0;
-                    PlayState.campaignMisses = 0;
-                    LoadingState.loadAndSwitchState(new PlayState(), true);
-                    FreeplayState.destroyFreeplayVocals();
-                case 'freeplay':
-                    MusicBeatState.switchState(new BloxxinFreeplayState());
-                case 'options':
-                        MusicBeatState.switchState(new OptionsState());
-                        OptionsState.onPlayState = false;
-                        if (PlayState.SONG != null)
-                        {
-                            PlayState.SONG.arrowSkin = null;
-                            PlayState.SONG.splashSkin = null;
-                            PlayState.stageUI = 'normal';
-                        }
-                case 'credits':
-                    MusicBeatState.switchState(new BloxxinCreditsState());
+                targetsArray[i].shake(0.001, 0.1);
             }
         }
+        else
+        {
+            FlxG.sound.play(Paths.sound('confirmMenu'));
+            
+            selected = true;
+
+            if (FlxG.mouse.visible == true)
+                FlxG.mouse.visible = false;
+
+            FlxTween.tween(FlxG.camera, {zoom: 2.5}, 1, {ease: FlxEase.circIn});
+            {
+                switch(optionArray[curSelected])
+                {
+                    case 'week1':
+                        PlayState.storyPlaylist = ['ProveIt', 'Deadline', 'Powering'];
+                        PlayState.isStoryMode = true;
+                        WeekData.reloadWeekFiles(true);
+                        PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + "", PlayState.storyPlaylist[0].toLowerCase());
+                        PlayState.campaignScore = 0;
+                        PlayState.campaignMisses = 0;
+                        LoadingState.loadAndSwitchState(new PlayState(), true);
+                        FreeplayState.destroyFreeplayVocals();
+                    case 'freeplay':
+                        MusicBeatState.switchState(new BloxxinFreeplayState());
+                    case 'options':
+                            MusicBeatState.switchState(new OptionsState());
+                            OptionsState.onPlayState = false;
+                            if (PlayState.SONG != null)
+                            {
+                                PlayState.SONG.arrowSkin = null;
+                                PlayState.SONG.splashSkin = null;
+                                PlayState.stageUI = 'normal';
+                            }
+                    case 'credits':
+                        MusicBeatState.switchState(new BloxxinCreditsState());
+                }
+            }
     }
 }
 }

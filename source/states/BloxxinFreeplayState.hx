@@ -7,7 +7,6 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
-import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.math.FlxMath;
@@ -111,10 +110,7 @@ class BloxxinFreeplayState extends MusicBeatState
         if (currentTab == 0)
             {
                 currentTab = 1;
-            } 
-            
-        transIn = FlxTransitionableState.defaultTransIn;
-		transOut = FlxTransitionableState.defaultTransOut;
+            }
 
         if (!FlxG.mouse.visible)
             FlxG.mouse.visible = true;

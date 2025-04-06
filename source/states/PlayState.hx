@@ -270,6 +270,10 @@ class PlayState extends MusicBeatState
 	public var startCallback:Void->Void = null;
 	public var endCallback:Void->Void = null;
 
+	// camera utils
+	public var charFocus:Character = null;
+	public var camOffset:Float = 50;
+
 	override public function create()
 	{
 		//trace('Playback Rate: ' + playbackRate);
@@ -2269,7 +2273,6 @@ class PlayState extends MusicBeatState
 			camFollow.setPosition(gf.getMidpoint().x, gf.getMidpoint().y);
 			camFollow.x += gf.cameraPosition[0] + girlfriendCameraOffset[0];
 			camFollow.y += gf.cameraPosition[1] + girlfriendCameraOffset[1];
-			tweenCamIn();
 			callOnScripts('onMoveCamera', ['gf']);
 			return;
 		}
@@ -2282,38 +2285,53 @@ class PlayState extends MusicBeatState
 	var cameraTwn:FlxTween;
 	public function moveCamera(isDad:Bool)
 	{
+		var disCamDad:Array<Float> = [];
+		var disCamBF:Array<Float> = [];
+		var dis:Array<Float> = [];
+
+		var char = isDad ? dad : boyfriend;
+		if (char.animation.curAnim.curFrame < 2)
+		{
+			switch(char.animation.curAnim.name)
+			{
+				case 'singUP' | 'singUP-alt' | 'singUP-alt2':
+					dis = [0,-camOffset];
+				case 'singDOWN' | 'singDOWN-alt' | 'singDOWN-alt2':
+					dis = [0,camOffset];
+				case 'singLEFT' | 'singLEFT-alt' | 'singLEFT-alt2':
+					dis = [-camOffset,0];
+				case 'singRIGHT' | 'singRIGHT-alt' | 'singRIGHT-alt2':
+					dis = [camOffset,0];
+			}
+		}
+
+		if (SONG.notes[curSection].mustHitSection) disCamBF = dis;
+		else disCamDad = dis;
+
+		if (charFocus == dad)
+		{
+			isDad = true;
+			disCamDad = dis;
+			disCamBF = [0,0];
+		}
+		if (charFocus == boyfriend)
+		{
+			isDad = false;
+			disCamBF = dis;
+			disCamDad = [0,0];
+		}
+
 		if(isDad)
 		{
-			camFollow.setPosition(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
+			camFollow.setPosition(dad.getMidpoint().x + 150 + disCamDad[0], dad.getMidpoint().y - 100 + disCamDad[1]);
 			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
 			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
-			tweenCamIn();
 		}
 		else
 		{
-			camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
+			camFollow.setPosition(boyfriend.getMidpoint().x - 100 + disCamBF[0], boyfriend.getMidpoint().y - 100 + disCamBF[1]);
 			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
 			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
-
-			if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1)
-			{
-				cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
-					function (twn:FlxTween)
-					{
-						cameraTwn = null;
-					}
-				});
-			}
-		}
-	}
-
-	public function tweenCamIn() {
-		if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1.3) {
-			cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1.3}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
-				function (twn:FlxTween) {
-					cameraTwn = null;
-				}
-			});
 		}
 	}
 
@@ -2976,6 +2994,7 @@ class PlayState extends MusicBeatState
 
 		if (!note.isSustainNote)
 			invalidateNote(note);
+			moveCamera(true);
 	}
 
 	public function goodNoteHit(note:Note):Void
@@ -3051,6 +3070,7 @@ class PlayState extends MusicBeatState
 			combo++;
 			if(combo > 9999) combo = 9999;
 			popUpScore(note);
+			moveCamera(false);
 		}
 		var gainHealth:Bool = true; // prevent health gain, *if* sustains are treated as a singular note
 		if (guitarHeroSustains && note.isSustainNote) gainHealth = false;
