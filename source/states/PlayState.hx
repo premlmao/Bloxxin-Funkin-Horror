@@ -1879,8 +1879,8 @@ class PlayState extends MusicBeatState
 	}
 		*/
 
-		iconP1.x = 940;
-		iconP2.x = 190;
+		iconP1.x = 897;
+		iconP2.x = 240;
 	}
 
 	var iconsAnimations:Bool = true;
@@ -2296,6 +2296,7 @@ class PlayState extends MusicBeatState
 	var cameraTwn:FlxTween;
 	public function moveCamera(isDad:Bool)
 	{
+		/*
 		var disCamDad:Array<Float> = [];
 		var disCamBF:Array<Float> = [];
 		var dis:Array<Float> = [];
@@ -2349,9 +2350,21 @@ class PlayState extends MusicBeatState
 			camFollow.setPosition(dad.getMidpoint().x + 300, dad.getMidpoint().y - 100);
 			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
 			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
+		}
+			*/
+		if(isDad)
+		{
+			camFollow.setPosition(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
+			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
+			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
+			tweenCamIn();
+		}
+		else
+		{
+			camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
 			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
-		}
+		}		
 	}
 
 	public function finishSong(?ignoreNoteOffset:Bool = false):Void
