@@ -272,7 +272,7 @@ class PlayState extends MusicBeatState
 
 	// camera utils
 	public var charFocus:Character = null;
-	public var camOffset:Float = 50;
+	public var camOffset:Float = 30;
 
 	override public function create()
 	{
@@ -571,6 +571,7 @@ class PlayState extends MusicBeatState
 		healthBarAround.camera = camHUD;
 		healthBarAround.screenCenter(X);
 		healthBarAround.y = 629;
+		healthBar.color = FlxColor.LIME;
 		if(ClientPrefs.data.downScroll) healthBarAround.y = healthBar.y - 12;
 		uiGroup.add(healthBarAround);
 
@@ -751,8 +752,8 @@ class PlayState extends MusicBeatState
 	#end
 
 	public function reloadHealthBarColors() {
-		healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]),
-			FlxColor.fromRGB(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]));
+		//healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]),
+			//FlxColor.fromRGB(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]));
 	}
 
 	public function addCharacterToList(newCharacter:String, type:Int) {
@@ -1885,8 +1886,9 @@ class PlayState extends MusicBeatState
 		}
 	}
 		*/
-		iconP1.x = healthBar.barCenter + (150 * iconP1.scale.x - 150) / 2 - iconOffset;
-		iconP2.x = healthBar.barCenter - (150 * iconP2.scale.x) / 2 - iconOffset * 2;
+
+		iconP1.x = 945;
+		iconP2.x = 190;
 	}
 
 	var iconsAnimations:Bool = true;
@@ -2285,9 +2287,10 @@ class PlayState extends MusicBeatState
 	var cameraTwn:FlxTween;
 	public function moveCamera(isDad:Bool)
 	{
-		var disCamDad:Array<Float> = [];
-		var disCamBF:Array<Float> = [];
-		var dis:Array<Float> = [];
+		var camDisplace:FlxPoint = FlxPoint.get();
+
+		if (charFocus == dad) isDad = true;
+		if (charFocus == boyfriend) isDad = false;
 
 		var char = isDad ? dad : boyfriend;
 		if (char.animation.curAnim.curFrame < 2)
@@ -2295,44 +2298,38 @@ class PlayState extends MusicBeatState
 			switch(char.animation.curAnim.name)
 			{
 				case 'singUP' | 'singUP-alt' | 'singUP-alt2':
-					dis = [0,-camOffset];
+					camDisplace.y = -camOffset;
 				case 'singDOWN' | 'singDOWN-alt' | 'singDOWN-alt2':
-					dis = [0,camOffset];
+					camDisplace.y = camOffset;
 				case 'singLEFT' | 'singLEFT-alt' | 'singLEFT-alt2':
-					dis = [-camOffset,0];
+					camDisplace.x = -camOffset;
 				case 'singRIGHT' | 'singRIGHT-alt' | 'singRIGHT-alt2':
-					dis = [camOffset,0];
+					camDisplace.x = camOffset;
 			}
-		}
-
-		if (SONG.notes[curSection].mustHitSection) disCamBF = dis;
-		else disCamDad = dis;
-
-		if (charFocus == dad)
-		{
-			isDad = true;
-			disCamDad = dis;
-			disCamBF = [0,0];
-		}
-		if (charFocus == boyfriend)
-		{
-			isDad = false;
-			disCamBF = dis;
-			disCamDad = [0,0];
 		}
 
 		if(isDad)
 		{
-			camFollow.setPosition(dad.getMidpoint().x + 150 + disCamDad[0], dad.getMidpoint().y - 100 + disCamDad[1]);
+			camFollow.setPosition(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
 			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
 			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
 		}
 		else
 		{
-			camFollow.setPosition(boyfriend.getMidpoint().x - 100 + disCamBF[0], boyfriend.getMidpoint().y - 100 + disCamBF[1]);
+			camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
 			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
 		}
+		if (boyfriend.animation.name.startsWith('sing') && dad.animation.name.startsWith('sing')) 
+		{
+			camFollow.setPosition(dad.getMidpoint().x + 300, dad.getMidpoint().y - 100);
+			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
+			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
+		}
+
+		camFollow.x += camDisplace.x;
+		camFollow.y += camDisplace.y;
+		camDisplace.put();
 	}
 
 	public function finishSong(?ignoreNoteOffset:Bool = false):Void
@@ -2994,7 +2991,6 @@ class PlayState extends MusicBeatState
 
 		if (!note.isSustainNote)
 			invalidateNote(note);
-			moveCamera(true);
 	}
 
 	public function goodNoteHit(note:Note):Void
@@ -3070,7 +3066,6 @@ class PlayState extends MusicBeatState
 			combo++;
 			if(combo > 9999) combo = 9999;
 			popUpScore(note);
-			moveCamera(false);
 		}
 		var gainHealth:Bool = true; // prevent health gain, *if* sustains are treated as a singular note
 		if (guitarHeroSustains && note.isSustainNote) gainHealth = false;
