@@ -2104,6 +2104,7 @@ class PlayState extends MusicBeatState
 						if(flValue2 == null) flValue2 = 0;
 						camFollow.x = flValue1;
 						camFollow.y = flValue2;
+						return;
 					}
 				}
 
