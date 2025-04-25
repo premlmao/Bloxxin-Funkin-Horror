@@ -181,7 +181,6 @@ class PlayState extends MusicBeatState
 
 	public var healthBar:Bar;
 	public var healthBarAround:FlxSprite;
-	public var timeBar:Bar;
 	public var songIcon:FlxSprite;
 	public var songTxt:FlxText;
 	var songPercent:Float = 0;
@@ -491,12 +490,6 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.data.downScroll) timeTxt.y = 70;
 		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = SONG.song;
 
-		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
-		timeBar.scrollFactor.set();
-		timeBar.screenCenter(X);
-		timeBar.alpha = 0;
-		timeBar.visible = false;
-
 		var songData = SONG;
 		curSong = songData.song;
 
@@ -517,7 +510,6 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.data.downScroll) songIcon.y = 0;
 		uiGroup.add(songTxt);
 		uiGroup.add(songIcon);
-		uiGroup.add(timeBar);
 		uiGroup.add(timeTxt);
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
@@ -564,6 +556,7 @@ class PlayState extends MusicBeatState
 		healthBar.scrollFactor.set();
 		healthBar.visible = !ClientPrefs.data.hideHud;
 		healthBar.alpha = ClientPrefs.data.healthBarAlpha;
+		healthBar.color = 0xffeaee1f;
 		reloadHealthBarColors();
 		uiGroup.add(healthBar);
 
@@ -571,7 +564,7 @@ class PlayState extends MusicBeatState
 		healthBarAround.camera = camHUD;
 		healthBarAround.screenCenter(X);
 		healthBarAround.y = 629;
-		healthBar.color = FlxColor.LIME;
+		healthBarAround.color = 0xffeaee1f;
 		if(ClientPrefs.data.downScroll) healthBarAround.y = healthBar.y - 12;
 		uiGroup.add(healthBarAround);
 
@@ -1275,7 +1268,6 @@ class PlayState extends MusicBeatState
 
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
-		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(songIcon, {alpha: 1}, 1.2, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 1.2, {ease: FlxEase.circOut});
 
@@ -1887,7 +1879,7 @@ class PlayState extends MusicBeatState
 	}
 		*/
 
-		iconP1.x = 945;
+		iconP1.x = 940;
 		iconP2.x = 190;
 	}
 
@@ -1904,6 +1896,22 @@ class PlayState extends MusicBeatState
 		health = value;
 		var newPercent:Null<Float> = FlxMath.remapToRange(FlxMath.bound(healthBar.valueFunction(), healthBar.bounds.min, healthBar.bounds.max), healthBar.bounds.min, healthBar.bounds.max, 0, 100);
 		healthBar.percent = (newPercent != null ? newPercent : 0);
+
+		if (healthBar.percent > 0 && healthBar.percent < 30)
+		{
+			healthBar.color = 0xff920000;
+			healthBarAround.color = 0xff920000;
+		}
+		if (healthBar.percent > 30 && healthBar.percent < 70)
+		{
+			healthBar.color = 0xffeaee1f;
+			healthBarAround.color = 0xffeaee1f;
+		}
+		if (healthBar.percent > 70 && healthBar.percent < 100)
+		{
+			healthBar.color = 0xff3bb900;
+			healthBarAround.color = 0xff3bb900;
+		}
 
 		iconP1.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : 0; //If health is under 20%, change player icon to frame 1 (losing icon), otherwise, frame 0 (normal)
 		iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : 0; //If health is over 80%, change opponent icon to frame 1 (losing icon), otherwise, frame 0 (normal)
@@ -2288,10 +2296,9 @@ class PlayState extends MusicBeatState
 	var cameraTwn:FlxTween;
 	public function moveCamera(isDad:Bool)
 	{
-		var camDisplace:FlxPoint = FlxPoint.get();
-
-		if (charFocus == dad) isDad = true;
-		if (charFocus == boyfriend) isDad = false;
+		var disCamDad:Array<Float> = [];
+		var disCamBF:Array<Float> = [];
+		var dis:Array<Float> = [];
 
 		var char = isDad ? dad : boyfriend;
 		if (char.animation.curAnim.curFrame < 2)
@@ -2299,25 +2306,41 @@ class PlayState extends MusicBeatState
 			switch(char.animation.curAnim.name)
 			{
 				case 'singUP' | 'singUP-alt' | 'singUP-alt2':
-					camDisplace.y = -camOffset;
+					dis = [0,-camOffset];
 				case 'singDOWN' | 'singDOWN-alt' | 'singDOWN-alt2':
-					camDisplace.y = camOffset;
+					dis = [0,camOffset];
 				case 'singLEFT' | 'singLEFT-alt' | 'singLEFT-alt2':
-					camDisplace.x = -camOffset;
+					dis = [-camOffset,0];
 				case 'singRIGHT' | 'singRIGHT-alt' | 'singRIGHT-alt2':
-					camDisplace.x = camOffset;
+					dis = [camOffset,0];
 			}
+		}
+
+		if (SONG.notes[curSection].mustHitSection) disCamBF = dis;
+		else disCamDad = dis;
+
+		if (charFocus == dad)
+		{
+			isDad = true;
+			disCamDad = dis;
+			disCamBF = [0,0];
+		}
+		if (charFocus == boyfriend)
+		{
+			isDad = false;
+			disCamBF = dis;
+			disCamDad = [0,0];
 		}
 
 		if(isDad)
 		{
-			camFollow.setPosition(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
+			camFollow.setPosition(dad.getMidpoint().x + 150 + disCamDad[0], dad.getMidpoint().y - 100 + disCamDad[1]);
 			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
 			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
 		}
 		else
 		{
-			camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
+			camFollow.setPosition(boyfriend.getMidpoint().x - 100 + disCamBF[0], boyfriend.getMidpoint().y - 100 + disCamBF[1]);
 			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
 			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
 		}
@@ -2326,11 +2349,9 @@ class PlayState extends MusicBeatState
 			camFollow.setPosition(dad.getMidpoint().x + 300, dad.getMidpoint().y - 100);
 			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
 			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
+			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
+			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
 		}
-
-		camFollow.x += camDisplace.x;
-		camFollow.y += camDisplace.y;
-		camDisplace.put();
 	}
 
 	public function finishSong(?ignoreNoteOffset:Bool = false):Void
@@ -2370,7 +2391,6 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		timeBar.visible = false;
 		songIcon.visible = false;
 		timeTxt.visible = false;
 		canPause = false;
@@ -2991,7 +3011,7 @@ class PlayState extends MusicBeatState
 		if(result != FunkinLua.Function_Stop && result != FunkinLua.Function_StopHScript && result != FunkinLua.Function_StopAll) callOnHScript('opponentNoteHitPost', [note]);
 
 		if (!note.isSustainNote)
-			invalidateNote(note);
+			invalidateNote(note); moveCamera(true);
 	}
 
 	public function goodNoteHit(note:Note):Void
@@ -3074,7 +3094,7 @@ class PlayState extends MusicBeatState
 
 		var result:Dynamic = callOnLuas('goodNoteHitPost', [notes.members.indexOf(note), leData, leType, isSus]);
 		if(result != FunkinLua.Function_Stop && result != FunkinLua.Function_StopHScript && result != FunkinLua.Function_StopAll) callOnHScript('goodNoteHitPost', [note]);
-		if(!note.isSustainNote) invalidateNote(note);
+		if(!note.isSustainNote) invalidateNote(note); moveCamera(false);
 	}
 
 	public function invalidateNote(note:Note):Void {

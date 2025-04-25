@@ -18,7 +18,6 @@ import openfl.display.BitmapData;
 import shaders.ColorSwap;
 
 import states.StoryMenuState;
-import states.OutdatedState;
 import states.BloxxinMainMenuState;
 
 #if VIDEOS_ALLOWED
@@ -432,9 +431,7 @@ class TitleState extends MusicBeatState
 
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
-					if (mustUpdate) {
-						MusicBeatState.switchState(new OutdatedState());
-					} else {
+					{
 						MusicBeatState.switchState(new BloxxinMainMenuState());
 					}
 					closedState = true;

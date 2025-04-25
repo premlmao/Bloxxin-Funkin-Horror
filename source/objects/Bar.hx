@@ -5,7 +5,6 @@ import flixel.math.FlxRect;
 class Bar extends FlxSpriteGroup
 {
 	public var leftBar:FlxSprite;
-	public var rightBar:FlxSprite;
 	public var bg:FlxSprite;
 	public var valueFunction:Void->Float = null;
 	public var percent(default, set):Float = 0;
@@ -34,12 +33,7 @@ class Bar extends FlxSpriteGroup
 		//leftBar.color = FlxColor.WHITE;
 		leftBar.antialiasing = antialiasing = ClientPrefs.data.antialiasing;
 
-		rightBar = new FlxSprite().makeGraphic(Std.int(bg.width), Std.int(bg.height), FlxColor.WHITE);
-		rightBar.color = FlxColor.BLACK;
-		rightBar.antialiasing = ClientPrefs.data.antialiasing;
-
 		add(leftBar);
-		add(rightBar);
 		add(bg);
 		regenerateClips();
 	}
@@ -70,37 +64,28 @@ class Bar extends FlxSpriteGroup
 	public function setColors(left:FlxColor = null, right:FlxColor = null)
 	{
 		if (left != null)
-			leftBar.color = left;
-		if (right != null)
-			rightBar.color = right;
+			leftBar.color = right;
 	}
 
 	public function updateBar()
 	{
-		if(leftBar == null || rightBar == null) return;
+		if(leftBar == null) return;
 
 		leftBar.setPosition(bg.x, bg.y);
-		rightBar.setPosition(bg.x, bg.y);
 
 		var leftSize:Float = 0;
 		if(leftToRight) leftSize = FlxMath.lerp(0, barWidth, percent / 100);
 		else leftSize = FlxMath.lerp(0, barWidth, 1 - percent / 100);
 
-		leftBar.clipRect.width = leftSize;
+		leftBar.clipRect.width = barWidth - leftSize;
 		leftBar.clipRect.height = barHeight;
 		leftBar.clipRect.x = barOffset.x;
 		leftBar.clipRect.y = barOffset.y;
-
-		rightBar.clipRect.width = barWidth - leftSize;
-		rightBar.clipRect.height = barHeight;
-		rightBar.clipRect.x = barOffset.x + leftSize;
-		rightBar.clipRect.y = barOffset.y;
 
 		barCenter = leftBar.x + leftSize + barOffset.x;
 
 		// flixel is retarded
 		leftBar.clipRect = leftBar.clipRect;
-		rightBar.clipRect = rightBar.clipRect;
 	}
 
 	public function regenerateClips()
@@ -110,12 +95,6 @@ class Bar extends FlxSpriteGroup
 			leftBar.setGraphicSize(Std.int(bg.width), Std.int(bg.height));
 			leftBar.updateHitbox();
 			leftBar.clipRect = new FlxRect(0, 0, Std.int(bg.width), Std.int(bg.height));
-		}
-		if(rightBar != null)
-		{
-			rightBar.setGraphicSize(Std.int(bg.width), Std.int(bg.height));
-			rightBar.updateHitbox();
-			rightBar.clipRect = new FlxRect(0, 0, Std.int(bg.width), Std.int(bg.height));
 		}
 		updateBar();
 	}

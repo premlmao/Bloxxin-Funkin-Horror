@@ -18,6 +18,7 @@ class BloxxinMainMenuState extends MusicBeatState
 {
     public static var psychEngineVersion:String = '0.7.2h';
     public static var curSelected:Int = 0;
+    public static var started:Bool = true;
     public var hovering:Bool = false;
 
     var menuOptions:FlxTypedGroup<FlxSprite>;
@@ -61,6 +62,7 @@ class BloxxinMainMenuState extends MusicBeatState
                 case 0:
                     menuItem.scale.set(0.35, 0.35);
                     menuItem.setPosition(190, 390);
+
                 case 1:
                     menuItem.scale.set(0.35, 0.35);
                     menuItem.setPosition(555, 390);
@@ -76,7 +78,6 @@ class BloxxinMainMenuState extends MusicBeatState
             menuItem.updateHitbox();
             menuOptions.add(menuItem);
         }
-
         super.create();
     }
 
@@ -85,6 +86,7 @@ class BloxxinMainMenuState extends MusicBeatState
 
     override function update(elapsed:Float)
     {
+
         menuOptions.forEach(function(item:FlxSprite)
         {
             if (FlxG.mouse.overlaps(item))

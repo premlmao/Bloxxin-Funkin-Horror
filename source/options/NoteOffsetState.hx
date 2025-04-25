@@ -25,7 +25,6 @@ class NoteOffsetState extends MusicBeatState
 	var barPercent:Float = 0;
 	var delayMin:Int = -500;
 	var delayMax:Int = 500;
-	var timeBar:Bar;
 	var timeTxt:FlxText;
 	var beatText:Alphabet;
 	var beatTween:FlxTween;
@@ -130,14 +129,6 @@ class NoteOffsetState extends MusicBeatState
 		barPercent = ClientPrefs.data.noteOffset;
 		updateNoteDelay();
 		
-		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 3), 'healthBar', function() return barPercent, delayMin, delayMax);
-		timeBar.scrollFactor.set();
-		timeBar.screenCenter(X);
-		timeBar.visible = false;
-		timeBar.cameras = [camHUD];
-		timeBar.leftBar.color = FlxColor.LIME;
-
-		add(timeBar);
 		add(timeTxt);
 
 		///////////////////////
@@ -517,7 +508,6 @@ class NoteOffsetState extends MusicBeatState
 		comboNums.visible = onComboMenu;
 		dumbTexts.visible = onComboMenu;
 		
-		timeBar.visible = !onComboMenu;
 		timeTxt.visible = !onComboMenu;
 		beatText.visible = !onComboMenu;
 
