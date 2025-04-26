@@ -556,7 +556,7 @@ class PlayState extends MusicBeatState
 		healthBar.scrollFactor.set();
 		healthBar.visible = !ClientPrefs.data.hideHud;
 		healthBar.alpha = ClientPrefs.data.healthBarAlpha;
-		healthBar.color = 0xffeaee1f;
+		healthBar.color = FlxColor.interpolate(0xffff0000, 0xff00ff00, health / 2);
 		reloadHealthBarColors();
 		uiGroup.add(healthBar);
 
@@ -564,7 +564,7 @@ class PlayState extends MusicBeatState
 		healthBarAround.camera = camHUD;
 		healthBarAround.screenCenter(X);
 		healthBarAround.y = 629;
-		healthBarAround.color = 0xffeaee1f;
+		healthBarAround.color = FlxColor.interpolate(0xffff0000, 0xff00ff00, health / 2);
 		if(ClientPrefs.data.downScroll) healthBarAround.y = healthBar.y - 12;
 		uiGroup.add(healthBarAround);
 
@@ -1892,26 +1892,15 @@ class PlayState extends MusicBeatState
 			return health;
 		}
 
+		var colors:Array<FlxColor> = [0xff3bb900, 0xffeaee1f, 0xff920000];
+
 		// update health bar
 		health = value;
 		var newPercent:Null<Float> = FlxMath.remapToRange(FlxMath.bound(healthBar.valueFunction(), healthBar.bounds.min, healthBar.bounds.max), healthBar.bounds.min, healthBar.bounds.max, 0, 100);
 		healthBar.percent = (newPercent != null ? newPercent : 0);
 
-		if (healthBar.percent > 0 && healthBar.percent < 30)
-		{
-			healthBar.color = 0xff920000;
-			healthBarAround.color = 0xff920000;
-		}
-		if (healthBar.percent > 30 && healthBar.percent < 70)
-		{
-			healthBar.color = 0xffeaee1f;
-			healthBarAround.color = 0xffeaee1f;
-		}
-		if (healthBar.percent > 70 && healthBar.percent < 100)
-		{
-			healthBar.color = 0xff3bb900;
-			healthBarAround.color = 0xff3bb900;
-		}
+		healthBar.color = FlxColor.interpolate(0xffff0000, 0xff00ff00, health / 2);
+		healthBarAround.color = FlxColor.interpolate(0xffff0000, 0xff00ff00, health / 2);
 
 		iconP1.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : 0; //If health is under 20%, change player icon to frame 1 (losing icon), otherwise, frame 0 (normal)
 		iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : 0; //If health is over 80%, change opponent icon to frame 1 (losing icon), otherwise, frame 0 (normal)
