@@ -3023,7 +3023,7 @@ class PlayState extends MusicBeatState
 		if(result != FunkinLua.Function_Stop && result != FunkinLua.Function_StopHScript && result != FunkinLua.Function_StopAll) callOnHScript('opponentNoteHitPost', [note]);
 
 		if (!note.isSustainNote)
-			invalidateNote(note); moveCamera(true);
+			invalidateNote(note); //moveCamera(true);
 	}
 
 	public function goodNoteHit(note:Note):Void
@@ -3106,7 +3106,7 @@ class PlayState extends MusicBeatState
 
 		var result:Dynamic = callOnLuas('goodNoteHitPost', [notes.members.indexOf(note), leData, leType, isSus]);
 		if(result != FunkinLua.Function_Stop && result != FunkinLua.Function_StopHScript && result != FunkinLua.Function_StopAll) callOnHScript('goodNoteHitPost', [note]);
-		if(!note.isSustainNote) invalidateNote(note); moveCamera(false);
+		if(!note.isSustainNote) invalidateNote(note); //moveCamera(false);
 	}
 
 	public function invalidateNote(note:Note):Void {
