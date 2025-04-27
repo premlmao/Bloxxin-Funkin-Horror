@@ -181,6 +181,7 @@ class PlayState extends MusicBeatState
 
 	public var healthBar:Bar;
 	public var healthBarAround:FlxSprite;
+	public var healthBarAroundOutline:FlxSprite;
 	public var songIcon:FlxSprite;
 	public var songTxt:FlxText;
 	var songPercent:Float = 0;
@@ -567,6 +568,15 @@ class PlayState extends MusicBeatState
 		healthBarAround.color = FlxColor.interpolate(0xffff0000, 0xff00ff00, health / 2);
 		if(ClientPrefs.data.downScroll) healthBarAround.y = healthBar.y - 12;
 		uiGroup.add(healthBarAround);
+
+		// i got lazy forgive me
+		healthBarAroundOutline = new FlxSprite(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.89 : 0.11), Paths.image('healthBarAroundOutline'));
+		healthBarAroundOutline.camera = camHUD;
+		healthBarAroundOutline.screenCenter(X);
+		healthBarAroundOutline.y = 621;
+		healthBarAroundOutline.color = FlxColor.interpolate(0xffff0000, 0xff00ff00, health / 2);
+		if(ClientPrefs.data.downScroll) healthBarAroundOutline.y = healthBar.y - 12;
+		uiGroup.add(healthBarAroundOutline);
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
 		iconP1.y = healthBar.y - 75;
