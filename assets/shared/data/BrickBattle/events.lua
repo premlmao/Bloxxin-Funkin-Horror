@@ -164,6 +164,7 @@ if curStep == 448 then
     setHealth(50/50)
     doTweenY('hiHUD1','healthBar',641,crochet*0.0075,'cubeInOut')
     doTweenY('hiHUD2','healthBarAround',629,crochet*0.0075,'cubeInOut')
+    doTweenY('hiHUD','healthBarAroundOutline',621,crochet*0.0075,'cubeInOut')
     doTweenY('hiHUD3','iconP1',554,crochet*0.0075,'cubeInOut')
     doTweenY('hiHUD4','iconP2',554,crochet*0.0075,'cubeInOut')
     doTweenY('hiHUD5','scoreTxt',689,crochet*0.0075,'cubeInOut')
@@ -175,6 +176,7 @@ if curStep == 448 then
     if downscroll then
     doTweenY('hiHUD1','healthBar',79,crochet*0.0075,'cubeInOut')
     doTweenY('hiHUD2','healthBarAround',67,crochet*0.0075,'cubeInOut')
+    doTweenY('hiHUD','healthBarAroundOutline',59,crochet*0.0075,'cubeInOut')
     doTweenY('hiHUD3','iconP1',4,crochet*0.0075,'cubeInOut')
     doTweenY('hiHUD4','iconP2',4,crochet*0.0075,'cubeInOut')
     doTweenY('hiHUD5','scoreTxt',129,crochet*0.0075,'cubeInOut')
