@@ -152,58 +152,26 @@ function onCreate()
         end
     end
 
-    if curStep == 384 or curStep == 640 or curStep == 783 then
+    if curStep == 384 then
         noteTweenAlpha('noteAlpha1', 0, 0, 1, 'linear')
         noteTweenAlpha('noteAlpha2', 1, 0, 1, 'linear')
         noteTweenAlpha('noteAlpha3', 2, 0, 1, 'linear')
         noteTweenAlpha('noteAlpha4', 3, 0, 1, 'linear')
-        doTweenY('byeHUD1','healthBar',900,crochet*0.002,'cubeInOut')
-        doTweenY('byeHUD2','healthBarAround',900,crochet*0.002,'cubeInOut')
-        doTweenY('byeHUD3','iconP1',900,crochet*0.002,'cubeInOut')
-        doTweenY('byeHUD4','iconP2',900,crochet*0.002,'cubeInOut')
-        doTweenY('byeHUD5','scoreTxt',900,crochet*0.002,'cubeInOut')
-        if downscroll then
-            doTweenY('byeHUD1','healthBar',-300,crochet*0.002,'cubeInOut')
-            doTweenY('byeHUD2','healthBarAround',-300,crochet*0.002,'cubeInOut')
-            doTweenY('byeHUD3','iconP1',-300,crochet*0.002,'cubeInOut')
-            doTweenY('byeHUD4','iconP2',-300,crochet*0.002,'cubeInOut')
-            doTweenY('byeHUD5','scoreTxt',-300,crochet*0.002,'cubeInOut')
-        end
     end
-    
-    if curStep == 392 then
-        doTweenX('hudX1', 'healthBar', 600,crochet*0.0025,'cubeInOut')
-        doTweenX('hudX2', 'healthBarAround', 600,crochet*0.0025,'cubeInOut')
-        doTweenX('hudX3', 'iconP1', 600,crochet*0.0025,'cubeInOut')
-        doTweenX('hudX4', 'iconP2', 600,crochet*0.0025,'cubeInOut')
-        doTweenX('hudX5', 'scoreTxt', 265,crochet*0.0025,'cubeInOut')
-        setHealth(50/50)
+
+    if curStep == 640 or curStep == 656 then
+        startTween('health', 'game', {health = 1}, 1.5, {ease = 'cubeOut'})
     end
-    
-    if curStep == 400 or curStep == 656 then
-        doTweenY('hiHUD1','healthBar',641,crochet*0.0099,'cubeInOut')
-        doTweenY('hiHUD2','healthBarAround',629,crochet*0.0099,'cubeInOut')
-        doTweenY('hiHUD','healthBarAroundOutline',621,crochet*0.0099,'cubeInOut')
-        doTweenY('hiHUD3','iconP1',554,crochet*0.0099,'cubeInOut')
-        doTweenY('hiHUD4','iconP2',554,crochet*0.0099,'cubeInOut')
-        doTweenY('hiHUD5','scoreTxt',689,crochet*0.0099,'cubeInOut')
-        if downscroll then
-            doTweenY('hiHUD1','healthBar',79,crochet*0.0099,'cubeInOut')
-            doTweenY('hiHUD2','healthBarAround',67,crochet*0.0099,'cubeInOut')
-            doTweenY('hiHUD','healthBarAroundOutline',59,crochet*0.0099,'cubeInOut')
-            doTweenY('hiHUD3','iconP1',4,crochet*0.0099,'cubeInOut')
-            doTweenY('hiHUD4','iconP2',4,crochet*0.0099,'cubeInOut')
-            doTweenY('hiHUD5','scoreTxt',129,crochet*0.0099,'cubeInOut')
-        end
-    end
-    
     if curStep == 644 then
-        screenCenter('healthBar', 'x')
-        screenCenter('healthBarAround', 'x')
-        screenCenter('scoreTxt', 'x')
-        setHealth(50/50)
+        startTween('health', 'game', {health = 0.75}, 1.5, {ease = 'cubeOut'})
     end
-    
+    if curStep == 648 or curStep == 400 then
+        startTween('health', 'game', {health = 0.5}, 1.5, {ease = 'cubeOut'})
+    end
+    if curStep == 652 then
+        startTween('health', 'game', {health = 0.25}, 1.5, {ease = 'cubeOut'})
+    end
+
     if curStep == 656 or curStep == 879 then
         noteTweenAlpha('noteAlpha1', 0, 1, 1, 'linear')
         noteTweenAlpha('noteAlpha2', 1, 1, 1, 'linear')
