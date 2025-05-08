@@ -212,7 +212,6 @@ class BloxxinFreeplayState extends MusicBeatState
                 if (Highscore.getScore(song[0], curDifficulty) == 0 && song[0] != "Deformed")
                 {
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
-                    isLocked = true;
                     if (WeekData.weeksList[i] != "weekold")
                     {
                         AllUnlocked = false;
@@ -679,7 +678,7 @@ class BloxxinFreeplayState extends MusicBeatState
                             openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
                             FlxG.sound.play(Paths.sound('scrollMenu'));
                         }
-                    /*
+
                     if(FlxG.mouse.pressedRight)
                     {
                         if (!isLocked)
@@ -687,6 +686,7 @@ class BloxxinFreeplayState extends MusicBeatState
                                 persistentUpdate = false;
                                 openSubState(new SongInfoSubState(songs[curSelected].songName, curDifficulty));
                                 FlxG.sound.play(Paths.sound('scrollMenu'));
+                                isLocked = false;
                             }
                             else
                             {
@@ -695,10 +695,9 @@ class BloxxinFreeplayState extends MusicBeatState
                                 {
                                     targetsArray[i].shake(0.001, 0.1);
                                 }
+                                isLocked = true;
                             }
                     }
-                            */
-
                     #if desktop
                     if (controls.justPressed('debug_1'))
                     {
