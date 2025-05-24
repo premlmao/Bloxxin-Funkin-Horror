@@ -1,92 +1,92 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
-				0,
-				0
+				15,
+				-3
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "left",
-			"indices": []
+			"indices": [],
+			"name": "left"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				0,
-				0
+				-9,
+				-6
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "down",
-			"indices": []
+			"indices": [],
+			"name": "down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
-				0
+				3
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "up",
-			"indices": []
+			"indices": [],
+			"name": "up"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				0,
+				-12,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "right",
-			"indices": []
+			"indices": [],
+			"name": "right"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFTmiss",
-			"fps": 24,
-			"name": "missleft",
-			"indices": []
+			"indices": [],
+			"name": "miss"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWNmiss",
-			"fps": 24,
-			"name": "missdown",
-			"indices": []
+			"indices": [],
+			"name": "miss"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUPmiss",
-			"fps": 24,
-			"name": "missup",
-			"indices": []
+			"indices": [],
+			"name": "miss"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "singRIGHTmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "missright",
-			"indices": []
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "miss"
 		},
 		{
 			"offsets": [
@@ -98,24 +98,13 @@
 			"anim": "idle",
 			"indices": [],
 			"name": "idle"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 15,
-			"anim": "hey",
-			"indices": [],
-			"name": "hey"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/robloxbf",
 	"position": [
-		80,
-		270
+		210,
+		430
 	],
 	"healthicon": "robloxbf",
 	"flip_x": true,
@@ -125,10 +114,10 @@
 		239
 	],
 	"camera_position": [
-		210,
-		-80
+		520,
+		-200
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.35,
+	"scale": 2.95,
 	"_editor_isPlayer": true
 }
