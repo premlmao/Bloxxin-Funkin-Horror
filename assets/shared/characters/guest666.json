@@ -1,48 +1,48 @@
 {
 	"animations": [
 		{
-			"loop": false,
-			"offsets": [
-				10,
-				5
-			],
-			"anim": "singLEFT",
-			"fps": 24,
-			"name": "left",
-			"indices": []
-		},
-		{
-			"loop": false,
 			"offsets": [
 				0,
-				-7
+				0
 			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "down",
-			"indices": []
+			"indices": [],
+			"name": "down"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-1,
-				6
+				0,
+				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "up",
-			"indices": []
+			"indices": [],
+			"name": "up"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-9,
-				1
+				0,
+				0
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
 		},
 		{
 			"offsets": [
@@ -59,8 +59,8 @@
 	"no_antialiasing": true,
 	"image": "characters/guest666",
 	"position": [
-		-150,
-		50
+		250,
+		450
 	],
 	"healthicon": "guest666",
 	"flip_x": false,
@@ -70,9 +70,10 @@
 		39
 	],
 	"camera_position": [
-		-110,
-		-40
+		-340,
+		-210
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.4
+	"scale": 2.95,
+	"_editor_isPlayer": false
 }
