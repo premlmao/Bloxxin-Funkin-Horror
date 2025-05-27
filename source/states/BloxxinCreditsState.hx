@@ -207,6 +207,11 @@ class BloxxinCreditsState extends MusicBeatState
 					member.y = 250;
 					member.y = member.y + 10;
 					FlxTween.tween(member, {y: member.y - 10}, 0.2, {ease: FlxEase.quartOut});
+					/*
+					if (currentMember == 4)
+					{
+						FlxTween.tween(member, {y: 50}, 0.75, {ease: FlxEase.quadInOut, type: PINGPONG});
+					} */
 				}else{
 					member.visible = false;
 				}
@@ -226,7 +231,9 @@ class BloxxinCreditsState extends MusicBeatState
 					nameText.x = 64;
 				case 'Nohomatta':
 					nameText.x = 83;
-				case 'Travago' | 'GREXA':
+				case 'Travago':
+					nameText.x = 73;
+				case 'GREXA':
 					nameText.x = 73;
 				case '5cvc' | 'Null' | 'Qiwi' | 'Mint':
 					nameText.x = 70;
