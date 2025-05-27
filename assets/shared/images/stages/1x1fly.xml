@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="1x1fly.png">
+<SubTexture name="kratos0000" x="0" y="0" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0001" x="164" y="0" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0002" x="328" y="0" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0003" x="492" y="0" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0004" x="656" y="0" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0005" x="0" y="364" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0006" x="164" y="364" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0007" x="328" y="364" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0008" x="492" y="364" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0009" x="656" y="364" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0010" x="820" y="0" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0011" x="820" y="364" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0012" x="984" y="0" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0013" x="984" y="364" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0014" x="0" y="728" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0015" x="164" y="728" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0016" x="328" y="728" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0017" x="492" y="728" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0018" x="656" y="728" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0019" x="820" y="728" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0020" x="984" y="728" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0021" x="1148" y="0" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0022" x="1148" y="364" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0023" x="1148" y="728" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0024" x="1312" y="0" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0025" x="1312" y="364" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0026" x="1312" y="728" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0027" x="0" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0028" x="164" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0029" x="328" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0030" x="492" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0031" x="656" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0032" x="820" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0033" x="984" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0034" x="1148" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0035" x="1312" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0036" x="1312" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0037" x="1312" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0038" x="1312" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0039" x="1312" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0040" x="1312" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+<SubTexture name="kratos0041" x="1312" y="1092" width="164" height="364" frameX="0" frameY="0" frameWidth="164" frameHeight="364" />
+</TextureAtlas>
