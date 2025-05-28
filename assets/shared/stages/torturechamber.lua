@@ -1,38 +1,23 @@
 function onCreate()
 	-- background shit
 
-	makeAnimatedLuaSprite('classicfog','stages/classicfog',-400,-100)
-        addAnimationByPrefix('classicfog', 'grin', 'fog', 10, true);
-        objectPlayAnimation('classicfog','grin',true)
-	setScrollFactor('classicfog', 1.2, 1.2);
-        setProperty('classicfog.antialiasing', false);
-
-	makeLuaSprite('torturechamberfloor', 'stages/torturechamberfloor', -300, -100);
+	makeLuaSprite('torturechamberfloor', 'stages/torturechamberfloor', -1300, -730);
 	setScrollFactor('torturechamberfloor', 1, 1);
         setProperty('torturechamberfloor.antialiasing', false);
+	scaleObject ('torturechamberfloor', 3, 3);
 
-	makeLuaSprite('torturechamber', 'stages/torturechamber', -300, -130);
-	setScrollFactor('torturechamber', 0.7, 0.7);
-        setProperty('torturechamber.antialiasing', false);
-
-	makeLuaSprite('torturechamberback', 'stages/torturechamberback', -300, -185);
-	setScrollFactor('torturechamberback', 0.2, 0.2);
+	makeLuaSprite('torturechamberback', 'stages/torturechamberback', -1300, -800);
+	setScrollFactor('torturechamberback', 0.5, 0.5);
         setProperty('torturechamberback.antialiasing', false);
+	scaleObject ('torturechamberback', 3, 3);
 
-        addLuaSprite('torturechamberback', false);
-        addLuaSprite('torturechamber', false);
+        addLuaSprite('torturechamberback', false); 
         addLuaSprite('torturechamberfloor', false);
-	addLuaSprite('classicfog', true);
 end
 
 function onBeatHit()
-    if curBeat == 68 then
-		removeLuaSprite('classicfog');
-end
-
     if curBeat == 100 then
         removeLuaSprite('torturechamberback', false);
-        removeLuaSprite('torturechamber', false);
         removeLuaSprite('torturechamberfloor', false);
 
 	makeLuaSprite('spiritprofile', 'stages/spiritprofile', -300, -100);
@@ -46,7 +31,6 @@ end
 		removeLuaSprite('spiritprofile');
 
         addLuaSprite('torturechamberback', false);
-        addLuaSprite('torturechamber', false);
         addLuaSprite('torturechamberfloor', false);
 end
 end

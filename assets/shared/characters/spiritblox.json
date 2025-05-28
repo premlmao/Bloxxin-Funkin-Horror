@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
-				-10,
+				70,
 				0
 			],
+			"loop": false,
+			"fps": 12,
 			"anim": "singLEFT",
-			"fps": 15,
-			"name": "left",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "singUP",
-			"fps": 15,
-			"name": "up",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-30,
-				0
-			],
-			"anim": "singRIGHT",
-			"fps": 15,
-			"name": "right",
-			"indices": []
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 15,
-			"anim": "idle",
 			"indices": [],
-			"name": "idle"
+			"name": "left"
 		},
 		{
 			"offsets": [
-				0,
+				10,
 				0
 			],
-			"indices": [],
-			"fps": 15,
+			"loop": false,
+			"fps": 12,
 			"anim": "singDOWN",
-			"loop": false,
+			"indices": [],
 			"name": "down"
+		},
+		{
+			"offsets": [
+				0,
+				20
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-80,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 6,
+			"name": "idle",
+			"indices": []
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/spiritblox",
 	"position": [
 		150,
-		420
+		400
 	],
 	"healthicon": "spiritblox",
 	"flip_x": false,
@@ -70,10 +70,10 @@
 		84
 	],
 	"camera_position": [
-		-320,
-		-290
+		-190,
+		-190
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 4.25,
+	"scale": 2.95,
 	"_editor_isPlayer": false
 }
