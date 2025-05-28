@@ -889,6 +889,14 @@ class FunkinLua {
 					game.boyfriendGroup.y = value;
 			}
 		});
+		Lua_helper.add_callback(lua, "cameraSetTarget", function(target:String) {
+			var isDad:Bool = false;
+			if(target == 'dad') {
+				isDad = true;
+			}
+			game.moveCamera(isDad);
+			return isDad;
+		});
 		Lua_helper.add_callback(lua, "cameraShake", function(camera:String, intensity:Float, duration:Float) {
 			LuaUtils.cameraFromString(camera).shake(intensity, duration);
 		});
