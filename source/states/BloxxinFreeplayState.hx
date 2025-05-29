@@ -209,13 +209,10 @@ class BloxxinFreeplayState extends MusicBeatState
 				}
 
                 
-                if (Highscore.getScore(song[0], curDifficulty) == 0 && song[0] != "Deformed")
+                portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
+                if (WeekData.weeksList[i] != "weekold")
                 {
-                    //portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
-                    if (WeekData.weeksList[i] != "weekold")
-                    {
-                        AllUnlocked = false;
-                    }
+                    AllUnlocked = false;
                 }
                 else if (!Assets.exists('assets/shared/images/freeplay/portrait_' + song[0] + '.png'))
                 {
