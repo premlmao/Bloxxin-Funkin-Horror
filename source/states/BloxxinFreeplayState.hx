@@ -211,7 +211,7 @@ class BloxxinFreeplayState extends MusicBeatState
                 
                 if (Highscore.getScore(song[0], curDifficulty) == 0 && song[0] != "Deformed")
                 {
-                    portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
+                    //portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
                     if (WeekData.weeksList[i] != "weekold")
                     {
                         AllUnlocked = false;
