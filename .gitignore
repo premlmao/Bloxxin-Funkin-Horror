@@ -22,12 +22,3 @@ vs_Community.exe
 !.vscode/extensions.json
 art/build_html.bat
 art/build_html-debug.bat
-assets/shared/images/characters/noobfurry.xml
-assets/shared/images/characters/noobfurry.png
-assets/shared/images/characters/guestfurry.png
-assets/shared/images/characters/guestfurry.xml
-assets/shared/characters/foolsfront.json
-assets/shared/data/Fools/Fools.json
-assets/shared/data/Fools/events.lua
-*.json
-assets/shared/data/GloryDayOld/GloryDayOld.json
