@@ -1,0 +1,90 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 10,
+			"name": "idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singLEFT",
+			"fps": 10,
+			"name": "left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singDOWN",
+			"fps": 10,
+			"name": "down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUP",
+			"fps": 10,
+			"name": "up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-2,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 10,
+			"name": "right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "spook",
+			"fps": 8,
+			"name": "spook",
+			"indices": []
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/whistlehead",
+	"position": [
+		150,
+		320
+	],
+	"healthicon": "whistlehead",
+	"flip_x": false,
+	"healthbar_colors": [
+		185,
+		174,
+		53
+	],
+	"camera_position": [
+		-200,
+		120
+	],
+	"sing_duration": 5.99999999999999,
+	"scale": 1.30000000000002,
+	"_editor_isPlayer": false
+}

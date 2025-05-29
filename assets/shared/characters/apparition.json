@@ -1,0 +1,134 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 15,
+			"anim": "singLEFT-loop",
+			"indices": [],
+			"name": "loopleft"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 15,
+			"anim": "singDOWN-loop",
+			"indices": [],
+			"name": "loopdown"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 15,
+			"anim": "singUP-loop",
+			"indices": [],
+			"name": "loopup"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 15,
+			"anim": "singRIGHT-loop",
+			"indices": [],
+			"name": "loopright"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 10,
+			"name": "idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "spawn",
+			"fps": 15,
+			"name": "spawn",
+			"indices": []
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/apparition",
+	"position": [
+		780,
+		520
+	],
+	"healthicon": "apparition",
+	"flip_x": false,
+	"healthbar_colors": [
+		151,
+		14,
+		14
+	],
+	"camera_position": [
+		-360,
+		-70
+	],
+	"sing_duration": 5.99999999999999,
+	"scale": 2.95,
+	"_editor_isPlayer": false
+}

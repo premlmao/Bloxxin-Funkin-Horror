@@ -1,0 +1,134 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-110,
+				0
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-110,
+				0
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-170,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "right",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singLEFT-loop",
+			"fps": 24,
+			"name": "loopleft",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-110,
+				0
+			],
+			"anim": "singDOWN-loop",
+			"fps": 24,
+			"name": "loopdown",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-170,
+				0
+			],
+			"anim": "singRIGHT-loop",
+			"fps": 24,
+			"name": "loopright",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-110,
+				0
+			],
+			"anim": "singUP-loop",
+			"fps": 24,
+			"name": "loopup",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				390,
+				600
+			],
+			"anim": "fall",
+			"fps": 24,
+			"name": "fall",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 28,
+			"anim": "idle",
+			"loop": false,
+			"name": "idle"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/johndoe-powering",
+	"position": [
+		220,
+		790
+	],
+	"healthicon": "johndoepower",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		216,
+		60
+	],
+	"camera_position": [
+		-880,
+		-1060
+	],
+	"sing_duration": 5.99999999999999,
+	"scale": 2.95,
+	"_editor_isPlayer": false
+}
