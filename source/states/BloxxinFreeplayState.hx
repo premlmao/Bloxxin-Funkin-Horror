@@ -121,6 +121,12 @@ class BloxxinFreeplayState extends MusicBeatState
         stageGrp = new FlxTypedGroup<FlxSprite>();
         add(stageGrp);
 
+        stage.loadGraphic(Paths.image('freeplay/bg/ProveIt'));
+        stage.antialiasing = ClientPrefs.data.antialiasing;
+        stage.scale.set(1, 1);
+        stage.alpha = 1;
+        stage.updateHitbox();
+        stage.screenCenter();
         stageGrp.add(stage);
 
         Deformation.frames = Paths.getSparrowAtlas('freeplay/Deformation');
