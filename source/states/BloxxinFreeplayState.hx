@@ -225,10 +225,6 @@ class BloxxinFreeplayState extends MusicBeatState
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_' + song[0]));
                 }
 
-                if (song[0] == "RealMurderRap")
-                    {
-                        l = 1;
-                    }
                 portrait.antialiasing = ClientPrefs.data.antialiasing;
                 portrait.scale.set(0.2, 0.2);
                 portrait.updateHitbox();
@@ -602,13 +598,23 @@ class BloxxinFreeplayState extends MusicBeatState
         
                                     intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
                                     intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
-                                    
-                                    stage.loadGraphic(Paths.image('freeplay/bg/' + songs[curSelected].songName));
-                                    stage.antialiasing = ClientPrefs.data.antialiasing;
-                                    stage.scale.set(1, 1);
-                                    stage.alpha = 1;
-                                    stage.updateHitbox();
-                                    stage.screenCenter();
+
+                                    if (!Assets.exists('assets/shared/images/freeplay/bg/' + songs[curSelected].songName + '.png'))
+                                    {
+                                        stage.loadGraphic(Paths.image('menuDesat'));
+                                        stage.antialiasing = ClientPrefs.data.antialiasing;
+                                        stage.scale.set(1, 1);
+                                        stage.alpha = 1;
+                                        stage.updateHitbox();
+                                        stage.screenCenter();
+                                    }else{
+                                        stage.loadGraphic(Paths.image('freeplay/bg/' + songs[curSelected].songName));
+                                        stage.antialiasing = ClientPrefs.data.antialiasing;
+                                        stage.scale.set(1, 1);
+                                        stage.alpha = 1;
+                                        stage.updateHitbox();
+                                        stage.screenCenter();
+                                    }
                                     
                                 }else if(!OldSongsOpened && !ControlsOpened){
                                     FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
