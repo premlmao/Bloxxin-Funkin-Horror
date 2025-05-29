@@ -3,7 +3,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				-3,
+				160,
 				0
 			],
 			"anim": "singLEFT",
@@ -14,8 +14,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-10,
-				0
+				-420,
+				30
 			],
 			"anim": "singDOWN",
 			"fps": 24,
@@ -25,8 +25,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				20
+				140,
+				0
 			],
 			"anim": "singUP",
 			"fps": 24,
@@ -36,8 +36,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-80,
-				-10
+				-510,
+				25
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
@@ -45,14 +45,14 @@
 			"indices": []
 		},
 		{
-			"loop": true,
+			"loop": false,
 			"offsets": [
-				0,
-				0
+				12,
+				30
 			],
-			"anim": "idle",
+			"anim": "transform",
 			"fps": 24,
-			"name": "idle",
+			"name": "transform",
 			"indices": []
 		},
 		{
@@ -61,17 +61,17 @@
 				0,
 				0
 			],
-			"anim": "stare",
+			"anim": "idle",
 			"fps": 24,
-			"name": "stare",
+			"name": "idle",
 			"indices": []
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/community",
 	"position": [
-		10,
-		260
+		-160,
+		390
 	],
 	"healthicon": "community",
 	"flip_x": false,
@@ -81,10 +81,10 @@
 		26
 	],
 	"camera_position": [
-		-50,
-		-80
+		-200,
+		-200
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.4,
+	"scale": 2.95,
 	"_editor_isPlayer": false
 }
