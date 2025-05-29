@@ -26,15 +26,26 @@ function onCreate()
         setProperty('redsky.antialiasing', false);
 	scaleObject ('redsky', 3, 3);
 
+	makeLuaSprite('crossroadsfog', 'stages/crossroadsfog', -1300, -750);
+	setScrollFactor('crossroadsfog', 0.05, 0.05);
+        setProperty('crossroadsfog.antialiasing', false);
+	scaleObject ('crossroadsfog', 3, 3);
+
 
         addLuaSprite('redsky', false);
         addLuaSprite('crossroadssky', false);
         addLuaSprite('crossroadsbacker', false);
         addLuaSprite('crossroadsback', false);
         addLuaSprite('crossroadsmap', false);
+        addLuaSprite('crossroadsfog', true);
 end
 
 function onBeatHit()
+    if curBeat == 1 then
+
+        doTweenAlpha('fog', 'crossroadsfog', 0, 15, 'cubeInOut')
+
+end
     if curBeat == 100 then
 
         doTweenAlpha('sky', 'crossroadssky', 0, 12, 'cubeInOut')
@@ -90,6 +101,18 @@ end
         addLuaSprite('crossroadsfireback', false);
         addLuaSprite('crossroadsfiremap', false);
 end
+
+    if curBeat == 284 then
+        doTweenAlpha('fog', 'crossroadsfog', 1, 20, 'cubeInOut')
+
 end
 
+    if curBeat == 332 then
+        doTweenAlpha('fog', 'crossroadsfog', 0.5, 2, 'cubeInOut')
+        doTweenAlpha('sky', 'crossroadssky', 1, 0.01, 'cubeInOut')
+
+		removeLuaSprite('crossroadsfiremap');
+		removeLuaSprite('crossroadsfireback');
+end
+end
 
