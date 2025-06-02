@@ -2,8 +2,8 @@
 	"animations": [
 		{
 			"offsets": [
-				20,
-				0
+				168,
+				120
 			],
 			"loop": false,
 			"fps": 24,
@@ -13,8 +13,8 @@
 		},
 		{
 			"offsets": [
-				120,
-				10
+				24,
+				105
 			],
 			"loop": false,
 			"fps": 24,
@@ -24,8 +24,8 @@
 		},
 		{
 			"offsets": [
-				10,
-				20
+				30,
+				108
 			],
 			"loop": false,
 			"fps": 24,
@@ -35,8 +35,8 @@
 		},
 		{
 			"offsets": [
-				0,
-				0
+				30,
+				108
 			],
 			"loop": false,
 			"fps": 24,
@@ -54,79 +54,13 @@
 			"fps": 24,
 			"name": "idle",
 			"indices": []
-		},
-		{
-			"offsets": [
-				36,
-				374
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "puppet",
-			"indices": [],
-			"name": "puppet"
-		},
-		{
-			"offsets": [
-				102,
-				388
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singLEFT-alt",
-			"indices": [],
-			"name": "altleft"
-		},
-		{
-			"offsets": [
-				40,
-				370
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singDOWN-alt",
-			"indices": [],
-			"name": "altdown"
-		},
-		{
-			"offsets": [
-				45,
-				375
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUP-alt",
-			"indices": [],
-			"name": "altup"
-		},
-		{
-			"offsets": [
-				10,
-				380
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHT-alt",
-			"indices": [],
-			"name": "altright"
-		},
-		{
-			"offsets": [
-				20,
-				370
-			],
-			"loop": true,
-			"fps": 24,
-			"anim": "idle-alt",
-			"indices": [],
-			"name": "altidle"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/rust",
 	"position": [
-		120,
-		350
+		180,
+		460
 	],
 	"healthicon": "rust",
 	"flip_x": false,
@@ -136,10 +70,10 @@
 		110
 	],
 	"camera_position": [
-		-130,
-		-380
+		-390,
+		-220
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.4,
+	"scale": 3,
 	"_editor_isPlayer": false
 }

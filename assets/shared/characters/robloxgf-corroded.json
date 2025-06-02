@@ -1,0 +1,68 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 20,
+			"anim": "cheer",
+			"indices": [],
+			"name": "cheer"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 20,
+			"anim": "sad",
+			"indices": [],
+			"name": "sad"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceRight",
+			"fps": 20,
+			"name": "danceright",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceLeft",
+			"fps": 20,
+			"name": "danceleft",
+			"indices": []
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/robloxgf-corroded",
+	"position": [
+		180,
+		320
+	],
+	"healthicon": "robloxgf",
+	"flip_x": false,
+	"healthbar_colors": [
+		251,
+		59,
+		59
+	],
+	"camera_position": [
+		-140,
+		20
+	],
+	"sing_duration": 5.49999999999999,
+	"scale": 3,
+	"_editor_isPlayer": false
+}

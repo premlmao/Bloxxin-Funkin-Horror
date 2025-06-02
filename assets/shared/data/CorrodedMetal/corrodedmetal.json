@@ -1,7 +1,7 @@
 {
 	"song": {
-		"player1": "robloxbfnight3",
-		"gfVersion": "hiddengf",
+		"player1": "robloxbf-corroded",
+		"gfVersion": "robloxgf-corroded",
 		"notes": [
 			{
 				"sectionBeats": 4,
@@ -5333,8 +5333,8 @@
 				[
 					[
 						"Set Cam Zoom",
-						"1.2",
-						""
+						"0.8",
+						"0.2"
 					],
 					[
 						"Cam Boom Speed",
@@ -5363,8 +5363,8 @@
 					],
 					[
 						"Set Cam Zoom",
-						"1.2",
-						""
+						"0.5",
+						"0.2"
 					]
 				]
 			],
