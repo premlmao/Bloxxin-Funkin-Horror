@@ -109,9 +109,8 @@ function onBeatHit()
         noteTweenY('hiNotes6', 5, 50, 1.75, 'cubeOut');
         noteTweenY('hiNotes7', 6, 50, 1.75, 'cubeOut');
         noteTweenY('hiNotes8', 7, 50, 1.75, 'cubeOut');
-        doTweenY('hiHUD1','healthBar',641,crochet*0.0025,'cubeInOut')
+        doTweenY('hiHUD1','healthBar',648,crochet*0.0025,'cubeInOut')
         doTweenY('hiHUD2','healthBarAround',629,crochet*0.0025,'cubeInOut')
-        doTweenY('hiHUD','healthBarAroundOutline',621,crochet*0.0025,'cubeInOut')
         doTweenY('hiHUD3','iconP1',554,crochet*0.0025,'cubeInOut')
         doTweenY('hiHUD4','iconP2',554,crochet*0.0025,'cubeInOut')
         doTweenY('hiHUD5','scoreTxt',689,crochet*0.0025,'cubeInOut')
@@ -129,7 +128,6 @@ function onBeatHit()
             noteTweenY('hiNotes8', 7, 570, 1.75, 'cubeOut');
             doTweenY('hiHUD1','healthBar',79,crochet*0.0025,'cubeInOut')
             doTweenY('hiHUD2','healthBarAround',67,crochet*0.0025,'cubeInOut')
-            doTweenY('hiHUD','healthBarAroundOutline',621,crochet*0.0025,'cubeInOut')
             doTweenY('hiHUD3','iconP1',4,crochet*0.0025,'cubeInOut')
             doTweenY('hiHUD4','iconP2',4,crochet*0.0025,'cubeInOut')
             doTweenY('hiHUD5','scoreTxt',129,crochet*0.0025,'cubeInOut')

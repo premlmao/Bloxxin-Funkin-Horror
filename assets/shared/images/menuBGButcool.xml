@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="menuBGButcool.png">
-<SubTexture name="animate0000" x="0" y="0" width="2080" height="1088" frameX="0" frameY="0" frameWidth="2080" frameHeight="1088" />
-<SubTexture name="animate0001" x="2080" y="0" width="2080" height="1088" frameX="0" frameY="0" frameWidth="2080" frameHeight="1088" />
-<SubTexture name="animate0002" x="0" y="1088" width="2080" height="1088" frameX="0" frameY="0" frameWidth="2080" frameHeight="1088" />
-</TextureAtlas>

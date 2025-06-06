@@ -15,6 +15,7 @@ import states.PlayState;
 import options.OptionsState;
 
 import lime.utils.Assets;
+import openfl.Lib;
 
 class PauseSubState extends MusicBeatSubstate
 {

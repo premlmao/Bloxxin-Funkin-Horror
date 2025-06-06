@@ -181,7 +181,6 @@ class PlayState extends MusicBeatState
 
 	public var healthBar:Bar;
 	public var healthBarAround:FlxSprite;
-	public var healthBarAroundOutline:FlxSprite;
 	public var songIcon:FlxSprite;
 	public var songTxt:FlxText;
 	var songPercent:Float = 0;
@@ -288,6 +287,11 @@ class PlayState extends MusicBeatState
 		PauseSubState.songName = null; //Reset to default
 		playbackRate = ClientPrefs.getGameplaySetting('songspeed');
 
+		trace("Width: " + Lib.application.window.width);
+		trace("Height: " + Lib.application.window.height);
+		trace("X: " + Lib.application.window.x);
+		trace("Y: " + Lib.application.window.y);
+
 		keysArray = [
 			'note_left',
 			'note_down',
@@ -347,6 +351,13 @@ class PlayState extends MusicBeatState
 			SONG.stage = StageData.vanillaSongStage(songName);
 		}
 		curStage = SONG.stage;
+
+		if (curStage == 'torturechamber')
+		{
+			Lib.application.window.resizable = true;
+			var win = Lib.application.window;
+			FlxTween.tween(win, {width: 960, height: 720, x: 480}, 1, {ease: FlxEase.cubeInOut});
+		}
 
 		var stageData:StageFile = StageData.getStageFile(curStage);
 		if(stageData == null) { //Stage couldn't be found, create a dummy stage for preventing a crash
@@ -501,7 +512,7 @@ class PlayState extends MusicBeatState
 		songTxt.setFormat("Gotham Black Regular.ttf", 24, FlxColor.WHITE);
 		songTxt.alpha = 0.35;
 		
-		songIcon = new FlxSprite().loadGraphic(Paths.image('iconsWow/icon_' + PlayState.curSong));
+		songIcon = new FlxSprite().loadGraphic(Paths.image('icons/timeIcons/icon_' + PlayState.curSong));
 		songIcon.antialiasing = ClientPrefs.data.antialiasing;
 		songIcon.scale.set(0.55, 0.55);
 		songIcon.updateHitbox();
@@ -553,6 +564,7 @@ class PlayState extends MusicBeatState
 
 		healthBar = new Bar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.89 : 0.11), 'healthBar', function() return health, 0, 2);
 		healthBar.screenCenter(X);
+		healthBar.y = 648;
 		healthBar.leftToRight = false;
 		healthBar.scrollFactor.set();
 		healthBar.visible = !ClientPrefs.data.hideHud;
@@ -568,15 +580,6 @@ class PlayState extends MusicBeatState
 		healthBarAround.color = FlxColor.interpolate(0xffff0000, 0xff00ff00, health / 2);
 		if(ClientPrefs.data.downScroll) healthBarAround.y = healthBar.y - 12;
 		uiGroup.add(healthBarAround);
-
-		// i got lazy forgive me
-		healthBarAroundOutline = new FlxSprite(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.89 : 0.11), Paths.image('healthBarAroundOutline'));
-		healthBarAroundOutline.camera = camHUD;
-		healthBarAroundOutline.screenCenter(X);
-		healthBarAroundOutline.y = 621;
-		healthBarAroundOutline.color = FlxColor.interpolate(0xffff0000, 0xff00ff00, health / 2);
-		if(ClientPrefs.data.downScroll) healthBarAroundOutline.y = healthBar.y - 12;
-		uiGroup.add(healthBarAroundOutline);
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
 		iconP1.y = healthBar.y - 75;
@@ -2390,7 +2393,6 @@ class PlayState extends MusicBeatState
 					Mods.loadTopMod();
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 					#if desktop DiscordClient.resetClientID(); #end
-
 					cancelMusicFadeTween();
 					if(FlxTransitionableState.skipNextTransIn) {
 						CustomFadeTransition.nextCamera = null;
@@ -3096,6 +3098,7 @@ class PlayState extends MusicBeatState
 		#end
 
 		Lib.application.window.title = "Bloxxin Funkin' Horror";
+		FlxTween.tween(Lib.application.window, {width: 1280, height: 720, x: 320, y: 180}, 1, {ease: FlxEase.cubeInOut});
 
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyRelease);

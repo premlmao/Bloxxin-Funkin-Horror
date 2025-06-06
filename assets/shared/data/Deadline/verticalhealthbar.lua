@@ -36,8 +36,6 @@ function onBeatHit()
         setProperty('healthBar.x', 1200)
         setProperty('healthBar.alpha', 0)
         setProperty('healthBarAround.alpha', 0)
-        setProperty('healthBarAroundOutline.alpha', 0)
-
 
         setProperty('house.x', 1300)
         setProperty('idiots.x', 1500)

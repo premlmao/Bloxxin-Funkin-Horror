@@ -31,7 +31,7 @@ class NoteSplashDebugState extends MusicBeatState
 	var missingTextBG:FlxSprite;
 	var missingText:FlxText;
 
-	public static final defaultTexture:String = 'noteSplashes';
+	public static final defaultTexture:String = 'options/noteSplashes';
 
 	override function create()
 	{
@@ -313,7 +313,7 @@ class NoteSplashDebugState extends MusicBeatState
 	var copiedArray:Array<Float> = null;
 	function loadFrames()
 	{
-		texturePath = 'noteSplashes/' + textureName;
+		texturePath = 'options/noteSplashes/' + textureName;
 		splashes.forEachAlive(function(spr:FlxSprite) {
 			spr.frames = Paths.getSparrowAtlas(texturePath);
 		});

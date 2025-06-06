@@ -35,8 +35,8 @@ var ThinkPadOn:Bool = false;
 var answerrr:Float;
 var baldiKillerStreak:Int = 0;
 
-var BaldYes:FlxSprite = new FlxSprite(0, 0, Paths.image("baldiHappy"));
-var BaldNo:FlxSprite = new FlxSprite(0, 0, Paths.image("baldiAnger"));
+var BaldYes:FlxSprite = new FlxSprite(0, 0, Paths.image("mechanics/blood/baldiHappy"));
+var BaldNo:FlxSprite = new FlxSprite(0, 0, Paths.image("mechanics/blood/baldiAnger"));
 
 var bald_slap = (Paths.sound('bald_slap'));
 var bald_yes = (Paths.sound('bald_yes'));
@@ -64,7 +64,7 @@ function onCreate()
     JeffsMechanic.alpha = 0;
 
     JeffJumpscare.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
-    JeffJumpscare.frames = Paths.getSparrowAtlas('jeffjump');
+    JeffJumpscare.frames = Paths.getSparrowAtlas('mechanics/blood/jeffjump');
     JeffJumpscare.animation.addByPrefix('jump', ' jump', 8, false);
     JeffJumpscare.scrollFactor.set();
     JeffJumpscare.updateHitbox();
@@ -74,7 +74,7 @@ function onCreate()
 
     //Baldi 
     Thinkery.camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
-    Thinkery.frames = Paths.getSparrowAtlas('baldithethinker');
+    Thinkery.frames = Paths.getSparrowAtlas('mechanics/blood/baldithethinker');
     Thinkery.animation.addByPrefix('enter', 'enter', 22, false);
     Thinkery.animation.addByPrefix('idle', 'idle', 10, true);
     Thinkery.animation.addByPrefix('exit', 'exit', 22, false);
