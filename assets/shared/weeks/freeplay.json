@@ -3,14 +3,18 @@
 	"difficulties": "Normal",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
-	"weekBefore": "",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "",
 	"startUnlocked": true,
-	"hideStoryMode": true,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
 	"songs": [
 		[
 			"Copied",
@@ -40,6 +44,15 @@
 			]
 		],
 		[
+			"CoolLand",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
 			"GloryDay",
 			"dad",
 			[
@@ -50,6 +63,15 @@
 		],
 		[
 			"BrickBattle",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Predecessor",
 			"dad",
 			[
 				146,
@@ -184,11 +206,7 @@
 			]
 		]
 	],
-	"weekCharacters": [
-		"dad",
-		"bf",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "Freeplay"
+	"hideStoryMode": true,
+	"weekName": "Freeplay",
+	"hiddenUntilUnlocked": false
 }
