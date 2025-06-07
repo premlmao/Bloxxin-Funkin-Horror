@@ -3,18 +3,14 @@
 	"difficulties": "Normal",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
+	"weekBefore": "",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "",
 	"startUnlocked": true,
-	"weekCharacters": [
-		"dad",
-		"bf",
-		"gf"
-	],
+	"hideStoryMode": true,
 	"songs": [
 		[
 			"Copied",
@@ -125,6 +121,24 @@
 			]
 		],
 		[
+			"Wilderness",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Experimental",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
 			"Abandoned",
 			"dad",
 			[
@@ -143,7 +157,25 @@
 			]
 		],
 		[
+			"Humanoid",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
 			"Fools",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"DevourHour",
 			"dad",
 			[
 				146,
@@ -206,7 +238,11 @@
 			]
 		]
 	],
-	"hideStoryMode": true,
-	"weekName": "Freeplay",
-	"hiddenUntilUnlocked": false
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Freeplay"
 }

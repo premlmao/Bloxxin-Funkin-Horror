@@ -16,5 +16,3 @@ function onCreate()
         addLuaSprite('eggritual', false);
 
 end
-end
-
