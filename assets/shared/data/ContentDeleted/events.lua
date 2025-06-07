@@ -9,7 +9,6 @@ function onCreate()
 
     setProperty('healthBar.y', 900)
     setProperty('healthBarAround.y', 900)
-    setProperty('healthBarAroundOutline.y', 900)
     setProperty('iconP1.y', 900)
     setProperty('iconP2.y', 900)
     setProperty('scoreTxt.y', 900)
@@ -19,7 +18,6 @@ function onCreate()
     if downscroll then
         setProperty('healthBar.y', -300)
         setProperty('healthBarAround.y', -300)
-        setProperty('healthBarAroundOutline.y', -300)
         setProperty('iconP1.y', -300)
         setProperty('iconP2.y', -300)
         setProperty('scoreTxt.y', -300)
@@ -32,16 +30,14 @@ if curBeat == 48 then
     doTweenAlpha('silly','black',0,2)
 end
 if curBeat == 84 then
-    doTweenY('hiHUD1','healthBar',641,crochet*0.005,'cubeInOut')
+    doTweenY('hiHUD1','healthBar',648,crochet*0.005,'cubeInOut')
     doTweenY('hiHUD2','healthBarAround',629,crochet*0.005,'cubeInOut')
-    doTweenY('hiHUD','healthBarAroundOutline',621,crochet*0.005,'cubeInOut')
     doTweenY('hiHUD3','iconP1',554,crochet*0.005,'cubeInOut')
     doTweenY('hiHUD4','iconP2',554,crochet*0.005,'cubeInOut')
     doTweenY('hiHUD5','scoreTxt',689,crochet*0.005,'cubeInOut')
     if downscroll then
         doTweenY('hiHUD1','healthBar',79,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD2','healthBarAround',67,crochet*0.005,'cubeInOut')
-        doTweenY('hiHUD','healthBarAroundOutline',59,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD3','iconP1',4,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD4','iconP2',4,crochet*0.005,'cubeInOut')
         doTweenY('hiHUD5','scoreTxt',129,crochet*0.005,'cubeInOut')

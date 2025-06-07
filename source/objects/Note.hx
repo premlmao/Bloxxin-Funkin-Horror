@@ -84,7 +84,7 @@ class Note extends FlxSprite
 	public static var SUSTAIN_SIZE:Int = 44;
 	public static var swagWidth:Float = 160 * 0.7;
 	public static var colArray:Array<String> = ['purple', 'blue', 'green', 'red'];
-	public static var defaultNoteSkin(default, never):String = 'noteSkins/NOTE_assets';
+	public static var defaultNoteSkin(default, never):String = 'options/noteSkins/NOTE_assets';
 
 	public var noteSplashData:NoteSplashData = {
 		disabled: false,
@@ -163,7 +163,7 @@ class Note extends FlxSprite
 	}
 
 	private function set_noteType(value:String):String {
-		noteSplashData.texture = PlayState.SONG != null ? PlayState.SONG.splashSkin : 'noteSplashes';
+		noteSplashData.texture = PlayState.SONG != null ? PlayState.SONG.splashSkin : 'options/noteSplashes';
 		defaultRGB();
 
 		if(noteData > -1 && noteType != value) {
@@ -182,7 +182,7 @@ class Note extends FlxSprite
 					// splash data and colors
 					noteSplashData.r = 0xFFFF0000;
 					noteSplashData.g = 0xFF101010;
-					noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
+					noteSplashData.texture = 'options/noteSplashes/noteSplashes-electric';
 
 					// gameplay data
 					lowPriority = true;
