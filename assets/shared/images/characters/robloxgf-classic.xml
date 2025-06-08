@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="robloxgf-classic.png">
+<SubTexture name="danceleft0000" x="0" y="0" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="danceleft0001" x="164" y="0" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="danceright0000" x="0" y="138" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="danceright0001" x="164" y="138" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="sad0000" x="328" y="0" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="sad0001" x="328" y="138" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="sad0002" x="328" y="138" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="sad0003" x="328" y="138" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="sad0004" x="328" y="138" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="cheer0000" x="0" y="276" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="cheer0001" x="164" y="276" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="cheer0002" x="0" y="276" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="cheer0003" x="164" y="276" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="cheer0004" x="0" y="276" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="cheer0005" x="164" y="276" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="cheer0006" x="0" y="276" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+<SubTexture name="cheer0007" x="164" y="276" width="164" height="138" frameX="0" frameY="0" frameWidth="164" frameHeight="138" />
+</TextureAtlas>

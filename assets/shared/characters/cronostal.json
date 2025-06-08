@@ -3,8 +3,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				10,
-				5
+				20,
+				0
 			],
 			"anim": "singLEFT",
 			"fps": 24,
@@ -14,7 +14,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				10,
+				5,
 				-10
 			],
 			"anim": "singDOWN",
@@ -45,99 +45,88 @@
 			"indices": []
 		},
 		{
-			"loop": true,
+			"loop": false,
 			"offsets": [
-				-30,
-				208
+				140,
+				170
 			],
-			"anim": "still",
-			"fps": 15,
-			"name": "still",
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "altleft",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-30,
-				208
+				100,
+				170
 			],
-			"anim": "detach",
-			"fps": 15,
-			"name": "detach",
+			"anim": "singRIGHT-alt",
+			"fps": 24,
+			"name": "altright",
 			"indices": []
 		},
 		{
+			"loop": false,
+			"offsets": [
+				105,
+				175
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "altup",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				100,
+				150
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "altdown",
+			"indices": []
+		},
+		{
+			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"indices": [],
-			"fps": 10,
 			"anim": "idle",
-			"loop": true,
-			"name": "idle"
+			"fps": 12,
+			"name": "idle",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
-				-30,
-				-20
+				80,
+				170
 			],
-			"indices": [],
-			"fps": 15,
 			"anim": "idle-alt",
-			"loop": true,
-			"name": "altidle"
+			"fps": 12,
+			"name": "altidle",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-20,
-				0
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singDOWN-alt",
 			"loop": false,
-			"name": "altdown"
-		},
-		{
 			"offsets": [
-				10,
-				-10
+				80,
+				170
 			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singLEFT-alt",
-			"loop": false,
-			"name": "altleft"
-		},
-		{
-			"offsets": [
-				-5,
-				10
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singUP-alt",
-			"loop": false,
-			"name": "altup"
-		},
-		{
-			"offsets": [
-				10,
-				0
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singRIGHT-alt",
-			"loop": false,
-			"name": "altright"
+			"anim": "detach",
+			"fps": 12,
+			"name": "detach",
+			"indices": []
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/cronostal",
 	"position": [
-		50,
-		290
+		-10,
+		490
 	],
 	"healthicon": "cronostal",
 	"flip_x": false,
@@ -147,10 +136,10 @@
 		0
 	],
 	"camera_position": [
-		-70,
-		-220
+		-240,
+		-430
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.45,
+	"scale": 2.95,
 	"_editor_isPlayer": false
 }

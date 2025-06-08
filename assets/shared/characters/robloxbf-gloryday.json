@@ -3,8 +3,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				0
+				15,
+				-3
 			],
 			"anim": "singLEFT",
 			"fps": 24,
@@ -14,8 +14,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				0
+				-9,
+				-6
 			],
 			"anim": "singDOWN",
 			"fps": 24,
@@ -26,7 +26,7 @@
 			"loop": false,
 			"offsets": [
 				0,
-				0
+				3
 			],
 			"anim": "singUP",
 			"fps": 24,
@@ -36,7 +36,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				0,
+				-12,
 				0
 			],
 			"anim": "singRIGHT",
@@ -50,9 +50,42 @@
 				0,
 				0
 			],
-			"anim": "transform",
+			"anim": "singLEFTmiss",
 			"fps": 24,
-			"name": "transform",
+			"name": "miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "miss",
 			"indices": []
 		},
 		{
@@ -69,32 +102,10 @@
 		{
 			"loop": false,
 			"offsets": [
-				307,
-				260
+				15,
+				-3
 			],
-			"anim": "float",
-			"fps": 24,
-			"name": "float",
-			"indices": []
-		},
-		{
-			"loop": true,
-			"offsets": [
-				307,
-				260
-			],
-			"anim": "altidle",
-			"fps": 24,
-			"name": "altidle",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				307,
-				260
-			],
-			"anim": "alt-left",
+			"anim": "singLEFT-alt",
 			"fps": 24,
 			"name": "altleft",
 			"indices": []
@@ -102,32 +113,10 @@
 		{
 			"loop": false,
 			"offsets": [
-				307,
-				260
+				-9,
+				-6
 			],
-			"anim": "alt-right",
-			"fps": 24,
-			"name": "altright",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				307,
-				260
-			],
-			"anim": "alt-up",
-			"fps": 24,
-			"name": "altup",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				307,
-				260
-			],
-			"anim": "alt-down",
+			"anim": "singDOWN-alt",
 			"fps": 24,
 			"name": "altdown",
 			"indices": []
@@ -135,44 +124,44 @@
 		{
 			"loop": false,
 			"offsets": [
-				1407,
-				1045
+				0,
+				3
 			],
-			"anim": "devour",
+			"anim": "singUP-alt",
 			"fps": 24,
-			"name": "devour",
+			"name": "altup",
 			"indices": []
 		},
 		{
-			"loop": true,
+			"loop": false,
 			"offsets": [
-				1407,
-				1045
+				-12,
+				0
 			],
-			"anim": "crash",
+			"anim": "singRIGHT-alt",
 			"fps": 24,
-			"name": "crash",
+			"name": "altright",
 			"indices": []
 		}
 	],
 	"no_antialiasing": true,
-	"image": "characters/egg",
+	"image": "characters/robloxbf-gloryday",
 	"position": [
-		1070,
-		1060
+		330,
+		410
 	],
-	"healthicon": "egg",
-	"flip_x": false,
+	"healthicon": "robloxbf",
+	"flip_x": true,
 	"healthbar_colors": [
-		161,
-		161,
-		161
+		63,
+		130,
+		239
 	],
 	"camera_position": [
-		-2460,
-		-1660
+		640,
+		-270
 	],
 	"sing_duration": 5.99999999999999,
 	"scale": 2.95,
-	"_editor_isPlayer": false
+	"_editor_isPlayer": true
 }
