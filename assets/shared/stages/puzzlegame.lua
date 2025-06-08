@@ -11,13 +11,13 @@ function onCreate()
         setProperty('moonyellow.antialiasing', false);
 	scaleObject ('moonyellow', 3, 3);
 
-	makeLuaSprite('redsky', 'stages/redsky', -1300, -750);
-	setScrollFactor('redsky', 0.05, 0.05);
-        setProperty('redsky.antialiasing', false);
-	scaleObject ('redsky', 3, 3);
+	makeLuaSprite('night', 'stages/night', -1300, -750);
+	setScrollFactor('night', 0.05, 0.05);
+        setProperty('night.antialiasing', false);
+	scaleObject ('night', 3, 3);
 
 
-        addLuaSprite('redsky', false);
+        addLuaSprite('night', false);
         addLuaSprite('moonyellow', false);
         addLuaSprite('puzzlegame', false);
 	
