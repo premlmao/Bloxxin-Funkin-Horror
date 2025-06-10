@@ -108,6 +108,10 @@ class LoadingState extends MusicBeatState
 		if (Highscore.getScore(PlayState.SONG.song, curDifficulty) == 0 && PlayState.SONG.song != "Deformed")
 		{
 			portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
+			portrait.frames = Paths.getSparrowAtlas('freeplay/portrait_Loced');
+			portrait.animation.addByPrefix('idle', 'portrait_Loced idle', 24, true);
+			portrait.animation.play('idle', false, false);
+			portrait.updateHitbox();
 			songText.text = 'RESTRICTED_AREA';
 			songText.alignment = "center";
 			songText.screenCenter();
