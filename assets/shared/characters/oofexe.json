@@ -1,88 +1,143 @@
 {
 	"animations": [
 		{
+			"offsets": [
+				70,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				-7,
+				80
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-50,
+				20
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"offsets": [
+				0,
+				-20
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "scream",
+			"fps": 24,
+			"name": "scream",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "endscream",
+			"fps": 24,
+			"name": "endscream",
+			"indices": []
+		},
+		{
 			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
 			"anim": "idle",
-			"fps": 15,
+			"fps": 12,
 			"name": "idle",
 			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				0,
-				30
+				0
 			],
-			"loop": true,
-			"fps": 15,
-			"anim": "scream",
-			"indices": [],
-			"name": "scream"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				107,
-				131
-			],
-			"anim": "endscream",
-			"fps": 15,
-			"name": "endscream",
+			"anim": "idle-loop",
+			"fps": 12,
+			"name": "loopidle",
 			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				70,
+				100,
 				10
 			],
-			"indices": [],
+			"anim": "singLEFT-alt",
 			"fps": 24,
-			"anim": "singLEFT",
-			"loop": false,
-			"name": "left"
+			"name": "altleft",
+			"indices": []
 		},
 		{
+			"loop": false,
+			"offsets": [
+				10,
+				110
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "altup",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-60,
+				0
+			],
+			"anim": "singRIGHT-alt",
+			"fps": 24,
+			"name": "altright",
+			"indices": []
+		},
+		{
+			"loop": false,
 			"offsets": [
 				0,
-				100
+				-50
 			],
-			"indices": [],
+			"anim": "singDOWN-alt",
 			"fps": 24,
-			"anim": "singUP",
-			"loop": false,
-			"name": "up"
-		},
-		{
-			"offsets": [
-				-70,
-				20
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singRIGHT",
-			"loop": false,
-			"name": "right"
-		},
-		{
-			"offsets": [
-				0,
-				-90
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singDOWN",
-			"loop": false,
-			"name": "down"
+			"name": "altdown",
+			"indices": []
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/oofexe",
 	"position": [
-		250,
-		200
+		140,
+		130
 	],
 	"healthicon": "oofexe",
 	"flip_x": false,
@@ -92,10 +147,10 @@
 		0
 	],
 	"camera_position": [
-		-195,
+		-135,
 		90
 	],
 	"sing_duration": 5.99999999999999,
-	"scale": 1.25,
+	"scale": 0.95,
 	"_editor_isPlayer": false
 }

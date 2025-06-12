@@ -3,8 +3,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				0
+				160,
+				-3
 			],
 			"anim": "singLEFT",
 			"fps": 24,
@@ -14,8 +14,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				0
+				-505,
+				27
 			],
 			"anim": "singDOWN",
 			"fps": 24,
@@ -25,7 +25,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				0,
+				140,
 				0
 			],
 			"anim": "singUP",
@@ -36,23 +36,12 @@
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				0
+				-560,
+				20
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
 			"name": "right",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "transform",
-			"fps": 24,
-			"name": "transform",
 			"indices": []
 		},
 		{
@@ -69,108 +58,31 @@
 		{
 			"loop": false,
 			"offsets": [
-				307,
-				260
+				12,
+				30
 			],
-			"anim": "float",
+			"anim": "transform",
 			"fps": 24,
-			"name": "float",
-			"indices": []
-		},
-		{
-			"loop": true,
-			"offsets": [
-				307,
-				260
-			],
-			"anim": "altidle",
-			"fps": 24,
-			"name": "altidle",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				307,
-				260
-			],
-			"anim": "alt-left",
-			"fps": 24,
-			"name": "altleft",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				307,
-				260
-			],
-			"anim": "alt-right",
-			"fps": 24,
-			"name": "altright",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				307,
-				260
-			],
-			"anim": "alt-up",
-			"fps": 24,
-			"name": "altup",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				307,
-				260
-			],
-			"anim": "alt-down",
-			"fps": 24,
-			"name": "altdown",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				1407,
-				1045
-			],
-			"anim": "devour",
-			"fps": 24,
-			"name": "devour",
-			"indices": []
-		},
-		{
-			"loop": true,
-			"offsets": [
-				1407,
-				1045
-			],
-			"anim": "crash",
-			"fps": 24,
-			"name": "crash",
+			"name": "transform",
 			"indices": []
 		}
 	],
 	"no_antialiasing": true,
-	"image": "characters/egg",
+	"image": "characters/community",
 	"position": [
-		1070,
-		1060
+		-150,
+		390
 	],
-	"healthicon": "egg",
+	"healthicon": "community",
 	"flip_x": false,
 	"healthbar_colors": [
-		161,
-		161,
-		161
+		198,
+		26,
+		26
 	],
 	"camera_position": [
-		-2460,
-		-1660
+		-210,
+		-200
 	],
 	"sing_duration": 5.99999999999999,
 	"scale": 2.95,
