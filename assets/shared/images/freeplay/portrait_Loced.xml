@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="portrait_Loced.png">
+<SubTexture name="portrait_Loced hover0000" x="0" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced hover0001" x="1000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced hover0002" x="0" y="1000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced hover0003" x="1000" y="1000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced hover0004" x="2000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced idle0000" x="2000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced idle0001" x="2000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced idle0002" x="2000" y="1000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced idle0003" x="2000" y="1000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced idle0004" x="2000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced idle0005" x="2000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced idle0006" x="0" y="2000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="portrait_Loced idle0007" x="0" y="2000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+</TextureAtlas>

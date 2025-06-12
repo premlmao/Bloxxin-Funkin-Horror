@@ -65,7 +65,6 @@ class BloxxinFreeplayState extends MusicBeatState
     var extra:FlxSprite;
     var selectedPortrait:FlxSprite;
     var portraits:FlxTypedGroup<FlxSprite>;
-    var selectedPortraitSmall:FlxSprite;
     var portraitsOLD:FlxTypedGroup<FlxSprite>;
     var portrait:FlxSprite;
     var vignette:FlxSprite;
@@ -208,16 +207,20 @@ class BloxxinFreeplayState extends MusicBeatState
 					colors = [146, 113, 253];
 				}
 
-                /*
+                
                 if (Highscore.getScore(song[0], curDifficulty) == 0 && song[0] != "Deformed")
-                {
+                {/*
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Loced'));
-                }
-                    */
+                    portrait.frames = Paths.getSparrowAtlas('freeplay/portrait_Loced');
+                    portrait.animation.addByPrefix('idle', 'portrait_Loced idle', 24, true);
+                    portrait.animation.addByPrefix('hover', 'portrait_Loced hover', 24, true);
+                    portrait.updateHitbox();
+                    portrait.animation.play('idle', false, false);*/
                     if (WeekData.weeksList[i] != "weekold")
                     {
                         AllUnlocked = false;
                     }
+                }
                 /*else*/ if (!Assets.exists('assets/shared/images/freeplay/portrait_' + song[0] + '.png'))
                 {
                     portrait = new FlxSprite().loadGraphic(Paths.image('freeplay/portrait_Placeholder'));
@@ -353,16 +356,7 @@ class BloxxinFreeplayState extends MusicBeatState
         oldInventory.y = 280;
         oldInventory.visible = false;
         add(oldInventory);
-
-        selectedPortraitSmall = new FlxSprite().loadGraphic(Paths.image('freeplay/selectedOverlay'));
-        selectedPortraitSmall.antialiasing = ClientPrefs.data.antialiasing;
-        selectedPortraitSmall.scale.set(0.1, 0.1);
-        selectedPortraitSmall.x = 115;
-        selectedPortraitSmall.y = 110;
-        selectedPortraitSmall.alpha = 0;
-        selectedPortraitSmall.updateHitbox();
-        add(selectedPortraitSmall);
-
+        
         add(portraitsOLD);
 
         if(curSelected >= songs.length) curSelected = 0;
@@ -459,7 +453,7 @@ class BloxxinFreeplayState extends MusicBeatState
 		}
 
         pbText.text = 'SCORE: ' + lerpScore + ' \nACC: ' + ratingSplit.join('.') + '%';
-        positionHighscore();
+        pbText.x = FlxG.width - pbText.width - 6;
 
 
                 if (FlxG.mouse.wheel < 0 && currentTab < Math.floor((baseddd) / 3) + 4  && !transitioningBetweenPages && !OldSongsOpened && !ControlsOpened && !heyyousucksogokillyourself) //
@@ -524,7 +518,7 @@ class BloxxinFreeplayState extends MusicBeatState
                         OldSongsOpened = true;
                         buttonOldSong.animation.play('selected');
                         oldInventory.visible = true;
-                        selectedPortraitSmall.visible = true;
+                        selectedPortrait.visible = true;
                         for (port in portraitsOLD)
                             {
                                 port.visible = true;
@@ -533,7 +527,7 @@ class BloxxinFreeplayState extends MusicBeatState
                         OldSongsOpened = false;
                         buttonOldSong.animation.play('idle');
                         oldInventory.visible = false;
-                        selectedPortraitSmall.visible = false;
+                        selectedPortrait.visible = false;
                         for (port in portraitsOLD)
                             {
                                 port.visible = false;
@@ -568,8 +562,8 @@ class BloxxinFreeplayState extends MusicBeatState
                                     {
                                         curSelected = port.ID;
                                         SelectedObject = port;
-                                        FlxTween.tween(selectedPortraitSmall, {x: port.x - 5, y: port.y - 5, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
-                                        FlxTween.tween(selectedPortrait, {alpha: 0}, 0.1, {ease: FlxEase.sineInOut});
+                                        selectedPortrait.scale.set(0.1, 0.1);
+                                        FlxTween.tween(selectedPortrait, {x: port.x - 60, y: port.y - 75, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
                                         FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
             
                                         intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
@@ -593,7 +587,6 @@ class BloxxinFreeplayState extends MusicBeatState
                                     SelectedObject = port;
                                     FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
                                     FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
-                                    FlxTween.tween(selectedPortraitSmall, {alpha: 0}, 0.1, {ease: FlxEase.sineInOut});
                                     selectedPortrait.scale.set(0.2, 0.2);
         
                                     intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
@@ -615,10 +608,9 @@ class BloxxinFreeplayState extends MusicBeatState
                                         stage.updateHitbox();
                                         stage.screenCenter();
                                     }
-                                    
+                                        
                                 }else if(!OldSongsOpened && !ControlsOpened){
                                     FlxTween.tween(selectedPortrait, {x: port.x - 10, y: port.y - 10, alpha: 1}, 0.1, {ease: FlxEase.sineInOut});
-                                    FlxTween.tween(selectedPortrait, {alpha: 1}, 0.1, {ease: FlxEase.linear});
                                 }
                                 if (FlxG.mouse.justPressed && !selectedSomethin && !OldSongsOpened && !ControlsOpened) 
                                     {
@@ -730,8 +722,6 @@ class BloxxinFreeplayState extends MusicBeatState
         }
     }
 
-
-
     public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
         {
             songs.push(new CustomSongMetadata(songName, weekNum, songCharacter, color));
@@ -741,11 +731,6 @@ class BloxxinFreeplayState extends MusicBeatState
          var leWeek:WeekData = WeekData.weeksLoaded.get(name);
          return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
      }
-
-     private function positionHighscore() {
-		pbText.x = FlxG.width - pbText.width - 6;
-	}
-
     private function DisconnectAHFHAGFeuagheuoa()
     {
         new FlxTimer().start(1, function(timer:FlxTimer)
